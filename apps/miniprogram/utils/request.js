@@ -1,21 +1,96 @@
 /**
- * 网络请求封装工具
+ * 网络请求封装工具 - 支持真实API调用和完整错误处理
  */
 
 // 导入环境配置
-const { getBaseURL, getApiTimeout, isDebugEnabled, log } = require('../config/env.js')
+const { getBaseURL, getApiTimeout, isDebugEnabled, log, isMockEnabled } = require('../config/env.js')
 
 // 请求状态码映射
 const STATUS_CODE = {
   SUCCESS: 200,
+  CREATED: 201,
+  BAD_REQUEST: 400,
   UNAUTHORIZED: 401,
   FORBIDDEN: 403,
   NOT_FOUND: 404,
-  SERVER_ERROR: 500
+  METHOD_NOT_ALLOWED: 405,
+  REQUEST_TIMEOUT: 408,
+  SERVER_ERROR: 500,
+  BAD_GATEWAY: 502,
+  SERVICE_UNAVAILABLE: 503,
+  GATEWAY_TIMEOUT: 504
+}
+
+// 错误类型定义
+const ERROR_TYPES = {
+  NETWORK: 'NETWORK',        // 网络错误
+  TIMEOUT: 'TIMEOUT',        // 超时错误
+  SERVER: 'SERVER',          // 服务器错误
+  CLIENT: 'CLIENT',          // 客户端错误
+  BUSINESS: 'BUSINESS'       // 业务错误
+}
+
+// 错误消息映射
+const ERROR_MESSAGES = {
+  [STATUS_CODE.BAD_REQUEST]: '请求参数错误',
+  [STATUS_CODE.UNAUTHORIZED]: '登录已过期，请重新登录',
+  [STATUS_CODE.FORBIDDEN]: '没有访问权限',
+  [STATUS_CODE.NOT_FOUND]: '请求的资源不存在',
+  [STATUS_CODE.METHOD_NOT_ALLOWED]: '请求方法不支持',
+  [STATUS_CODE.REQUEST_TIMEOUT]: '请求超时',
+  [STATUS_CODE.SERVER_ERROR]: '服务器内部错误',
+  [STATUS_CODE.BAD_GATEWAY]: '网关错误',
+  [STATUS_CODE.SERVICE_UNAVAILABLE]: '服务暂时不可用',
+  [STATUS_CODE.GATEWAY_TIMEOUT]: '网关超时'
 }
 
 /**
- * 发起网络请求
+ * 获取错误信息
+ * @param {number} statusCode 状态码
+ * @param {string} defaultMessage 默认错误信息
+ * @returns {object} 错误信息对象
+ */
+function getErrorInfo(statusCode, defaultMessage = '请求失败') {
+  const message = ERROR_MESSAGES[statusCode] || defaultMessage
+  let type = ERROR_TYPES.SERVER
+  
+  if (statusCode >= 400 && statusCode < 500) {
+    type = ERROR_TYPES.CLIENT
+  } else if (statusCode >= 500) {
+    type = ERROR_TYPES.SERVER
+  }
+  
+  return {
+    type,
+    message,
+    statusCode,
+    canRetry: type === ERROR_TYPES.SERVER || type === ERROR_TYPES.NETWORK || type === ERROR_TYPES.TIMEOUT
+  }
+}
+
+/**
+ * 判断是否为网络错误
+ * @param {object} error 错误对象
+ * @returns {boolean} 是否为网络错误
+ */
+function isNetworkError(error) {
+  const networkErrors = [
+    'request:fail',
+    'request:fail timeout',
+    'request:fail abort',
+    'request:fail net::ERR_NETWORK_CHANGED',
+    'request:fail net::ERR_CONNECTION_REFUSED',
+    'request:fail net::ERR_CONNECTION_TIMED_OUT',
+    'request:fail net::ERR_NAME_NOT_RESOLVED'
+  ]
+  
+  return networkErrors.some(errorType => 
+    error.errMsg && error.errMsg.includes(errorType)
+  )
+}
+
+/**
+ * 发起网络请求（核心方法）
  * @param {Object} options 请求配置
  * @param {string} options.url 请求路径
  * @param {string} options.method 请求方法
@@ -23,6 +98,8 @@ const STATUS_CODE = {
  * @param {Object} options.header 请求头
  * @param {boolean} options.showLoading 是否显示加载提示
  * @param {boolean} options.showError 是否显示错误提示
+ * @param {number} options.retryCount 重试次数
+ * @param {boolean} options.enableRetry 是否允许重试
  * @returns {Promise} 请求结果
  */
 function request(options = {}) {
@@ -32,7 +109,9 @@ function request(options = {}) {
     data = {},
     header = {},
     showLoading = false,
-    showError = true
+    showError = true,
+    retryCount = 0,
+    enableRetry = true
   } = options
 
   // 获取动态配置
@@ -40,9 +119,12 @@ function request(options = {}) {
   const timeout = getApiTimeout()
 
   // 调试日志
-  log.debug(`[请求] ${method} ${baseURL}${url}`, data)
+  log.debug(`[请求] ${method} ${baseURL}${url}`, {
+    data,
+    retryCount,
+    timeout
+  })
 
-  // 显示加载提示
   if (showLoading) {
     wx.showLoading({
       title: '加载中...',
@@ -66,31 +148,50 @@ function request(options = {}) {
         }
 
         const { statusCode, data: responseData } = res
+        
+        log.debug(`[响应] ${statusCode}`, responseData)
 
-        if (statusCode === STATUS_CODE.SUCCESS) {
-          if (responseData && responseData.success) {
-            resolve(responseData)
+        if (statusCode === STATUS_CODE.SUCCESS || statusCode === STATUS_CODE.CREATED) {
+          // 成功响应
+          if (responseData && responseData.success !== false) {
+            resolve({
+              success: true,
+              data: responseData.data || responseData,
+              message: responseData.message || 'success'
+            })
           } else {
-            const errorMsg = responseData?.message || '请求失败'
+            // 业务错误
+            const error = {
+              type: ERROR_TYPES.BUSINESS,
+              message: responseData?.message || '业务处理失败',
+              statusCode,
+              canRetry: false,
+              data: responseData
+            }
+            
             if (showError) {
               wx.showToast({
-                title: errorMsg,
+                title: error.message,
                 icon: 'none',
                 duration: 2000
               })
             }
-            reject(new Error(errorMsg))
+            
+            reject(error)
           }
         } else {
-          const errorMsg = getErrorMessage(statusCode)
+          // HTTP错误
+          const errorInfo = getErrorInfo(statusCode)
+          
           if (showError) {
             wx.showToast({
-              title: errorMsg,
+              title: errorInfo.message,
               icon: 'none',
               duration: 2000
             })
           }
-          reject(new Error(errorMsg))
+          
+          reject(errorInfo)
         }
       },
       fail: (error) => {
@@ -98,183 +199,218 @@ function request(options = {}) {
           wx.hideLoading()
         }
 
-        const errorMsg = '网络连接失败，请检查网络设置'
+        log.error('[请求失败]', error)
+
+        let errorInfo
+        
+        if (isNetworkError(error)) {
+          errorInfo = {
+            type: ERROR_TYPES.NETWORK,
+            message: '网络连接失败，请检查网络设置',
+            canRetry: true,
+            originalError: error
+          }
+        } else if (error.errMsg && error.errMsg.includes('timeout')) {
+          errorInfo = {
+            type: ERROR_TYPES.TIMEOUT,
+            message: '请求超时，请稍后重试',
+            canRetry: true,
+            originalError: error
+          }
+        } else {
+          errorInfo = {
+            type: ERROR_TYPES.NETWORK,
+            message: '请求失败，请稍后重试',
+            canRetry: true,
+            originalError: error
+          }
+        }
+
+        // 自动重试逻辑
+        if (enableRetry && errorInfo.canRetry && retryCount < 2) {
+          log.debug(`[自动重试] 第${retryCount + 1}次重试`)
+          
+          setTimeout(() => {
+            request({
+              ...options,
+              retryCount: retryCount + 1,
+              showLoading: false // 重试时不再显示loading
+            }).then(resolve).catch(reject)
+          }, Math.pow(2, retryCount) * 1000) // 指数退避：1s, 2s, 4s
+          
+          return
+        }
+
         if (showError) {
           wx.showToast({
-            title: errorMsg,
+            title: errorInfo.message,
             icon: 'none',
             duration: 2000
           })
         }
-        reject(new Error(errorMsg))
+
+        reject(errorInfo)
       }
     })
   })
 }
 
 /**
- * 根据状态码获取错误信息
- * @param {number} statusCode 状态码
- * @returns {string} 错误信息
+ * 带重试功能的请求
+ * @param {Object} options 请求配置
+ * @param {Function} onRetry 重试回调
+ * @returns {Promise} 请求结果
  */
-function getErrorMessage(statusCode) {
-  switch (statusCode) {
-    case STATUS_CODE.UNAUTHORIZED:
-      return '未授权访问'
-    case STATUS_CODE.FORBIDDEN:
-      return '访问被禁止'
-    case STATUS_CODE.NOT_FOUND:
-      return '请求的资源不存在'
-    case STATUS_CODE.SERVER_ERROR:
-      return '服务器内部错误'
-    default:
-      return `请求失败 (${statusCode})`
-  }
+function requestWithRetry(options, onRetry) {
+  return request({
+    ...options,
+    enableRetry: false, // 禁用自动重试，使用手动重试
+    showError: false    // 不自动显示错误，由页面处理
+  }).catch(error => {
+    // 如果是可重试的错误，抛出带重试信息的错误
+    if (error.canRetry) {
+      error.onRetry = () => requestWithRetry(options, onRetry)
+      if (onRetry) error.onRetry = onRetry
+    }
+    throw error
+  })
+}
+
+// ================== API 接口封装 ==================
+
+/**
+ * 获取筛选元数据
+ */
+const getFiltersMeta = () => {
+  return requestWithRetry({
+    url: '/api/filters/meta',
+    method: 'GET',
+    showLoading: true
+  })
 }
 
 /**
- * API 接口封装
+ * 商品筛选
+ * @param {Object} filters 筛选条件
  */
-const api = {
-  /**
-   * 获取筛选元数据
-   */
-  getFiltersMeta() {
-    return request({
-      url: '/api/filters/meta',
-      showLoading: true
-    })
-  },
-
-  /**
-   * 筛选商品
-   * @param {Object} filters 筛选条件
-   */
-  filterProducts(filters = {}) {
-    return request({
-      url: '/api/filter',
-      method: 'POST',
-      data: filters,
-      showLoading: true
-    })
-  },
-
-  /**
-   * 搜索商品
-   * @param {Object} params 搜索参数
-   */
-  searchProducts(params = {}) {
-    const { q = '', page = 1, limit = 10 } = params
-    const query = new URLSearchParams({ q, page, limit }).toString()
-    return request({
-      url: `/api/search?${query}`,
-      showLoading: page === 1
-    })
-  },
-
-  /**
-   * 获取商品详情
-   * @param {string} id 商品ID
-   */
-  getProductDetail(id) {
-    return request({
-      url: `/api/sku/${id}`,
-      showLoading: true
-    })
-  },
-
-  /**
-   * 获取推荐商品
-   * @param {string} id 商品ID
-   */
-  getRecommendations(id) {
-    return request({
-      url: `/api/sku/${id}/recommendations`
-    })
-  },
-
-  /**
-   * 创建意向订单
-   * @param {Object} orderData 订单数据
-   */
-  createIntentOrder(orderData) {
-    return request({
-      url: '/api/intent-order',
-      method: 'POST',
-      data: orderData,
-      showLoading: true
-    })
-  }
+const filterProducts = (filters = {}) => {
+  return requestWithRetry({
+    url: '/api/filter',
+    method: 'POST',
+    data: filters,
+    showLoading: true
+  }, () => filterProducts(filters))
 }
 
 /**
- * 存储工具
+ * 商品搜索
+ * @param {string} keyword 搜索关键词
+ * @param {Object} filters 附加筛选条件
  */
+const searchProducts = (keyword, filters = {}) => {
+  return requestWithRetry({
+    url: '/api/search',
+    method: 'GET',
+    data: { q: keyword, ...filters },
+    showLoading: true
+  }, () => searchProducts(keyword, filters))
+}
+
+/**
+ * 获取商品详情
+ * @param {string} skuId 商品ID
+ */
+const getProductDetail = (skuId) => {
+  return requestWithRetry({
+    url: `/api/sku/${skuId}`,
+    method: 'GET',
+    showLoading: true
+  }, () => getProductDetail(skuId))
+}
+
+/**
+ * 获取推荐商品
+ * @param {string} skuId 商品ID
+ */
+const getRecommendations = (skuId) => {
+  return requestWithRetry({
+    url: `/api/sku/${skuId}/recommendations`,
+    method: 'GET'
+  }, () => getRecommendations(skuId))
+}
+
+/**
+ * 提交意向订单
+ * @param {Object} orderData 订单数据
+ */
+const submitIntentOrder = (orderData) => {
+  return request({
+    url: '/api/intent-order',
+    method: 'POST',
+    data: orderData,
+    showLoading: true
+  })
+}
+
+// 本地存储工具
 const storage = {
-  /**
-   * 获取存储数据
-   * @param {string} key 存储键
-   * @param {*} defaultValue 默认值
-   * @returns {*} 存储的数据
-   */
-  get(key, defaultValue = null) {
+  get: (key) => {
     try {
       const value = wx.getStorageSync(key)
-      return value !== '' ? value : defaultValue
+      return value ? JSON.parse(value) : null
     } catch (error) {
-      console.error('获取存储数据失败:', error)
-      return defaultValue
+      console.error('Storage get error:', error)
+      return null
     }
   },
-
-  /**
-   * 设置存储数据
-   * @param {string} key 存储键
-   * @param {*} value 存储值
-   * @returns {boolean} 是否设置成功
-   */
-  set(key, value) {
+  
+  set: (key, value) => {
     try {
-      wx.setStorageSync(key, value)
+      wx.setStorageSync(key, JSON.stringify(value))
       return true
     } catch (error) {
-      console.error('设置存储数据失败:', error)
+      console.error('Storage set error:', error)
       return false
     }
   },
-
-  /**
-   * 删除存储数据
-   * @param {string} key 存储键
-   * @returns {boolean} 是否删除成功
-   */
-  remove(key) {
+  
+  remove: (key) => {
     try {
       wx.removeStorageSync(key)
       return true
     } catch (error) {
-      console.error('删除存储数据失败:', error)
-      return false
-    }
-  },
-
-  /**
-   * 清空所有存储数据
-   * @returns {boolean} 是否清空成功
-   */
-  clear() {
-    try {
-      wx.clearStorageSync()
-      return true
-    } catch (error) {
-      console.error('清空存储数据失败:', error)
+      console.error('Storage remove error:', error)
       return false
     }
   }
 }
 
-module.exports = {
+// 导出API对象
+const api = {
+  // 基础请求方法
   request,
+  requestWithRetry,
+  
+  // 业务接口
+  getFiltersMeta,
+  filterProducts,
+  searchProducts,
+  getProductDetail,
+  getRecommendations,
+  submitIntentOrder,
+  
+  // 工具方法
+  storage,
+  
+  // 错误类型
+  ERROR_TYPES
+}
+
+module.exports = {
   api,
-  storage
+  request,
+  requestWithRetry,
+  storage,
+  ERROR_TYPES,
+  STATUS_CODE
 }

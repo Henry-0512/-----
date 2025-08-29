@@ -1,13 +1,14 @@
 // pages/list/list.js
-const { USE_MOCK_DATA } = require('../../utils/config.js')
-
-const { api } = USE_MOCK_DATA 
-  ? require('../../utils/request-mock.js')
-  : require('../../utils/request.js')
+const { api, ERROR_TYPES } = require('../../utils/request.js')
 
 Page({
   data: {
+    // 页面状态
     loading: true,
+    error: null,
+    isEmpty: false,
+    
+    // 数据状态
     items: [],
     total: 0,
     page: 1,
@@ -106,7 +107,11 @@ Page({
     if (this.data.loading && !reset) return
     
     try {
-      this.setData({ loading: true, error: null })
+      this.setData({ 
+        loading: true, 
+        error: null,
+        isEmpty: false 
+      })
       
       const page = reset ? 1 : this.data.page
       const { searchQuery, selectedFilters, limit } = this.data
@@ -114,8 +119,7 @@ Page({
       let res
       if (searchQuery.trim()) {
         // 搜索模式
-        res = await api.searchProducts({
-          q: searchQuery.trim(),
+        res = await api.searchProducts(searchQuery.trim(), {
           page,
           limit
         })
@@ -128,22 +132,41 @@ Page({
         res = this.paginateResults(res, page, limit)
       }
       
-      const newItems = res.data.items || []
+      const newItems = res.data?.items || res.data || []
       const items = reset ? newItems : [...this.data.items, ...newItems]
       
       this.setData({
         items,
-        total: res.data.total || 0,
-        page: res.data.page || page,
-        hasMore: (res.data.page || page) < (res.data.totalPages || 1),
-        loading: false
+        total: res.data?.total || newItems.length,
+        page: res.data?.page || page,
+        hasMore: (res.data?.page || page) < (res.data?.totalPages || 1),
+        loading: false,
+        isEmpty: items.length === 0
       })
     } catch (error) {
       console.error('加载商品列表失败：', error)
+      
       this.setData({
-        error: '加载失败，请重试',
-        loading: false
+        loading: false,
+        error: {
+          type: error.type || ERROR_TYPES.NETWORK,
+          message: error.message || '加载失败，请重试',
+          canRetry: error.canRetry !== false,
+          onRetry: error.onRetry || (() => this.loadItems(reset))
+        }
       })
+    }
+  },
+
+  /**
+   * 重试加载
+   */
+  onRetryLoad() {
+    const { error } = this.data
+    if (error && error.onRetry) {
+      error.onRetry()
+    } else {
+      this.loadItems(true)
     }
   },
 

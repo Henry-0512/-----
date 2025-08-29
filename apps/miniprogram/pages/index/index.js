@@ -1,13 +1,12 @@
 // pages/index/index.js
-const { USE_MOCK_DATA } = require('../../utils/config.js')
-
-const { api } = USE_MOCK_DATA 
-  ? require('../../utils/request-mock.js')
-  : require('../../utils/request.js')
+const { api, ERROR_TYPES } = require('../../utils/request.js')
 
 Page({
   data: {
+    // 页面状态
     loading: true,
+    error: null,
+    isEmpty: false,
     banners: [
       {
         id: '1',
@@ -50,25 +49,51 @@ Page({
    */
   async loadHomeData() {
     try {
-      this.setData({ loading: true, error: null })
+      this.setData({ 
+        loading: true, 
+        error: null,
+        isEmpty: false 
+      })
       
       // 并行加载分类数据和热门商品
-      const [filterRes, searchRes] = await Promise.all([
+      const [filterRes, hotItemsRes] = await Promise.all([
         api.getFiltersMeta(),
-        api.searchProducts({ limit: 6 })
+        api.filterProducts({ limit: 6, sortBy: 'popular' })
       ])
       
+      const categories = filterRes.data?.categories || filterRes.data || []
+      const hotItems = hotItemsRes.data?.items || hotItemsRes.data || []
+      
       this.setData({
-        categories: filterRes.data.categories || [],
-        hotItems: searchRes.data.items || [],
-        loading: false
+        categories,
+        hotItems,
+        loading: false,
+        isEmpty: categories.length === 0 && hotItems.length === 0
       })
     } catch (error) {
       console.error('加载首页数据失败：', error)
+      
       this.setData({
-        error: '加载失败，请重试',
-        loading: false
+        loading: false,
+        error: {
+          type: error.type || ERROR_TYPES.NETWORK,
+          message: error.message || '加载失败，请重试',
+          canRetry: error.canRetry !== false,
+          onRetry: error.onRetry || (() => this.loadHomeData())
+        }
       })
+    }
+  },
+
+  /**
+   * 重试加载
+   */
+  onRetryLoad() {
+    const { error } = this.data
+    if (error && error.onRetry) {
+      error.onRetry()
+    } else {
+      this.loadHomeData()
     }
   },
 

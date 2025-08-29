@@ -21,24 +21,44 @@
     </view>
   </view>
 
-  <!-- 结果统计 -->
-  <view wx:if="{{!loading && !error}}" class="result-info">
-    <text class="result-text">
-      共找到 {{total}} 个结果
-      <text wx:if="{{searchQuery}}" class="search-keyword">"{{searchQuery}}"</text>
-    </text>
-  </view>
-
-  <!-- 加载状态 -->
-  <view wx:if="{{loading && items.length === 0}}" class="loading">
-    <text>加载中...</text>
+  <!-- 骨架屏加载状态 -->
+  <view wx:if="{{loading && items.length === 0}}" class="skeleton">
+    <view class="skeleton-header"></view>
+    <view class="skeleton-filters">
+      <view class="skeleton-filter-btn"></view>
+      <view class="skeleton-filter-btn"></view>
+    </view>
+    <view class="skeleton-products">
+      <view wx:for="{{[1,2,3,4,5,6]}}" wx:key="*this" class="skeleton-product"></view>
+    </view>
   </view>
 
   <!-- 错误状态 -->
-  <view wx:elif="{{error}}" class="error">
-    <text>{{error}}</text>
-    <button class="btn-primary" bindtap="onRetry">重试</button>
+  <view wx:elif="{{error}}" class="error-state">
+    <view class="error-icon">❌</view>
+    <text class="error-message">{{error.message}}</text>
+    <button wx:if="{{error.canRetry}}" class="retry-btn" bindtap="onRetryLoad">重试</button>
   </view>
+
+  <!-- 空状态 -->
+  <view wx:elif="{{isEmpty}}" class="empty-state">
+    <view class="empty-icon">🔍</view>
+    <text class="empty-message">没有找到相关商品</text>
+    <text class="empty-desc">试试调整筛选条件</text>
+    <button class="retry-btn" bindtap="onRetryLoad">重新搜索</button>
+  </view>
+
+  <!-- 有数据时显示内容 -->
+  <view wx:else>
+    <!-- 结果统计 -->
+    <view class="result-info">
+      <text class="result-text">
+        共找到 {{total}} 个结果
+        <text wx:if="{{searchQuery}}" class="search-keyword">"{{searchQuery}}"</text>
+      </text>
+    </view>
+
+
 
   <!-- 商品列表 - 2列网格布局 -->
   <view wx:else class="items-grid">

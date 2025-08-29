@@ -1,21 +1,22 @@
 // pages/detail/detail.js
-const { USE_MOCK_DATA } = require('../../utils/config.js')
-
-const { api, storage } = USE_MOCK_DATA 
-  ? require('../../utils/request-mock.js')
-  : require('../../utils/request.js')
+const { api, storage, ERROR_TYPES } = require('../../utils/request.js')
 
 Page({
   data: {
+    // 页面状态
     loading: true,
+    error: null,
+    isEmpty: false,
+    
+    // 数据状态
     sku: null,
     recommendations: [],
+    recommendationsError: null,
     selectedImage: 0,
     showSizeGuide: false,
     duration: 1,
     maxDuration: 12,
     minDuration: 1,
-    error: null,
     isFavorited: false
   },
 
@@ -46,19 +47,34 @@ Page({
    */
   async loadSkuDetail(id) {
     try {
-      this.setData({ loading: true, error: null })
+      this.setData({ 
+        loading: true, 
+        error: null,
+        isEmpty: false 
+      })
       
       const res = await api.getProductDetail(id)
+      const sku = res.data || res
+      
+      if (!sku || !sku.id) {
+        throw new Error('商品不存在')
+      }
       
       this.setData({
-        sku: res.data,
+        sku,
         loading: false
       })
     } catch (error) {
       console.error('加载商品详情失败：', error)
+      
       this.setData({
-        error: '加载失败，请重试',
-        loading: false
+        loading: false,
+        error: {
+          type: error.type || ERROR_TYPES.NETWORK,
+          message: error.message || '加载商品详情失败',
+          canRetry: error.canRetry !== false,
+          onRetry: error.onRetry || (() => this.loadSkuDetail(id))
+        }
       })
     }
   },
@@ -68,12 +84,59 @@ Page({
    */
   async loadRecommendations(id) {
     try {
+      this.setData({ recommendationsError: null })
+      
       const res = await api.getRecommendations(id)
+      const recommendations = res.data?.items || res.data || []
+      
       this.setData({
-        recommendations: res.data || []
+        recommendations
       })
     } catch (error) {
       console.error('加载推荐商品失败：', error)
+      
+      this.setData({
+        recommendationsError: {
+          type: error.type || ERROR_TYPES.NETWORK,
+          message: error.message || '加载推荐失败',
+          canRetry: error.canRetry !== false,
+          onRetry: error.onRetry || (() => this.loadRecommendations(id))
+        }
+      })
+    }
+  },
+
+  /**
+   * 重试加载商品详情
+   */
+  onRetryDetail() {
+    const { error } = this.data
+    if (error && error.onRetry) {
+      error.onRetry()
+    } else {
+      const pages = getCurrentPages()
+      const currentPage = pages[pages.length - 1]
+      const { id } = currentPage.options
+      if (id) {
+        this.loadSkuDetail(id)
+      }
+    }
+  },
+
+  /**
+   * 重试加载推荐商品
+   */
+  onRetryRecommendations() {
+    const { recommendationsError } = this.data
+    if (recommendationsError && recommendationsError.onRetry) {
+      recommendationsError.onRetry()
+    } else {
+      const pages = getCurrentPages()
+      const currentPage = pages[pages.length - 1]
+      const { id } = currentPage.options
+      if (id) {
+        this.loadRecommendations(id)
+      }
     }
   },
 

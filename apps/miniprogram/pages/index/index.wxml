@@ -1,14 +1,29 @@
 <!--pages/index/index.wxml-->
 <view class="container">
-  <!-- 加载状态 -->
-  <view wx:if="{{loading}}" class="loading">
-    <text>加载中...</text>
+  <!-- 骨架屏加载状态 -->
+  <view wx:if="{{loading}}" class="skeleton">
+    <view class="skeleton-search"></view>
+    <view class="skeleton-banner"></view>
+    <view class="skeleton-categories">
+      <view wx:for="{{[1,2,3,4]}}" wx:key="*this" class="skeleton-category"></view>
+    </view>
+    <view class="skeleton-products">
+      <view wx:for="{{[1,2,3,4,5,6]}}" wx:key="*this" class="skeleton-product"></view>
+    </view>
   </view>
 
   <!-- 错误状态 -->
-  <view wx:elif="{{error}}" class="error">
-    <text>{{error}}</text>
-    <button class="btn-primary" bindtap="onRetry">重试</button>
+  <view wx:elif="{{error}}" class="error-state">
+    <view class="error-icon">❌</view>
+    <text class="error-message">{{error.message}}</text>
+    <button wx:if="{{error.canRetry}}" class="retry-btn" bindtap="onRetryLoad">重试</button>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:elif="{{isEmpty}}" class="empty-state">
+    <view class="empty-icon">📦</view>
+    <text class="empty-message">暂无数据</text>
+    <button class="retry-btn" bindtap="onRetryLoad">刷新</button>
   </view>
 
   <!-- 正常内容 -->
