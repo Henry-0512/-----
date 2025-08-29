@@ -1,24 +1,24 @@
 /**
  * 全局配置文件
+ * 注意：此文件已废弃，请使用 config/env.js 进行环境配置
  */
 
-// 是否使用模拟数据（开发阶段建议设为true）
-const USE_MOCK_DATA = true
+// 导入环境配置
+const { isMockEnabled, getBaseURL, getApiTimeout, isDebugEnabled } = require('../config/env.js')
 
-// API配置
+// 兼容性导出（保持向后兼容）
+const USE_MOCK_DATA = isMockEnabled()
+
+// API配置（从环境配置读取）
 const API_CONFIG = {
-  // 后端API地址
-  BASE_URL: 'http://localhost:3000',
-  // 请求超时时间（毫秒）
-  TIMEOUT: 10000
+  BASE_URL: getBaseURL(),
+  TIMEOUT: getApiTimeout()
 }
 
-// 调试配置
+// 调试配置（从环境配置读取）
 const DEBUG_CONFIG = {
-  // 是否显示请求日志
-  SHOW_REQUEST_LOG: true,
-  // 是否显示错误详情
-  SHOW_ERROR_DETAIL: true
+  SHOW_REQUEST_LOG: isDebugEnabled(),
+  SHOW_ERROR_DETAIL: isDebugEnabled()
 }
 
 module.exports = {

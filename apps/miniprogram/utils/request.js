@@ -2,7 +2,8 @@
  * 网络请求封装工具
  */
 
-const BASE_URL = 'http://localhost:3000'
+// 导入环境配置
+const { getBaseURL, getApiTimeout, isDebugEnabled, log } = require('../config/env.js')
 
 // 请求状态码映射
 const STATUS_CODE = {
@@ -34,6 +35,13 @@ function request(options = {}) {
     showError = true
   } = options
 
+  // 获取动态配置
+  const baseURL = getBaseURL()
+  const timeout = getApiTimeout()
+
+  // 调试日志
+  log.debug(`[请求] ${method} ${baseURL}${url}`, data)
+
   // 显示加载提示
   if (showLoading) {
     wx.showLoading({
@@ -44,13 +52,14 @@ function request(options = {}) {
 
   return new Promise((resolve, reject) => {
     wx.request({
-      url: `${BASE_URL}${url}`,
+      url: `${baseURL}${url}`,
       method: method.toUpperCase(),
       data,
       header: {
         'content-type': 'application/json',
         ...header
       },
+      timeout,
       success: (res) => {
         if (showLoading) {
           wx.hideLoading()

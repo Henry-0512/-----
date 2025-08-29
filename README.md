@@ -14,6 +14,12 @@
 │       │   ├── list/          # 列表页（含筛选）
 │       │   ├── detail/        # 商品详情页（PDP）
 │       │   └── profile/       # 我的页面
+│       ├── config/            # 配置目录
+│       │   ├── env.js         # 环境配置（DEV/PROD）
+│       │   └── README.md      # 环境配置说明
+│       ├── utils/             # 工具类
+│       │   ├── request.js     # 网络请求封装
+│       │   └── config.js      # 全局配置
 │       ├── app.js             # 小程序入口
 │       ├── app.json           # 小程序配置
 │       └── app.wxss           # 全局样式
@@ -44,6 +50,23 @@
 - npm 或 yarn
 - Docker & Docker Compose (可选)
 - 微信开发者工具
+
+### 环境配置
+
+项目支持 DEV/PROD 两套环境配置，在 `apps/miniprogram/project.private.config.json` 中设置：
+
+```json
+{
+  "env": "DEV"    // 开发环境（默认）
+  // 或
+  "env": "PROD"   // 生产环境
+}
+```
+
+- **DEV环境**: `http://localhost:3000` + Mock数据 + 调试日志
+- **PROD环境**: `https://api.furniture-rent.com` + 性能优化
+
+详细说明请查看：`apps/miniprogram/config/README.md`
 
 ### 本地开发
 
