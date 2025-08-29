@@ -20,3 +20,10 @@
 
 ## 临时解决方案：
 如果暂时没有图标，可以从 app.json 中删除 iconPath 配置，使用纯文字 tabBar。
+
+## 其他图片资源：
+- `placeholder.png` - 当商品图片加载失败时显示的占位图
+- `default-avatar.png` - 默认用户头像  
+- `share-home.png` - 分享封面图
+
+**注意：** 已将所有在线图片URL替换为可访问的 picsum.photos 服务，解决了图片加载失败问题。

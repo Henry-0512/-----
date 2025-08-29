@@ -59,15 +59,41 @@
   font-size: 36rpx;
   font-weight: bold;
   color: #333;
-  margin-bottom: 16rpx;
+  margin-bottom: 8rpx;
 }
 
-.sku-desc {
+.sku-brand {
   display: block;
-  font-size: 28rpx;
+  font-size: 26rpx;
+  color: #999;
+  margin-bottom: 20rpx;
+}
+
+.stock-info {
+  margin-top: 20rpx;
+  padding: 16rpx 0;
+  border-top: 1rpx solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.stock-label {
+  font-size: 26rpx;
   color: #666;
-  line-height: 1.6;
-  margin-bottom: 24rpx;
+}
+
+.stock-value {
+  font-size: 26rpx;
+  font-weight: 500;
+}
+
+.stock-value.in-stock {
+  color: #52c41a;
+}
+
+.stock-value.out-of-stock {
+  color: #ff4d4f;
 }
 
 .price-info {
@@ -315,4 +341,86 @@
   color: white;
 }
 
+/* 新章节样式 */
+.delivery-section,
+.care-section,
+.faq-section {
+  padding: 32rpx;
+  background: white;
+  margin-bottom: 20rpx;
+}
 
+.delivery-info {
+  margin-top: 20rpx;
+}
+
+.delivery-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.delivery-label {
+  font-size: 26rpx;
+  color: #666;
+  width: 150rpx;
+}
+
+.delivery-value {
+  font-size: 26rpx;
+  color: #333;
+  flex: 1;
+}
+
+.care-content {
+  font-size: 26rpx;
+  color: #333;
+  line-height: 1.6;
+  margin-top: 20rpx;
+  padding: 20rpx;
+  background: #f8f9fa;
+  border-radius: 8rpx;
+}
+
+.faq-list {
+  margin-top: 20rpx;
+}
+
+.faq-item {
+  margin-bottom: 24rpx;
+  padding: 20rpx;
+  background: #f8f9fa;
+  border-radius: 8rpx;
+}
+
+.faq-question {
+  display: block;
+  font-size: 26rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.faq-answer {
+  display: block;
+  font-size: 24rpx;
+  color: #666;
+  line-height: 1.6;
+}
+
+.size-group {
+  margin-bottom: 24rpx;
+}
+
+.size-group-title {
+  font-size: 26rpx;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.size-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+}
