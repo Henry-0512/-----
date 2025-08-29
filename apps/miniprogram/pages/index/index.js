@@ -1,6 +1,5 @@
 // pages/index/index.js
-// 配置：使用模拟数据还是真实API
-const USE_MOCK_DATA = true  // 改为 false 则使用真实API
+const { USE_MOCK_DATA } = require('../../utils/config.js')
 
 const { api } = USE_MOCK_DATA 
   ? require('../../utils/request-mock.js')

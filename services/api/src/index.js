@@ -30,50 +30,109 @@ try {
 
 // 获取筛选元数据
 fastify.get('/api/filters/meta', async (request, reply) => {
+  // 动态生成分类统计
+  const categoryStats = {}
+  const brandStats = {}
+  const styleStats = {}
+  
+  skuData.forEach(sku => {
+    // 统计分类（取第一个分类作为主分类）
+    const mainCategory = sku.category[0]
+    categoryStats[mainCategory] = (categoryStats[mainCategory] || 0) + 1
+    
+    // 统计品牌
+    brandStats[sku.brand] = (brandStats[sku.brand] || 0) + 1
+    
+    // 统计风格
+    sku.style.forEach(style => {
+      styleStats[style] = (styleStats[style] || 0) + 1
+    })
+  })
+  
   return {
     success: true,
     data: {
-      categories: [
-        { id: 'sofa', name: '沙发', count: 5 },
-        { id: 'chair', name: '椅子', count: 8 },
-        { id: 'table', name: '桌子', count: 4 },
-        { id: 'bed', name: '床', count: 3 }
-      ],
+      categories: Object.entries(categoryStats).map(([id, count]) => ({
+        id,
+        name: getCategoryName(id),
+        count
+      })),
       priceRanges: [
-        { id: 'low', name: '100-300元/月', min: 100, max: 300 },
-        { id: 'mid', name: '300-600元/月', min: 300, max: 600 },
-        { id: 'high', name: '600-1000元/月', min: 600, max: 1000 }
+        { id: 'low', name: '0-500元', min: 0, max: 500 },
+        { id: 'mid', name: '500-1500元', min: 500, max: 1500 },
+        { id: 'high', name: '1500-3000元', min: 1500, max: 3000 },
+        { id: 'premium', name: '3000元以上', min: 3000, max: 999999 }
       ],
-      brands: [
-        { id: 'ikea', name: 'IKEA' },
-        { id: 'muji', name: '无印良品' },
-        { id: 'hm', name: 'H&M Home' }
-      ]
+      brands: Object.entries(brandStats).map(([id, count]) => ({
+        id,
+        name: id,
+        count
+      })),
+      styles: Object.entries(styleStats).map(([id, count]) => ({
+        id,
+        name: id,
+        count
+      }))
     }
   }
 })
 
+// 辅助函数：获取分类名称
+function getCategoryName(categoryId) {
+  const categoryNames = {
+    '沙发': '沙发',
+    '床': '床',
+    '餐桌': '餐桌',
+    '椅子': '椅子',
+    '书桌': '书桌',
+    '地毯': '地毯',
+    '茶几': '茶几',
+    '衣柜': '衣柜',
+    '床垫': '床垫',
+    '床头柜': '床头柜',
+    '书架': '书架',
+    '梳妆台': '梳妆台',
+    '台灯': '台灯',
+    '收纳': '收纳',
+    '枕头': '枕头',
+    '凳子': '凳子',
+    '镜子': '镜子',
+    '鞋柜': '鞋柜'
+  }
+  return categoryNames[categoryId] || categoryId
+}
+
 // 筛选商品
 fastify.post('/api/filter', async (request, reply) => {
-  const { categories, priceRange, brands } = request.body || {}
+  const { categories, priceRange, brands, styles } = request.body || {}
   
   let filteredData = [...skuData]
   
+  // 按分类筛选
   if (categories && categories.length > 0) {
     filteredData = filteredData.filter(item => 
-      categories.includes(item.category)
+      item.category.some(cat => categories.includes(cat))
     )
   }
   
+  // 按价格筛选
   if (priceRange) {
     filteredData = filteredData.filter(item => 
-      item.monthlyPrice >= priceRange.min && item.monthlyPrice <= priceRange.max
+      item.price >= priceRange.min && item.price <= priceRange.max
     )
   }
   
+  // 按品牌筛选
   if (brands && brands.length > 0) {
     filteredData = filteredData.filter(item => 
       brands.includes(item.brand)
+    )
+  }
+  
+  // 按风格筛选
+  if (styles && styles.length > 0) {
+    filteredData = filteredData.filter(item => 
+      item.style.some(style => styles.includes(style))
     )
   }
   
@@ -95,9 +154,13 @@ fastify.get('/api/search', async (request, reply) => {
   if (q) {
     const query = q.toLowerCase()
     results = results.filter(item => 
-      item.name.toLowerCase().includes(query) ||
-      item.description.toLowerCase().includes(query) ||
-      item.category.toLowerCase().includes(query)
+      item.title.toLowerCase().includes(query) ||
+      item.brand.toLowerCase().includes(query) ||
+      item.category.some(cat => cat.toLowerCase().includes(query)) ||
+      item.style.some(style => style.toLowerCase().includes(query)) ||
+      item.material.some(mat => mat.toLowerCase().includes(query)) ||
+      item.color.some(color => color.toLowerCase().includes(query)) ||
+      item.care.toLowerCase().includes(query)
     )
   }
   
@@ -147,14 +210,31 @@ fastify.get('/api/sku/:id/recommendations', async (request, reply) => {
     })
   }
   
-  // 简单推荐逻辑：同类别的其他商品
-  const recommendations = skuData
-    .filter(item => item.id !== id && item.category === currentSku.category)
-    .slice(0, 4)
+  let recommendations = []
+  
+  // 优先使用bundle_suggestions
+  if (currentSku.bundle_suggestions && currentSku.bundle_suggestions.length > 0) {
+    recommendations = currentSku.bundle_suggestions
+      .map(suggestedId => skuData.find(item => item.id === suggestedId))
+      .filter(Boolean) // 过滤掉找不到的商品
+  }
+  
+  // 如果推荐不够，补充同类别商品
+  if (recommendations.length < 4) {
+    const sameCategoryItems = skuData
+      .filter(item => 
+        item.id !== id && 
+        !recommendations.some(rec => rec.id === item.id) &&
+        item.category.some(cat => currentSku.category.includes(cat))
+      )
+      .slice(0, 4 - recommendations.length)
+    
+    recommendations = [...recommendations, ...sameCategoryItems]
+  }
   
   return {
     success: true,
-    data: recommendations
+    data: recommendations.slice(0, 4)
   }
 })
 
@@ -179,6 +259,9 @@ fastify.post('/api/intent-order', async (request, reply) => {
   
   const orderId = `ORDER_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
   
+  // 计算月租价格（假设按商品价格的1/50计算月租）
+  const monthlyPrice = Math.ceil(sku.price / 50)
+  
   return {
     success: true,
     data: {
@@ -186,9 +269,17 @@ fastify.post('/api/intent-order', async (request, reply) => {
       skuId,
       duration,
       startDate,
-      totalAmount: sku.monthlyPrice * duration,
+      monthlyPrice,
+      totalAmount: monthlyPrice * duration,
       status: 'pending',
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
+      sku: {
+        id: sku.id,
+        title: sku.title,
+        brand: sku.brand,
+        image: sku.images[0]?.url || '',
+        price: sku.price
+      }
     }
   }
 })

@@ -1,5 +1,9 @@
 // pages/list/list.js
-const { api } = require('../../utils/request.js')
+const { USE_MOCK_DATA } = require('../../utils/config.js')
+
+const { api } = USE_MOCK_DATA 
+  ? require('../../utils/request-mock.js')
+  : require('../../utils/request.js')
 
 Page({
   data: {

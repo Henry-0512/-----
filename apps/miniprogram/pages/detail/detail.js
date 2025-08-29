@@ -1,5 +1,9 @@
 // pages/detail/detail.js
-const { api, storage } = require('../../utils/request.js')
+const { USE_MOCK_DATA } = require('../../utils/config.js')
+
+const { api, storage } = USE_MOCK_DATA 
+  ? require('../../utils/request-mock.js')
+  : require('../../utils/request.js')
 
 Page({
   data: {
@@ -96,9 +100,17 @@ Page({
   onImagePreview() {
     const { sku, selectedImage } = this.data
     if (sku && sku.images && sku.images.length > 0) {
+      // 处理新的图片格式（对象数组）和旧格式（字符串数组）
+      const imageUrls = sku.images.map(img => 
+        typeof img === 'object' ? img.url : img
+      )
+      const currentUrl = typeof sku.images[selectedImage] === 'object' 
+        ? sku.images[selectedImage].url 
+        : sku.images[selectedImage]
+      
       wx.previewImage({
-        urls: sku.images,
-        current: sku.images[selectedImage]
+        urls: imageUrls,
+        current: currentUrl
       })
     }
   },

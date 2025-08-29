@@ -17,7 +17,7 @@
     <view class="image-section">
       <image 
         class="main-image" 
-        src="{{sku.images[selectedImage]}}" 
+        src="{{sku.images[selectedImage].url || sku.images[selectedImage] || 'https://picsum.photos/400/300?random=0'}}" 
         mode="aspectFill"
         bindtap="onImagePreview"
       ></image>
@@ -133,7 +133,7 @@
         </view>
       </view>
       <view class="total-price">
-        <text>总计：¥{{sku.monthlyPrice * duration}}</text>
+        <text>总计：¥{{(sku.monthlyPrice || Math.ceil(sku.price/50)) * duration}}</text>
       </view>
     </view>
 

@@ -1,5 +1,9 @@
 // pages/profile/profile.js
-const { storage } = require('../../utils/request.js')
+const { USE_MOCK_DATA } = require('../../utils/config.js')
+
+const { storage } = USE_MOCK_DATA 
+  ? require('../../utils/request-mock.js')
+  : require('../../utils/request.js')
 
 Page({
   data: {
