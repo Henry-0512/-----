@@ -2,14 +2,16 @@
 
 .product-card {
   background: white;
-  border-radius: 16rpx;
+  border-radius: 20rpx;
   overflow: hidden;
-  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease;
+  box-shadow: 0 2rpx 16rpx rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  border: 2rpx solid transparent;
 }
 
 .product-card:active {
-  transform: scale(0.98);
+  transform: translateY(-4rpx);
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.12);
 }
 
 /* 网格卡片样式 */
@@ -29,8 +31,9 @@
 }
 
 .grid-card .card-image {
-  height: 220rpx;
+  height: 240rpx;
   width: 100%;
+  object-fit: cover;
 }
 
 /* 列表卡片样式 */
@@ -186,19 +189,19 @@
 /* 价格信息 */
 .card-price {
   display: flex;
-  flex-direction: column;
-  margin-bottom: 12rpx;
-  gap: 4rpx;
+  align-items: baseline;
+  margin-bottom: 8rpx;
+  gap: 12rpx;
 }
 
 .monthly-price {
-  font-size: 28rpx;
-  font-weight: bold;
-  color: #FF6B6B;
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #000;
 }
 
 .original-price {
-  font-size: 22rpx;
+  font-size: 24rpx;
   color: #999;
   text-decoration: line-through;
 }
@@ -234,20 +237,22 @@
 }
 
 .status-text {
-  font-size: 22rpx;
-  padding: 6rpx 12rpx;
-  border-radius: 12rpx;
+  font-size: 20rpx;
+  padding: 8rpx 16rpx;
+  border-radius: 16rpx;
   line-height: 1;
+  font-weight: 500;
+  display: inline-block;
 }
 
 .status-text.available {
   background: #E8F5E8;
-  color: #22C55E;
+  color: #2E7D32;
 }
 
 .status-text.unavailable {
-  background: #FEF2F2;
-  color: #EF4444;
+  background: #FFEBEE;
+  color: #C62828;
 }
 
 /* 响应式调整 */
