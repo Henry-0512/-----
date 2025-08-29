@@ -58,19 +58,18 @@
       </text>
     </view>
 
-
-
-  <!-- 商品列表 - 2列网格布局 -->
-  <view wx:else class="items-grid">
-    <product-card
-      wx:for="{{items}}" 
-      wx:key="id"
-      product="{{item}}"
-      card-type="grid"
-      show-favorite="{{true}}"
-      bind:cardtap="onProductCardTap"
-      bind:favoritechange="onFavoriteChange"
-    />
+    <!-- 商品列表 - 2列网格布局 -->
+    <view class="items-grid">
+      <product-card
+        wx:for="{{items}}" 
+        wx:key="id"
+        product="{{item}}"
+        card-type="grid"
+        show-favorite="{{true}}"
+        bind:cardtap="onProductCardTap"
+        bind:favoritechange="onFavoriteChange"
+      />
+    </view>
 
     <!-- 底部加载更多 -->
     <view wx:if="{{loading && items.length > 0}}" class="load-more">
