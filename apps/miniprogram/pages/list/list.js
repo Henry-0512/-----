@@ -14,6 +14,9 @@ Page({
     limit: 10,
     hasMore: true,
     searchQuery: '',
+    pageTitle: '',
+    hasActiveFilters: false,
+    filterCount: 0,
     
     // 筛选相关
     filterOptions: {
@@ -43,7 +46,21 @@ Page({
   },
 
   onLoad(options) {
-    const { category, q, sort } = options
+    const { category, q, sort, department, title } = options
+    
+    // 设置页面标题
+    let pageTitle = '商品列表'
+    if (title) {
+      pageTitle = decodeURIComponent(title)
+    } else if (category) {
+      pageTitle = decodeURIComponent(category)
+    } else if (q) {
+      pageTitle = `搜索: ${decodeURIComponent(q)}`
+    } else if (department) {
+      pageTitle = decodeURIComponent(department)
+    }
+    
+    this.setData({ pageTitle })
     
     // 处理URL参数
     if (category) {
@@ -290,6 +307,51 @@ Page({
     this.setData({ page: 1 })
     this.loadItems(true).finally(() => {
       wx.stopPullDownRefresh()
+    })
+  },
+
+  /**
+   * 返回上一页
+   */
+  onGoBack() {
+    wx.navigateBack()
+  },
+
+  /**
+   * 显示排序选项
+   */
+  onShowSort() {
+    wx.showActionSheet({
+      itemList: ['综合排序', '价格从低到高', '价格从高到低', '最新上架'],
+      success: (res) => {
+        console.log('选择排序:', res.tapIndex)
+        // TODO: 实现排序逻辑
+      }
+    })
+  },
+
+  /**
+   * 更新筛选状态
+   */
+  updateFilterStatus() {
+    const { currentFilters } = this.data
+    let hasActiveFilters = false
+    let filterCount = 0
+
+    // 检查是否有活跃的筛选条件
+    if (currentFilters) {
+      Object.keys(currentFilters).forEach(key => {
+        if (currentFilters[key] && 
+            (Array.isArray(currentFilters[key]) ? currentFilters[key].length > 0 : currentFilters[key])) {
+          hasActiveFilters = true
+          filterCount++
+        }
+      })
+    }
+
+    this.setData({
+      hasActiveFilters,
+      filterCount
     })
   }
 })

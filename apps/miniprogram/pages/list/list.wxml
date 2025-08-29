@@ -1,22 +1,23 @@
 <!--pages/list/list.wxml-->
 <view class="container">
-  <!-- 搜索栏 -->
-  <view class="search-header">
-    <view class="search-box">
-      <input 
-        class="search-input" 
-        placeholder="搜索家具..." 
-        value="{{searchQuery}}"
-        bindinput="onSearchInput"
-        bindconfirm="onSearchConfirm"
-      />
-      <view wx:if="{{searchQuery}}" class="clear-search" bindtap="onClearSearch">
-        <text class="clear-icon">×</text>
-      </view>
+  <!-- 顶部导航 -->
+  <view class="page-header">
+    <view class="nav-back" bindtap="onGoBack">
+      <text class="back-icon">‹</text>
     </view>
-    <view class="filter-btn" bindtap="onShowFilter">
-      <text class="filter-text">筛选</text>
-      <text class="filter-icon">⚙</text>
+    <text class="page-title">{{pageTitle || '商品列表'}}</text>
+    <view class="nav-placeholder"></view>
+  </view>
+
+  <!-- 筛选控制栏 -->
+  <view class="filter-controls">
+    <view class="control-button" bindtap="onShowSort">
+      <text class="control-text">排序</text>
+      <text class="control-arrow">⌄</text>
+    </view>
+    <view class="control-button {{hasActiveFilters ? 'active' : ''}}" bindtap="onShowFilter">
+      <text class="control-text">筛选</text>
+      <text wx:if="{{hasActiveFilters}}" class="filter-count">({{filterCount}})</text>
     </view>
   </view>
 

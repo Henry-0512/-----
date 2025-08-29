@@ -12,7 +12,59 @@ Page({
     selectedCategory: null,
     items: [],
     itemsLoading: false,
-    error: null
+    error: null,
+    departments: [
+      {
+        id: 'home_garden',
+        name: '家居园艺',
+        image: 'https://picsum.photos/400/300?random=10'
+      },
+      {
+        id: 'furniture_lights',
+        name: '家具灯饰',
+        image: 'https://picsum.photos/400/300?random=11'
+      },
+      {
+        id: 'electricals',
+        name: '电器设备',
+        image: 'https://picsum.photos/400/300?random=12'
+      },
+      {
+        id: 'women',
+        name: '女士用品',
+        image: 'https://picsum.photos/400/300?random=13'
+      },
+      {
+        id: 'men',
+        name: '男士用品',
+        image: 'https://picsum.photos/400/300?random=14'
+      },
+      {
+        id: 'beauty',
+        name: '美妆护理',
+        image: 'https://picsum.photos/400/300?random=15'
+      },
+      {
+        id: 'baby_kids',
+        name: '母婴儿童',
+        image: 'https://picsum.photos/400/300?random=16'
+      },
+      {
+        id: 'sport_travel',
+        name: '运动旅行',
+        image: 'https://picsum.photos/400/300?random=17'
+      },
+      {
+        id: 'gifts',
+        name: '礼品精选',
+        image: 'https://picsum.photos/400/300?random=18'
+      },
+      {
+        id: 'holiday',
+        name: '节日专区',
+        image: 'https://picsum.photos/400/300?random=19'
+      }
+    ]
   },
 
   onLoad() {
@@ -84,6 +136,19 @@ Page({
         duration: 2000
       })
     }
+  },
+
+  /**
+   * 部门点击
+   */
+  onDepartmentTap(e) {
+    const { department } = e.currentTarget.dataset
+    if (!department) return
+    
+    // 导航到列表页，传递部门参数
+    wx.navigateTo({
+      url: `/pages/list/list?department=${department.id}&title=${department.name}`
+    })
   },
 
   /**

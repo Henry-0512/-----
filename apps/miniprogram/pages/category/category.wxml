@@ -1,5 +1,19 @@
 <!--pages/category/category.wxml-->
 <view class="container">
+  <!-- 页面头部 -->
+  <view class="page-header">
+    <text class="page-title">商品分类</text>
+  </view>
+
+  <!-- 搜索栏 -->
+  <view class="search-section">
+    <view class="search-bar">
+      <text class="search-icon">🔍</text>
+      <text class="search-placeholder">搜索商品或品牌</text>
+      <text class="barcode-icon">📱</text>
+    </view>
+  </view>
+
   <!-- 加载状态 -->
   <view wx:if="{{loading}}" class="loading">
     <text>加载中...</text>
@@ -13,51 +27,75 @@
 
   <!-- 分类内容 -->
   <view wx:else class="category-content">
-    <!-- 左侧分类列表 -->
-    <view class="category-sidebar">
+    <!-- 部门分类标题 -->
+    <view class="section-header">
+      <text class="section-title">Shop by Department</text>
+    </view>
+
+    <!-- 部门网格 -->
+    <view class="department-grid">
       <view 
-        wx:for="{{categories}}" 
+        wx:for="{{departments}}" 
         wx:key="id" 
-        class="category-tab {{selectedCategory && selectedCategory.id === item.id ? 'active' : ''}}"
-        data-category="{{item}}"
-        bindtap="onCategoryTap"
+        class="department-card"
+        data-department="{{item}}"
+        bindtap="onDepartmentTap"
       >
-        <text class="category-tab-name">{{item.name}}</text>
-        <text class="category-tab-count">({{item.count}})</text>
+        <image class="department-image" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="department-overlay">
+          <text class="department-name">{{item.name}}</text>
+        </view>
       </view>
     </view>
 
-    <!-- 右侧商品网格 -->
-    <view class="category-main">
-      <view wx:if="{{selectedCategory}}" class="category-header">
-        <text class="category-title">{{selectedCategory.name}}</text>
-        <text class="view-all" bindtap="onViewAllTap">
-          查看全部 >
-        </text>
-      </view>
-      
-      <!-- 商品加载状态 -->
-      <view wx:if="{{itemsLoading}}" class="items-loading">
-        <text>加载商品中...</text>
-      </view>
-      
-      <!-- 商品网格 -->
-      <view wx:else class="items-grid">
-        <product-card
-          wx:for="{{items}}" 
-          wx:key="id"
-          product="{{item}}"
-          card-type="grid"
-          show-favorite="{{true}}"
-          bind:cardtap="onProductCardTap"
-          bind:favoritechange="onFavoriteChange"
-        />
+    <!-- 传统分类部分 -->
+    <view class="traditional-categories">
+      <!-- 左侧分类列表 -->
+      <view class="category-sidebar">
+        <view 
+          wx:for="{{categories}}" 
+          wx:key="id" 
+          class="category-tab {{selectedCategory && selectedCategory.id === item.id ? 'active' : ''}}"
+          data-category="{{item}}"
+          bindtap="onCategoryTap"
+        >
+          <text class="category-tab-name">{{item.name}}</text>
+          <text class="category-tab-count">({{item.count}})</text>
+        </view>
       </view>
 
-      <!-- 空状态 -->
-      <view wx:if="{{!itemsLoading && items.length === 0}}" class="empty-state">
-        <text class="empty-text">该分类暂无商品</text>
-        <text class="empty-desc">试试其他分类吧</text>
+      <!-- 右侧商品网格 -->
+      <view class="category-main">
+        <view wx:if="{{selectedCategory}}" class="category-header">
+          <text class="category-title">{{selectedCategory.name}}</text>
+          <text class="view-all" bindtap="onViewAllTap">
+            查看全部 >
+          </text>
+        </view>
+        
+        <!-- 商品加载状态 -->
+        <view wx:if="{{itemsLoading}}" class="items-loading">
+          <text>加载商品中...</text>
+        </view>
+        
+        <!-- 商品网格 -->
+        <view wx:else class="items-grid">
+          <product-card
+            wx:for="{{items}}" 
+            wx:key="id"
+            product="{{item}}"
+            card-type="grid"
+            show-favorite="{{true}}"
+            bind:cardtap="onProductCardTap"
+            bind:favoritechange="onFavoriteChange"
+          />
+        </view>
+
+        <!-- 空状态 -->
+        <view wx:if="{{!itemsLoading && items.length === 0}}" class="empty-state">
+          <text class="empty-text">该分类暂无商品</text>
+          <text class="empty-desc">试试其他分类吧</text>
+        </view>
       </view>
     </view>
   </view>
