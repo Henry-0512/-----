@@ -28,6 +28,17 @@ Page({
     },
     showFilterSheet: false,
     
+    // 新版筛选器配置
+    filterSchema: [
+      { key: "price", type: "range", label: "价格", unit: "¥", min: 0, max: 20000, step: 100 },
+      { key: "width_mm", type: "range", label: "宽度", unit: "mm", min: 400, max: 3000, step: 10 },
+      { key: "material", type: "multi", label: "材质", options: ["布艺","皮质","实木","金属","玻璃"] },
+      { key: "style", type: "multi", label: "风格", options: ["现代","北欧","原木","极简","工业"] },
+      { key: "color", type: "multi", label: "颜色", options: ["灰","米白","原木","黑","棕"] },
+      { key: "upstairs", type: "bool", label: "可上楼" }
+    ],
+    currentFilters: {},
+    
     error: null
   },
 
@@ -194,7 +205,7 @@ Page({
   },
 
   /**
-   * 筛选条件变化
+   * 筛选条件变化（旧版）
    */
   onFilterChange(e) {
     const { filters } = e.detail
@@ -203,6 +214,28 @@ Page({
       page: 1 
     })
     this.loadItems(true)
+  },
+
+  /**
+   * 新筛选器应用
+   */
+  onFilterApply(e) {
+    const filters = e.detail
+    console.log('应用筛选条件:', filters)
+    
+    this.setData({ 
+      currentFilters: filters,
+      page: 1,
+      hasMore: true
+    })
+    this.loadItems(true)
+  },
+
+  /**
+   * 筛选器关闭
+   */
+  onFilterClose() {
+    this.setData({ showFilterSheet: false })
   },
 
   /**

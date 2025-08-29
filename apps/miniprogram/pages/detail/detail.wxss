@@ -69,16 +69,23 @@
   margin-bottom: 20rpx;
 }
 
-.stock-info {
+/* 库存和配送信息 */
+.availability-info {
   margin-top: 20rpx;
-  padding: 16rpx 0;
+  padding: 20rpx 0;
   border-top: 1rpx solid #f0f0f0;
+}
+
+.stock-info,
+.eta-info {
   display: flex;
   align-items: center;
   gap: 12rpx;
+  margin-bottom: 12rpx;
 }
 
-.stock-label {
+.stock-label,
+.eta-label {
   font-size: 26rpx;
   color: #666;
 }
@@ -94,6 +101,58 @@
 
 .stock-value.out-of-stock {
   color: #ff4d4f;
+}
+
+.eta-value {
+  font-size: 26rpx;
+  color: #007AFF;
+  background: #e6f3ff;
+  padding: 4rpx 12rpx;
+  border-radius: 8rpx;
+}
+
+/* 快速操作按钮 */
+.quick-actions {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 24rpx;
+}
+
+.action-btn {
+  flex: 1;
+  height: 72rpx;
+  border-radius: 12rpx;
+  border: none;
+  font-size: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8rpx;
+  transition: all 0.2s ease;
+}
+
+.action-btn::after {
+  border: none;
+}
+
+.secondary-btn {
+  background: #f8f9fa;
+  color: #333;
+  border: 1rpx solid #e9ecef;
+}
+
+.primary-btn {
+  background: #007AFF;
+  color: white;
+  flex: 2;
+}
+
+.btn-icon {
+  font-size: 28rpx;
+}
+
+.btn-text {
+  font-size: 24rpx;
 }
 
 .price-info {

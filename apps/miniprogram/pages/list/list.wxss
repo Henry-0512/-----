@@ -83,9 +83,17 @@
   font-weight: bold;
 }
 
-/* 商品列表 */
-.items-list {
+/* 商品列表 - 2列网格 */
+.items-grid {
+  display: flex;
+  flex-wrap: wrap;
   padding: 24rpx;
+  gap: 20rpx;
+}
+
+.items-grid product-card {
+  width: calc(50% - 10rpx);
+}
 }
 
 /* 底部状态 */

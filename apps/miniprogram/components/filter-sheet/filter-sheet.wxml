@@ -1,74 +1,77 @@
 <!--components/filter-sheet/filter-sheet.wxml-->
-<view class="filter-sheet {{visible ? 'visible' : ''}}" bindtap="onClose">
-  <view class="filter-content" bindtap="onContentTap" catchtap>
+<view wx:if="{{visible}}" class="filter-sheet-overlay" bindtap="onClose">
+  <view class="filter-sheet" catchtap>
     <!-- 头部 -->
     <view class="filter-header">
       <text class="filter-title">筛选条件</text>
-      <view class="header-actions">
-        <text class="clear-btn" bindtap="onClearAll">清空</text>
-        <text class="close-btn" bindtap="onClose">×</text>
+      <view class="filter-actions">
+        <text class="reset-btn" bindtap="onReset">重置</text>
+        <text class="close-btn" bindtap="onClose">✕</text>
       </view>
     </view>
 
     <!-- 筛选内容 -->
-    <scroll-view class="filter-scroll" scroll-y="true">
-      <!-- 商品分类 -->
-      <view class="filter-section">
-        <text class="section-title">商品分类</text>
-        <view class="option-list">
+    <scroll-view class="filter-content" scroll-y="true">
+      <view wx:for="{{schema}}" wx:key="key" class="filter-section">
+        <text class="filter-label">{{item.label}}</text>
+        
+        <!-- 范围类型 -->
+        <view wx:if="{{item.type === 'range'}}" class="filter-range">
+          <view class="range-values">
+            <text class="range-text">{{internalValues[item.key].min}}{{item.unit || ''}}</text>
+            <text class="range-separator">-</text>
+            <text class="range-text">{{internalValues[item.key].max}}{{item.unit || ''}}</text>
+          </view>
+          <slider 
+            class="range-slider"
+            data-key="{{item.key}}"
+            min="{{item.min}}"
+            max="{{item.max}}"
+            step="{{item.step || 1}}"
+            value="{{sliderValues[item.key][0]}}"
+            bindchange="onRangeChange"
+            show-value="{{false}}"
+            range="{{true}}"
+            range-value="{{sliderValues[item.key]}}"
+          />
+        </view>
+
+        <!-- 多选类型 -->
+        <view wx:elif="{{item.type === 'multi'}}" class="filter-multi">
           <view 
-            wx:for="{{filterOptions.categories}}" 
-            wx:key="id"
-            class="option-item {{tempFilters.categories.includes(item.id) ? 'selected' : ''}}"
-            data-category="{{item}}"
-            bindtap="onCategoryTap"
+            wx:for="{{item.options}}" 
+            wx:for-item="option"
+            wx:for-index="optionIndex"
+            wx:key="option"
+            class="multi-option {{internalValues[item.key].includes(option) ? 'selected' : ''}}"
+            data-key="{{item.key}}"
+            data-option="{{option}}"
+            bindtap="onMultiToggle"
           >
-            <text class="option-text">{{item.name}}</text>
-            <text class="option-count">({{item.count}})</text>
+            <text class="option-text">{{option}}</text>
+            <text wx:if="{{internalValues[item.key].includes(option)}}" class="option-check">✓</text>
           </view>
         </view>
-      </view>
 
-      <!-- 价格区间 -->
-      <view class="filter-section">
-        <text class="section-title">价格区间</text>
-        <view class="option-list">
+        <!-- 布尔类型 -->
+        <view wx:elif="{{item.type === 'bool'}}" class="filter-bool">
           <view 
-            wx:for="{{filterOptions.priceRanges}}" 
-            wx:key="id"
-            class="option-item {{tempFilters.priceRange && tempFilters.priceRange.id === item.id ? 'selected' : ''}}"
-            data-range="{{item}}"
-            bindtap="onPriceRangeTap"
+            class="bool-option {{internalValues[item.key] ? 'selected' : ''}}"
+            data-key="{{item.key}}"
+            bindtap="onBoolToggle"
           >
-            <text class="option-text">{{item.name}}</text>
-          </view>
-        </view>
-      </view>
-
-      <!-- 品牌筛选 -->
-      <view class="filter-section">
-        <text class="section-title">品牌</text>
-        <view class="option-list brand-list">
-          <view 
-            wx:for="{{filterOptions.brands}}" 
-            wx:key="id"
-            class="option-item brand-item {{tempFilters.brands.includes(item.id) ? 'selected' : ''}}"
-            data-brand="{{item}}"
-            bindtap="onBrandTap"
-          >
-            <text class="option-text">{{item.name}}</text>
+            <text class="option-text">{{item.label}}</text>
+            <text wx:if="{{internalValues[item.key]}}" class="option-check">✓</text>
           </view>
         </view>
       </view>
     </scroll-view>
 
-    <!-- 底部操作区 -->
+    <!-- 底部操作 -->
     <view class="filter-footer">
-      <view class="selected-info">
-        <text class="selected-count">已选 {{getSelectedCount()}} 个条件</text>
-      </view>
-      <button class="confirm-btn" bindtap="onConfirm">
-        确定筛选
+      <button class="apply-btn" bindtap="onApply">
+        应用筛选
+        <text wx:if="{{getActiveFiltersCount() > 0}}" class="filter-count">({{getActiveFiltersCount()}})</text>
       </button>
     </view>
   </view>

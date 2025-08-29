@@ -39,13 +39,13 @@
     <button class="btn-primary" bindtap="onRetry">重试</button>
   </view>
 
-  <!-- 商品列表 -->
-  <view wx:else class="items-list">
+  <!-- 商品列表 - 2列网格布局 -->
+  <view wx:else class="items-grid">
     <product-card
       wx:for="{{items}}" 
       wx:key="id"
       product="{{item}}"
-      card-type="list"
+      card-type="grid"
       show-favorite="{{true}}"
       bind:cardtap="onProductCardTap"
       bind:favoritechange="onFavoriteChange"
@@ -73,12 +73,12 @@
     </view>
   </view>
 
-  <!-- 筛选抽屉 -->
+  <!-- 新版筛选抽屉 -->
   <filter-sheet
     visible="{{showFilterSheet}}"
-    filter-options="{{filterOptions}}"
-    selected-filters="{{selectedFilters}}"
-    bind:close="onHideFilter"
-    bind:filterchange="onFilterChange"
+    schema="{{filterSchema}}"
+    values="{{currentFilters}}"
+    bind:apply="onFilterApply"
+    bind:close="onFilterClose"
   />
 </view>

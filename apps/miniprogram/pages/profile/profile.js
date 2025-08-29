@@ -247,6 +247,15 @@ Page({
   },
 
   /**
+   * 商品对比
+   */
+  onCompare() {
+    wx.navigateTo({
+      url: '/pages/compare/compare'
+    })
+  },
+
+  /**
    * 关于我们
    */
   onAboutUs() {

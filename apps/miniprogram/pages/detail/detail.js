@@ -188,6 +188,106 @@ Page({
   },
 
   /**
+   * 添加到对比
+   */
+  onAddToCompare() {
+    const compareList = storage.get('compareList', [])
+    const { sku } = this.data
+    
+    // 检查是否已在对比列表中
+    const exists = compareList.some(item => item.id === sku.id)
+    if (exists) {
+      wx.showToast({ title: '已在对比列表中', icon: 'none' })
+      return
+    }
+    
+    // 检查对比列表是否已满（最多4件）
+    if (compareList.length >= 4) {
+      wx.showModal({
+        title: '提示',
+        content: '对比列表最多只能添加4件商品，是否替换第一件？',
+        success: (res) => {
+          if (res.confirm) {
+            const newCompareList = compareList.slice(1)
+            newCompareList.push({
+              id: sku.id,
+              title: sku.title || sku.name,
+              monthlyPrice: sku.monthlyPrice || Math.ceil(sku.price/50),
+              price: sku.price,
+              images: sku.images,
+              brand: sku.brand,
+              style: sku.style,
+              material: sku.material,
+              color: sku.color,
+              width_mm: sku.width_mm,
+              depth_mm: sku.depth_mm,
+              height_mm: sku.height_mm,
+              addedAt: new Date().toISOString()
+            })
+            storage.set('compareList', newCompareList)
+            wx.showToast({ title: '已添加到对比', icon: 'success' })
+          }
+        }
+      })
+      return
+    }
+    
+    // 添加到对比列表
+    const newCompareList = [...compareList, {
+      id: sku.id,
+      title: sku.title || sku.name,
+      monthlyPrice: sku.monthlyPrice || Math.ceil(sku.price/50),
+      price: sku.price,
+      images: sku.images,
+      brand: sku.brand,
+      style: sku.style,
+      material: sku.material,
+      color: sku.color,
+      width_mm: sku.width_mm,
+      depth_mm: sku.depth_mm,
+      height_mm: sku.height_mm,
+      addedAt: new Date().toISOString()
+    }]
+    
+    storage.set('compareList', newCompareList)
+    wx.showToast({ title: '已添加到对比', icon: 'success' })
+  },
+
+  /**
+   * 添加到购物车
+   */
+  onAddToCart() {
+    const cart = storage.get('cart', [])
+    const { sku, duration } = this.data
+    
+    // 检查购物车中是否已有此商品
+    const existingIndex = cart.findIndex(item => item.skuId === sku.id)
+    
+    if (existingIndex > -1) {
+      // 更新数量
+      cart[existingIndex].quantity += 1
+      cart[existingIndex].duration = duration
+      wx.showToast({ title: '已更新购物车', icon: 'success' })
+    } else {
+      // 添加新商品
+      cart.push({
+        skuId: sku.id,
+        title: sku.title || sku.name,
+        monthlyPrice: sku.monthlyPrice || Math.ceil(sku.price/50),
+        price: sku.price,
+        images: sku.images,
+        brand: sku.brand,
+        quantity: 1,
+        duration: duration,
+        addedAt: new Date().toISOString()
+      })
+      wx.showToast({ title: '已添加到购物车', icon: 'success' })
+    }
+    
+    storage.set('cart', cart)
+  },
+
+  /**
    * 创建意向订单
    */
   async onCreateOrder() {

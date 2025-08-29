@@ -1,0 +1,75 @@
+<!--pages/compare/compare.wxml-->
+<view class="compare-page">
+  <!-- 头部 -->
+  <view class="compare-header">
+    <view class="header-left">
+      <text class="back-btn" bindtap="onBack">‹</text>
+      <text class="page-title">商品对比</text>
+    </view>
+    <text wx:if="{{compareList.length > 0}}" class="clear-btn" bindtap="onClearAll">清空</text>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:if="{{compareList.length === 0}}" class="empty-state">
+    <text class="empty-icon">📊</text>
+    <text class="empty-title">暂无对比商品</text>
+    <text class="empty-desc">在商品详情页点击"对比"即可添加商品进行对比</text>
+    <button class="go-shopping-btn" bindtap="onBack">去购物</button>
+  </view>
+
+  <!-- 对比表格 -->
+  <view wx:else class="compare-table">
+    <!-- 商品图片行 -->
+    <view class="table-row image-row">
+      <view class="row-label">商品</view>
+      <scroll-view class="row-content" scroll-x="true">
+        <view class="product-images">
+          <view 
+            wx:for="{{compareList}}" 
+            wx:key="id" 
+            class="product-item"
+            data-id="{{item.id}}"
+            bindtap="onViewDetail"
+          >
+            <image 
+              class="product-image" 
+              src="{{item.images[0].url || item.images[0] || 'https://picsum.photos/200/200?random=0'}}"
+              mode="aspectFill"
+            />
+            <text class="remove-btn" data-index="{{index}}" bindtap="onRemoveCompare" catchtap>×</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- 属性对比行 -->
+    <view 
+      wx:for="{{compareFields}}" 
+      wx:key="key" 
+      class="table-row {{hasFieldDifference(item) ? 'has-difference' : ''}}"
+    >
+      <view class="row-label">{{item.label}}</view>
+      <scroll-view class="row-content" scroll-x="true">
+        <view class="field-values">
+          <view 
+            wx:for="{{compareList}}" 
+            wx:for-item="product"
+            wx:for-index="productIndex"
+            wx:key="id" 
+            class="field-value {{hasFieldDifference(item) ? 'different' : ''}}"
+          >
+            <text class="value-text">{{getFieldValue(product, item)}}</text>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+
+  <!-- 底部操作 -->
+  <view wx:if="{{compareList.length > 0}}" class="compare-footer">
+    <text class="compare-count">已对比 {{compareList.length}} 件商品</text>
+    <button class="view-detail-btn" data-id="{{compareList[0].id}}" bindtap="onViewDetail">
+      查看第一件详情
+    </button>
+  </view>
+</view>
