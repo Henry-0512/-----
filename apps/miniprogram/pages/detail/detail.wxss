@@ -3,6 +3,9 @@
   background: #f8f8f8;
   min-height: 100vh;
   padding-bottom: 120rpx;
+  box-sizing: border-box;
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .loading, .error {
@@ -16,6 +19,8 @@
 
 .detail-content {
   background: white;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* 图片展示区域 */
@@ -52,6 +57,9 @@
 .info-section {
   padding: 32rpx;
   border-bottom: 16rpx solid #f8f8f8;
+  width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
 }
 
 .sku-name {
@@ -60,6 +68,9 @@
   font-weight: bold;
   color: #333;
   margin-bottom: 8rpx;
+  line-height: 1.4;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 .sku-brand {

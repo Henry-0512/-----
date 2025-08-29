@@ -14,11 +14,23 @@
 
 /* 网格卡片样式 */
 .grid-card {
-  margin-bottom: 24rpx;
+  margin-bottom: 0;
+  height: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .grid-card .card-info {
-  padding: 24rpx;
+  padding: 20rpx;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.grid-card .card-image {
+  height: 220rpx;
+  width: 100%;
 }
 
 /* 列表卡片样式 */
@@ -128,8 +140,8 @@
 }
 
 .card-title {
-  font-size: 28rpx;
-  font-weight: bold;
+  font-size: 26rpx;
+  font-weight: 600;
   color: #333;
   margin-bottom: 8rpx;
   display: -webkit-box;
@@ -137,6 +149,9 @@
   -webkit-box-orient: vertical;
   overflow: hidden;
   line-height: 1.4;
+  word-break: break-word;
+  height: auto;
+  min-height: 72rpx;
 }
 
 .card-brand {
@@ -171,19 +186,19 @@
 /* 价格信息 */
 .card-price {
   display: flex;
-  align-items: baseline;
-  margin-bottom: 16rpx;
-  gap: 16rpx;
+  flex-direction: column;
+  margin-bottom: 12rpx;
+  gap: 4rpx;
 }
 
 .monthly-price {
-  font-size: 32rpx;
+  font-size: 28rpx;
   font-weight: bold;
   color: #FF6B6B;
 }
 
 .original-price {
-  font-size: 24rpx;
+  font-size: 22rpx;
   color: #999;
   text-decoration: line-through;
 }

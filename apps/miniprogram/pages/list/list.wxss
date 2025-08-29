@@ -85,14 +85,14 @@
 
 /* 商品列表 - 2列网格 */
 .items-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24rpx;
   padding: 24rpx;
-  gap: 20rpx;
 }
 
 .items-grid product-card {
-  width: calc(50% - 10rpx);
+  width: 100%;
 }
 
 /* 底部状态 */
