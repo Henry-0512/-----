@@ -94,7 +94,6 @@
 .items-grid product-card {
   width: calc(50% - 10rpx);
 }
-}
 
 /* 底部状态 */
 .load-more, .no-more {
