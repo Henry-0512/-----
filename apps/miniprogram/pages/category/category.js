@@ -1,7 +1,6 @@
 // pages/category/category.js
-const { USE_MOCK_DATA } = require('../../utils/config.js')
-
-const { api } = USE_MOCK_DATA 
+const { isMockEnabled } = require('../../config/env.js')
+const { api } = isMockEnabled() 
   ? require('../../utils/request-mock.js')
   : require('../../utils/request.js')
 

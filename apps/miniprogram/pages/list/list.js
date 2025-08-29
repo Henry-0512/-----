@@ -1,5 +1,8 @@
 // pages/list/list.js
-const { api, ERROR_TYPES } = require('../../utils/request.js')
+const { isMockEnabled } = require('../../config/env.js')
+const { api, ERROR_TYPES } = isMockEnabled() 
+  ? require('../../utils/request-mock.js')
+  : require('../../utils/request.js')
 
 Page({
   data: {

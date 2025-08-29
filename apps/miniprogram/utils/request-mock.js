@@ -123,8 +123,18 @@ const api = {
   }
 }
 
+// 错误类型定义（与真实request.js保持一致）
+const ERROR_TYPES = {
+  NETWORK: 'NETWORK',
+  TIMEOUT: 'TIMEOUT', 
+  SERVER: 'SERVER',
+  CLIENT: 'CLIENT',
+  BUSINESS: 'BUSINESS'
+}
+
 module.exports = {
   request,
   api,
-  storage
+  storage,
+  ERROR_TYPES
 }
