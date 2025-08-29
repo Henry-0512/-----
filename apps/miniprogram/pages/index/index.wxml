@@ -1,0 +1,83 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <!-- 加载状态 -->
+  <view wx:if="{{loading}}" class="loading">
+    <text>加载中...</text>
+  </view>
+
+  <!-- 错误状态 -->
+  <view wx:elif="{{error}}" class="error">
+    <text>{{error}}</text>
+    <button class="btn-primary" bindtap="onRetry">重试</button>
+  </view>
+
+  <!-- 正常内容 -->
+  <view wx:else>
+    <!-- 搜索框 -->
+    <view class="search-bar">
+      <view class="search-input" bindtap="onSearchTap">
+        <text class="search-icon">🔍</text>
+        <text class="search-placeholder">搜索家具...</text>
+      </view>
+    </view>
+
+    <!-- 轮播图 -->
+    <swiper class="banner-swiper" indicator-dots="true" autoplay="true" interval="4000" duration="500">
+      <swiper-item 
+        wx:for="{{banners}}" 
+        wx:key="id"
+        data-banner="{{item}}"
+        bindtap="onBannerTap"
+      >
+        <image class="banner-image" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="banner-overlay">
+          <text class="banner-title">{{item.title}}</text>
+        </view>
+      </swiper-item>
+    </swiper>
+
+    <!-- 分类导航 -->
+    <view class="section">
+      <view class="section-header">
+        <text class="section-title">商品分类</text>
+      </view>
+      <view class="categories">
+        <view 
+          wx:for="{{categories}}" 
+          wx:key="id" 
+          class="category-item"
+          data-category="{{item}}"
+          bindtap="onCategoryTap"
+        >
+          <view class="category-icon">{{item.name.charAt(0)}}</view>
+          <text class="category-name">{{item.name}}</text>
+          <text class="category-count">({{item.count}})</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 热门商品 -->
+    <view class="section">
+      <view class="section-header">
+        <text class="section-title">热门商品</text>
+        <text class="view-more" bindtap="onViewMoreHot">查看更多 ></text>
+      </view>
+      <view class="hot-items">
+        <product-card
+          wx:for="{{hotItems}}" 
+          wx:key="id"
+          product="{{item}}"
+          card-type="grid"
+          show-favorite="{{true}}"
+          bind:cardtap="onProductCardTap"
+          bind:favoritechange="onFavoriteChange"
+        />
+      </view>
+
+      <!-- 空状态 -->
+      <view wx:if="{{hotItems.length === 0}}" class="empty-hot-items">
+        <text class="empty-text">暂无热门商品</text>
+      </view>
+    </view>
+  </view>
+</view>

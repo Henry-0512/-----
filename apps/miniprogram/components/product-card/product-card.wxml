@@ -1,0 +1,79 @@
+<!--components/product-card/product-card.wxml-->
+<view class="product-card {{cardType}}-card" bindtap="onCardTap">
+  <!-- 商品图片 -->
+  <view class="card-image-container">
+    <image 
+      class="card-image" 
+      src="{{product.images[0] || '/images/placeholder.png'}}" 
+      mode="aspectFill"
+      bindtap="onImageTap"
+      catchtap
+    ></image>
+    
+    <!-- 标签 -->
+    <view wx:if="{{product.tags && product.tags.length > 0}}" class="card-tags">
+      <text wx:for="{{product.tags}}" wx:key="*this" class="tag">{{item}}</text>
+    </view>
+    
+    <!-- 操作按钮 -->
+    <view class="card-actions">
+      <!-- 收藏按钮 -->
+      <view 
+        wx:if="{{showFavorite}}" 
+        class="action-btn favorite-btn {{isFavorited ? 'favorited' : ''}}"
+        bindtap="onFavoriteTap"
+        catchtap
+      >
+        <text class="action-icon">{{isFavorited ? '♥' : '♡'}}</text>
+      </view>
+      
+      <!-- 对比按钮 -->
+      <view 
+        wx:if="{{showCompare}}" 
+        class="action-btn compare-btn {{isCompared ? 'compared' : ''}}"
+        bindtap="onCompareTap"
+        catchtap
+      >
+        <text class="action-icon">{{isCompared ? '✓' : '⚖'}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 商品信息 -->
+  <view class="card-info">
+    <!-- 商品名称 -->
+    <text class="card-title">{{product.name || '商品名称'}}</text>
+    
+    <!-- 商品描述 (仅列表模式显示) -->
+    <text wx:if="{{cardType === 'list'}}" class="card-desc">
+      {{product.description || '暂无描述'}}
+    </text>
+    
+    <!-- 价格信息 -->
+    <view class="card-price">
+      <text class="monthly-price">¥{{product.monthlyPrice || 0}}/月</text>
+      <text wx:if="{{product.originalPrice}}" class="original-price">
+        原价¥{{product.originalPrice}}
+      </text>
+    </view>
+    
+    <!-- 额外信息 (仅列表模式显示) -->
+    <view wx:if="{{cardType === 'list'}}" class="card-extra">
+      <view class="extra-item">
+        <text class="extra-label">品牌：</text>
+        <text class="extra-value">{{product.brand || '未知'}}</text>
+      </view>
+      <view class="extra-item">
+        <text class="extra-label">材质：</text>
+        <text class="extra-value">{{product.material || '未知'}}</text>
+      </view>
+    </view>
+    
+    <!-- 库存状态 -->
+    <view class="card-status">
+      <text class="status-text {{product.available ? 'available' : 'unavailable'}}">
+        {{product.available ? '现货' : '暂时缺货'}}
+      </text>
+    </view>
+  </view>
+</view>

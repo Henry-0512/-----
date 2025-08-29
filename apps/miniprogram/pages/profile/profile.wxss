@@ -1,0 +1,299 @@
+/* pages/profile/profile.wxss */
+.container {
+  background: #f8f8f8;
+  min-height: 100vh;
+  padding-bottom: 40rpx;
+}
+
+/* 用户信息区域 */
+.user-section {
+  background: linear-gradient(135deg, #007AFF, #5AC8FA);
+  padding: 40rpx 32rpx 32rpx;
+  color: white;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32rpx;
+}
+
+.user-avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-right: 32rpx;
+  border: 4rpx solid rgba(255, 255, 255, 0.3);
+}
+
+.user-details {
+  flex: 1;
+}
+
+.user-nickname {
+  display: block;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 12rpx;
+}
+
+.user-phone {
+  font-size: 28rpx;
+  opacity: 0.8;
+}
+
+.login-arrow {
+  font-size: 32rpx;
+  font-weight: bold;
+  opacity: 0.8;
+}
+
+/* 统计数据 */
+.stats-section {
+  display: flex;
+  justify-content: space-around;
+  padding: 24rpx 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16rpx;
+}
+
+.stats-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats-number {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-bottom: 8rpx;
+}
+
+.stats-label {
+  font-size: 24rpx;
+  opacity: 0.8;
+}
+
+/* 标签页 */
+.tabs-section {
+  background: white;
+  border-bottom: 2rpx solid #f0f0f0;
+}
+
+.tabs {
+  display: flex;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 32rpx 16rpx;
+  font-size: 28rpx;
+  color: #666;
+  position: relative;
+}
+
+.tab-item.active {
+  color: #007AFF;
+  font-weight: bold;
+}
+
+.tab-item.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60rpx;
+  height: 4rpx;
+  background: #007AFF;
+  border-radius: 2rpx;
+}
+
+/* 内容区域 */
+.content-section {
+  flex: 1;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200rpx;
+  color: #666;
+  font-size: 28rpx;
+}
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400rpx;
+  text-align: center;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 24rpx;
+}
+
+.empty-text {
+  font-size: 28rpx;
+  color: #666;
+  margin-bottom: 12rpx;
+}
+
+.empty-desc {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 内容头部 */
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 32rpx;
+  background: white;
+  border-bottom: 2rpx solid #f0f0f0;
+}
+
+.content-title {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.clear-btn {
+  font-size: 26rpx;
+  color: #FF6B6B;
+}
+
+.compare-actions {
+  display: flex;
+  gap: 24rpx;
+}
+
+.action-btn {
+  font-size: 26rpx;
+  color: #007AFF;
+}
+
+/* 订单列表 */
+.orders-content {
+  background: white;
+}
+
+.orders-list {
+  padding: 0 32rpx;
+}
+
+.order-item {
+  padding: 32rpx 0;
+  border-bottom: 2rpx solid #f8f8f8;
+}
+
+.order-item:last-child {
+  border-bottom: none;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.order-id {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: bold;
+}
+
+.order-status {
+  font-size: 24rpx;
+  padding: 8rpx 16rpx;
+  border-radius: 24rpx;
+  color: white;
+}
+
+.order-status.pending {
+  background: #FF9500;
+}
+
+.order-status.confirmed {
+  background: #34C759;
+}
+
+.order-status.cancelled {
+  background: #FF3B30;
+}
+
+.order-info {
+  margin-bottom: 12rpx;
+}
+
+.order-info text {
+  display: block;
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+}
+
+.order-date {
+  font-size: 24rpx;
+  color: #999;
+}
+
+/* 收藏网格 */
+.favorites-content, .compare-content {
+  background: white;
+}
+
+.favorites-grid {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 24rpx 12rpx;
+}
+
+.compare-list {
+  padding: 24rpx;
+}
+
+/* 功能菜单 */
+.menu-section {
+  margin: 24rpx;
+  background: white;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 32rpx;
+  border-bottom: 2rpx solid #f8f8f8;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-icon {
+  font-size: 40rpx;
+  margin-right: 24rpx;
+  width: 48rpx;
+  text-align: center;
+}
+
+.menu-text {
+  flex: 1;
+  font-size: 32rpx;
+  color: #333;
+}
+
+.menu-arrow {
+  font-size: 28rpx;
+  color: #999;
+}

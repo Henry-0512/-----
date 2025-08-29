@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "product-card": "../../components/product-card/product-card"
+  },
+  "navigationBarTitleText": "家具租赁",
+  "enablePullDownRefresh": true,
+  "backgroundColor": "#f8f8f8"
+}

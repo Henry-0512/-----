@@ -1,0 +1,186 @@
+<!--pages/profile/profile.wxml-->
+<view class="container">
+  <!-- 用户信息区域 -->
+  <view class="user-section">
+    <view class="user-info" bindtap="onGetUserProfile">
+      <image 
+        class="user-avatar" 
+        src="{{userInfo.avatar || '/images/default-avatar.png'}}" 
+        mode="aspectFill"
+      ></image>
+      <view class="user-details">
+        <text class="user-nickname">{{userInfo.nickname}}</text>
+        <text class="user-phone">{{userInfo.phone || '点击登录'}}</text>
+      </view>
+      <text class="login-arrow">></text>
+    </view>
+    
+    <!-- 统计数据 -->
+    <view class="stats-section">
+      <view class="stats-item">
+        <text class="stats-number">{{statsData.totalOrders}}</text>
+        <text class="stats-label">订单</text>
+      </view>
+      <view class="stats-item">
+        <text class="stats-number">{{statsData.totalFavorites}}</text>
+        <text class="stats-label">收藏</text>
+      </view>
+      <view class="stats-item">
+        <text class="stats-number">{{statsData.totalCompare}}</text>
+        <text class="stats-label">对比</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 标签页切换 -->
+  <view class="tabs-section">
+    <view class="tabs">
+      <view 
+        class="tab-item {{currentTab === 'orders' ? 'active' : ''}}"
+        data-tab="orders"
+        bindtap="onTabChange"
+      >
+        <text>我的订单</text>
+      </view>
+      <view 
+        class="tab-item {{currentTab === 'favorites' ? 'active' : ''}}"
+        data-tab="favorites"
+        bindtap="onTabChange"
+      >
+        <text>收藏夹</text>
+      </view>
+      <view 
+        class="tab-item {{currentTab === 'compare' ? 'active' : ''}}"
+        data-tab="compare"
+        bindtap="onTabChange"
+      >
+        <text>对比栏</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 内容区域 -->
+  <view class="content-section">
+    <!-- 加载状态 -->
+    <view wx:if="{{loading}}" class="loading">
+      <text>加载中...</text>
+    </view>
+
+    <!-- 订单列表 -->
+    <view wx:elif="{{currentTab === 'orders'}}" class="orders-content">
+      <view wx:if="{{orders.length === 0}}" class="empty-state">
+        <text class="empty-icon">📝</text>
+        <text class="empty-text">暂无订单</text>
+        <text class="empty-desc">快去租一些家具吧</text>
+      </view>
+      
+      <view wx:else class="orders-list">
+        <view 
+          wx:for="{{orders}}" 
+          wx:key="orderId" 
+          class="order-item"
+          data-order="{{item}}"
+          bindtap="onOrderDetail"
+        >
+          <view class="order-header">
+            <text class="order-id">订单号：{{item.orderId}}</text>
+            <text class="order-status {{item.status}}">
+              {{item.status === 'pending' ? '待确认' : item.status === 'confirmed' ? '已确认' : '已取消'}}
+            </text>
+          </view>
+          <view class="order-info">
+            <text class="order-sku">商品ID：{{item.skuId}}</text>
+            <text class="order-duration">租期：{{item.duration}}个月</text>
+            <text class="order-amount">金额：¥{{item.totalAmount}}</text>
+          </view>
+          <text class="order-date">创建时间：{{item.createdAt}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 收藏列表 -->
+    <view wx:elif="{{currentTab === 'favorites'}}" class="favorites-content">
+      <view wx:if="{{favoriteItems.length === 0}}" class="empty-state">
+        <text class="empty-icon">💝</text>
+        <text class="empty-text">暂无收藏</text>
+        <text class="empty-desc">快去收藏一些喜欢的家具吧</text>
+      </view>
+      
+      <view wx:else>
+        <view class="content-header">
+          <text class="content-title">共{{favoriteItems.length}}件收藏</text>
+          <text class="clear-btn" bindtap="onClearFavorites">清空</text>
+        </view>
+        <view class="favorites-grid">
+          <product-card
+            wx:for="{{favoriteItems}}" 
+            wx:key="id"
+            product="{{item}}"
+            card-type="grid"
+            show-favorite="{{true}}"
+            bind:cardtap="onProductCardTap"
+            bind:favoritechange="onFavoriteChange"
+          />
+        </view>
+      </view>
+    </view>
+
+    <!-- 对比列表 -->
+    <view wx:elif="{{currentTab === 'compare'}}" class="compare-content">
+      <view wx:if="{{compareItems.length === 0}}" class="empty-state">
+        <text class="empty-icon">⚖️</text>
+        <text class="empty-text">暂无对比商品</text>
+        <text class="empty-desc">最多可对比3个商品</text>
+      </view>
+      
+      <view wx:else>
+        <view class="content-header">
+          <text class="content-title">对比商品 ({{compareItems.length}}/3)</text>
+          <view class="compare-actions">
+            <text class="action-btn" bindtap="onStartCompare">开始对比</text>
+            <text class="clear-btn" bindtap="onClearCompare">清空</text>
+          </view>
+        </view>
+        <view class="compare-list">
+          <product-card
+            wx:for="{{compareItems}}" 
+            wx:key="id"
+            product="{{item}}"
+            card-type="list"
+            show-favorite="{{false}}"
+            show-compare="{{true}}"
+            bind:cardtap="onProductCardTap"
+            bind:comparechange="onCompareChange"
+          />
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能菜单 -->
+  <view class="menu-section">
+    <view class="menu-item" bindtap="onGoToSettings">
+      <text class="menu-icon">⚙️</text>
+      <text class="menu-text">设置</text>
+      <text class="menu-arrow">></text>
+    </view>
+    
+    <view class="menu-item" bindtap="onContactService">
+      <text class="menu-icon">📞</text>
+      <text class="menu-text">联系客服</text>
+      <text class="menu-arrow">></text>
+    </view>
+    
+    <view class="menu-item" bindtap="onAboutUs">
+      <text class="menu-icon">ℹ️</text>
+      <text class="menu-text">关于我们</text>
+      <text class="menu-arrow">></text>
+    </view>
+    
+    <view wx:if="{{userInfo.nickname !== '未登录'}}" class="menu-item" bindtap="onLogout">
+      <text class="menu-icon">🚪</text>
+      <text class="menu-text">退出登录</text>
+      <text class="menu-arrow">></text>
+    </view>
+  </view>
+</view>

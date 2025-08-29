@@ -1,0 +1,137 @@
+<!--pages/detail/detail.wxml-->
+<view class="container">
+  <!-- 加载状态 -->
+  <view wx:if="{{loading}}" class="loading">
+    <text>加载中...</text>
+  </view>
+
+  <!-- 错误状态 -->
+  <view wx:elif="{{error}}" class="error">
+    <text>{{error}}</text>
+    <button class="btn-primary" bindtap="onRetry">重试</button>
+  </view>
+
+  <!-- 商品详情内容 -->
+  <view wx:elif="{{sku}}" class="detail-content">
+    <!-- 图片展示 -->
+    <view class="image-section">
+      <image 
+        class="main-image" 
+        src="{{sku.images[selectedImage]}}" 
+        mode="aspectFill"
+        bindtap="onImagePreview"
+      ></image>
+      <view class="image-indicators">
+        <view 
+          wx:for="{{sku.images}}" 
+          wx:key="*this" 
+          class="indicator {{index === selectedImage ? 'active' : ''}}"
+          data-index="{{index}}"
+          bindtap="onImageSelect"
+        ></view>
+      </view>
+    </view>
+
+    <!-- 商品基本信息 -->
+    <view class="info-section">
+      <text class="sku-name">{{sku.name}}</text>
+      <text class="sku-desc">{{sku.description}}</text>
+      
+      <view class="price-info">
+        <text class="monthly-price">¥{{sku.monthlyPrice}}/月</text>
+        <text class="original-price">原价 ¥{{sku.originalPrice}}</text>
+      </view>
+
+      <view class="sku-attributes">
+        <view class="attribute">
+          <text class="attr-label">颜色：</text>
+          <text class="attr-value">{{sku.color}}</text>
+        </view>
+        <view class="attribute">
+          <text class="attr-label">材质：</text>
+          <text class="attr-value">{{sku.material}}</text>
+        </view>
+        <view class="attribute">
+          <text class="attr-label">品牌：</text>
+          <text class="attr-value">{{sku.brand}}</text>
+        </view>
+      </view>
+
+      <view class="sku-tags">
+        <text wx:for="{{sku.tags}}" wx:key="*this" class="tag">{{item}}</text>
+      </view>
+    </view>
+
+    <!-- 尺寸信息 -->
+    <view class="size-section">
+      <view class="section-header">
+        <text class="section-title">尺寸信息</text>
+        <text class="size-guide-btn" bindtap="onShowSizeGuide">尺寸示意图</text>
+      </view>
+      <view class="size-info">
+        <view class="size-item">
+          <text class="size-label">长：</text>
+          <text class="size-value">{{sku.dimensions.length}}cm</text>
+        </view>
+        <view class="size-item">
+          <text class="size-label">宽：</text>
+          <text class="size-value">{{sku.dimensions.width}}cm</text>
+        </view>
+        <view class="size-item">
+          <text class="size-label">高：</text>
+          <text class="size-value">{{sku.dimensions.height}}cm</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 租赁配置 -->
+    <view class="rental-section">
+      <text class="section-title">租赁配置</text>
+      <view class="duration-selector">
+        <text class="duration-label">租赁时长：</text>
+        <view class="duration-controls">
+          <view class="duration-btn" data-type="minus" bindtap="onDurationChange">-</view>
+          <text class="duration-value">{{duration}}个月</text>
+          <view class="duration-btn" data-type="plus" bindtap="onDurationChange">+</view>
+        </view>
+      </view>
+      <view class="total-price">
+        <text>总计：¥{{sku.monthlyPrice * duration}}</text>
+      </view>
+    </view>
+
+    <!-- 推荐商品 -->
+    <view wx:if="{{recommendations.length > 0}}" class="recommendations-section">
+      <text class="section-title">相关推荐</text>
+      <scroll-view class="recommendations-scroll" scroll-x="true">
+        <product-card
+          wx:for="{{recommendations}}" 
+          wx:key="id"
+          product="{{item}}"
+          card-type="grid"
+          show-favorite="{{true}}"
+          bind:cardtap="onRecommendationTap"
+        />
+      </scroll-view>
+    </view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view wx:if="{{sku}}" class="bottom-actions">
+    <view class="action-btn favorite-btn {{isFavorited ? 'favorited' : ''}}" bindtap="onToggleFavorite">
+      <text class="action-icon">{{isFavorited ? '♥' : '♡'}}</text>
+    </view>
+    <button class="action-btn share-btn" open-type="share">分享</button>
+    <button class="action-btn primary-btn" bindtap="onCreateOrder">
+      立即租赁 ¥{{sku.monthlyPrice * duration}}
+    </button>
+  </view>
+
+  <!-- 尺寸示意图弹窗 -->
+  <size-sketch
+    visible="{{showSizeGuide}}"
+    product="{{sku}}"
+    mode="modal"
+    bind:close="onHideSizeGuide"
+  />
+</view>

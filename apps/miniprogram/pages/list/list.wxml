@@ -1,0 +1,84 @@
+<!--pages/list/list.wxml-->
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-header">
+    <view class="search-box">
+      <input 
+        class="search-input" 
+        placeholder="搜索家具..." 
+        value="{{searchQuery}}"
+        bindinput="onSearchInput"
+        bindconfirm="onSearchConfirm"
+      />
+      <view wx:if="{{searchQuery}}" class="clear-search" bindtap="onClearSearch">
+        <text class="clear-icon">×</text>
+      </view>
+    </view>
+    <view class="filter-btn" bindtap="onShowFilter">
+      <text class="filter-text">筛选</text>
+      <text class="filter-icon">⚙</text>
+    </view>
+  </view>
+
+  <!-- 结果统计 -->
+  <view wx:if="{{!loading && !error}}" class="result-info">
+    <text class="result-text">
+      共找到 {{total}} 个结果
+      <text wx:if="{{searchQuery}}" class="search-keyword">"{{searchQuery}}"</text>
+    </text>
+  </view>
+
+  <!-- 加载状态 -->
+  <view wx:if="{{loading && items.length === 0}}" class="loading">
+    <text>加载中...</text>
+  </view>
+
+  <!-- 错误状态 -->
+  <view wx:elif="{{error}}" class="error">
+    <text>{{error}}</text>
+    <button class="btn-primary" bindtap="onRetry">重试</button>
+  </view>
+
+  <!-- 商品列表 -->
+  <view wx:else class="items-list">
+    <product-card
+      wx:for="{{items}}" 
+      wx:key="id"
+      product="{{item}}"
+      card-type="list"
+      show-favorite="{{true}}"
+      bind:cardtap="onProductCardTap"
+      bind:favoritechange="onFavoriteChange"
+    />
+
+    <!-- 底部加载更多 -->
+    <view wx:if="{{loading && items.length > 0}}" class="load-more">
+      <text>加载更多...</text>
+    </view>
+
+    <!-- 没有更多 -->
+    <view wx:elif="{{!hasMore && items.length > 0}}" class="no-more">
+      <text>— 已显示全部商品 —</text>
+    </view>
+
+    <!-- 空状态 -->
+    <view wx:if="{{items.length === 0}}" class="empty-state">
+      <text class="empty-icon">📦</text>
+      <text class="empty-text">
+        {{searchQuery ? '没有找到相关商品' : '暂无商品'}}
+      </text>
+      <text class="empty-desc">
+        {{searchQuery ? '试试修改搜索关键词' : '请稍后再试'}}
+      </text>
+    </view>
+  </view>
+
+  <!-- 筛选抽屉 -->
+  <filter-sheet
+    visible="{{showFilterSheet}}"
+    filter-options="{{filterOptions}}"
+    selected-filters="{{selectedFilters}}"
+    bind:close="onHideFilter"
+    bind:filterchange="onFilterChange"
+  />
+</view>

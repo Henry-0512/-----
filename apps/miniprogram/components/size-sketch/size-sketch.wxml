@@ -1,0 +1,130 @@
+<!--components/size-sketch/size-sketch.wxml-->
+
+<!-- 模态框模式 -->
+<view wx:if="{{mode === 'modal'}}" class="size-sketch-modal {{visible ? 'visible' : ''}}" bindtap="onClose">
+  <view class="sketch-modal-content" bindtap="onContentTap" catchtap>
+    <!-- 模态框头部 -->
+    <view class="sketch-header">
+      <text class="sketch-title">{{product.name}} - 尺寸示意图</text>
+      <text class="close-btn" bindtap="onClose">×</text>
+    </view>
+    
+    <!-- 模态框内容 -->
+    <view class="sketch-modal-body">
+      <size-sketch-content />
+    </view>
+  </view>
+</view>
+
+<!-- 内联模式 -->
+<view wx:elif="{{mode === 'inline'}}" class="size-sketch-inline">
+  <size-sketch-content />
+</view>
+
+<!-- 尺寸示意图内容模板 -->
+<template name="size-sketch-content">
+  <!-- 视角切换 -->
+  <view class="view-tabs">
+    <view 
+      class="view-tab {{currentView === 'front' ? 'active' : ''}}"
+      data-view="front"
+      bindtap="onViewChange"
+    >
+      <text>正面</text>
+    </view>
+    <view 
+      class="view-tab {{currentView === 'side' ? 'active' : ''}}"
+      data-view="side"
+      bindtap="onViewChange"
+    >
+      <text>侧面</text>
+    </view>
+    <view 
+      class="view-tab {{currentView === 'top' ? 'active' : ''}}"
+      data-view="top"
+      bindtap="onViewChange"
+    >
+      <text>俯视</text>
+    </view>
+  </view>
+
+  <!-- 尺寸示意图主体 -->
+  <view class="sketch-container">
+    <!-- 示意图图形 -->
+    <view class="sketch-diagram">
+      <view 
+        class="furniture-shape {{currentView}}-view"
+        style="{{getCurrentViewStyle()}}"
+      >
+        <!-- 家具轮廓 -->
+        <view class="furniture-outline">
+          <text class="furniture-name">{{product.name}}</text>
+        </view>
+        
+        <!-- 尺寸标注线 -->
+        <view wx:if="{{showDimensions}}" class="dimension-lines">
+          <view 
+            wx:for="{{getDimensionPositions()}}" 
+            wx:key="type"
+            class="dimension-line {{item.position}}"
+          >
+            <view class="dimension-text">
+              {{getDimensionText(item.type, item.value)}}
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 控制栏 -->
+    <view class="sketch-controls">
+      <!-- 缩放控制 -->
+      <view class="scale-controls">
+        <view class="control-btn" data-type="out" bindtap="onScaleChange">
+          <text class="control-icon">-</text>
+        </view>
+        <text class="scale-text">{{scalePercent}}%</text>
+        <view class="control-btn" data-type="in" bindtap="onScaleChange">
+          <text class="control-icon">+</text>
+        </view>
+        <view class="control-btn reset-btn" data-type="reset" bindtap="onScaleChange">
+          <text class="control-text">重置</text>
+        </view>
+      </view>
+      
+      <!-- 其他控制 -->
+      <view class="other-controls">
+        <view 
+          class="control-btn toggle-btn {{showDimensions ? 'active' : ''}}"
+          bindtap="onToggleDimensions"
+        >
+          <text class="control-text">标注</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 尺寸信息表格 -->
+  <view class="size-info-table">
+    <view class="table-header">
+      <text class="table-title">详细尺寸</text>
+    </view>
+    <view class="table-body">
+      <view class="table-row">
+        <text class="table-label">长度</text>
+        <text class="table-value">{{product.dimensions.length}}cm</text>
+      </view>
+      <view class="table-row">
+        <text class="table-label">宽度</text>
+        <text class="table-value">{{product.dimensions.width}}cm</text>
+      </view>
+      <view class="table-row">
+        <text class="table-label">高度</text>
+        <text class="table-value">{{product.dimensions.height}}cm</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<!-- 渲染内容 -->
+<template is="size-sketch-content" data="{{...this}}" />

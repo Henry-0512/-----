@@ -1,0 +1,64 @@
+<!--pages/category/category.wxml-->
+<view class="container">
+  <!-- 加载状态 -->
+  <view wx:if="{{loading}}" class="loading">
+    <text>加载中...</text>
+  </view>
+
+  <!-- 错误状态 -->
+  <view wx:elif="{{error}}" class="error">
+    <text>{{error}}</text>
+    <button class="btn-primary" bindtap="onRetry">重试</button>
+  </view>
+
+  <!-- 分类内容 -->
+  <view wx:else class="category-content">
+    <!-- 左侧分类列表 -->
+    <view class="category-sidebar">
+      <view 
+        wx:for="{{categories}}" 
+        wx:key="id" 
+        class="category-tab {{selectedCategory && selectedCategory.id === item.id ? 'active' : ''}}"
+        data-category="{{item}}"
+        bindtap="onCategoryTap"
+      >
+        <text class="category-tab-name">{{item.name}}</text>
+        <text class="category-tab-count">({{item.count}})</text>
+      </view>
+    </view>
+
+    <!-- 右侧商品网格 -->
+    <view class="category-main">
+      <view wx:if="{{selectedCategory}}" class="category-header">
+        <text class="category-title">{{selectedCategory.name}}</text>
+        <text class="view-all" bindtap="onViewAllTap">
+          查看全部 >
+        </text>
+      </view>
+      
+      <!-- 商品加载状态 -->
+      <view wx:if="{{itemsLoading}}" class="items-loading">
+        <text>加载商品中...</text>
+      </view>
+      
+      <!-- 商品网格 -->
+      <view wx:else class="items-grid">
+        <product-card
+          wx:for="{{items}}" 
+          wx:key="id"
+          product="{{item}}"
+          card-type="grid"
+          show-favorite="{{true}}"
+          bind:cardtap="onProductCardTap"
+          bind:favoritechange="onFavoriteChange"
+        />
+      </view>
+
+      <!-- 空状态 -->
+      <view wx:if="{{!itemsLoading && items.length === 0}}" class="empty-state">
+        <text class="empty-text">该分类暂无商品</text>
+        <text class="empty-desc">试试其他分类吧</text>
+      </view>
+    </view>
+  </view>
+</view>

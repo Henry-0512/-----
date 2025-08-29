@@ -1,0 +1,427 @@
+[
+  {
+    "id": "sku_001",
+    "name": "IKEA EKTORP 三人沙发",
+    "description": "经典舒适的三人沙发，可拆洗套子，适合现代家居",
+    "category": "sofa",
+    "brand": "ikea",
+    "monthlyPrice": 450,
+    "originalPrice": 2399,
+    "images": [
+      "https://via.placeholder.com/400x300/E8E8E8/666?text=EKTORP+沙发",
+      "https://via.placeholder.com/400x300/F0F0F0/888?text=侧面图",
+      "https://via.placeholder.com/400x300/F8F8F8/AAA?text=细节图"
+    ],
+    "dimensions": {
+      "length": 218,
+      "width": 88,
+      "height": 88
+    },
+    "color": "米白色",
+    "material": "棉麻混纺",
+    "available": true,
+    "tags": ["热门", "可拆洗", "现代风格"]
+  },
+  {
+    "id": "sku_002",
+    "name": "无印良品 橡木餐桌",
+    "description": "简约橡木餐桌，可容纳4-6人用餐，天然木纹质感",
+    "category": "table",
+    "brand": "muji",
+    "monthlyPrice": 380,
+    "originalPrice": 1899,
+    "images": [
+      "https://via.placeholder.com/400x300/D4C5B5/666?text=橡木餐桌",
+      "https://via.placeholder.com/400x300/E8DCC6/888?text=桌面细节"
+    ],
+    "dimensions": {
+      "length": 160,
+      "width": 80,
+      "height": 72
+    },
+    "color": "原木色",
+    "material": "橡木",
+    "available": true,
+    "tags": ["环保", "简约", "北欧风"]
+  },
+  {
+    "id": "sku_003",
+    "name": "Herman Miller Aeron 办公椅",
+    "description": "经典人体工学办公椅，透气网布，支撑腰部健康",
+    "category": "chair",
+    "brand": "hm",
+    "monthlyPrice": 680,
+    "originalPrice": 8999,
+    "images": [
+      "https://via.placeholder.com/400x300/2C2C2C/FFF?text=Aeron+椅子",
+      "https://via.placeholder.com/400x300/404040/DDD?text=侧面视角"
+    ],
+    "dimensions": {
+      "length": 60,
+      "width": 60,
+      "height": 120
+    },
+    "color": "石墨黑",
+    "material": "聚酯纤维网布",
+    "available": true,
+    "tags": ["人体工学", "透气", "高端"]
+  },
+  {
+    "id": "sku_004",
+    "name": "IKEA HEMNES 床架",
+    "description": "经典实木床架，坚固耐用，适合现代卧室",
+    "category": "bed",
+    "brand": "ikea",
+    "monthlyPrice": 320,
+    "originalPrice": 1499,
+    "images": [
+      "https://via.placeholder.com/400x300/8B4513/FFF?text=HEMNES+床架",
+      "https://via.placeholder.com/400x300/A0522D/EEE?text=床头细节"
+    ],
+    "dimensions": {
+      "length": 209,
+      "width": 174,
+      "height": 66
+    },
+    "color": "白色染色",
+    "material": "实木",
+    "available": true,
+    "tags": ["实木", "经典", "耐用"]
+  },
+  {
+    "id": "sku_005",
+    "name": "IKEA POÄNG 扶手椅",
+    "description": "弯曲层压木扶手椅，舒适休闲，经典设计",
+    "category": "chair",
+    "brand": "ikea",
+    "monthlyPrice": 180,
+    "originalPrice": 799,
+    "images": [
+      "https://via.placeholder.com/400x300/D2B48C/666?text=POÄNG+扶手椅"
+    ],
+    "dimensions": {
+      "length": 68,
+      "width": 82,
+      "height": 100
+    },
+    "color": "桦木色",
+    "material": "层压桦木",
+    "available": true,
+    "tags": ["舒适", "经典", "休闲"]
+  },
+  {
+    "id": "sku_006",
+    "name": "无印良品 储物沙发",
+    "description": "带储物功能的双人沙发，简约设计，实用性强",
+    "category": "sofa",
+    "brand": "muji",
+    "monthlyPrice": 520,
+    "originalPrice": 2699,
+    "images": [
+      "https://via.placeholder.com/400x300/F5F5DC/666?text=储物沙发"
+    ],
+    "dimensions": {
+      "length": 160,
+      "width": 80,
+      "height": 75
+    },
+    "color": "米色",
+    "material": "棉麻",
+    "available": true,
+    "tags": ["储物", "实用", "简约"]
+  },
+  {
+    "id": "sku_007",
+    "name": "IKEA LACK 边桌",
+    "description": "简约小边桌，轻便实用，适合放在沙发旁",
+    "category": "table",
+    "brand": "ikea",
+    "monthlyPrice": 80,
+    "originalPrice": 299,
+    "images": [
+      "https://via.placeholder.com/400x300/FFFACD/666?text=LACK+边桌"
+    ],
+    "dimensions": {
+      "length": 55,
+      "width": 55,
+      "height": 45
+    },
+    "color": "白色",
+    "material": "刨花板",
+    "available": true,
+    "tags": ["轻便", "实用", "简约"]
+  },
+  {
+    "id": "sku_008",
+    "name": "H&M Home 餐椅套装",
+    "description": "现代风格餐椅，4把装，舒适坐感",
+    "category": "chair",
+    "brand": "hm",
+    "monthlyPrice": 280,
+    "originalPrice": 1199,
+    "images": [
+      "https://via.placeholder.com/400x300/708090/FFF?text=HM+餐椅"
+    ],
+    "dimensions": {
+      "length": 45,
+      "width": 50,
+      "height": 80
+    },
+    "color": "灰色",
+    "material": "PP塑料",
+    "available": true,
+    "tags": ["套装", "现代", "舒适"]
+  },
+  {
+    "id": "sku_009",
+    "name": "无印良品 单人床",
+    "description": "简约单人床架，适合小户型，质量可靠",
+    "category": "bed",
+    "brand": "muji",
+    "monthlyPrice": 250,
+    "originalPrice": 1299,
+    "images": [
+      "https://via.placeholder.com/400x300/CD853F/FFF?text=单人床"
+    ],
+    "dimensions": {
+      "length": 203,
+      "width": 103,
+      "height": 26
+    },
+    "color": "原木色",
+    "material": "橡木",
+    "available": true,
+    "tags": ["小户型", "简约", "可靠"]
+  },
+  {
+    "id": "sku_010",
+    "name": "IKEA BILLY 书架",
+    "description": "经典书架，可调节层板，储物空间大",
+    "category": "table",
+    "brand": "ikea",
+    "monthlyPrice": 120,
+    "originalPrice": 599,
+    "images": [
+      "https://via.placeholder.com/400x300/DEB887/666?text=BILLY+书架"
+    ],
+    "dimensions": {
+      "length": 80,
+      "width": 28,
+      "height": 202
+    },
+    "color": "白色",
+    "material": "刨花板",
+    "available": true,
+    "tags": ["储物", "可调节", "经典"]
+  },
+  {
+    "id": "sku_011",
+    "name": "H&M Home 落地灯",
+    "description": "现代简约落地灯，柔和照明，营造温馨氛围",
+    "category": "chair",
+    "brand": "hm",
+    "monthlyPrice": 150,
+    "originalPrice": 699,
+    "images": [
+      "https://via.placeholder.com/400x300/F0E68C/666?text=落地灯"
+    ],
+    "dimensions": {
+      "length": 30,
+      "width": 30,
+      "height": 160
+    },
+    "color": "黑色",
+    "material": "金属+织物",
+    "available": true,
+    "tags": ["照明", "温馨", "现代"]
+  },
+  {
+    "id": "sku_012",
+    "name": "无印良品 折叠桌",
+    "description": "可折叠餐桌，节省空间，实用性强",
+    "category": "table",
+    "brand": "muji",
+    "monthlyPrice": 200,
+    "originalPrice": 999,
+    "images": [
+      "https://via.placeholder.com/400x300/F5DEB3/666?text=折叠桌"
+    ],
+    "dimensions": {
+      "length": 120,
+      "width": 60,
+      "height": 72
+    },
+    "color": "原木色",
+    "material": "橡木",
+    "available": true,
+    "tags": ["折叠", "节省空间", "实用"]
+  },
+  {
+    "id": "sku_013",
+    "name": "IKEA KIVIK 转角沙发",
+    "description": "大型转角沙发，适合大客厅，舒适宽敞",
+    "category": "sofa",
+    "brand": "ikea",
+    "monthlyPrice": 680,
+    "originalPrice": 3599,
+    "images": [
+      "https://via.placeholder.com/400x300/B0C4DE/666?text=KIVIK+转角沙发"
+    ],
+    "dimensions": {
+      "length": 280,
+      "width": 165,
+      "height": 83
+    },
+    "color": "深蓝色",
+    "material": "聚酯纤维",
+    "available": true,
+    "tags": ["大型", "转角", "舒适"]
+  },
+  {
+    "id": "sku_014",
+    "name": "H&M Home 吧台椅",
+    "description": "现代吧台椅，可调节高度，适合开放式厨房",
+    "category": "chair",
+    "brand": "hm",
+    "monthlyPrice": 180,
+    "originalPrice": 799,
+    "images": [
+      "https://via.placeholder.com/400x300/A9A9A9/FFF?text=吧台椅"
+    ],
+    "dimensions": {
+      "length": 40,
+      "width": 40,
+      "height": 110
+    },
+    "color": "银色",
+    "material": "金属+PU皮",
+    "available": true,
+    "tags": ["可调节", "现代", "吧台"]
+  },
+  {
+    "id": "sku_015",
+    "name": "无印良品 双人床",
+    "description": "简约双人床架，坚固舒适，适合主卧",
+    "category": "bed",
+    "brand": "muji",
+    "monthlyPrice": 420,
+    "originalPrice": 2199,
+    "images": [
+      "https://via.placeholder.com/400x300/D2691E/FFF?text=双人床"
+    ],
+    "dimensions": {
+      "length": 215,
+      "width": 155,
+      "height": 26
+    },
+    "color": "胡桃木色",
+    "material": "胡桃木",
+    "available": true,
+    "tags": ["双人", "坚固", "主卧"]
+  },
+  {
+    "id": "sku_016",
+    "name": "IKEA FRIHETEN 沙发床",
+    "description": "多功能沙发床，白天沙发晚上床，带储物",
+    "category": "sofa",
+    "brand": "ikea",
+    "monthlyPrice": 580,
+    "originalPrice": 2899,
+    "images": [
+      "https://via.placeholder.com/400x300/C0C0C0/666?text=沙发床"
+    ],
+    "dimensions": {
+      "length": 230,
+      "width": 151,
+      "height": 66
+    },
+    "color": "深灰色",
+    "material": "聚酯纤维",
+    "available": true,
+    "tags": ["多功能", "沙发床", "储物"]
+  },
+  {
+    "id": "sku_017",
+    "name": "H&M Home 梳妆台",
+    "description": "现代梳妆台，带抽屉和镜子，收纳功能强",
+    "category": "table",
+    "brand": "hm",
+    "monthlyPrice": 350,
+    "originalPrice": 1699,
+    "images": [
+      "https://via.placeholder.com/400x300/FFB6C1/666?text=梳妆台"
+    ],
+    "dimensions": {
+      "length": 100,
+      "width": 40,
+      "height": 78
+    },
+    "color": "白色",
+    "material": "MDF板",
+    "available": true,
+    "tags": ["梳妆", "收纳", "现代"]
+  },
+  {
+    "id": "sku_018",
+    "name": "无印良品 懒人沙发",
+    "description": "舒适懒人沙发，适合阅读和放松，可拆洗",
+    "category": "sofa",
+    "brand": "muji",
+    "monthlyPrice": 280,
+    "originalPrice": 1399,
+    "images": [
+      "https://via.placeholder.com/400x300/F0F8FF/666?text=懒人沙发"
+    ],
+    "dimensions": {
+      "length": 65,
+      "width": 65,
+      "height": 65
+    },
+    "color": "米白色",
+    "material": "棉质",
+    "available": true,
+    "tags": ["懒人", "舒适", "可拆洗"]
+  },
+  {
+    "id": "sku_019",
+    "name": "IKEA LISABO 工作桌",
+    "description": "简约工作桌，适合居家办公，线条流畅",
+    "category": "table",
+    "brand": "ikea",
+    "monthlyPrice": 240,
+    "originalPrice": 1199,
+    "images": [
+      "https://via.placeholder.com/400x300/DCDCDC/666?text=工作桌"
+    ],
+    "dimensions": {
+      "length": 140,
+      "width": 60,
+      "height": 74
+    },
+    "color": "白蜡木色",
+    "material": "白蜡木",
+    "available": true,
+    "tags": ["工作桌", "居家办公", "简约"]
+  },
+  {
+    "id": "sku_020",
+    "name": "H&M Home 儿童椅",
+    "description": "专为儿童设计的安全椅子，色彩鲜艳，材质环保",
+    "category": "chair",
+    "brand": "hm",
+    "monthlyPrice": 120,
+    "originalPrice": 499,
+    "images": [
+      "https://via.placeholder.com/400x300/FF69B4/FFF?text=儿童椅"
+    ],
+    "dimensions": {
+      "length": 35,
+      "width": 35,
+      "height": 60
+    },
+    "color": "粉色",
+    "material": "环保PP",
+    "available": true,
+    "tags": ["儿童", "安全", "环保"]
+  }
+]

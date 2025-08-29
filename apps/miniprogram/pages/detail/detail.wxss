@@ -1,0 +1,318 @@
+/* pages/detail/detail.wxss */
+.container {
+  background: #f8f8f8;
+  min-height: 100vh;
+  padding-bottom: 120rpx;
+}
+
+.loading, .error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400rpx;
+  color: #666;
+}
+
+.detail-content {
+  background: white;
+}
+
+/* 图片展示区域 */
+.image-section {
+  position: relative;
+  background: white;
+}
+
+.main-image {
+  width: 100%;
+  height: 600rpx;
+}
+
+.image-indicators {
+  display: flex;
+  justify-content: center;
+  padding: 24rpx;
+  gap: 16rpx;
+}
+
+.indicator {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: #ddd;
+  transition: background 0.3s;
+}
+
+.indicator.active {
+  background: #007AFF;
+}
+
+/* 基本信息区域 */
+.info-section {
+  padding: 32rpx;
+  border-bottom: 16rpx solid #f8f8f8;
+}
+
+.sku-name {
+  display: block;
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+.sku-desc {
+  display: block;
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 24rpx;
+}
+
+.price-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32rpx;
+}
+
+.monthly-price {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #FF6B6B;
+  margin-right: 24rpx;
+}
+
+.original-price {
+  font-size: 28rpx;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.sku-attributes {
+  margin-bottom: 24rpx;
+}
+
+.attribute {
+  display: flex;
+  margin-bottom: 16rpx;
+}
+
+.attr-label {
+  color: #666;
+  font-size: 28rpx;
+  width: 120rpx;
+}
+
+.attr-value {
+  color: #333;
+  font-size: 28rpx;
+}
+
+.sku-tags {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: #f0f0f0;
+  color: #666;
+  font-size: 24rpx;
+  padding: 12rpx 24rpx;
+  border-radius: 24rpx;
+  margin-right: 16rpx;
+  margin-bottom: 12rpx;
+}
+
+/* 尺寸信息区域 */
+.size-section {
+  padding: 32rpx;
+  background: white;
+  border-bottom: 16rpx solid #f8f8f8;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.size-guide-btn {
+  color: #007AFF;
+  font-size: 28rpx;
+}
+
+.size-info {
+  display: flex;
+  justify-content: space-around;
+}
+
+.size-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.size-label {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+}
+
+.size-value {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+/* 租赁配置区域 */
+.rental-section {
+  padding: 32rpx;
+  background: white;
+  border-bottom: 16rpx solid #f8f8f8;
+}
+
+.duration-selector {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24rpx;
+}
+
+.duration-label {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.duration-controls {
+  display: flex;
+  align-items: center;
+}
+
+.duration-btn {
+  width: 60rpx;
+  height: 60rpx;
+  background: #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32rpx;
+  color: #666;
+}
+
+.duration-value {
+  margin: 0 32rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.total-price {
+  text-align: right;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #FF6B6B;
+}
+
+/* 推荐商品区域 */
+.recommendations-section {
+  padding: 32rpx;
+  background: white;
+}
+
+.recommendations-scroll {
+  white-space: nowrap;
+  margin-top: 24rpx;
+}
+
+.recommendation-item {
+  display: inline-block;
+  width: 200rpx;
+  margin-right: 24rpx;
+  vertical-align: top;
+}
+
+.rec-image {
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 12rpx;
+  margin-bottom: 12rpx;
+}
+
+.rec-name {
+  display: block;
+  font-size: 24rpx;
+  color: #333;
+  margin-bottom: 8rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rec-price {
+  font-size: 24rpx;
+  color: #FF6B6B;
+  font-weight: bold;
+}
+
+/* 底部操作栏 */
+.bottom-actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  padding: 24rpx;
+  background: white;
+  border-top: 2rpx solid #f0f0f0;
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.1);
+  gap: 16rpx;
+}
+
+.action-btn {
+  padding: 24rpx;
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favorite-btn {
+  width: 96rpx;
+  background: #f8f8f8;
+  color: #666;
+  transition: all 0.2s ease;
+}
+
+.favorite-btn.favorited {
+  background: #FF6B6B;
+  color: white;
+}
+
+.action-icon {
+  font-size: 36rpx;
+}
+
+.share-btn {
+  width: 120rpx;
+  background: #f8f8f8;
+  color: #333;
+}
+
+.primary-btn {
+  flex: 1;
+  background: #007AFF;
+  color: white;
+}
+
+

@@ -1,0 +1,75 @@
+<!--components/filter-sheet/filter-sheet.wxml-->
+<view class="filter-sheet {{visible ? 'visible' : ''}}" bindtap="onClose">
+  <view class="filter-content" bindtap="onContentTap" catchtap>
+    <!-- 头部 -->
+    <view class="filter-header">
+      <text class="filter-title">筛选条件</text>
+      <view class="header-actions">
+        <text class="clear-btn" bindtap="onClearAll">清空</text>
+        <text class="close-btn" bindtap="onClose">×</text>
+      </view>
+    </view>
+
+    <!-- 筛选内容 -->
+    <scroll-view class="filter-scroll" scroll-y="true">
+      <!-- 商品分类 -->
+      <view class="filter-section">
+        <text class="section-title">商品分类</text>
+        <view class="option-list">
+          <view 
+            wx:for="{{filterOptions.categories}}" 
+            wx:key="id"
+            class="option-item {{tempFilters.categories.includes(item.id) ? 'selected' : ''}}"
+            data-category="{{item}}"
+            bindtap="onCategoryTap"
+          >
+            <text class="option-text">{{item.name}}</text>
+            <text class="option-count">({{item.count}})</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 价格区间 -->
+      <view class="filter-section">
+        <text class="section-title">价格区间</text>
+        <view class="option-list">
+          <view 
+            wx:for="{{filterOptions.priceRanges}}" 
+            wx:key="id"
+            class="option-item {{tempFilters.priceRange && tempFilters.priceRange.id === item.id ? 'selected' : ''}}"
+            data-range="{{item}}"
+            bindtap="onPriceRangeTap"
+          >
+            <text class="option-text">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 品牌筛选 -->
+      <view class="filter-section">
+        <text class="section-title">品牌</text>
+        <view class="option-list brand-list">
+          <view 
+            wx:for="{{filterOptions.brands}}" 
+            wx:key="id"
+            class="option-item brand-item {{tempFilters.brands.includes(item.id) ? 'selected' : ''}}"
+            data-brand="{{item}}"
+            bindtap="onBrandTap"
+          >
+            <text class="option-text">{{item.name}}</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 底部操作区 -->
+    <view class="filter-footer">
+      <view class="selected-info">
+        <text class="selected-count">已选 {{getSelectedCount()}} 个条件</text>
+      </view>
+      <button class="confirm-btn" bindtap="onConfirm">
+        确定筛选
+      </button>
+    </view>
+  </view>
+</view>
