@@ -206,6 +206,9 @@ const TrackEvents = {
   
   // 按钮交互
   ASK_PRICE_CLICK: 'ask_price_click',
+  CATEGORY_CLICK: 'category_click',
+  MORE_CLICK: 'more_click',
+  SORT_CHANGE: 'sort_change',
   
   // 页面访问
   PAGE_VIEW: 'page_view',

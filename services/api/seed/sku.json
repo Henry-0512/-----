@@ -2459,5 +2459,3705 @@
       "discount": 0.2
     },
     "originalPrice": 1199
+  },
+  {
+    "id": "sku_沙发_021",
+    "spu_id": "spu_沙发_8",
+    "title": "HomeNest 沙发 2.8m",
+    "brand": "HomeNest",
+    "category": [
+      "沙发",
+      "客厅"
+    ],
+    "primaryCategory": "沙发",
+    "style": "北欧",
+    "material": [
+      "皮质"
+    ],
+    "color": [
+      "原木"
+    ],
+    "width_mm": 2554,
+    "depth_mm": 1257,
+    "height_mm": 1284,
+    "package": {
+      "width_mm": 2308,
+      "depth_mm": 733,
+      "height_mm": 373,
+      "weight_kg": 25
+    },
+    "price": 2781,
+    "originalPrice": 2927,
+    "condition": {
+      "label": "九五新",
+      "value": "95_new",
+      "grade": 4,
+      "discount": 0.05
+    },
+    "condition_grade": 4,
+    "monthlyPrice": 56,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1000",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 16
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 6,
+    "features": [
+      "舒适坐感",
+      "耐磨面料",
+      "可拆洗"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_床_022",
+    "spu_id": "spu_床_8",
+    "title": "BedroomEssentials 床 2.0m",
+    "brand": "BedroomEssentials",
+    "category": [
+      "床",
+      "客厅"
+    ],
+    "primaryCategory": "床",
+    "style": "北欧",
+    "material": [
+      "实木"
+    ],
+    "color": [
+      "白"
+    ],
+    "width_mm": 2179,
+    "depth_mm": 1274,
+    "height_mm": 641,
+    "package": {
+      "width_mm": 1954,
+      "depth_mm": 937,
+      "height_mm": 451,
+      "weight_kg": 55
+    },
+    "price": 704,
+    "originalPrice": 782,
+    "condition": {
+      "label": "九成新",
+      "value": "90_new",
+      "grade": 3,
+      "discount": 0.1
+    },
+    "condition_grade": 3,
+    "monthlyPrice": 15,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1001",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 9
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 2,
+    "features": [
+      "静音设计",
+      "承重强"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_餐桌_023",
+    "spu_id": "spu_餐桌_8",
+    "title": "WoodWork 餐桌 1.5m",
+    "brand": "WoodWork",
+    "category": [
+      "餐桌",
+      "客厅"
+    ],
+    "primaryCategory": "餐桌",
+    "style": "简约",
+    "material": [
+      "实木"
+    ],
+    "color": [
+      "白"
+    ],
+    "width_mm": 1915,
+    "depth_mm": 1382,
+    "height_mm": 1136,
+    "package": {
+      "width_mm": 1576,
+      "depth_mm": 1250,
+      "height_mm": 681,
+      "weight_kg": 77
+    },
+    "price": 891,
+    "originalPrice": 990,
+    "condition": {
+      "label": "九成新",
+      "value": "90_new",
+      "grade": 3,
+      "discount": 0.1
+    },
+    "condition_grade": 3,
+    "monthlyPrice": 18,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1002",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 10
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 2,
+    "features": [
+      "防水台面",
+      "稳固结构",
+      "易清洁"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_椅子_024",
+    "spu_id": "spu_椅子_9",
+    "title": "ComfortSeats 椅子 1.4m",
+    "brand": "ComfortSeats",
+    "category": [
+      "椅子",
+      "客厅"
+    ],
+    "primaryCategory": "椅子",
+    "style": "现代",
+    "material": [
+      "塑料"
+    ],
+    "color": [
+      "深棕"
+    ],
+    "width_mm": 1670,
+    "depth_mm": 582,
+    "height_mm": 580,
+    "package": {
+      "width_mm": 1672,
+      "depth_mm": 1016,
+      "height_mm": 930,
+      "weight_kg": 30
+    },
+    "price": 388,
+    "originalPrice": 485,
+    "condition": {
+      "label": "八成新",
+      "value": "80_new",
+      "grade": 2,
+      "discount": 0.2
+    },
+    "condition_grade": 2,
+    "monthlyPrice": 8,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1003",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 9
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 7,
+    "features": [
+      "人体工学",
+      "透气材质",
+      "可调节"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_书桌_025",
+    "spu_id": "spu_书桌_9",
+    "title": "WorkDesk 书桌 2.9m",
+    "brand": "WorkDesk",
+    "category": [
+      "书桌",
+      "客厅"
+    ],
+    "primaryCategory": "书桌",
+    "style": "简约",
+    "material": [
+      "板材"
+    ],
+    "color": [
+      "白"
+    ],
+    "width_mm": 2453,
+    "depth_mm": 1169,
+    "height_mm": 408,
+    "package": {
+      "width_mm": 1884,
+      "depth_mm": 503,
+      "height_mm": 186,
+      "weight_kg": 84
+    },
+    "price": 1052,
+    "originalPrice": 1052,
+    "condition": {
+      "label": "全新",
+      "value": "new",
+      "grade": 5,
+      "discount": 0
+    },
+    "condition_grade": 5,
+    "monthlyPrice": 22,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1004",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 2
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 7,
+    "features": [
+      "大容量抽屉",
+      "理线设计"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_茶几_026",
+    "spu_id": "spu_茶几_9",
+    "title": "ModernHome 茶几 2.4m",
+    "brand": "ModernHome",
+    "category": [
+      "茶几",
+      "客厅"
+    ],
+    "primaryCategory": "茶几",
+    "style": "北欧",
+    "material": [
+      "大理石"
+    ],
+    "color": [
+      "棕"
+    ],
+    "width_mm": 1823,
+    "depth_mm": 707,
+    "height_mm": 1203,
+    "package": {
+      "width_mm": 2514,
+      "depth_mm": 1263,
+      "height_mm": 774,
+      "weight_kg": 31
+    },
+    "price": 646,
+    "originalPrice": 807,
+    "condition": {
+      "label": "八成新",
+      "value": "80_new",
+      "grade": 2,
+      "discount": 0.2
+    },
+    "condition_grade": 2,
+    "monthlyPrice": 13,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1005",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 3
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 4,
+    "features": [
+      "储物空间",
+      "圆角设计"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_衣柜_027",
+    "spu_id": "spu_衣柜_10",
+    "title": "StoragePlus 衣柜 2.3m",
+    "brand": "StoragePlus",
+    "category": [
+      "衣柜",
+      "客厅"
+    ],
+    "primaryCategory": "衣柜",
+    "style": "简约",
+    "material": [
+      "板材"
+    ],
+    "color": [
+      "白"
+    ],
+    "width_mm": 1566,
+    "depth_mm": 541,
+    "height_mm": 408,
+    "package": {
+      "width_mm": 2001,
+      "depth_mm": 576,
+      "height_mm": 504,
+      "weight_kg": 60
+    },
+    "price": 716,
+    "originalPrice": 895,
+    "condition": {
+      "label": "八成新",
+      "value": "80_new",
+      "grade": 2,
+      "discount": 0.2
+    },
+    "condition_grade": 2,
+    "monthlyPrice": 15,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1006",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 8
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 4,
+    "features": [
+      "大容量",
+      "静音导轨",
+      "防潮"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_书架_028",
+    "spu_id": "spu_书架_10",
+    "title": "StudySpace 书架 2.6m",
+    "brand": "StudySpace",
+    "category": [
+      "书架",
+      "客厅"
+    ],
+    "primaryCategory": "书架",
+    "style": "现代",
+    "material": [
+      "板材"
+    ],
+    "color": [
+      "原木"
+    ],
+    "width_mm": 2900,
+    "depth_mm": 837,
+    "height_mm": 1289,
+    "package": {
+      "width_mm": 2922,
+      "depth_mm": 824,
+      "height_mm": 348,
+      "weight_kg": 68
+    },
+    "price": 328,
+    "originalPrice": 328,
+    "condition": {
+      "label": "全新",
+      "value": "new",
+      "grade": 5,
+      "discount": 0
+    },
+    "condition_grade": 5,
+    "monthlyPrice": 7,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1007",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 5
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 5,
+    "features": [
+      "承重强",
+      "可调层板",
+      "稳固"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_沙发_029",
+    "spu_id": "spu_沙发_10",
+    "title": "SofaKing 沙发 2.6m",
+    "brand": "SofaKing",
+    "category": [
+      "沙发",
+      "客厅"
+    ],
+    "primaryCategory": "沙发",
+    "style": "现代",
+    "material": [
+      "布艺"
+    ],
+    "color": [
+      "黑"
+    ],
+    "width_mm": 1928,
+    "depth_mm": 791,
+    "height_mm": 790,
+    "package": {
+      "width_mm": 1294,
+      "depth_mm": 1343,
+      "height_mm": 155,
+      "weight_kg": 54
+    },
+    "price": 1624,
+    "originalPrice": 1804,
+    "condition": {
+      "label": "九成新",
+      "value": "90_new",
+      "grade": 3,
+      "discount": 0.1
+    },
+    "condition_grade": 3,
+    "monthlyPrice": 33,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1008",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 19
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 3,
+    "features": [
+      "舒适坐感",
+      "耐磨面料"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_床_030",
+    "spu_id": "spu_床_11",
+    "title": "SleepWell 床 2.1m",
+    "brand": "SleepWell",
+    "category": [
+      "床",
+      "客厅"
+    ],
+    "primaryCategory": "床",
+    "style": "北欧",
+    "material": [
+      "板材"
+    ],
+    "color": [
+      "深棕"
+    ],
+    "width_mm": 2015,
+    "depth_mm": 1130,
+    "height_mm": 632,
+    "package": {
+      "width_mm": 2123,
+      "depth_mm": 1199,
+      "height_mm": 279,
+      "weight_kg": 63
+    },
+    "price": 1255,
+    "originalPrice": 1255,
+    "condition": {
+      "label": "全新",
+      "value": "new",
+      "grade": 5,
+      "discount": 0
+    },
+    "condition_grade": 5,
+    "monthlyPrice": 26,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1009",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 14
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 2,
+    "features": [
+      "静音设计",
+      "承重强"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_餐桌_031",
+    "spu_id": "spu_餐桌_11",
+    "title": "TableMaster 餐桌 2.7m",
+    "brand": "TableMaster",
+    "category": [
+      "餐桌",
+      "客厅"
+    ],
+    "primaryCategory": "餐桌",
+    "style": "现代",
+    "material": [
+      "大理石"
+    ],
+    "color": [
+      "棕"
+    ],
+    "width_mm": 2110,
+    "depth_mm": 558,
+    "height_mm": 1420,
+    "package": {
+      "width_mm": 1301,
+      "depth_mm": 923,
+      "height_mm": 752,
+      "weight_kg": 35
+    },
+    "price": 898,
+    "originalPrice": 998,
+    "condition": {
+      "label": "九成新",
+      "value": "90_new",
+      "grade": 3,
+      "discount": 0.1
+    },
+    "condition_grade": 3,
+    "monthlyPrice": 18,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1010",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 4
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 3,
+    "features": [
+      "防水台面",
+      "稳固结构",
+      "易清洁"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_椅子_032",
+    "spu_id": "spu_椅子_11",
+    "title": "ChairCraft 椅子 2.4m",
+    "brand": "ChairCraft",
+    "category": [
+      "椅子",
+      "客厅"
+    ],
+    "primaryCategory": "椅子",
+    "style": "现代",
+    "material": [
+      "皮质"
+    ],
+    "color": [
+      "棕"
+    ],
+    "width_mm": 1891,
+    "depth_mm": 1117,
+    "height_mm": 1403,
+    "package": {
+      "width_mm": 2505,
+      "depth_mm": 1301,
+      "height_mm": 700,
+      "weight_kg": 40
+    },
+    "price": 386,
+    "originalPrice": 551,
+    "condition": {
+      "label": "七成新",
+      "value": "70_new",
+      "grade": 1,
+      "discount": 0.3
+    },
+    "condition_grade": 1,
+    "monthlyPrice": 8,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1011",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 20
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 1,
+    "features": [
+      "人体工学",
+      "透气材质"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_书桌_033",
+    "spu_id": "spu_书桌_12",
+    "title": "StudySpace 书桌 1.3m",
+    "brand": "StudySpace",
+    "category": [
+      "书桌",
+      "客厅"
+    ],
+    "primaryCategory": "书桌",
+    "style": "简约",
+    "material": [
+      "板材"
+    ],
+    "color": [
+      "棕"
+    ],
+    "width_mm": 1801,
+    "depth_mm": 1033,
+    "height_mm": 1208,
+    "package": {
+      "width_mm": 1629,
+      "depth_mm": 751,
+      "height_mm": 336,
+      "weight_kg": 56
+    },
+    "price": 800,
+    "originalPrice": 842,
+    "condition": {
+      "label": "九五新",
+      "value": "95_new",
+      "grade": 4,
+      "discount": 0.05
+    },
+    "condition_grade": 4,
+    "monthlyPrice": 16,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1012",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 11
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 7,
+    "features": [
+      "大容量抽屉",
+      "理线设计"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_茶几_034",
+    "spu_id": "spu_茶几_12",
+    "title": "CoffeeTable 茶几 1.2m",
+    "brand": "CoffeeTable",
+    "category": [
+      "茶几",
+      "客厅"
+    ],
+    "primaryCategory": "茶几",
+    "style": "北欧",
+    "material": [
+      "实木"
+    ],
+    "color": [
+      "浅灰"
+    ],
+    "width_mm": 2659,
+    "depth_mm": 609,
+    "height_mm": 859,
+    "package": {
+      "width_mm": 1198,
+      "depth_mm": 1053,
+      "height_mm": 518,
+      "weight_kg": 80
+    },
+    "price": 515,
+    "originalPrice": 736,
+    "condition": {
+      "label": "七成新",
+      "value": "70_new",
+      "grade": 1,
+      "discount": 0.3
+    },
+    "condition_grade": 1,
+    "monthlyPrice": 11,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1013",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 14
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 1,
+    "features": [
+      "储物空间",
+      "圆角设计",
+      "防撞"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_衣柜_035",
+    "spu_id": "spu_衣柜_12",
+    "title": "ClosetMax 衣柜 2.7m",
+    "brand": "ClosetMax",
+    "category": [
+      "衣柜",
+      "客厅"
+    ],
+    "primaryCategory": "衣柜",
+    "style": "现代",
+    "material": [
+      "实木"
+    ],
+    "color": [
+      "深棕"
+    ],
+    "width_mm": 2315,
+    "depth_mm": 584,
+    "height_mm": 873,
+    "package": {
+      "width_mm": 1141,
+      "depth_mm": 518,
+      "height_mm": 570,
+      "weight_kg": 66
+    },
+    "price": 1457,
+    "originalPrice": 1457,
+    "condition": {
+      "label": "全新",
+      "value": "new",
+      "grade": 5,
+      "discount": 0
+    },
+    "condition_grade": 5,
+    "monthlyPrice": 30,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1014",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 16
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 4,
+    "features": [
+      "大容量",
+      "静音导轨",
+      "防潮"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_书架_036",
+    "spu_id": "spu_书架_13",
+    "title": "BookShelf 书架 2.8m",
+    "brand": "BookShelf",
+    "category": [
+      "书架",
+      "客厅"
+    ],
+    "primaryCategory": "书架",
+    "style": "北欧",
+    "material": [
+      "实木"
+    ],
+    "color": [
+      "浅灰"
+    ],
+    "width_mm": 2489,
+    "depth_mm": 658,
+    "height_mm": 335,
+    "package": {
+      "width_mm": 1701,
+      "depth_mm": 722,
+      "height_mm": 441,
+      "weight_kg": 85
+    },
+    "price": 549,
+    "originalPrice": 578,
+    "condition": {
+      "label": "九五新",
+      "value": "95_new",
+      "grade": 4,
+      "discount": 0.05
+    },
+    "condition_grade": 4,
+    "monthlyPrice": 11,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1015",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 12
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 2,
+    "features": [
+      "承重强",
+      "可调层板",
+      "稳固"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_沙发_037",
+    "spu_id": "spu_沙发_13",
+    "title": "ComfortLiving 沙发 1.9m",
+    "brand": "ComfortLiving",
+    "category": [
+      "沙发",
+      "客厅"
+    ],
+    "primaryCategory": "沙发",
+    "style": "现代",
+    "material": [
+      "仿皮"
+    ],
+    "color": [
+      "白"
+    ],
+    "width_mm": 2742,
+    "depth_mm": 437,
+    "height_mm": 508,
+    "package": {
+      "width_mm": 2482,
+      "depth_mm": 816,
+      "height_mm": 204,
+      "weight_kg": 47
+    },
+    "price": 2240,
+    "originalPrice": 2358,
+    "condition": {
+      "label": "九五新",
+      "value": "95_new",
+      "grade": 4,
+      "discount": 0.05
+    },
+    "condition_grade": 4,
+    "monthlyPrice": 45,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1016",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 8
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 7,
+    "features": [
+      "舒适坐感",
+      "耐磨面料"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_床_038",
+    "spu_id": "spu_床_13",
+    "title": "DreamBed 床 1.4m",
+    "brand": "DreamBed",
+    "category": [
+      "床",
+      "客厅"
+    ],
+    "primaryCategory": "床",
+    "style": "现代",
+    "material": [
+      "板材"
+    ],
+    "color": [
+      "棕"
+    ],
+    "width_mm": 2667,
+    "depth_mm": 1201,
+    "height_mm": 585,
+    "package": {
+      "width_mm": 2123,
+      "depth_mm": 1103,
+      "height_mm": 534,
+      "weight_kg": 17
+    },
+    "price": 772,
+    "originalPrice": 813,
+    "condition": {
+      "label": "九五新",
+      "value": "95_new",
+      "grade": 4,
+      "discount": 0.05
+    },
+    "condition_grade": 4,
+    "monthlyPrice": 16,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1017",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 5
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 4,
+    "features": [
+      "静音设计",
+      "承重强",
+      "易组装"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_餐桌_039",
+    "spu_id": "spu_餐桌_14",
+    "title": "DiningCraft 餐桌 2.4m",
+    "brand": "DiningCraft",
+    "category": [
+      "餐桌",
+      "客厅"
+    ],
+    "primaryCategory": "餐桌",
+    "style": "现代",
+    "material": [
+      "玻璃"
+    ],
+    "color": [
+      "米白"
+    ],
+    "width_mm": 1891,
+    "depth_mm": 781,
+    "height_mm": 1362,
+    "package": {
+      "width_mm": 1282,
+      "depth_mm": 1003,
+      "height_mm": 687,
+      "weight_kg": 70
+    },
+    "price": 484,
+    "originalPrice": 605,
+    "condition": {
+      "label": "八成新",
+      "value": "80_new",
+      "grade": 2,
+      "discount": 0.2
+    },
+    "condition_grade": 2,
+    "monthlyPrice": 10,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1018",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 10
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 7,
+    "features": [
+      "防水台面",
+      "稳固结构"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_椅子_040",
+    "spu_id": "spu_椅子_14",
+    "title": "ErgoTech 椅子 2.3m",
+    "brand": "ErgoTech",
+    "category": [
+      "椅子",
+      "客厅"
+    ],
+    "primaryCategory": "椅子",
+    "style": "北欧",
+    "material": [
+      "塑料"
+    ],
+    "color": [
+      "深棕"
+    ],
+    "width_mm": 2378,
+    "depth_mm": 1111,
+    "height_mm": 1324,
+    "package": {
+      "width_mm": 2757,
+      "depth_mm": 1400,
+      "height_mm": 655,
+      "weight_kg": 87
+    },
+    "price": 346,
+    "originalPrice": 432,
+    "condition": {
+      "label": "八成新",
+      "value": "80_new",
+      "grade": 2,
+      "discount": 0.2
+    },
+    "condition_grade": 2,
+    "monthlyPrice": 7,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1019",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 13
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 5,
+    "features": [
+      "人体工学",
+      "透气材质"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_书桌_041",
+    "spu_id": "spu_书桌_14",
+    "title": "OfficeMax 书桌 2.2m",
+    "brand": "OfficeMax",
+    "category": [
+      "书桌",
+      "客厅"
+    ],
+    "primaryCategory": "书桌",
+    "style": "北欧",
+    "material": [
+      "实木"
+    ],
+    "color": [
+      "原木"
+    ],
+    "width_mm": 2620,
+    "depth_mm": 567,
+    "height_mm": 622,
+    "package": {
+      "width_mm": 1481,
+      "depth_mm": 496,
+      "height_mm": 264,
+      "weight_kg": 75
+    },
+    "price": 364,
+    "originalPrice": 404,
+    "condition": {
+      "label": "九成新",
+      "value": "90_new",
+      "grade": 3,
+      "discount": 0.1
+    },
+    "condition_grade": 3,
+    "monthlyPrice": 8,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1020",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 15
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 1,
+    "features": [
+      "大容量抽屉",
+      "理线设计"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_茶几_042",
+    "spu_id": "spu_茶几_15",
+    "title": "LivingLux 茶几 3.0m",
+    "brand": "LivingLux",
+    "category": [
+      "茶几",
+      "客厅"
+    ],
+    "primaryCategory": "茶几",
+    "style": "北欧",
+    "material": [
+      "大理石"
+    ],
+    "color": [
+      "棕"
+    ],
+    "width_mm": 2057,
+    "depth_mm": 472,
+    "height_mm": 1415,
+    "package": {
+      "width_mm": 1724,
+      "depth_mm": 824,
+      "height_mm": 273,
+      "weight_kg": 13
+    },
+    "price": 452,
+    "originalPrice": 452,
+    "condition": {
+      "label": "全新",
+      "value": "new",
+      "grade": 5,
+      "discount": 0
+    },
+    "condition_grade": 5,
+    "monthlyPrice": 10,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1021",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 1
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 1,
+    "features": [
+      "储物空间",
+      "圆角设计",
+      "防撞"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_衣柜_043",
+    "spu_id": "spu_衣柜_15",
+    "title": "WardrobePro 衣柜 1.8m",
+    "brand": "WardrobePro",
+    "category": [
+      "衣柜",
+      "客厅"
+    ],
+    "primaryCategory": "衣柜",
+    "style": "现代",
+    "material": [
+      "实木"
+    ],
+    "color": [
+      "黑"
+    ],
+    "width_mm": 1242,
+    "depth_mm": 630,
+    "height_mm": 1236,
+    "package": {
+      "width_mm": 2349,
+      "depth_mm": 1278,
+      "height_mm": 232,
+      "weight_kg": 40
+    },
+    "price": 2004,
+    "originalPrice": 2004,
+    "condition": {
+      "label": "全新",
+      "value": "new",
+      "grade": 5,
+      "discount": 0
+    },
+    "condition_grade": 5,
+    "monthlyPrice": 41,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1022",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 18
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 7,
+    "features": [
+      "大容量",
+      "静音导轨",
+      "防潮"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_书架_044",
+    "spu_id": "spu_书架_15",
+    "title": "StorageWise 书架 1.2m",
+    "brand": "StorageWise",
+    "category": [
+      "书架",
+      "客厅"
+    ],
+    "primaryCategory": "书架",
+    "style": "简约",
+    "material": [
+      "板材"
+    ],
+    "color": [
+      "原木"
+    ],
+    "width_mm": 2851,
+    "depth_mm": 761,
+    "height_mm": 1421,
+    "package": {
+      "width_mm": 2393,
+      "depth_mm": 505,
+      "height_mm": 309,
+      "weight_kg": 78
+    },
+    "price": 919,
+    "originalPrice": 967,
+    "condition": {
+      "label": "九五新",
+      "value": "95_new",
+      "grade": 4,
+      "discount": 0.05
+    },
+    "condition_grade": 4,
+    "monthlyPrice": 19,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1023",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 16
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 4,
+    "features": [
+      "承重强",
+      "可调层板"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_沙发_045",
+    "spu_id": "spu_沙发_16",
+    "title": "HomeNest 沙发 2.0m",
+    "brand": "HomeNest",
+    "category": [
+      "沙发",
+      "客厅"
+    ],
+    "primaryCategory": "沙发",
+    "style": "北欧",
+    "material": [
+      "布艺"
+    ],
+    "color": [
+      "白"
+    ],
+    "width_mm": 1640,
+    "depth_mm": 1216,
+    "height_mm": 1146,
+    "package": {
+      "width_mm": 1980,
+      "depth_mm": 1211,
+      "height_mm": 460,
+      "weight_kg": 30
+    },
+    "price": 1451,
+    "originalPrice": 1814,
+    "condition": {
+      "label": "八成新",
+      "value": "80_new",
+      "grade": 2,
+      "discount": 0.2
+    },
+    "condition_grade": 2,
+    "monthlyPrice": 30,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1024",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 12
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 6,
+    "features": [
+      "舒适坐感",
+      "耐磨面料"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_床_046",
+    "spu_id": "spu_床_16",
+    "title": "BedroomEssentials 床 1.7m",
+    "brand": "BedroomEssentials",
+    "category": [
+      "床",
+      "客厅"
+    ],
+    "primaryCategory": "床",
+    "style": "北欧",
+    "material": [
+      "金属"
+    ],
+    "color": [
+      "米白"
+    ],
+    "width_mm": 2775,
+    "depth_mm": 1074,
+    "height_mm": 359,
+    "package": {
+      "width_mm": 2561,
+      "depth_mm": 506,
+      "height_mm": 519,
+      "weight_kg": 47
+    },
+    "price": 547,
+    "originalPrice": 781,
+    "condition": {
+      "label": "七成新",
+      "value": "70_new",
+      "grade": 1,
+      "discount": 0.3
+    },
+    "condition_grade": 1,
+    "monthlyPrice": 11,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1025",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 19
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 2,
+    "features": [
+      "静音设计",
+      "承重强",
+      "易组装"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_餐桌_047",
+    "spu_id": "spu_餐桌_16",
+    "title": "WoodWork 餐桌 2.8m",
+    "brand": "WoodWork",
+    "category": [
+      "餐桌",
+      "客厅"
+    ],
+    "primaryCategory": "餐桌",
+    "style": "北欧",
+    "material": [
+      "大理石"
+    ],
+    "color": [
+      "棕"
+    ],
+    "width_mm": 2857,
+    "depth_mm": 939,
+    "height_mm": 725,
+    "package": {
+      "width_mm": 1079,
+      "depth_mm": 808,
+      "height_mm": 358,
+      "weight_kg": 68
+    },
+    "price": 1570,
+    "originalPrice": 1744,
+    "condition": {
+      "label": "九成新",
+      "value": "90_new",
+      "grade": 3,
+      "discount": 0.1
+    },
+    "condition_grade": 3,
+    "monthlyPrice": 32,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1026",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 19
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 4,
+    "features": [
+      "防水台面",
+      "稳固结构"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_椅子_048",
+    "spu_id": "spu_椅子_17",
+    "title": "ComfortSeats 椅子 2.8m",
+    "brand": "ComfortSeats",
+    "category": [
+      "椅子",
+      "客厅"
+    ],
+    "primaryCategory": "椅子",
+    "style": "北欧",
+    "material": [
+      "塑料"
+    ],
+    "color": [
+      "米白"
+    ],
+    "width_mm": 1518,
+    "depth_mm": 935,
+    "height_mm": 918,
+    "package": {
+      "width_mm": 1574,
+      "depth_mm": 1345,
+      "height_mm": 215,
+      "weight_kg": 86
+    },
+    "price": 586,
+    "originalPrice": 733,
+    "condition": {
+      "label": "八成新",
+      "value": "80_new",
+      "grade": 2,
+      "discount": 0.2
+    },
+    "condition_grade": 2,
+    "monthlyPrice": 12,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1027",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 15
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 7,
+    "features": [
+      "人体工学",
+      "透气材质",
+      "可调节"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_书桌_049",
+    "spu_id": "spu_书桌_17",
+    "title": "WorkDesk 书桌 2.4m",
+    "brand": "WorkDesk",
+    "category": [
+      "书桌",
+      "客厅"
+    ],
+    "primaryCategory": "书桌",
+    "style": "简约",
+    "material": [
+      "板材"
+    ],
+    "color": [
+      "黑"
+    ],
+    "width_mm": 1175,
+    "depth_mm": 1166,
+    "height_mm": 1412,
+    "package": {
+      "width_mm": 2297,
+      "depth_mm": 1202,
+      "height_mm": 578,
+      "weight_kg": 85
+    },
+    "price": 656,
+    "originalPrice": 937,
+    "condition": {
+      "label": "七成新",
+      "value": "70_new",
+      "grade": 1,
+      "discount": 0.3
+    },
+    "condition_grade": 1,
+    "monthlyPrice": 14,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1028",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 12
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 7,
+    "features": [
+      "大容量抽屉",
+      "理线设计"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_茶几_050",
+    "spu_id": "spu_茶几_17",
+    "title": "ModernHome 茶几 2.5m",
+    "brand": "ModernHome",
+    "category": [
+      "茶几",
+      "客厅"
+    ],
+    "primaryCategory": "茶几",
+    "style": "简约",
+    "material": [
+      "大理石"
+    ],
+    "color": [
+      "灰"
+    ],
+    "width_mm": 2536,
+    "depth_mm": 731,
+    "height_mm": 988,
+    "package": {
+      "width_mm": 1873,
+      "depth_mm": 1322,
+      "height_mm": 710,
+      "weight_kg": 25
+    },
+    "price": 561,
+    "originalPrice": 801,
+    "condition": {
+      "label": "七成新",
+      "value": "70_new",
+      "grade": 1,
+      "discount": 0.3
+    },
+    "condition_grade": 1,
+    "monthlyPrice": 12,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1029",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 14
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 1,
+    "features": [
+      "储物空间",
+      "圆角设计"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_衣柜_051",
+    "spu_id": "spu_衣柜_18",
+    "title": "StoragePlus 衣柜 3.0m",
+    "brand": "StoragePlus",
+    "category": [
+      "衣柜",
+      "客厅"
+    ],
+    "primaryCategory": "衣柜",
+    "style": "北欧",
+    "material": [
+      "实木"
+    ],
+    "color": [
+      "棕"
+    ],
+    "width_mm": 2097,
+    "depth_mm": 1255,
+    "height_mm": 692,
+    "package": {
+      "width_mm": 1844,
+      "depth_mm": 651,
+      "height_mm": 567,
+      "weight_kg": 76
+    },
+    "price": 1349,
+    "originalPrice": 1499,
+    "condition": {
+      "label": "九成新",
+      "value": "90_new",
+      "grade": 3,
+      "discount": 0.1
+    },
+    "condition_grade": 3,
+    "monthlyPrice": 27,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1030",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 13
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 2,
+    "features": [
+      "大容量",
+      "静音导轨"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_书架_052",
+    "spu_id": "spu_书架_18",
+    "title": "StudySpace 书架 2.5m",
+    "brand": "StudySpace",
+    "category": [
+      "书架",
+      "客厅"
+    ],
+    "primaryCategory": "书架",
+    "style": "北欧",
+    "material": [
+      "实木"
+    ],
+    "color": [
+      "黑"
+    ],
+    "width_mm": 1270,
+    "depth_mm": 490,
+    "height_mm": 1443,
+    "package": {
+      "width_mm": 2830,
+      "depth_mm": 1266,
+      "height_mm": 644,
+      "weight_kg": 30
+    },
+    "price": 734,
+    "originalPrice": 917,
+    "condition": {
+      "label": "八成新",
+      "value": "80_new",
+      "grade": 2,
+      "discount": 0.2
+    },
+    "condition_grade": 2,
+    "monthlyPrice": 15,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1031",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 7
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 6,
+    "features": [
+      "承重强",
+      "可调层板",
+      "稳固"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_沙发_053",
+    "spu_id": "spu_沙发_18",
+    "title": "SofaKing 沙发 1.9m",
+    "brand": "SofaKing",
+    "category": [
+      "沙发",
+      "客厅"
+    ],
+    "primaryCategory": "沙发",
+    "style": "现代",
+    "material": [
+      "仿皮"
+    ],
+    "color": [
+      "白"
+    ],
+    "width_mm": 1593,
+    "depth_mm": 1265,
+    "height_mm": 534,
+    "package": {
+      "width_mm": 1400,
+      "depth_mm": 591,
+      "height_mm": 235,
+      "weight_kg": 54
+    },
+    "price": 2031,
+    "originalPrice": 2539,
+    "condition": {
+      "label": "八成新",
+      "value": "80_new",
+      "grade": 2,
+      "discount": 0.2
+    },
+    "condition_grade": 2,
+    "monthlyPrice": 41,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1032",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 19
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 5,
+    "features": [
+      "舒适坐感",
+      "耐磨面料",
+      "可拆洗"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_床_054",
+    "spu_id": "spu_床_19",
+    "title": "SleepWell 床 1.6m",
+    "brand": "SleepWell",
+    "category": [
+      "床",
+      "客厅"
+    ],
+    "primaryCategory": "床",
+    "style": "简约",
+    "material": [
+      "金属"
+    ],
+    "color": [
+      "浅灰"
+    ],
+    "width_mm": 2954,
+    "depth_mm": 909,
+    "height_mm": 1106,
+    "package": {
+      "width_mm": 1613,
+      "depth_mm": 938,
+      "height_mm": 684,
+      "weight_kg": 57
+    },
+    "price": 652,
+    "originalPrice": 932,
+    "condition": {
+      "label": "七成新",
+      "value": "70_new",
+      "grade": 1,
+      "discount": 0.3
+    },
+    "condition_grade": 1,
+    "monthlyPrice": 14,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1033",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 2
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 6,
+    "features": [
+      "静音设计",
+      "承重强"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_餐桌_055",
+    "spu_id": "spu_餐桌_19",
+    "title": "TableMaster 餐桌 2.9m",
+    "brand": "TableMaster",
+    "category": [
+      "餐桌",
+      "客厅"
+    ],
+    "primaryCategory": "餐桌",
+    "style": "现代",
+    "material": [
+      "大理石"
+    ],
+    "color": [
+      "黑"
+    ],
+    "width_mm": 2262,
+    "depth_mm": 1097,
+    "height_mm": 327,
+    "package": {
+      "width_mm": 2463,
+      "depth_mm": 804,
+      "height_mm": 799,
+      "weight_kg": 28
+    },
+    "price": 917,
+    "originalPrice": 1019,
+    "condition": {
+      "label": "九成新",
+      "value": "90_new",
+      "grade": 3,
+      "discount": 0.1
+    },
+    "condition_grade": 3,
+    "monthlyPrice": 19,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1034",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 14
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 5,
+    "features": [
+      "防水台面",
+      "稳固结构"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_椅子_056",
+    "spu_id": "spu_椅子_19",
+    "title": "ChairCraft 椅子 2.2m",
+    "brand": "ChairCraft",
+    "category": [
+      "椅子",
+      "客厅"
+    ],
+    "primaryCategory": "椅子",
+    "style": "简约",
+    "material": [
+      "布艺"
+    ],
+    "color": [
+      "深棕"
+    ],
+    "width_mm": 2730,
+    "depth_mm": 482,
+    "height_mm": 446,
+    "package": {
+      "width_mm": 2087,
+      "depth_mm": 939,
+      "height_mm": 657,
+      "weight_kg": 49
+    },
+    "price": 355,
+    "originalPrice": 355,
+    "condition": {
+      "label": "全新",
+      "value": "new",
+      "grade": 5,
+      "discount": 0
+    },
+    "condition_grade": 5,
+    "monthlyPrice": 8,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1035",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 7
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 3,
+    "features": [
+      "人体工学",
+      "透气材质"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_书桌_057",
+    "spu_id": "spu_书桌_20",
+    "title": "StudySpace 书桌 1.8m",
+    "brand": "StudySpace",
+    "category": [
+      "书桌",
+      "客厅"
+    ],
+    "primaryCategory": "书桌",
+    "style": "现代",
+    "material": [
+      "实木"
+    ],
+    "color": [
+      "米白"
+    ],
+    "width_mm": 2656,
+    "depth_mm": 571,
+    "height_mm": 649,
+    "package": {
+      "width_mm": 1401,
+      "depth_mm": 733,
+      "height_mm": 353,
+      "weight_kg": 57
+    },
+    "price": 346,
+    "originalPrice": 433,
+    "condition": {
+      "label": "八成新",
+      "value": "80_new",
+      "grade": 2,
+      "discount": 0.2
+    },
+    "condition_grade": 2,
+    "monthlyPrice": 7,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1036",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 3
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 5,
+    "features": [
+      "大容量抽屉",
+      "理线设计",
+      "防刮花"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_茶几_058",
+    "spu_id": "spu_茶几_20",
+    "title": "CoffeeTable 茶几 1.3m",
+    "brand": "CoffeeTable",
+    "category": [
+      "茶几",
+      "客厅"
+    ],
+    "primaryCategory": "茶几",
+    "style": "现代",
+    "material": [
+      "玻璃"
+    ],
+    "color": [
+      "黑"
+    ],
+    "width_mm": 2198,
+    "depth_mm": 438,
+    "height_mm": 1022,
+    "package": {
+      "width_mm": 2849,
+      "depth_mm": 642,
+      "height_mm": 449,
+      "weight_kg": 55
+    },
+    "price": 193,
+    "originalPrice": 276,
+    "condition": {
+      "label": "七成新",
+      "value": "70_new",
+      "grade": 1,
+      "discount": 0.3
+    },
+    "condition_grade": 1,
+    "monthlyPrice": 4,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1037",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 17
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 1,
+    "features": [
+      "储物空间",
+      "圆角设计",
+      "防撞"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_衣柜_059",
+    "spu_id": "spu_衣柜_20",
+    "title": "ClosetMax 衣柜 2.0m",
+    "brand": "ClosetMax",
+    "category": [
+      "衣柜",
+      "客厅"
+    ],
+    "primaryCategory": "衣柜",
+    "style": "现代",
+    "material": [
+      "金属"
+    ],
+    "color": [
+      "白"
+    ],
+    "width_mm": 2373,
+    "depth_mm": 569,
+    "height_mm": 788,
+    "package": {
+      "width_mm": 2822,
+      "depth_mm": 1144,
+      "height_mm": 196,
+      "weight_kg": 64
+    },
+    "price": 2477,
+    "originalPrice": 2607,
+    "condition": {
+      "label": "九五新",
+      "value": "95_new",
+      "grade": 4,
+      "discount": 0.05
+    },
+    "condition_grade": 4,
+    "monthlyPrice": 50,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1038",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 18
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 1,
+    "features": [
+      "大容量",
+      "静音导轨",
+      "防潮"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
+  },
+  {
+    "id": "sku_书架_060",
+    "spu_id": "spu_书架_21",
+    "title": "BookShelf 书架 1.8m",
+    "brand": "BookShelf",
+    "category": [
+      "书架",
+      "客厅"
+    ],
+    "primaryCategory": "书架",
+    "style": "简约",
+    "material": [
+      "实木"
+    ],
+    "color": [
+      "深棕"
+    ],
+    "width_mm": 1386,
+    "depth_mm": 585,
+    "height_mm": 1342,
+    "package": {
+      "width_mm": 1295,
+      "depth_mm": 670,
+      "height_mm": 189,
+      "weight_kg": 65
+    },
+    "price": 425,
+    "originalPrice": 472,
+    "condition": {
+      "label": "九成新",
+      "value": "90_new",
+      "grade": 3,
+      "discount": 0.1
+    },
+    "condition_grade": 3,
+    "monthlyPrice": 9,
+    "images": [
+      {
+        "url": "https://picsum.photos/400/300?random=1039",
+        "type": "main"
+      }
+    ],
+    "stock": [
+      {
+        "location": "Durham",
+        "qty": 8
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "Durham",
+        "postcode": [
+          "DH1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1"
+        ],
+        "deliverable": true,
+        "eta_days": [
+          2,
+          3
+        ],
+        "region": "secondary"
+      }
+    ],
+    "eta_days": 3,
+    "features": [
+      "承重强",
+      "可调层板",
+      "稳固"
+    ],
+    "care": "请避免阳光直射，定期清洁保养",
+    "warranty": "1年质保，正常使用损耗免费维护",
+    "faq": [
+      {
+        "question": "如何租赁这件家具？",
+        "answer": "选择租期和数量，提交订单即可"
+      },
+      {
+        "question": "配送范围是哪里？",
+        "answer": "目前支持Durham及周边地区"
+      }
+    ]
   }
 ]

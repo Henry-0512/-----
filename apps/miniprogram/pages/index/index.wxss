@@ -99,6 +99,16 @@
   color: #007AFF;
   display: flex;
   align-items: center;
+  padding: 12rpx 16rpx; /* 扩大点击区域 */
+  margin: -12rpx -16rpx;
+  cursor: pointer;
+  position: relative;
+  z-index: 10; /* 确保不被遮挡 */
+}
+
+.view-more:active {
+  opacity: 0.6;
+  transform: scale(0.98);
 }
 
 .view-more::after {
@@ -119,6 +129,16 @@
   align-items: center;
   width: 25%;
   margin-bottom: 32rpx;
+  padding: 16rpx 8rpx; /* 扩大点击区域 */
+  cursor: pointer;
+  position: relative;
+  z-index: 10; /* 确保不被遮挡 */
+  box-sizing: border-box;
+}
+
+.category-item:active {
+  opacity: 0.7;
+  transform: scale(0.95);
 }
 
 .category-icon {

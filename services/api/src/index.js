@@ -422,22 +422,28 @@ fastify.post('/api/filter', async (request, reply) => {
   // 排序处理
   switch (sort) {
     case 'price_asc':
-      filteredData.sort((a, b) => a.price - b.price)
+      // 价格从低到高
+      filteredData.sort((a, b) => (a.price || 0) - (b.price || 0))
       break
     case 'price_desc':
-      filteredData.sort((a, b) => b.price - a.price)
+      // 价格从高到低
+      filteredData.sort((a, b) => (b.price || 0) - (a.price || 0))
+      break
+    case 'condition_new':
+      // 成色从新到旧（grade: 5=全新 > 1=七成新）
+      filteredData.sort((a, b) => (b.condition_grade || 0) - (a.condition_grade || 0))
+      break
+    case 'condition_old':
+      // 成色从旧到新（grade: 1=七成新 > 5=全新）
+      filteredData.sort((a, b) => (a.condition_grade || 0) - (b.condition_grade || 0))
       break
     case 'newest':
       // 按ID倒序（假设ID越大越新）
       filteredData.sort((a, b) => b.id.localeCompare(a.id))
       break
     default:
-      // 默认综合排序（按价格和库存综合）
-      filteredData.sort((a, b) => {
-        const aStock = a.stock?.[0]?.qty || 0
-        const bStock = b.stock?.[0]?.qty || 0
-        return (bStock - aStock) || (a.price - b.price)
-      })
+      // 默认价格从高到低
+      filteredData.sort((a, b) => (b.price || 0) - (a.price || 0))
   }
   
   // 分页处理
@@ -488,22 +494,28 @@ fastify.get('/api/search', async (request, reply) => {
   // 排序处理
   switch (sort) {
     case 'price_asc':
-      results.sort((a, b) => a.price - b.price)
+      // 价格从低到高
+      results.sort((a, b) => (a.price || 0) - (b.price || 0))
       break
     case 'price_desc':
-      results.sort((a, b) => b.price - a.price)
+      // 价格从高到低
+      results.sort((a, b) => (b.price || 0) - (a.price || 0))
+      break
+    case 'condition_new':
+      // 成色从新到旧（grade: 5=全新 > 1=七成新）
+      results.sort((a, b) => (b.condition_grade || 0) - (a.condition_grade || 0))
+      break
+    case 'condition_old':
+      // 成色从旧到新（grade: 1=七成新 > 5=全新）
+      results.sort((a, b) => (a.condition_grade || 0) - (b.condition_grade || 0))
       break
     case 'newest':
       // 按ID倒序（假设ID越大越新）
       results.sort((a, b) => b.id.localeCompare(a.id))
       break
     default:
-      // 默认综合排序（按相关度和价格）
-      results.sort((a, b) => {
-        const aStock = a.stock?.[0]?.qty || 0
-        const bStock = b.stock?.[0]?.qty || 0
-        return (bStock - aStock) || (a.price - b.price)
-      })
+      // 默认价格从高到低
+      results.sort((a, b) => (b.price || 0) - (a.price || 0))
   }
   
   // 分页处理

@@ -25,14 +25,17 @@ Page({
     filterCount: 0,
     
     // 排序状态
-    currentSort: 'newest',
-    currentSortName: '综合排序',
+    currentSort: 'price_desc',
+    currentSortName: '价格从高到低',
     sortOptions: [
-      { key: 'newest', name: '综合排序' },
       { key: 'price_asc', name: '价格从低到高' },
       { key: 'price_desc', name: '价格从高到低' },
-      { key: 'newest', name: '最新上架' }
+      { key: 'condition_new', name: '成色从新到旧' },
+      { key: 'condition_old', name: '成色从旧到新' }
     ],
+    
+    // 去重相关
+    loadedIds: new Set(),
     
     // 筛选相关
     filterOptions: {

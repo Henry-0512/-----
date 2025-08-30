@@ -59,10 +59,10 @@ Page({
         isEmpty: false 
       })
       
-      // 并行加载分类数据和热门商品
+      // 并行加载分类数据和热门商品（默认价格从高到低）
       const [filterRes, hotItemsRes] = await Promise.all([
         api.getFiltersMeta(),
-        api.filterProducts({}, { page: 1, page_size: 6, sort: 'newest' })
+        api.filterProducts({}, { page: 1, page_size: 8, sort: 'price_desc' })
       ])
       
       const categories = filterRes.data?.categories || filterRes.data || []
@@ -172,8 +172,30 @@ Page({
    */
   onCategoryTap(e) {
     const { category } = e.currentTarget.dataset
+    console.log('分类点击:', category)
+    
+    if (!category || !category.id) {
+      wx.showToast({
+        title: '分类数据错误',
+        icon: 'none'
+      })
+      return
+    }
+    
+    // 埋点追踪
+    try {
+      const { track, TrackEvents } = require('../../utils/track.js')
+      track(TrackEvents.CATEGORY_CLICK, {
+        category_id: category.id,
+        category_name: category.name,
+        from_page: 'homepage'
+      })
+    } catch (error) {
+      console.warn('埋点失败:', error)
+    }
+    
     wx.navigateTo({
-      url: `/pages/list/list?category=${category.id}`
+      url: `/pages/list/list?category=${encodeURIComponent(category.name)}&title=${encodeURIComponent(category.name)}`
     })
   },
 
@@ -198,8 +220,21 @@ Page({
    * 查看更多热门商品
    */
   onViewMoreHot() {
+    console.log('查看更多被点击')
+    
+    // 埋点追踪
+    try {
+      const { track, TrackEvents } = require('../../utils/track.js')
+      track(TrackEvents.MORE_CLICK, {
+        section: 'hot_items',
+        from_page: 'homepage'
+      })
+    } catch (error) {
+      console.warn('埋点失败:', error)
+    }
+    
     wx.navigateTo({
-      url: '/pages/list/list?sort=hot'
+      url: '/pages/list/list?all=1&sort=price_desc&title=全部商品'
     })
   },
 
@@ -208,13 +243,26 @@ Page({
    */
   onShowSort() {
     wx.showActionSheet({
-      itemList: ['价格从低到高', '价格从高到低', '最新上架', '热门推荐'],
+      itemList: ['价格从低到高', '价格从高到低', '成色从新到旧', '成色从旧到新'],
       success: (res) => {
-        const sortOptions = ['price_asc', 'price_desc', 'newest', 'popular']
+        const sortOptions = ['price_asc', 'price_desc', 'condition_new', 'condition_old']
         const selectedSort = sortOptions[res.tapIndex]
+        const sortNames = ['价格从低到高', '价格从高到低', '成色从新到旧', '成色从旧到新']
+        
+        // 埋点追踪
+        try {
+          const { track, TrackEvents } = require('../../utils/track.js')
+          track(TrackEvents.SORT_CHANGE, {
+            sort_type: selectedSort,
+            sort_name: sortNames[res.tapIndex],
+            from_page: 'homepage'
+          })
+        } catch (error) {
+          console.warn('埋点失败:', error)
+        }
         
         wx.navigateTo({
-          url: `/pages/list/list?sort=${selectedSort}`
+          url: `/pages/list/list?sort=${selectedSort}&title=${encodeURIComponent(sortNames[res.tapIndex])}`
         })
       }
     })
