@@ -216,6 +216,7 @@ Component({
       try {
         let favorites = storage.get('favorites') || []
         if (!Array.isArray(favorites)) {
+          console.warn('favorites不是数组，重置为空数组:', favorites)
           favorites = []
         }
         
@@ -455,10 +456,17 @@ Component({
       
       try {
         // 获取现有购物车数据
-        const cartItems = storage.get('cartItems') || []
+        let cartItems = storage.get('cartItems') || []
+        
+        // 确保cartItems是数组
+        if (!Array.isArray(cartItems)) {
+          console.warn('cartItems不是数组，重置为空数组:', cartItems)
+          cartItems = []
+        }
+        
         console.log('操作前购物车:', cartItems)
         
-        const existingItemIndex = cartItems.findIndex(item => item.id === targetProduct.id)
+        const existingItemIndex = cartItems.findIndex(item => item && item.id === targetProduct.id)
         
         if (existingItemIndex >= 0) {
           // 商品已存在，增加数量

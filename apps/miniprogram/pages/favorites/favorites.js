@@ -27,14 +27,22 @@ Page({
     try {
       this.setData({ loading: true })
       
-      const favorites = storage.get('favorites') || []
-      const validFavorites = Array.isArray(favorites) ? favorites : []
+      let favorites = storage.get('favorites') || []
+      
+      // 确保favorites是数组
+      if (!Array.isArray(favorites)) {
+        console.warn('收藏数据不是数组，重置:', favorites)
+        favorites = []
+        storage.set('favorites', []) // 重置存储
+      }
       
       // 为每个收藏商品添加选中状态
-      const favoritesWithState = validFavorites.map(item => ({
+      const favoritesWithState = favorites.map(item => ({
         ...item,
         selected: false
       }))
+      
+      console.log('收藏数据加载:', favoritesWithState)
       
       this.setData({
         favoriteItems: favoritesWithState,

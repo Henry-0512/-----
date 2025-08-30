@@ -27,11 +27,17 @@ Page({
    */
   loadCartData() {
     try {
-      const cartItems = storage.get('cartItems') || []
-      const validItems = Array.isArray(cartItems) ? cartItems : []
+      let cartItems = storage.get('cartItems') || []
+      
+      // 确保cartItems是数组
+      if (!Array.isArray(cartItems)) {
+        console.warn('购物车数据不是数组，重置:', cartItems)
+        cartItems = []
+        storage.set('cartItems', []) // 重置存储
+      }
       
       // 为每个商品添加选中状态和数量
-      const itemsWithState = validItems.map(item => ({
+      const itemsWithState = cartItems.map(item => ({
         ...item,
         selected: item.selected !== false, // 默认选中
         quantity: item.quantity || 1

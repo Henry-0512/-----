@@ -4,6 +4,7 @@
     <text class="title">存储调试工具</text>
     
     <button bindtap="onTestStorage" type="primary">测试存储功能</button>
+    <button bindtap="onFixData" type="warn">修复损坏数据</button>
     <button bindtap="onCheckFavorites">查看收藏数据</button>
     <button bindtap="onCheckCart">查看购物车数据</button>
     <button bindtap="onAddTestFavorite">添加测试收藏</button>

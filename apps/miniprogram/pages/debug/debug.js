@@ -133,12 +133,42 @@ Page({
    */
   onClearAll() {
     try {
+      // 先清空指定的存储项
+      wx.removeStorageSync('favorites')
+      wx.removeStorageSync('cartItems')
+      
+      // 然后重新初始化为空数组
       storage.set('favorites', [])
       storage.set('cartItems', [])
-      wx.clearStorageSync()
-      this.log('✅ 已清空所有存储数据')
+      
+      this.log('✅ 已清空所有存储数据并重新初始化')
     } catch (error) {
       this.log(`❌ 清空数据失败: ${error.message}`)
+    }
+  },
+
+  /**
+   * 修复损坏的数据
+   */
+  onFixData() {
+    try {
+      // 检查并修复favorites
+      let favorites = wx.getStorageSync('favorites')
+      if (!Array.isArray(favorites)) {
+        this.log(`修复favorites数据类型: ${typeof favorites} → Array`)
+        storage.set('favorites', [])
+      }
+      
+      // 检查并修复cartItems
+      let cartItems = wx.getStorageSync('cartItems')
+      if (!Array.isArray(cartItems)) {
+        this.log(`修复cartItems数据类型: ${typeof cartItems} → Array`)
+        storage.set('cartItems', [])
+      }
+      
+      this.log('✅ 数据修复完成')
+    } catch (error) {
+      this.log(`❌ 数据修复失败: ${error.message}`)
     }
   }
 })
