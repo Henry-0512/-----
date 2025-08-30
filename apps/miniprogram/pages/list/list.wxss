@@ -4,7 +4,7 @@
   background: #f8f9fa;
   width: 100vw; /* 明确设置容器宽度 */
   max-width: 100vw; /* 防止超出屏幕 */
-  overflow-x: hidden; /* 隐藏水平溢出 */
+  overflow-x: visible; /* 允许子元素横向滚动 */
   box-sizing: border-box; /* 包含padding和border */
 }
 
@@ -77,23 +77,26 @@
 
 .filter-scroll {
   width: 100%;
-  height: 60rpx;
-  white-space: nowrap;
+  height: 88rpx; /* 明确设置足够的高度 */
+  display: flex;
+  align-items: center;
   padding: 0 24rpx;
+  position: relative; /* 设置定位 */
+  z-index: 2; /* 确保层级正确 */
+  gap: 20rpx; /* 增加间距，确保内容明显超出 */
 }
 
 .filter-tag {
-  display: inline-block;
-  padding: 12rpx 24rpx;
-  margin-right: 16rpx;
+  flex: 0 0 auto; /* flex子项，不压缩不拉伸 */
+  padding: 16rpx 32rpx; /* 增加padding增加宽度 */
   border: 2rpx solid #e0e0e0;
   border-radius: 30rpx;
   background: white;
-  font-size: 26rpx;
+  font-size: 28rpx; /* 增大字体 */
   color: #333;
   white-space: nowrap;
-  vertical-align: top;
   transition: all 0.3s ease;
+  min-width: 120rpx; /* 设置最小宽度 */
 }
 
 .filter-tag:active {
@@ -110,17 +113,16 @@
 /* 全部筛选按钮 */
 .filter-all-btn {
   position: relative;
-  display: inline-block;
-  padding: 12rpx 24rpx;
-  margin-right: 16rpx;
+  flex: 0 0 auto; /* flex子项，不压缩不拉伸 */
+  padding: 16rpx 32rpx; /* 与标签一致 */
   border: 2rpx solid #007AFF;
   border-radius: 30rpx;
   background: #007AFF;
-  font-size: 26rpx;
+  font-size: 28rpx; /* 与标签一致 */
   color: white;
   white-space: nowrap;
-  vertical-align: top;
   transition: all 0.3s ease;
+  min-width: 120rpx; /* 与标签一致 */
 }
 
 .filter-all-btn:active {

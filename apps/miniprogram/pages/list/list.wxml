@@ -23,6 +23,7 @@
     <scroll-view 
       class="filter-scroll" 
       scroll-x="{{true}}"
+      enable-flex="{{true}}"
       show-scrollbar="{{false}}"
     >
       <!-- 直接在scroll-view内放置标签，不使用嵌套容器 -->
@@ -37,9 +38,12 @@
       <view class="filter-tag" bindtap="onQuickFilter" data-type="delivery">配送方式</view>
       <view class="filter-tag" bindtap="onQuickFilter" data-type="availability">库存状态</view>
       <view class="filter-tag" bindtap="onQuickFilter" data-type="discount">优惠活动</view>
+      <view class="filter-tag" bindtap="onQuickFilter" data-type="room">房间类型</view>
+      <view class="filter-tag" bindtap="onQuickFilter" data-type="feature">特殊功能</view>
+      <view class="filter-tag" bindtap="onQuickFilter" data-type="warranty">保修期限</view>
       <!-- 全部筛选按钮放在最后 -->
       <view class="filter-all-btn" bindtap="onShowFilter">
-        全部筛选
+        全部筛选设置
         <text wx:if="{{hasActiveFilters}}" class="filter-badge">{{filterCount}}</text>
       </view>
     </scroll-view>

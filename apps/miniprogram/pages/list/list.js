@@ -83,18 +83,26 @@ Page({
         console.log('🔍 滚动容器尺寸:', res[0])
         console.log('🔍 标签数量:', res[1] ? res[1].length : 0)
         if (res[1] && res[1].length > 0) {
-          const totalTagsWidth = res[1].reduce((sum, tag) => sum + tag.width, 0) + (res[1].length * 16) + 48 // 加上间距和padding
-          console.log('🔍 所有标签总宽度(含间距):', totalTagsWidth)
-          console.log('🔍 平均标签宽度:', res[1].reduce((sum, tag) => sum + tag.width, 0) / res[1].length)
+          const tagWidths = res[1].reduce((sum, tag) => sum + tag.width, 0)
+          const gaps = (res[1].length - 1) * 20 // gap: 20rpx
+          const padding = 48 // 左右padding各24rpx
+          const totalWidth = tagWidths + gaps + padding
+          
+          console.log('🔍 标签总宽度:', tagWidths)
+          console.log('🔍 间距总宽度:', gaps)
+          console.log('🔍 内边距宽度:', padding)
+          console.log('🔍 内容总宽度:', totalWidth)
+          console.log('🔍 平均标签宽度:', tagWidths / res[1].length)
+          
           if (res[0]) {
-            console.log('🔍 是否需要滚动:', totalTagsWidth > res[0].width)
-            console.log('🔍 内容总宽度:', totalTagsWidth, '容器宽度:', res[0].width)
+            console.log('🔍 容器宽度:', res[0].width)
+            console.log('🔍 是否需要滚动:', totalWidth > res[0].width)
+            console.log('🔍 宽度差:', totalWidth - res[0].width)
             
-            // 如果需要滚动但scroll-view不工作，尝试手动设置
-            if (totalTagsWidth > res[0].width) {
-              console.log('✅ 内容确实超出，应该可以滚动')
+            if (totalWidth > res[0].width) {
+              console.log('✅ 内容超出', totalWidth - res[0].width, 'rpx，应该可以滚动')
             } else {
-              console.log('❌ 内容没有超出，无法滚动')
+              console.log('❌ 内容没有超出，需要增加更多内容')
             }
           }
         }
@@ -609,6 +617,18 @@ Page({
       discount: {
         title: '优惠活动',
         options: ["限时特价","买一送一","新用户优惠","会员专享"]
+      },
+      room: {
+        title: '房间类型',
+        options: ["客厅","卧室","书房","餐厅","阳台","儿童房"]
+      },
+      feature: {
+        title: '特殊功能',
+        options: ["可折叠","可调节","带储物","防水","抗菌","智能"]
+      },
+      warranty: {
+        title: '保修期限',
+        options: ["1年","2年","3年","5年","终身保修"]
       }
     }
 
