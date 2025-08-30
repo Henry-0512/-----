@@ -67,11 +67,13 @@ Component({
    * 监听属性变化
    */
   observers: {
-    'product.id': function(productId) {
-      if (productId) {
-        this.checkFavoriteStatus()
-        this.checkCompareStatus()
-        this.updatePriceDisplay()
+    'product': function(product) {
+      if (product && product.id) {
+        this.updatePriceDisplay() // 先更新价格显示，设置safeProduct
+        setTimeout(() => {
+          this.checkFavoriteStatus()
+          this.checkCompareStatus()
+        }, 0) // 确保safeProduct已设置
       }
     }
   },
@@ -84,12 +86,22 @@ Component({
      * 检查收藏状态
      */
     checkFavoriteStatus() {
-      const { safeProduct } = this.data
-      if (!safeProduct || !safeProduct.id) return
+      const { safeProduct, product } = this.data
+      const targetProduct = safeProduct || product
+      
+      if (!targetProduct || !targetProduct.id) {
+        console.log('checkFavoriteStatus: 没有有效的商品数据')
+        return
+      }
 
       try {
         const favorites = storage.get('favorites') || []
-        const isFavorited = Array.isArray(favorites) && favorites.some(item => item && item.id === safeProduct.id)
+        console.log('当前收藏列表:', favorites)
+        console.log('检查商品ID:', targetProduct.id)
+        
+        const isFavorited = Array.isArray(favorites) && favorites.some(item => item && item.id === targetProduct.id)
+        console.log('收藏状态:', isFavorited)
+        
         this.setData({ isFavorited })
       } catch (error) {
         console.error('检查收藏状态失败:', error)
@@ -184,8 +196,22 @@ Component({
      * 切换收藏状态
      */
     onToggleFavorite() {
-      const { safeProduct, isFavorited } = this.data
-      if (!safeProduct || !safeProduct.id) return
+      const { safeProduct, product, isFavorited } = this.data
+      const targetProduct = safeProduct || product
+      
+      console.log('onToggleFavorite 被调用:', {
+        targetProduct: targetProduct,
+        isFavorited: isFavorited
+      })
+      
+      if (!targetProduct || !targetProduct.id) {
+        console.error('没有有效的商品数据')
+        wx.showToast({
+          title: '商品数据错误',
+          icon: 'none'
+        })
+        return
+      }
 
       try {
         let favorites = storage.get('favorites') || []
@@ -193,20 +219,25 @@ Component({
           favorites = []
         }
         
+        console.log('操作前收藏列表:', favorites)
+        
         if (isFavorited) {
           // 取消收藏
-          favorites = favorites.filter(item => item && item.id !== safeProduct.id)
+          favorites = favorites.filter(item => item && item.id !== targetProduct.id)
           wx.showToast({
             title: '已取消收藏',
             icon: 'none',
             duration: 1500
           })
         } else {
-          // 添加收藏
-          favorites.push({
-            ...safeProduct,
+          // 添加收藏 - 使用原始product数据确保完整性
+          const productToSave = {
+            ...targetProduct,
             favoriteAt: new Date().toISOString()
-          })
+          }
+          favorites.push(productToSave)
+          console.log('添加到收藏:', productToSave)
+          
           wx.showToast({
             title: '已添加收藏',
             icon: 'success',
@@ -216,6 +247,13 @@ Component({
 
         storage.set('favorites', favorites)
         this.setData({ isFavorited: !isFavorited })
+        
+        console.log('收藏操作完成:', {
+          productId: safeProduct.id,
+          isFavorited: !isFavorited,
+          favoritesCount: favorites.length,
+          favorites: favorites
+        })
         
         // 触发收藏状态变化事件
         this.triggerEvent('favoritechange', { 
@@ -399,9 +437,15 @@ Component({
      * 添加到购物车
      */
     onAddToCart() {
-      const { safeProduct } = this.data
+      const { safeProduct, product } = this.data
+      const targetProduct = safeProduct || product
       
-      if (!safeProduct || !safeProduct.id) {
+      console.log('onAddToCart 被调用:', {
+        targetProduct: targetProduct
+      })
+      
+      if (!targetProduct || !targetProduct.id) {
+        console.error('没有有效的商品数据')
         wx.showToast({
           title: '商品信息错误',
           icon: 'none'
@@ -412,23 +456,34 @@ Component({
       try {
         // 获取现有购物车数据
         const cartItems = storage.get('cartItems') || []
-        const existingItemIndex = cartItems.findIndex(item => item.id === safeProduct.id)
+        console.log('操作前购物车:', cartItems)
+        
+        const existingItemIndex = cartItems.findIndex(item => item.id === targetProduct.id)
         
         if (existingItemIndex >= 0) {
           // 商品已存在，增加数量
           cartItems[existingItemIndex].quantity = (cartItems[existingItemIndex].quantity || 1) + 1
+          console.log('商品已存在，增加数量')
         } else {
-          // 新商品，添加到购物车
-          cartItems.push({
-            ...safeProduct,
+          // 新商品，添加到购物车 - 使用原始product数据确保完整性
+          const productToSave = {
+            ...targetProduct,
             quantity: 1,
             selected: true,
             addedAt: new Date().toISOString()
-          })
+          }
+          cartItems.push(productToSave)
+          console.log('添加新商品到购物车:', productToSave)
         }
         
         // 保存到本地存储
         storage.set('cartItems', cartItems)
+        
+        console.log('购物车操作完成:', {
+          productId: safeProduct.id,
+          cartCount: cartItems.length,
+          cartItems: cartItems
+        })
         
         wx.showToast({
           title: '已添加到购物车',
