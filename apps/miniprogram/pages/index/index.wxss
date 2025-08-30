@@ -146,10 +146,17 @@
 }
 
 .hot-items {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* 保证间距均匀 */
   padding: 0 32rpx 32rpx;
+  box-sizing: border-box;
+}
+
+.hot-items product-card {
+  width: 48%; /* 每个卡片宽度48%，保证间距均匀 */
+  margin-bottom: 24rpx;
+  box-sizing: border-box;
 }
 
 .empty-hot-items {

@@ -14,12 +14,19 @@
   box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.12);
 }
 
-/* 网格卡片样式 */
+/* 网格卡片样式 - 统一布局设计 */
 .grid-card {
-  margin-bottom: 0;
+  width: 100%; /* 父容器控制宽度 */
   height: auto;
+  min-height: 420rpx;
   display: flex;
   flex-direction: column;
+  background: white;
+  border-radius: 12rpx; /* 统一圆角 */
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.08); /* 统一阴影 */
+  box-sizing: border-box;
+  overflow: hidden; /* 防止内容溢出 */
+  margin-bottom: 24rpx;
 }
 
 .grid-card .card-info {
@@ -28,12 +35,15 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .grid-card .card-image {
-  height: 240rpx;
+  height: 200rpx; /* 统一图片高度 */
   width: 100%;
-  object-fit: cover;
+  object-fit: cover; /* 保证图片不变形，溢出部分裁掉 */
+  border-radius: 12rpx 12rpx 0 0; /* 顶部圆角 */
 }
 
 /* 列表卡片样式 */
@@ -148,19 +158,24 @@
   color: #333;
   margin-bottom: 8rpx;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 2; /* 最多两行 */
   -webkit-box-orient: vertical;
   overflow: hidden;
+  text-overflow: ellipsis; /* 超出显示省略号 */
   line-height: 1.4;
   word-break: break-word;
-  height: auto;
-  min-height: 72rpx;
+  height: 72rpx; /* 固定高度，两行文字 */
+  box-sizing: border-box;
 }
 
 .card-brand {
   font-size: 22rpx;
-  color: #999;
+  color: #999; /* 灰色 */
   margin-bottom: 8rpx;
+  white-space: nowrap; /* 单行省略 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
 }
 
 .card-dimensions {
@@ -168,11 +183,15 @@
 }
 
 .dimensions-text {
-  font-size: 22rpx;
+  font-size: 20rpx; /* 统一字体大小 */
   color: #666;
   background: #f5f5f5;
   padding: 4rpx 8rpx;
   border-radius: 4rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
 }
 
 .card-desc {
@@ -245,16 +264,17 @@
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
-  border-radius: 12rpx;
-  padding: 10rpx 16rpx;
+  border-radius: 8rpx;
+  padding: 12rpx 16rpx;
   font-size: 20rpx;
   font-weight: 500;
   line-height: 1.2;
-  margin: 0;
+  margin: 8rpx 0 0 0;
+  width: 100%; /* 按钮宽度100%，固定在卡片底部 */
+  box-sizing: border-box;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 100%;
 }
 
 .inquiry-btn:active {
@@ -326,5 +346,45 @@
   
   .card-image {
     height: 200rpx;
+  }
+}
+
+/* 响应式设计 - 适配不同屏幕尺寸 */
+@media (max-width: 375px) {
+  .grid-card {
+    min-height: 380rpx; /* 小屏幕适当减少高度 */
+  }
+  
+  .grid-card .card-image {
+    height: 180rpx; /* 小屏幕图片高度调整 */
+  }
+  
+  .card-title {
+    font-size: 24rpx;
+    height: 64rpx; /* 小屏幕标题高度调整 */
+  }
+  
+  .card-brand {
+    font-size: 20rpx;
+  }
+  
+  .dimensions-text {
+    font-size: 18rpx;
+  }
+  
+  .inquiry-btn {
+    padding: 10rpx 12rpx;
+    font-size: 18rpx;
+  }
+}
+
+/* 大屏幕优化 */
+@media (min-width: 414px) {
+  .grid-card {
+    min-height: 450rpx; /* 大屏幕增加高度 */
+  }
+  
+  .grid-card .card-image {
+    height: 220rpx; /* 大屏幕图片高度调整 */
   }
 }
