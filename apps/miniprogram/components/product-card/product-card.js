@@ -45,7 +45,8 @@ Component({
     },
     safeProduct: null,
     buttonData: {},
-    priceText: '' // 精简价格显示文本
+    priceText: '', // 精简价格显示文本
+    conditionLabels: ['九成新', '全新', '九五新', '八成新'] // 成色标签
   },
 
   /**
@@ -304,6 +305,76 @@ Component({
      */
     onImageTap() {
       this.onImagePreview()
+    },
+
+    /**
+     * 获取成色标签
+     */
+    getConditionLabel() {
+      const { conditionLabels } = this.data
+      const randomIndex = Math.floor(Math.random() * conditionLabels.length)
+      return conditionLabels[randomIndex]
+    },
+
+    /**
+     * 获取商品描述
+     */
+    getProductDesc() {
+      const { safeProduct } = this.data
+      if (!safeProduct) return ''
+      
+      // 组合描述信息
+      const parts = []
+      if (safeProduct.color && safeProduct.color[0]) {
+        parts.push(safeProduct.color[0])
+      }
+      if (safeProduct.material && safeProduct.material[0]) {
+        parts.push(safeProduct.material[0])
+      }
+      if (safeProduct.dimensions && safeProduct.dimensions.length) {
+        parts.push(`${safeProduct.dimensions.length}m`)
+      }
+      
+      return parts.join(', ') || '租赁家具'
+    },
+
+    /**
+     * 获取价格数字
+     */
+    getPriceNumber() {
+      const { safeProduct, priceInfo } = this.data
+      if (!safeProduct) return '0'
+      
+      switch (priceInfo.mode) {
+        case 'show':
+          return safeProduct.price || '0'
+        case 'from':
+          return safeProduct.price || '0'
+        case 'range':
+          if (safeProduct.price_min && safeProduct.price_max) {
+            return `${safeProduct.price_min}–${safeProduct.price_max}`
+          }
+          return safeProduct.price || '0'
+        default:
+          return '0'
+      }
+    },
+
+    /**
+     * 添加到购物车
+     */
+    onAddToCart() {
+      const { safeProduct } = this.data
+      
+      wx.showToast({
+        title: '已添加到购物车',
+        icon: 'success'
+      })
+      
+      // 触发添加购物车事件
+      this.triggerEvent('addtocart', {
+        product: safeProduct
+      })
     }
   }
 })

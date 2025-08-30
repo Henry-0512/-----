@@ -148,9 +148,12 @@
 .hot-items {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24rpx;
-  padding: 0 32rpx 32rpx;
+  gap: 16rpx; /* 减小间距，防止超出 */
+  padding: 0 24rpx 32rpx; /* 减小左右边距 */
   box-sizing: border-box;
+  width: 100%;
+  max-width: 100vw;
+  overflow: hidden;
 }
 
 .empty-hot-items {
