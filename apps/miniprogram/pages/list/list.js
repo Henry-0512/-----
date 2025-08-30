@@ -53,8 +53,11 @@ Page({
     // 新版筛选器配置
     filterSchema: [
       { key: "price", type: "range", label: "月租（£/月）", unit: "£/mo", min: 8, max: 15, step: 1 },
-      { key: "material", type: "multi", label: "材质", options: ["布艺","皮质","实木","金属","玻璃"] },
-      { key: "style", type: "multi", label: "风格", options: ["现代","北欧","极简","工业","简约"] }
+      { key: "category", type: "multi", label: "分类", options: ["沙发","床","桌子","椅子","柜子","装饰","灯具","地毯"] },
+      { key: "material", type: "multi", label: "材质", options: ["布艺","皮质","实木","金属","玻璃","塑料","藤编","大理石"] },
+      { key: "color", type: "multi", label: "颜色", options: ["白色","黑色","灰色","棕色","米色","蓝色","绿色","红色","黄色","粉色"] },
+      { key: "style", type: "multi", label: "风格", options: ["现代","北欧","极简","工业","简约","复古","田园","中式","美式"] },
+      { key: "size", type: "multi", label: "尺寸", options: ["小型","中型","大型","超大型"] }
     ],
     currentFilters: {},
     
@@ -510,6 +513,59 @@ Page({
     
     this.updateFilterStatus()
     this.loadItems(true)
+  },
+
+  /**
+   * 快速筛选标签点击
+   */
+  onQuickFilter(e) {
+    const { type } = e.currentTarget.dataset
+    console.log('🔍 快速筛选点击:', type)
+    
+    switch (type) {
+      case 'best':
+        this.setData({ currentSort: 'rent_desc' })
+        this.loadItems(true)
+        break
+      case 'category':
+      case 'size':
+      case 'color':
+      case 'style':
+      case 'price':
+        // 打开对应的筛选器
+        this.showSpecificFilter(type)
+        break
+      default:
+        console.log('未知筛选类型:', type)
+    }
+  },
+
+  /**
+   * 显示特定筛选器
+   */
+  showSpecificFilter(filterType) {
+    // 暂时还是打开完整的筛选器，后续可以优化为单独的筛选器
+    this.setData({ showFilterSheet: true })
+  },
+
+  /**
+   * 选择邮编
+   */
+  onSelectPostcode() {
+    wx.showToast({
+      title: '邮编选择功能开发中',
+      icon: 'none'
+    })
+  },
+
+  /**
+   * 选择门店
+   */
+  onSelectStore() {
+    wx.showToast({
+      title: '门店选择功能开发中',
+      icon: 'none'
+    })
   },
 
   /**

@@ -36,6 +36,24 @@ Component({
    */
   methods: {
     /**
+     * 获取颜色代码
+     */
+    getColorCode(colorName) {
+      const colorMap = {
+        '白色': '#FFFFFF',
+        '黑色': '#000000',
+        '灰色': '#808080',
+        '棕色': '#8B4513',
+        '米色': '#F5F5DC',
+        '蓝色': '#0066CC',
+        '绿色': '#228B22',
+        '红色': '#DC143C',
+        '黄色': '#FFD700',
+        '粉色': '#FF69B4'
+      }
+      return colorMap[colorName] || '#E0E0E0'
+    },
+    /**
      * 关闭筛选器
      */
     onClose() {

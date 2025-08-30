@@ -88,19 +88,40 @@
 
         <!-- 多选类型 -->
         <view wx:elif="{{item.type === 'multi'}}" class="filter-multi">
-          <view 
-            wx:for="{{item.options}}" 
-            wx:for-item="option"
-            wx:for-index="optionIndex"
-            wx:key="*this"
-            class="multi-option {{internalValues[item.key].includes(option.value || option) ? 'selected' : ''}}"
-            data-key="{{item.key}}"
-            data-option="{{option.value || option}}"
-            bindtap="onMultiToggle"
-          >
-            <text class="option-text">{{option.label || option}}</text>
-            <text wx:if="{{option.note}}" class="option-note">{{option.note}}</text>
-            <text wx:if="{{internalValues[item.key].includes(option.value || option)}}" class="option-check">✓</text>
+          <!-- 颜色特殊显示 -->
+          <view wx:if="{{item.key === 'color'}}" class="color-options">
+            <view 
+              wx:for="{{item.options}}" 
+              wx:for-item="option"
+              wx:for-index="optionIndex"
+              wx:key="*this"
+              class="color-option {{internalValues[item.key].includes(option.value || option) ? 'selected' : ''}}"
+              data-key="{{item.key}}"
+              data-option="{{option.value || option}}"
+              bindtap="onMultiToggle"
+            >
+              <view class="color-circle" style="background-color: {{getColorCode(option.value || option)}}"></view>
+              <text class="color-text">{{option.label || option}}</text>
+              <text wx:if="{{internalValues[item.key].includes(option.value || option)}}" class="option-check">✓</text>
+            </view>
+          </view>
+          
+          <!-- 普通多选显示 -->
+          <view wx:else class="normal-options">
+            <view 
+              wx:for="{{item.options}}" 
+              wx:for-item="option"
+              wx:for-index="optionIndex"
+              wx:key="*this"
+              class="multi-option {{internalValues[item.key].includes(option.value || option) ? 'selected' : ''}}"
+              data-key="{{item.key}}"
+              data-option="{{option.value || option}}"
+              bindtap="onMultiToggle"
+            >
+              <text class="option-text">{{option.label || option}}</text>
+              <text wx:if="{{option.note}}" class="option-note">{{option.note}}</text>
+              <text wx:if="{{internalValues[item.key].includes(option.value || option)}}" class="option-check">✓</text>
+            </view>
           </view>
         </view>
 

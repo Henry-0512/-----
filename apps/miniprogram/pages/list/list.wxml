@@ -1,37 +1,77 @@
 <!--pages/list/list.wxml-->
 <view class="container">
-  <!-- 顶部导航 -->
-  <view class="page-header">
-    <view class="nav-back" bindtap="onGoBack">
-      <text class="back-icon">‹</text>
-    </view>
-    <text class="page-title">{{pageTitle || '商品列表'}}</text>
-    <view class="nav-placeholder"></view>
-  </view>
-
-  <!-- 列表顶部锚点 -->
-  <view id="listTop"></view>
-
-  <!-- 筛选控制栏 -->
-  <view class="filter-controls">
-    <view class="control-button" bindtap="onShowSort">
-      <text class="control-text">排序</text>
-      <text class="control-arrow">⌄</text>
-    </view>
-    <view class="control-button {{hasActiveFilters ? 'active' : ''}}" bindtap="onShowFilter">
-      <text class="control-text">筛选</text>
-      <text wx:if="{{hasActiveFilters}}" class="filter-count">({{filterCount}})</text>
-    </view>
-    <view wx:if="{{hasActiveFilters}}" class="reset-button" bindtap="onResetFilters">
-      <text class="reset-text">清空</text>
+  <!-- 背景图片区域 -->
+  <view class="hero-section">
+    <image 
+      class="hero-image" 
+      src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&h=300&fit=crop"
+      mode="aspectFill"
+    />
+    <view class="hero-overlay">
+      <view class="nav-header">
+        <view class="nav-back" bindtap="onGoBack">
+          <text class="back-arrow">←</text>
+        </view>
+        <view class="nav-placeholder"></view>
+      </view>
+      <text class="hero-title">New at HomeNest</text>
     </view>
   </view>
 
-  <!-- 排序状态显示 -->
-  <view wx:if="{{currentSort !== 'newest'}}" class="sort-status">
-    <text class="sort-text">
-      当前排序：{{currentSortName}}
-    </text>
+  <!-- IKEA风格筛选栏 -->
+  <view class="ikea-filter-bar">
+    <!-- 快速筛选标签 -->
+    <scroll-view class="filter-tags" scroll-x="{{true}}" show-scrollbar="{{false}}">
+      <view class="filter-tag {{currentSort === 'rent_desc' ? 'active' : ''}}" bindtap="onQuickFilter" data-type="best">
+        <text class="tag-text">Best match</text>
+      </view>
+      <view class="filter-tag" bindtap="onQuickFilter" data-type="category">
+        <text class="tag-text">Category</text>
+      </view>
+      <view class="filter-tag" bindtap="onQuickFilter" data-type="size">
+        <text class="tag-text">Size</text>
+      </view>
+      <view class="filter-tag" bindtap="onQuickFilter" data-type="color">
+        <text class="tag-text">Color</text>
+      </view>
+      <view class="filter-tag" bindtap="onQuickFilter" data-type="style">
+        <text class="tag-text">Style</text>
+      </view>
+      <view class="filter-tag" bindtap="onQuickFilter" data-type="price">
+        <text class="tag-text">Price</text>
+      </view>
+    </scroll-view>
+    
+    <!-- 筛选按钮 -->
+    <view class="filter-button" bindtap="onShowFilter">
+      <text class="filter-icon">⚙</text>
+      <text wx:if="{{hasActiveFilters}}" class="filter-badge">{{filterCount}}</text>
+    </view>
+  </view>
+
+  <!-- 商品数量和视图切换 -->
+  <view class="products-header">
+    <text class="products-count">{{totalCount || items.length}} Products</text>
+    <view class="view-toggle">
+      <view class="toggle-btn active">
+        <text class="toggle-icon">⊞</text>
+      </view>
+      <view class="toggle-btn">
+        <text class="toggle-icon">☰</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 邮编和门店选择 -->
+  <view class="location-bar">
+    <view class="location-item" bindtap="onSelectPostcode">
+      <text class="location-icon">🚚</text>
+      <text class="location-text">Select post code</text>
+    </view>
+    <view class="location-item" bindtap="onSelectStore">
+      <text class="location-icon">🏪</text>
+      <text class="location-text">Select store</text>
+    </view>
   </view>
 
   <!-- 骨架屏加载状态 -->
