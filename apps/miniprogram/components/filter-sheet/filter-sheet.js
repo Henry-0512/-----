@@ -71,6 +71,7 @@ Component({
      */
     onApply() {
       const filterData = { ...this.data.internalValues }
+      console.log('🔍 筛选器应用，原始数据:', filterData)
       
       // 清理空值和默认值
       Object.keys(filterData).forEach(key => {
@@ -81,13 +82,18 @@ Component({
           delete filterData[key]
         } else if (schemaItem.type === 'range') {
           const value = filterData[key]
-          if (value.min === schemaItem.min && value.max === schemaItem.max) {
+          // 不要删除价格筛选，即使是默认值
+          if (key === 'price') {
+            console.log('🔍 保留价格筛选:', value)
+          } else if (value.min === schemaItem.min && value.max === schemaItem.max) {
             delete filterData[key]
           }
         } else if (schemaItem.type === 'bool' && !filterData[key]) {
           delete filterData[key]
         }
       })
+      
+      console.log('🔍 筛选器最终数据:', filterData)
       
       this.triggerEvent('apply', filterData)
       this.triggerEvent('close')

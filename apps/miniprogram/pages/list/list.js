@@ -320,23 +320,37 @@ Page({
    * 格式化筛选条件用于API调用
    */
   formatFiltersForAPI(filters) {
+    console.log('🔍 formatFiltersForAPI输入:', filters)
+    
     const apiFilters = {}
     
     if (filters.categories && filters.categories.length > 0) {
       apiFilters.categories = filters.categories
     }
     
-    if (filters.priceRange) {
-      apiFilters.priceRange = {
-        min: filters.priceRange.min,
-        max: filters.priceRange.max
+    // 处理月租金筛选
+    if (filters.monthlyPrice) {
+      apiFilters.monthlyPrice = {
+        min: filters.monthlyPrice.min,
+        max: filters.monthlyPrice.max
       }
+    }
+    
+    // 处理材质筛选
+    if (filters.material && filters.material.length > 0) {
+      apiFilters.material = filters.material
+    }
+    
+    // 处理风格筛选
+    if (filters.style && filters.style.length > 0) {
+      apiFilters.style = filters.style
     }
     
     if (filters.brands && filters.brands.length > 0) {
       apiFilters.brands = filters.brands
     }
     
+    console.log('🔍 formatFiltersForAPI输出:', apiFilters)
     return apiFilters
   },
 
