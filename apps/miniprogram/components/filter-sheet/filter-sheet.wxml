@@ -42,14 +42,15 @@
             wx:for="{{item.options}}" 
             wx:for-item="option"
             wx:for-index="optionIndex"
-            wx:key="option"
-            class="multi-option {{internalValues[item.key].includes(option) ? 'selected' : ''}}"
+            wx:key="{{option.value || option}}"
+            class="multi-option {{option.disabled ? 'disabled' : ''}} {{internalValues[item.key].includes(option.value || option) ? 'selected' : ''}}"
             data-key="{{item.key}}"
-            data-option="{{option}}"
-            bindtap="onMultiToggle"
+            data-option="{{option.value || option}}"
+            bindtap="{{option.disabled ? '' : 'onMultiToggle'}}"
           >
-            <text class="option-text">{{option}}</text>
-            <text wx:if="{{internalValues[item.key].includes(option)}}" class="option-check">✓</text>
+            <text class="option-text">{{option.label || option}}</text>
+            <text wx:if="{{option.note}}" class="option-note">{{option.note}}</text>
+            <text wx:if="{{internalValues[item.key].includes(option.value || option)}}" class="option-check">✓</text>
           </view>
         </view>
 

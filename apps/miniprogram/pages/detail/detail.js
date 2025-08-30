@@ -588,17 +588,57 @@ Page({
    */
   onCitySelect() {
     const { availableCities } = this.data
-    const cityNames = availableCities.map(city => city.city)
+    
+    // 分离可配送和不可配送的城市
+    const deliverableCities = availableCities.filter(city => city.deliverable)
+    const undeliverableCities = availableCities.filter(city => !city.deliverable)
+    
+    // 构建选项列表
+    const itemList = [
+      ...deliverableCities.map(city => city.city),
+      ...undeliverableCities.map(city => `${city.city}（暂不支持）`)
+    ]
     
     wx.showActionSheet({
-      itemList: cityNames,
+      itemList,
       success: (res) => {
-        const selectedCityInfo = availableCities[res.tapIndex]
-        this.setData({
-          selectedCity: selectedCityInfo.city,
-          selectedPostcode: selectedCityInfo.postcode[0] || ''
-        })
-        this.calculateQuote()
+        const selectedIndex = res.tapIndex
+        
+        if (selectedIndex < deliverableCities.length) {
+          // 选择了可配送城市
+          const selectedCityInfo = deliverableCities[selectedIndex]
+          this.setData({
+            selectedCity: selectedCityInfo.city,
+            selectedPostcode: selectedCityInfo.postcode[0] || ''
+          })
+          this.calculateQuote()
+        } else {
+          // 选择了不可配送城市
+          const undeliverableCity = undeliverableCities[selectedIndex - deliverableCities.length]
+          this.showDeliveryUnavailable(undeliverableCity.city)
+        }
+      }
+    })
+  },
+
+  /**
+   * 显示不可配送城市提示
+   */
+  showDeliveryUnavailable(cityName) {
+    const { availableCities } = this.data
+    const deliverableCities = availableCities.filter(city => city.deliverable)
+    
+    wx.showModal({
+      title: '配送提醒',
+      content: `目前仅支持 Durham 及周边，后续将逐步扩展\n\n当前可配送城市：${deliverableCities.map(c => c.city).join('、')}`,
+      confirmText: '联系客服',
+      cancelText: '查看可配送城市',
+      success: (res) => {
+        if (res.confirm) {
+          this.onContactCustomerService()
+        } else {
+          this.showAvailableCities()
+        }
       }
     })
   },
@@ -609,18 +649,43 @@ Page({
   showDeliveryGuide(guide) {
     if (!guide) return
 
-    const suggestions = guide.suggestions.map(s => s.title).join('\n')
-    
     wx.showModal({
       title: '配送提醒',
-      content: `${guide.message}\n\n我们为您提供以下选择：\n${suggestions}`,
-      confirmText: '提交需求',
+      content: guide.message,
+      confirmText: '联系客服',
       cancelText: '查看可配送城市',
       success: (res) => {
         if (res.confirm) {
-          this.onSubmitDeliveryRequest()
+          this.onContactCustomerService()
         } else {
           this.showAvailableCities()
+        }
+      }
+    })
+  },
+
+  /**
+   * 联系客服
+   */
+  onContactCustomerService() {
+    const customerService = getCustomerServiceConfig()
+    
+    wx.showModal({
+      title: '联系客服',
+      content: `了解配送扩展计划\n\n客服电话：${customerService.phone.number}\n工作时间：${customerService.phone.workTime}`,
+      confirmText: '拨打电话',
+      cancelText: '取消',
+      success: (res) => {
+        if (res.confirm) {
+          wx.makePhoneCall({
+            phoneNumber: customerService.phone.number,
+            fail: (error) => {
+              wx.showToast({
+                title: '拨打失败，请稍后重试',
+                icon: 'none'
+              })
+            }
+          })
         }
       }
     })

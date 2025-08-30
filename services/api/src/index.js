@@ -88,8 +88,9 @@ fastify.get('/api/filters/meta', async (request, reply) => {
   const brandStats = {}
   const styleStats = {}
   
-  // 统计可配送城市
+  // 统计可配送城市（包含不可配送的城市）
   const cityStats = {}
+  const allCities = new Set()
   
   skuData.forEach(sku => {
     // 统计分类（取第一个分类作为主分类）
@@ -104,12 +105,42 @@ fastify.get('/api/filters/meta', async (request, reply) => {
       styleStats[style] = (styleStats[style] || 0) + 1
     })
     
-    // 统计可配送城市
+    // 收集所有城市信息
     if (sku.deliverable_cities) {
       sku.deliverable_cities.forEach(cityInfo => {
-        cityStats[cityInfo.city] = (cityStats[cityInfo.city] || 0) + 1
+        allCities.add(JSON.stringify({
+          city: cityInfo.city,
+          deliverable: cityInfo.deliverable,
+          eta_days: cityInfo.eta_days,
+          region: cityInfo.region
+        }))
+        
+        // 只统计可配送的城市
+        if (cityInfo.deliverable) {
+          cityStats[cityInfo.city] = (cityStats[cityInfo.city] || 0) + 1
+        }
       })
     }
+  })
+  
+  // 处理城市列表，包含配送状态
+  const citiesWithStatus = Array.from(allCities).map(cityStr => {
+    const cityInfo = JSON.parse(cityStr)
+    return {
+      id: cityInfo.city,
+      name: cityInfo.city,
+      deliverable: cityInfo.deliverable,
+      eta_days: cityInfo.eta_days,
+      region: cityInfo.region,
+      count: cityStats[cityInfo.city] || 0
+    }
+  }).sort((a, b) => {
+    // 排序：可配送的在前，按region排序
+    if (a.deliverable && !b.deliverable) return -1
+    if (!a.deliverable && b.deliverable) return 1
+    if (a.region === 'primary') return -1
+    if (b.region === 'primary') return 1
+    return a.name.localeCompare(b.name)
   })
   
   return {
@@ -136,11 +167,7 @@ fastify.get('/api/filters/meta', async (request, reply) => {
         name: id,
         count
       })),
-      cities: Object.entries(cityStats).map(([id, count]) => ({
-        id,
-        name: id,
-        count
-      }))
+      cities: citiesWithStatus
     }
   }
 })
@@ -429,30 +456,47 @@ fastify.post('/api/quote', async (request, reply) => {
     })
 
     if (matchedCity) {
-      deliveryInfo = matchedCity
-      isDeliverable = true
+      if (matchedCity.deliverable) {
+        deliveryInfo = matchedCity
+        isDeliverable = true
+      } else {
+        isDeliverable = false
+        deliveryGuide = {
+          message: "目前仅支持 Durham 及周边，后续将逐步扩展",
+          suggestions: [
+            {
+              type: 'contact_service',
+              title: '联系客服',
+              description: '了解配送扩展计划和预约服务',
+              action: 'contact_customer_service'
+            },
+            {
+              type: 'view_available',
+              title: '查看可配送城市',
+              description: '当前支持配送的城市列表',
+              action: 'view_deliverable_cities',
+              cities: deliverableCities.filter(c => c.deliverable).map(c => c.city)
+            }
+          ]
+        }
+      }
     } else {
       isDeliverable = false
       deliveryGuide = {
-        message: `很抱歉，该商品暂不支持配送到${city || postcode}`,
+        message: "目前仅支持 Durham 及周边，后续将逐步扩展",
         suggestions: [
           {
-            type: 'submit_request',
-            title: '提交配送需求',
-            description: '我们会评估您所在区域的配送可行性',
-            action: 'submit_delivery_request'
+            type: 'contact_service',
+            title: '联系客服',
+            description: '了解配送扩展计划和预约服务',
+            action: 'contact_customer_service'
           },
           {
-            type: 'notify_available',
-            title: '开通通知',
-            description: '配送服务开通时我们会第一时间通知您',
-            action: 'subscribe_delivery_notify'
-          },
-          {
-            type: 'alternative_cities',
-            title: '可配送城市',
-            description: '查看该商品支持配送的城市列表',
-            cities: deliverableCities.map(c => c.city)
+            type: 'view_available',
+            title: '查看可配送城市',
+            description: '当前支持配送的城市列表',
+            action: 'view_deliverable_cities',
+            cities: deliverableCities.filter(c => c.deliverable).map(c => c.city)
           }
         ]
       }

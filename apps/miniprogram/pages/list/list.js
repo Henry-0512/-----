@@ -113,7 +113,12 @@ Page({
         if (filter.key === 'cities') {
           return {
             ...filter,
-            options: (res.data.cities || []).map(city => city.name || city.id)
+            options: (res.data.cities || []).map(city => ({
+              value: city.name || city.id,
+              label: city.name || city.id,
+              disabled: !city.deliverable,
+              note: city.deliverable ? null : '暂不支持'
+            }))
           }
         }
         return filter

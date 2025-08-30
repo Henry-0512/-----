@@ -61,59 +61,46 @@
     },
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
         "eta_days": [
-          3,
-          5
-        ]
+          0,
+          1
+        ],
+        "region": "primary"
       },
       {
-        "city": "上海",
+        "city": "Newcastle",
         "postcode": [
-          "200000",
-          "201000"
+          "NE1",
+          "NE2",
+          "NE3"
         ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
+          3
+        ],
+        "region": "secondary"
       },
       {
-        "city": "广州",
+        "city": "Sunderland",
         "postcode": [
-          "510000",
-          "511000"
+          "SR1",
+          "SR2",
+          "SR3"
         ],
+        "deliverable": true,
         "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100"
+          2,
+          3
         ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "杭州",
-        "postcode": [
-          "310000",
-          "311000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
+        "region": "secondary"
       }
     ],
     "variants": [
@@ -208,107 +195,46 @@
     ],
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000",
-          "102000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1",
+          "NE2",
+          "NE3"
+        ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
+          3
+        ],
+        "region": "secondary"
       },
       {
-        "city": "上海",
+        "city": "Sunderland",
         "postcode": [
-          "200000",
-          "201000",
-          "202000"
+          "SR1",
+          "SR2",
+          "SR3"
         ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
-      },
-      {
-        "city": "广州",
-        "postcode": [
-          "510000",
-          "511000",
-          "512000"
+          3
         ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100",
-          "518200"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "杭州",
-        "postcode": [
-          "310000",
-          "311000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "南京",
-        "postcode": [
-          "210000",
-          "211000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "武汉",
-        "postcode": [
-          "430000",
-          "431000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "成都",
-        "postcode": [
-          "610000",
-          "611000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "西安",
-        "postcode": [
-          "710000",
-          "711000"
-        ],
-        "eta_days": [
-          6,
-          8
-        ]
+        "region": "secondary"
       }
     ]
   },
@@ -388,107 +314,46 @@
     ],
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000",
-          "102000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1",
+          "NE2",
+          "NE3"
+        ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
+          3
+        ],
+        "region": "secondary"
       },
       {
-        "city": "上海",
+        "city": "Sunderland",
         "postcode": [
-          "200000",
-          "201000",
-          "202000"
+          "SR1",
+          "SR2",
+          "SR3"
         ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
-      },
-      {
-        "city": "广州",
-        "postcode": [
-          "510000",
-          "511000",
-          "512000"
+          3
         ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100",
-          "518200"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "杭州",
-        "postcode": [
-          "310000",
-          "311000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "南京",
-        "postcode": [
-          "210000",
-          "211000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "武汉",
-        "postcode": [
-          "430000",
-          "431000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "成都",
-        "postcode": [
-          "610000",
-          "611000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "西安",
-        "postcode": [
-          "710000",
-          "711000"
-        ],
-        "eta_days": [
-          6,
-          8
-        ]
+        "region": "secondary"
       }
     ]
   },
@@ -567,147 +432,46 @@
     ],
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000",
-          "102000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1",
+          "NE2",
+          "NE3"
+        ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
+          3
+        ],
+        "region": "secondary"
       },
       {
-        "city": "上海",
+        "city": "Sunderland",
         "postcode": [
-          "200000",
-          "201000",
-          "202000"
+          "SR1",
+          "SR2",
+          "SR3"
         ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
-      },
-      {
-        "city": "广州",
-        "postcode": [
-          "510000",
-          "511000",
-          "512000"
+          3
         ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100",
-          "518200"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "杭州",
-        "postcode": [
-          "310000",
-          "311000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "南京",
-        "postcode": [
-          "210000",
-          "211000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "武汉",
-        "postcode": [
-          "430000",
-          "431000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "成都",
-        "postcode": [
-          "610000",
-          "611000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "西安",
-        "postcode": [
-          "710000",
-          "711000"
-        ],
-        "eta_days": [
-          6,
-          8
-        ]
-      },
-      {
-        "city": "苏州",
-        "postcode": [
-          "215000"
-        ],
-        "eta_days": [
-          5,
-          8
-        ]
-      },
-      {
-        "city": "无锡",
-        "postcode": [
-          "214000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "宁波",
-        "postcode": [
-          "315000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "青岛",
-        "postcode": [
-          "266000"
-        ],
-        "eta_days": [
-          7,
-          10
-        ]
+        "region": "secondary"
       }
     ]
   },
@@ -787,147 +551,46 @@
     ],
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000",
-          "102000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1",
+          "NE2",
+          "NE3"
+        ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
+          3
+        ],
+        "region": "secondary"
       },
       {
-        "city": "上海",
+        "city": "Sunderland",
         "postcode": [
-          "200000",
-          "201000",
-          "202000"
+          "SR1",
+          "SR2",
+          "SR3"
         ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
-      },
-      {
-        "city": "广州",
-        "postcode": [
-          "510000",
-          "511000",
-          "512000"
+          3
         ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100",
-          "518200"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "杭州",
-        "postcode": [
-          "310000",
-          "311000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "南京",
-        "postcode": [
-          "210000",
-          "211000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "武汉",
-        "postcode": [
-          "430000",
-          "431000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "成都",
-        "postcode": [
-          "610000",
-          "611000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "西安",
-        "postcode": [
-          "710000",
-          "711000"
-        ],
-        "eta_days": [
-          6,
-          8
-        ]
-      },
-      {
-        "city": "苏州",
-        "postcode": [
-          "215000"
-        ],
-        "eta_days": [
-          5,
-          8
-        ]
-      },
-      {
-        "city": "无锡",
-        "postcode": [
-          "214000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "宁波",
-        "postcode": [
-          "315000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "青岛",
-        "postcode": [
-          "266000"
-        ],
-        "eta_days": [
-          7,
-          10
-        ]
+        "region": "secondary"
       }
     ]
   },
@@ -1006,147 +669,46 @@
     ],
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000",
-          "102000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1",
+          "NE2",
+          "NE3"
+        ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
+          3
+        ],
+        "region": "secondary"
       },
       {
-        "city": "上海",
+        "city": "Sunderland",
         "postcode": [
-          "200000",
-          "201000",
-          "202000"
+          "SR1",
+          "SR2",
+          "SR3"
         ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
-      },
-      {
-        "city": "广州",
-        "postcode": [
-          "510000",
-          "511000",
-          "512000"
+          3
         ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100",
-          "518200"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "杭州",
-        "postcode": [
-          "310000",
-          "311000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "南京",
-        "postcode": [
-          "210000",
-          "211000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "武汉",
-        "postcode": [
-          "430000",
-          "431000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "成都",
-        "postcode": [
-          "610000",
-          "611000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "西安",
-        "postcode": [
-          "710000",
-          "711000"
-        ],
-        "eta_days": [
-          6,
-          8
-        ]
-      },
-      {
-        "city": "苏州",
-        "postcode": [
-          "215000"
-        ],
-        "eta_days": [
-          5,
-          8
-        ]
-      },
-      {
-        "city": "无锡",
-        "postcode": [
-          "214000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "宁波",
-        "postcode": [
-          "315000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "青岛",
-        "postcode": [
-          "266000"
-        ],
-        "eta_days": [
-          7,
-          10
-        ]
+        "region": "secondary"
       }
     ]
   },
@@ -1225,147 +787,46 @@
     ],
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000",
-          "102000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1",
+          "NE2",
+          "NE3"
+        ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
+          3
+        ],
+        "region": "secondary"
       },
       {
-        "city": "上海",
+        "city": "Sunderland",
         "postcode": [
-          "200000",
-          "201000",
-          "202000"
+          "SR1",
+          "SR2",
+          "SR3"
         ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
-      },
-      {
-        "city": "广州",
-        "postcode": [
-          "510000",
-          "511000",
-          "512000"
+          3
         ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100",
-          "518200"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "杭州",
-        "postcode": [
-          "310000",
-          "311000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "南京",
-        "postcode": [
-          "210000",
-          "211000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "武汉",
-        "postcode": [
-          "430000",
-          "431000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "成都",
-        "postcode": [
-          "610000",
-          "611000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "西安",
-        "postcode": [
-          "710000",
-          "711000"
-        ],
-        "eta_days": [
-          6,
-          8
-        ]
-      },
-      {
-        "city": "苏州",
-        "postcode": [
-          "215000"
-        ],
-        "eta_days": [
-          5,
-          8
-        ]
-      },
-      {
-        "city": "无锡",
-        "postcode": [
-          "214000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "宁波",
-        "postcode": [
-          "315000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "青岛",
-        "postcode": [
-          "266000"
-        ],
-        "eta_days": [
-          7,
-          10
-        ]
+        "region": "secondary"
       }
     ]
   },
@@ -1445,147 +906,46 @@
     ],
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000",
-          "102000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1",
+          "NE2",
+          "NE3"
+        ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
+          3
+        ],
+        "region": "secondary"
       },
       {
-        "city": "上海",
+        "city": "Sunderland",
         "postcode": [
-          "200000",
-          "201000",
-          "202000"
+          "SR1",
+          "SR2",
+          "SR3"
         ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
-      },
-      {
-        "city": "广州",
-        "postcode": [
-          "510000",
-          "511000",
-          "512000"
+          3
         ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100",
-          "518200"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "杭州",
-        "postcode": [
-          "310000",
-          "311000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "南京",
-        "postcode": [
-          "210000",
-          "211000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "武汉",
-        "postcode": [
-          "430000",
-          "431000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "成都",
-        "postcode": [
-          "610000",
-          "611000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "西安",
-        "postcode": [
-          "710000",
-          "711000"
-        ],
-        "eta_days": [
-          6,
-          8
-        ]
-      },
-      {
-        "city": "苏州",
-        "postcode": [
-          "215000"
-        ],
-        "eta_days": [
-          5,
-          8
-        ]
-      },
-      {
-        "city": "无锡",
-        "postcode": [
-          "214000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "宁波",
-        "postcode": [
-          "315000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "青岛",
-        "postcode": [
-          "266000"
-        ],
-        "eta_days": [
-          7,
-          10
-        ]
+        "region": "secondary"
       }
     ]
   },
@@ -1664,107 +1024,46 @@
     ],
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000",
-          "102000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1",
+          "NE2",
+          "NE3"
+        ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
+          3
+        ],
+        "region": "secondary"
       },
       {
-        "city": "上海",
+        "city": "Sunderland",
         "postcode": [
-          "200000",
-          "201000",
-          "202000"
+          "SR1",
+          "SR2",
+          "SR3"
         ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
-      },
-      {
-        "city": "广州",
-        "postcode": [
-          "510000",
-          "511000",
-          "512000"
+          3
         ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100",
-          "518200"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "杭州",
-        "postcode": [
-          "310000",
-          "311000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "南京",
-        "postcode": [
-          "210000",
-          "211000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "武汉",
-        "postcode": [
-          "430000",
-          "431000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "成都",
-        "postcode": [
-          "610000",
-          "611000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "西安",
-        "postcode": [
-          "710000",
-          "711000"
-        ],
-        "eta_days": [
-          6,
-          8
-        ]
+        "region": "secondary"
       }
     ]
   },
@@ -1844,107 +1143,46 @@
     ],
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000",
-          "102000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1",
+          "NE2",
+          "NE3"
+        ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
+          3
+        ],
+        "region": "secondary"
       },
       {
-        "city": "上海",
+        "city": "Sunderland",
         "postcode": [
-          "200000",
-          "201000",
-          "202000"
+          "SR1",
+          "SR2",
+          "SR3"
         ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
-      },
-      {
-        "city": "广州",
-        "postcode": [
-          "510000",
-          "511000",
-          "512000"
+          3
         ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100",
-          "518200"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "杭州",
-        "postcode": [
-          "310000",
-          "311000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "南京",
-        "postcode": [
-          "210000",
-          "211000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "武汉",
-        "postcode": [
-          "430000",
-          "431000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "成都",
-        "postcode": [
-          "610000",
-          "611000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "西安",
-        "postcode": [
-          "710000",
-          "711000"
-        ],
-        "eta_days": [
-          6,
-          8
-        ]
+        "region": "secondary"
       }
     ]
   },
@@ -2023,147 +1261,46 @@
     ],
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000",
-          "102000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1",
+          "NE2",
+          "NE3"
+        ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
+          3
+        ],
+        "region": "secondary"
       },
       {
-        "city": "上海",
+        "city": "Sunderland",
         "postcode": [
-          "200000",
-          "201000",
-          "202000"
+          "SR1",
+          "SR2",
+          "SR3"
         ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
-      },
-      {
-        "city": "广州",
-        "postcode": [
-          "510000",
-          "511000",
-          "512000"
+          3
         ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100",
-          "518200"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "杭州",
-        "postcode": [
-          "310000",
-          "311000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "南京",
-        "postcode": [
-          "210000",
-          "211000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "武汉",
-        "postcode": [
-          "430000",
-          "431000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "成都",
-        "postcode": [
-          "610000",
-          "611000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "西安",
-        "postcode": [
-          "710000",
-          "711000"
-        ],
-        "eta_days": [
-          6,
-          8
-        ]
-      },
-      {
-        "city": "苏州",
-        "postcode": [
-          "215000"
-        ],
-        "eta_days": [
-          5,
-          8
-        ]
-      },
-      {
-        "city": "无锡",
-        "postcode": [
-          "214000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "宁波",
-        "postcode": [
-          "315000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "青岛",
-        "postcode": [
-          "266000"
-        ],
-        "eta_days": [
-          7,
-          10
-        ]
+        "region": "secondary"
       }
     ]
   },
@@ -2242,147 +1379,46 @@
     ],
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000",
-          "102000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1",
+          "NE2",
+          "NE3"
+        ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
+          3
+        ],
+        "region": "secondary"
       },
       {
-        "city": "上海",
+        "city": "Sunderland",
         "postcode": [
-          "200000",
-          "201000",
-          "202000"
+          "SR1",
+          "SR2",
+          "SR3"
         ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
-      },
-      {
-        "city": "广州",
-        "postcode": [
-          "510000",
-          "511000",
-          "512000"
+          3
         ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100",
-          "518200"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "杭州",
-        "postcode": [
-          "310000",
-          "311000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "南京",
-        "postcode": [
-          "210000",
-          "211000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "武汉",
-        "postcode": [
-          "430000",
-          "431000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "成都",
-        "postcode": [
-          "610000",
-          "611000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "西安",
-        "postcode": [
-          "710000",
-          "711000"
-        ],
-        "eta_days": [
-          6,
-          8
-        ]
-      },
-      {
-        "city": "苏州",
-        "postcode": [
-          "215000"
-        ],
-        "eta_days": [
-          5,
-          8
-        ]
-      },
-      {
-        "city": "无锡",
-        "postcode": [
-          "214000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "宁波",
-        "postcode": [
-          "315000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "青岛",
-        "postcode": [
-          "266000"
-        ],
-        "eta_days": [
-          7,
-          10
-        ]
+        "region": "secondary"
       }
     ]
   },
@@ -2462,147 +1498,46 @@
     ],
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000",
-          "102000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1",
+          "NE2",
+          "NE3"
+        ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
+          3
+        ],
+        "region": "secondary"
       },
       {
-        "city": "上海",
+        "city": "Sunderland",
         "postcode": [
-          "200000",
-          "201000",
-          "202000"
+          "SR1",
+          "SR2",
+          "SR3"
         ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
-      },
-      {
-        "city": "广州",
-        "postcode": [
-          "510000",
-          "511000",
-          "512000"
+          3
         ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100",
-          "518200"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "杭州",
-        "postcode": [
-          "310000",
-          "311000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "南京",
-        "postcode": [
-          "210000",
-          "211000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "武汉",
-        "postcode": [
-          "430000",
-          "431000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "成都",
-        "postcode": [
-          "610000",
-          "611000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "西安",
-        "postcode": [
-          "710000",
-          "711000"
-        ],
-        "eta_days": [
-          6,
-          8
-        ]
-      },
-      {
-        "city": "苏州",
-        "postcode": [
-          "215000"
-        ],
-        "eta_days": [
-          5,
-          8
-        ]
-      },
-      {
-        "city": "无锡",
-        "postcode": [
-          "214000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "宁波",
-        "postcode": [
-          "315000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "青岛",
-        "postcode": [
-          "266000"
-        ],
-        "eta_days": [
-          7,
-          10
-        ]
+        "region": "secondary"
       }
     ]
   },
@@ -2681,52 +1616,18 @@
     ],
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000",
-          "102000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
         "eta_days": [
-          2,
-          4
-        ]
-      },
-      {
-        "city": "上海",
-        "postcode": [
-          "200000",
-          "201000",
-          "202000"
+          0,
+          1
         ],
-        "eta_days": [
-          2,
-          4
-        ]
-      },
-      {
-        "city": "广州",
-        "postcode": [
-          "510000",
-          "511000",
-          "512000"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100",
-          "518200"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
+        "region": "primary"
       }
     ]
   },
@@ -2805,147 +1706,46 @@
     ],
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000",
-          "102000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1",
+          "NE2",
+          "NE3"
+        ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
+          3
+        ],
+        "region": "secondary"
       },
       {
-        "city": "上海",
+        "city": "Sunderland",
         "postcode": [
-          "200000",
-          "201000",
-          "202000"
+          "SR1",
+          "SR2",
+          "SR3"
         ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
-      },
-      {
-        "city": "广州",
-        "postcode": [
-          "510000",
-          "511000",
-          "512000"
+          3
         ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100",
-          "518200"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "杭州",
-        "postcode": [
-          "310000",
-          "311000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "南京",
-        "postcode": [
-          "210000",
-          "211000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "武汉",
-        "postcode": [
-          "430000",
-          "431000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "成都",
-        "postcode": [
-          "610000",
-          "611000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "西安",
-        "postcode": [
-          "710000",
-          "711000"
-        ],
-        "eta_days": [
-          6,
-          8
-        ]
-      },
-      {
-        "city": "苏州",
-        "postcode": [
-          "215000"
-        ],
-        "eta_days": [
-          5,
-          8
-        ]
-      },
-      {
-        "city": "无锡",
-        "postcode": [
-          "214000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "宁波",
-        "postcode": [
-          "315000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "青岛",
-        "postcode": [
-          "266000"
-        ],
-        "eta_days": [
-          7,
-          10
-        ]
+        "region": "secondary"
       }
     ]
   },
@@ -3024,147 +1824,46 @@
     ],
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000",
-          "102000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1",
+          "NE2",
+          "NE3"
+        ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
+          3
+        ],
+        "region": "secondary"
       },
       {
-        "city": "上海",
+        "city": "Sunderland",
         "postcode": [
-          "200000",
-          "201000",
-          "202000"
+          "SR1",
+          "SR2",
+          "SR3"
         ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
-      },
-      {
-        "city": "广州",
-        "postcode": [
-          "510000",
-          "511000",
-          "512000"
+          3
         ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100",
-          "518200"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "杭州",
-        "postcode": [
-          "310000",
-          "311000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "南京",
-        "postcode": [
-          "210000",
-          "211000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "武汉",
-        "postcode": [
-          "430000",
-          "431000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "成都",
-        "postcode": [
-          "610000",
-          "611000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "西安",
-        "postcode": [
-          "710000",
-          "711000"
-        ],
-        "eta_days": [
-          6,
-          8
-        ]
-      },
-      {
-        "city": "苏州",
-        "postcode": [
-          "215000"
-        ],
-        "eta_days": [
-          5,
-          8
-        ]
-      },
-      {
-        "city": "无锡",
-        "postcode": [
-          "214000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "宁波",
-        "postcode": [
-          "315000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "青岛",
-        "postcode": [
-          "266000"
-        ],
-        "eta_days": [
-          7,
-          10
-        ]
+        "region": "secondary"
       }
     ]
   },
@@ -3243,147 +1942,46 @@
     ],
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000",
-          "102000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1",
+          "NE2",
+          "NE3"
+        ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
+          3
+        ],
+        "region": "secondary"
       },
       {
-        "city": "上海",
+        "city": "Sunderland",
         "postcode": [
-          "200000",
-          "201000",
-          "202000"
+          "SR1",
+          "SR2",
+          "SR3"
         ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
-      },
-      {
-        "city": "广州",
-        "postcode": [
-          "510000",
-          "511000",
-          "512000"
+          3
         ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100",
-          "518200"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "杭州",
-        "postcode": [
-          "310000",
-          "311000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "南京",
-        "postcode": [
-          "210000",
-          "211000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "武汉",
-        "postcode": [
-          "430000",
-          "431000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "成都",
-        "postcode": [
-          "610000",
-          "611000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "西安",
-        "postcode": [
-          "710000",
-          "711000"
-        ],
-        "eta_days": [
-          6,
-          8
-        ]
-      },
-      {
-        "city": "苏州",
-        "postcode": [
-          "215000"
-        ],
-        "eta_days": [
-          5,
-          8
-        ]
-      },
-      {
-        "city": "无锡",
-        "postcode": [
-          "214000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "宁波",
-        "postcode": [
-          "315000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "青岛",
-        "postcode": [
-          "266000"
-        ],
-        "eta_days": [
-          7,
-          10
-        ]
+        "region": "secondary"
       }
     ]
   },
@@ -3462,147 +2060,46 @@
     ],
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000",
-          "102000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1",
+          "NE2",
+          "NE3"
+        ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
+          3
+        ],
+        "region": "secondary"
       },
       {
-        "city": "上海",
+        "city": "Sunderland",
         "postcode": [
-          "200000",
-          "201000",
-          "202000"
+          "SR1",
+          "SR2",
+          "SR3"
         ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
-      },
-      {
-        "city": "广州",
-        "postcode": [
-          "510000",
-          "511000",
-          "512000"
+          3
         ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100",
-          "518200"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "杭州",
-        "postcode": [
-          "310000",
-          "311000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "南京",
-        "postcode": [
-          "210000",
-          "211000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "武汉",
-        "postcode": [
-          "430000",
-          "431000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "成都",
-        "postcode": [
-          "610000",
-          "611000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "西安",
-        "postcode": [
-          "710000",
-          "711000"
-        ],
-        "eta_days": [
-          6,
-          8
-        ]
-      },
-      {
-        "city": "苏州",
-        "postcode": [
-          "215000"
-        ],
-        "eta_days": [
-          5,
-          8
-        ]
-      },
-      {
-        "city": "无锡",
-        "postcode": [
-          "214000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "宁波",
-        "postcode": [
-          "315000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "青岛",
-        "postcode": [
-          "266000"
-        ],
-        "eta_days": [
-          7,
-          10
-        ]
+        "region": "secondary"
       }
     ]
   },
@@ -3682,147 +2179,46 @@
     ],
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000",
-          "102000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1",
+          "NE2",
+          "NE3"
+        ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
+          3
+        ],
+        "region": "secondary"
       },
       {
-        "city": "上海",
+        "city": "Sunderland",
         "postcode": [
-          "200000",
-          "201000",
-          "202000"
+          "SR1",
+          "SR2",
+          "SR3"
         ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
-      },
-      {
-        "city": "广州",
-        "postcode": [
-          "510000",
-          "511000",
-          "512000"
+          3
         ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100",
-          "518200"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "杭州",
-        "postcode": [
-          "310000",
-          "311000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "南京",
-        "postcode": [
-          "210000",
-          "211000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "武汉",
-        "postcode": [
-          "430000",
-          "431000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "成都",
-        "postcode": [
-          "610000",
-          "611000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "西安",
-        "postcode": [
-          "710000",
-          "711000"
-        ],
-        "eta_days": [
-          6,
-          8
-        ]
-      },
-      {
-        "city": "苏州",
-        "postcode": [
-          "215000"
-        ],
-        "eta_days": [
-          5,
-          8
-        ]
-      },
-      {
-        "city": "无锡",
-        "postcode": [
-          "214000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "宁波",
-        "postcode": [
-          "315000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "青岛",
-        "postcode": [
-          "266000"
-        ],
-        "eta_days": [
-          7,
-          10
-        ]
+        "region": "secondary"
       }
     ]
   },
@@ -3901,147 +2297,46 @@
     ],
     "deliverable_cities": [
       {
-        "city": "北京",
+        "city": "Durham",
         "postcode": [
-          "100000",
-          "101000",
-          "102000"
+          "DH1",
+          "DH2",
+          "DH3"
         ],
+        "deliverable": true,
+        "eta_days": [
+          0,
+          1
+        ],
+        "region": "primary"
+      },
+      {
+        "city": "Newcastle",
+        "postcode": [
+          "NE1",
+          "NE2",
+          "NE3"
+        ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
+          3
+        ],
+        "region": "secondary"
       },
       {
-        "city": "上海",
+        "city": "Sunderland",
         "postcode": [
-          "200000",
-          "201000",
-          "202000"
+          "SR1",
+          "SR2",
+          "SR3"
         ],
+        "deliverable": true,
         "eta_days": [
           2,
-          4
-        ]
-      },
-      {
-        "city": "广州",
-        "postcode": [
-          "510000",
-          "511000",
-          "512000"
+          3
         ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "深圳",
-        "postcode": [
-          "518000",
-          "518100",
-          "518200"
-        ],
-        "eta_days": [
-          3,
-          5
-        ]
-      },
-      {
-        "city": "杭州",
-        "postcode": [
-          "310000",
-          "311000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "南京",
-        "postcode": [
-          "210000",
-          "211000"
-        ],
-        "eta_days": [
-          4,
-          6
-        ]
-      },
-      {
-        "city": "武汉",
-        "postcode": [
-          "430000",
-          "431000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "成都",
-        "postcode": [
-          "610000",
-          "611000"
-        ],
-        "eta_days": [
-          5,
-          7
-        ]
-      },
-      {
-        "city": "西安",
-        "postcode": [
-          "710000",
-          "711000"
-        ],
-        "eta_days": [
-          6,
-          8
-        ]
-      },
-      {
-        "city": "苏州",
-        "postcode": [
-          "215000"
-        ],
-        "eta_days": [
-          5,
-          8
-        ]
-      },
-      {
-        "city": "无锡",
-        "postcode": [
-          "214000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "宁波",
-        "postcode": [
-          "315000"
-        ],
-        "eta_days": [
-          6,
-          9
-        ]
-      },
-      {
-        "city": "青岛",
-        "postcode": [
-          "266000"
-        ],
-        "eta_days": [
-          7,
-          10
-        ]
+        "region": "secondary"
       }
     ]
   }
