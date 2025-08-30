@@ -22,10 +22,8 @@
   <view class="filter-bar">
     <scroll-view 
       class="filter-scroll" 
-      scroll-x="{{true}}"
-      enable-flex="{{true}}"
+      scroll-x
       show-scrollbar="{{false}}"
-      scroll-with-animation="{{true}}"
     >
       <view class="filter-tags-container">
         <view class="filter-tag" bindtap="onQuickFilter" data-type="category">

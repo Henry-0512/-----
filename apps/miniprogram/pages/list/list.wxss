@@ -77,15 +77,15 @@
 
 .filter-scroll {
   width: 100%;
-  height: 80rpx;
+  height: 80rpx; /* 容器高度 */
 }
 
 .filter-tags-container {
   white-space: nowrap;
   padding: 0 24rpx;
   height: 80rpx;
-  line-height: 80rpx;
-  width: max-content; /* 内容宽度适应内容 */
+  display: block;
+  overflow: visible; /* 确保内容可见 */
 }
 
 .scroll-padding {
@@ -96,16 +96,18 @@
 
 .filter-tag {
   display: inline-block;
-  padding: 16rpx 32rpx;
-  margin-right: 16rpx;
+  padding: 12rpx 24rpx; /* 减小padding避免文字被遮挡 */
+  margin: 16rpx 16rpx 16rpx 0; /* 添加上下边距 */
   border: 2rpx solid #e0e0e0;
   border-radius: 50rpx;
   background: white;
   transition: all 0.3s ease;
   white-space: nowrap;
-  vertical-align: middle;
+  vertical-align: top;
   text-align: center;
-  min-width: 120rpx; /* 设置最小宽度确保内容超出 */
+  min-width: 100rpx;
+  font-size: 26rpx; /* 明确设置字体大小 */
+  color: #333; /* 明确设置文字颜色 */
 }
 
 .filter-tag:active {
@@ -123,16 +125,18 @@
 .filter-all-btn {
   position: relative;
   display: inline-block;
-  padding: 16rpx 32rpx;
-  margin-right: 16rpx;
+  padding: 12rpx 24rpx; /* 与标签一致的padding */
+  margin: 16rpx 16rpx 16rpx 0; /* 与标签一致的margin */
   border: 2rpx solid #007AFF;
   border-radius: 50rpx;
   background: #007AFF;
   transition: all 0.3s ease;
   white-space: nowrap;
-  vertical-align: middle;
+  vertical-align: top;
   text-align: center;
-  min-width: 120rpx; /* 设置最小宽度 */
+  min-width: 100rpx;
+  font-size: 26rpx; /* 与标签一致的字体大小 */
+  color: white; /* 白色文字 */
 }
 
 .filter-all-btn:active {
