@@ -3,6 +3,7 @@ const { isMockEnabled } = require('../../config/env.js')
 const { api, ERROR_TYPES } = isMockEnabled() 
   ? require('../../utils/request-mock.js')
   : require('../../utils/request.js')
+const { track, TrackEvents } = require('../../utils/track.js')
 
 Page({
   data: {
@@ -300,11 +301,24 @@ Page({
     const filters = e.detail
     console.log('应用筛选条件:', filters)
     
+    // 追踪筛选应用行为
+    track(TrackEvents.FILTER_APPLY, {
+      filters,
+      filterCount: Object.keys(filters).length,
+      appliedFilters: Object.keys(filters).filter(key => {
+        const value = filters[key]
+        return value && (Array.isArray(value) ? value.length > 0 : value)
+      }),
+      pageTitle: this.data.pageTitle,
+      searchQuery: this.data.searchQuery
+    })
+    
     this.setData({ 
       currentFilters: filters,
       page: 1,
       hasMore: true
     })
+    this.updateFilterStatus()
     this.loadItems(true)
   },
 
@@ -354,12 +368,21 @@ Page({
    * 上拉加载更多
    */
   onReachBottom() {
-    const { hasMore, loading, page, total_pages } = this.data
+    const { hasMore, loading, page, total_pages, total, currentSort } = this.data
     
     // 检查是否可以加载更多
     if (!hasMore || loading || page >= total_pages) {
       return
     }
+    
+    // 追踪加载更多行为
+    track(TrackEvents.LIST_LOAD_MORE, {
+      page: page + 1,
+      currentTotal: this.data.items.length,
+      totalAvailable: total,
+      sort: currentSort,
+      hasFilters: Object.keys(this.data.currentFilters).length > 0
+    })
     
     // 增加页码并加载下一页
     this.setData({ page: page + 1 })

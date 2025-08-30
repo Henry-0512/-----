@@ -1,0 +1,19 @@
+[
+  {
+    "event": "test_event",
+    "payload": {
+      "action": "test"
+    },
+    "openid": "test_openid",
+    "sessionId": "",
+    "userTimestamp": "2025-08-30T02:06:29.342Z",
+    "clientInfo": {
+      "userAgent": "curl/7.88.1",
+      "ip": "127.0.0.1",
+      "referer": ""
+    },
+    "id": "track_1756519589344_zgrnip",
+    "timestamp": "2025-08-30T02:06:29.344Z",
+    "date": "2025-08-30"
+  }
+]

@@ -28,6 +28,7 @@ try {
 
 // 意向订单数据管理
 const INTENT_ORDERS_FILE = path.join(__dirname, '../data/intent-orders.json')
+const TRACKING_LOG_FILE = path.join(__dirname, '../data/tracking-logs.json')
 const ADMIN_TOKEN = 'furniture_admin_2024'  // 管理员访问令牌
 
 /**
@@ -75,6 +76,54 @@ async function addIntentOrder(orderData) {
     return newOrder
   } catch (error) {
     console.error('添加意向订单失败:', error)
+    throw error
+  }
+}
+
+/**
+ * 读取追踪日志
+ */
+async function readTrackingLogs() {
+  try {
+    const data = await fs.readFile(TRACKING_LOG_FILE, 'utf8')
+    return JSON.parse(data)
+  } catch (error) {
+    // 文件不存在时返回空数组
+    return []
+  }
+}
+
+/**
+ * 写入追踪日志
+ */
+async function writeTrackingLogs(logs) {
+  try {
+    await fs.writeFile(TRACKING_LOG_FILE, JSON.stringify(logs, null, 2), 'utf8')
+    return true
+  } catch (error) {
+    console.error('写入追踪日志失败:', error)
+    return false
+  }
+}
+
+/**
+ * 添加追踪记录
+ */
+async function addTrackingRecord(trackData) {
+  try {
+    const logs = await readTrackingLogs()
+    const newRecord = {
+      ...trackData,
+      id: `track_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`,
+      timestamp: new Date().toISOString(),
+      date: new Date().toISOString().split('T')[0] // 便于按日期分析
+    }
+    
+    logs.push(newRecord)
+    await writeTrackingLogs(logs)
+    return newRecord
+  } catch (error) {
+    console.error('添加追踪记录失败:', error)
     throw error
   }
 }
@@ -141,6 +190,64 @@ fastify.post('/api/auth/code2session', async (request, reply) => {
     return reply.code(500).send({
       success: false,
       message: '登录认证失败，请稍后重试'
+    })
+  }
+})
+
+// 用户行为追踪接口
+fastify.post('/api/track', async (request, reply) => {
+  const { 
+    event, 
+    payload = {},
+    openid = '',
+    sessionId = '',
+    timestamp = new Date().toISOString()
+  } = request.body || {}
+  
+  if (!event) {
+    return reply.code(400).send({
+      success: false,
+      message: '缺少必要参数：event'
+    })
+  }
+  
+  try {
+    // 构建追踪数据
+    const trackData = {
+      event,
+      payload,
+      openid,
+      sessionId,
+      userTimestamp: timestamp,
+      clientInfo: {
+        userAgent: request.headers['user-agent'] || '',
+        ip: request.ip || '',
+        referer: request.headers['referer'] || ''
+      }
+    }
+    
+    // 写入追踪日志
+    const savedRecord = await addTrackingRecord(trackData)
+    
+    // 控制台输出（便于开发调试）
+    console.log(`📊 [${event}]`, {
+      openid: openid ? openid.substr(-8) : 'anonymous',
+      payload,
+      timestamp: savedRecord.timestamp
+    })
+    
+    return {
+      success: true,
+      data: {
+        trackId: savedRecord.id,
+        message: '追踪记录已保存'
+      }
+    }
+  } catch (error) {
+    console.error('追踪记录失败:', error)
+    return reply.code(500).send({
+      success: false,
+      message: '追踪记录失败'
     })
   }
 })

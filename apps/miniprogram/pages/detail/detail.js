@@ -4,6 +4,7 @@ const { api, storage, ERROR_TYPES } = isMockEnabled()
   ? require('../../utils/request-mock.js')
   : require('../../utils/request.js')
 const { formatPriceDisplay, isFeatureEnabled, getCustomerServiceConfig } = require('../../config/feature-flags.js')
+const { track, TrackEvents } = require('../../utils/track.js')
 
 Page({
   data: {
@@ -60,6 +61,13 @@ Page({
   onLoad(options) {
     const { id } = options
     if (id) {
+      // 追踪PDP访问
+      track(TrackEvents.PDP_VIEW, {
+        skuId: id,
+        source: options.source || 'direct',
+        referrer: options.referrer || ''
+      })
+      
       this.loadSkuDetail(id)
       this.loadRecommendations(id)
       this.checkFavoriteStatus(id)
@@ -429,8 +437,20 @@ Page({
       const res = await api.submitIntentOrder(orderData)
       
       if (res.success) {
+        // 追踪订单提交成功
+        track(TrackEvents.INTENT_SUBMIT_SUCCESS, {
+          orderId: res.data.orderId,
+          skuId: sku.id,
+          duration,
+          durationUnit,
+          quantity,
+          services: selectedServices,
+          city: selectedCity,
+          hasQuoteData: Boolean(quoteData)
+        })
+        
         // 保存订单到本地存储
-        let orders = storage.get('orders', [])
+        let orders = storage.get('orders') || []
         orders.unshift(res.data)
         storage.set('orders', orders)
         
@@ -450,6 +470,19 @@ Page({
       }
     } catch (error) {
       console.error('创建意向订单失败：', error)
+      
+      // 追踪订单提交失败
+      track(TrackEvents.INTENT_SUBMIT_FAILED, {
+        skuId: sku.id,
+        duration,
+        durationUnit,
+        quantity,
+        services: selectedServices,
+        city: selectedCity,
+        error: error.message || 'unknown_error',
+        errorType: error.type || 'api_error'
+      })
+      
       wx.showToast({
         title: '订单创建失败',
         icon: 'none',
@@ -477,6 +510,18 @@ Page({
 
     try {
       this.setData({ quoteLoading: true, quoteError: null })
+
+      // 追踪报价计算
+      track(TrackEvents.QUOTE_SUBMIT, {
+        skuId: sku.id,
+        duration,
+        durationUnit,
+        quantity,
+        services: selectedServices,
+        city: selectedCity,
+        hasCity: Boolean(selectedCity),
+        serviceCount: selectedServices.length
+      })
 
       const res = await api.getQuote({
         skuId: sku.id,

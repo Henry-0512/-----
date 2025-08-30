@@ -1,4 +1,6 @@
 // components/size-sketch/size-sketch.js
+const { track, TrackEvents } = require('../../utils/track.js')
+
 Component({
   /**
    * 组件的属性列表
@@ -57,6 +59,22 @@ Component({
      */
     onRotate() {
       const newRotation = this.data.rotation === 0 ? 90 : 0
+      
+      // 追踪尺寸示意图旋转
+      track(TrackEvents.SIZE_SKETCH_ROTATE, {
+        fromRotation: this.data.rotation,
+        toRotation: newRotation,
+        product: {
+          id: this.data.product?.id,
+          title: this.data.product?.title,
+          dimensions: {
+            width: this.data.product?.width_mm,
+            depth: this.data.product?.depth_mm,
+            height: this.data.product?.height_mm
+          }
+        }
+      })
+      
       this.setData({ rotation: newRotation })
       this.drawSketch()
     },

@@ -435,6 +435,29 @@ const updateIntentOrderStatus = (orderId, token, status, note = '') => {
   })
 }
 
+/**
+ * 发送追踪数据
+ * @param {string} event 事件名称
+ * @param {Object} payload 事件数据
+ * @param {string} openid 用户openid
+ * @param {string} sessionId 会话ID
+ */
+const sendTrackingData = (event, payload, openid = '', sessionId = '') => {
+  return request({
+    url: '/api/track',
+    method: 'POST',
+    data: { 
+      event, 
+      payload, 
+      openid, 
+      sessionId,
+      timestamp: new Date().toISOString()
+    },
+    showLoading: false,
+    showError: false
+  })
+}
+
 // 本地存储工具
 const storage = {
   get: (key) => {
@@ -499,6 +522,7 @@ const api = {
   submitIntentOrder,
   getIntentOrderList,
   updateIntentOrderStatus,
+  sendTrackingData,
   
   // 工具方法
   storage,
