@@ -11,10 +11,12 @@
 /* 背景图片区域 */
 .hero-section {
   position: relative;
-  height: 400rpx;
+  height: 450rpx; /* 增加高度 */
   width: 100vw; /* 明确设置宽度 */
   max-width: 100vw; /* 防止超出 */
   overflow: hidden; /* 确保图片不溢出 */
+  margin-top: -50rpx; /* 向上扩展覆盖空白 */
+  padding-top: 50rpx; /* 保持内容位置 */
 }
 
 .hero-image {
@@ -33,7 +35,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 40rpx 24rpx 60rpx;
+  padding: 90rpx 24rpx 60rpx; /* 调整顶部padding适应新高度 */
 }
 
 .nav-header {
@@ -74,13 +76,13 @@
 .filter-bar {
   background: white;
   border-bottom: 2rpx solid #f0f0f0;
-  padding: 32rpx 0 24rpx 0; /* 增加顶部padding避免被覆盖 */
+  padding: 32rpx 0; /* 上下padding确保边框完整显示 */
   width: 100%; /* 使用100%而不是100vw */
   max-width: 100vw; /* 防止超出屏幕 */
   position: relative; /* 创建新的定位上下文 */
   overflow: visible; /* 允许子元素滚动 */
   isolation: isolate; /* 创建独立的滚动上下文 */
-  margin-top: 8rpx; /* 添加顶部边距进一步避免覆盖 */
+  z-index: 10; /* 提高层级确保在背景之上 */
 }
 
 .filter-scroll {
@@ -88,10 +90,11 @@
   height: 88rpx; /* 明确设置足够的高度 */
   display: flex;
   align-items: center;
-  padding: 0 24rpx;
+  padding: 8rpx 24rpx; /* 增加上下padding确保边框不被裁剪 */
   position: relative; /* 设置定位 */
   z-index: 2; /* 确保层级正确 */
   gap: 20rpx; /* 增加间距，确保内容明显超出 */
+  overflow: visible; /* 确保内容边框可见 */
 }
 
 .filter-tag {
