@@ -84,12 +84,17 @@ Component({
      * 检查收藏状态
      */
     checkFavoriteStatus() {
-      const { product } = this.data
-      if (!product || !product.id) return
+      const { safeProduct } = this.data
+      if (!safeProduct || !safeProduct.id) return
 
-      const favorites = storage.get('favorites') || []
-      const isFavorited = Array.isArray(favorites) && favorites.some(item => item && item.id === product.id)
-      this.setData({ isFavorited })
+      try {
+        const favorites = storage.get('favorites') || []
+        const isFavorited = Array.isArray(favorites) && favorites.some(item => item && item.id === safeProduct.id)
+        this.setData({ isFavorited })
+      } catch (error) {
+        console.error('检查收藏状态失败:', error)
+        this.setData({ isFavorited: false })
+      }
     },
 
     /**
@@ -178,38 +183,53 @@ Component({
     /**
      * 切换收藏状态
      */
-    onFavoriteTap() {
-      const { product, isFavorited } = this.data
-      if (!product.id) return
+    onToggleFavorite() {
+      const { safeProduct, isFavorited } = this.data
+      if (!safeProduct || !safeProduct.id) return
 
-      let favorites = storage.get('favorites', [])
-      
-      if (isFavorited) {
-        // 取消收藏
-        favorites = favorites.filter(item => item.id !== product.id)
-        wx.showToast({
-          title: '已取消收藏',
-          icon: 'none',
-          duration: 1500
+      try {
+        let favorites = storage.get('favorites') || []
+        if (!Array.isArray(favorites)) {
+          favorites = []
+        }
+        
+        if (isFavorited) {
+          // 取消收藏
+          favorites = favorites.filter(item => item && item.id !== safeProduct.id)
+          wx.showToast({
+            title: '已取消收藏',
+            icon: 'none',
+            duration: 1500
+          })
+        } else {
+          // 添加收藏
+          favorites.push({
+            ...safeProduct,
+            favoriteAt: new Date().toISOString()
+          })
+          wx.showToast({
+            title: '已添加收藏',
+            icon: 'success',
+            duration: 1500
+          })
+        }
+
+        storage.set('favorites', favorites)
+        this.setData({ isFavorited: !isFavorited })
+        
+        // 触发收藏状态变化事件
+        this.triggerEvent('favoritechange', { 
+          product: safeProduct, 
+          isFavorited: !isFavorited,
+          favoriteCount: favorites.length
         })
-      } else {
-        // 添加收藏
-        favorites.push(product)
+      } catch (error) {
+        console.error('收藏操作失败:', error)
         wx.showToast({
-          title: '已添加收藏',
-          icon: 'success',
-          duration: 1500
+          title: '操作失败，请重试',
+          icon: 'none'
         })
       }
-
-      storage.set('favorites', favorites)
-      this.setData({ isFavorited: !isFavorited })
-      
-      // 触发收藏状态变化事件
-      this.triggerEvent('favoritechange', { 
-        product, 
-        isFavorited: !isFavorited 
-      })
     },
 
     /**

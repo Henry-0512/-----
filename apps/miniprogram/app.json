@@ -6,6 +6,7 @@
     "pages/detail/detail",
     "pages/profile/profile",
     "pages/cart/cart",
+    "pages/favorites/favorites",
     "pages/compare/compare",
     "pages/admin/intents",
     "pages/about/about",

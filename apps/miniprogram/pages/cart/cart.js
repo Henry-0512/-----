@@ -37,6 +37,8 @@ Page({
         quantity: item.quantity || 1
       }))
       
+      console.log('购物车数据加载:', itemsWithState)
+      
       this.setData({
         cartItems: itemsWithState,
         loading: false

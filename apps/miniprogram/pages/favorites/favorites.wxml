@@ -1,0 +1,61 @@
+<!--pages/favorites/favorites.wxml-->
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="page-title">我的收藏</text>
+    <text class="favorite-count">{{favoriteItems.length}}件商品</text>
+  </view>
+
+  <!-- 收藏内容 -->
+  <view wx:if="{{favoriteItems.length > 0}}" class="favorites-content">
+    <!-- 操作栏 -->
+    <view class="action-bar">
+      <view class="select-all" bindtap="onToggleSelectAll">
+        <view class="checkbox {{allSelected ? 'checked' : ''}}">
+          <text wx:if="{{allSelected}}">✓</text>
+        </view>
+        <text class="select-text">全选</text>
+      </view>
+      
+      <view class="batch-actions">
+        <text class="action-btn" bindtap="onBatchAddToCart">加入购物车</text>
+        <text class="action-btn delete" bindtap="onBatchDelete">删除</text>
+      </view>
+    </view>
+
+    <!-- 商品网格 -->
+    <view class="favorites-grid">
+      <view 
+        wx:for="{{favoriteItems}}" 
+        wx:key="id"
+        class="favorite-item {{item.selected ? 'selected' : ''}}"
+        bindtap="onToggleSelect"
+        data-id="{{item.id}}"
+      >
+        <view class="select-indicator">
+          <view class="checkbox {{item.selected ? 'checked' : ''}}">
+            <text wx:if="{{item.selected}}">✓</text>
+          </view>
+        </view>
+        
+        <product-card
+          product="{{item}}"
+          card-type="grid"
+          show-favorite="{{true}}"
+          bind:cardtap="onProductCardTap"
+          bind:favoritechange="onFavoriteChange"
+        />
+      </view>
+    </view>
+  </view>
+
+  <!-- 空收藏状态 -->
+  <view wx:else class="empty-favorites">
+    <text class="empty-icon">❤️</text>
+    <text class="empty-text">还没有收藏的商品</text>
+    <text class="empty-desc">快去收藏一些喜欢的家具吧</text>
+    <view class="go-shopping-btn" bindtap="onGoShopping">
+      <text class="go-shopping-text">去逛逛</text>
+    </view>
+  </view>
+</view>

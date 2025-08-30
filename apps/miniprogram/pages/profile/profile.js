@@ -395,6 +395,18 @@ Page({
   /**
    * 新增页面功能方法
    */
+  onViewCart() {
+    wx.navigateTo({
+      url: '/pages/cart/cart'
+    })
+  },
+
+  onViewFavorites() {
+    wx.navigateTo({
+      url: '/pages/favorites/favorites'
+    })
+  },
+
   onViewOrders() {
     wx.showToast({
       title: '订单功能开发中',
