@@ -246,6 +246,8 @@ Component({
    */
   observers: {
     'values': function(newValues) {
+      console.log('🔍 FilterSheet接收到新的values:', newValues)
+      
       const internalValues = { ...newValues }
       const sliderValues = {}
       
@@ -254,8 +256,15 @@ Component({
           const value = internalValues[item.key] || { min: item.min, max: item.max }
           internalValues[item.key] = value
           sliderValues[item.key] = [value.min, value.max]
+        } else if (item.type === 'multi') {
+          // 确保多选项数组正确初始化
+          internalValues[item.key] = Array.isArray(internalValues[item.key]) ? internalValues[item.key] : []
+        } else if (item.type === 'bool') {
+          internalValues[item.key] = internalValues[item.key] || false
         }
       })
+      
+      console.log('🔍 更新后的internalValues:', internalValues)
       
       this.setData({
         internalValues,

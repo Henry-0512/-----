@@ -399,6 +399,7 @@ Page({
    * 显示筛选抽屉
    */
   onShowFilter() {
+    console.log('🔍 打开筛选器，当前筛选条件:', this.data.currentFilters)
     this.setData({ showFilterSheet: true })
   },
 
@@ -466,6 +467,7 @@ Page({
     
     this.setData({ 
       selectedFilters: formattedFilters,
+      currentFilters: filters, // 保存原始筛选条件用于FilterSheet显示
       showFilterSheet: false,
       page: 1,
       items: [],
