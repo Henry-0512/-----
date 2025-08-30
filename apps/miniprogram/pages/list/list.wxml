@@ -18,35 +18,35 @@
     </view>
   </view>
 
-  <!-- IKEA风格筛选栏 -->
-  <view class="ikea-filter-bar">
-    <!-- 快速筛选标签 -->
-    <scroll-view class="filter-tags" scroll-x="{{true}}" show-scrollbar="{{false}}">
-      <view class="filter-tag {{currentSort === 'rent_desc' ? 'active' : ''}}" bindtap="onQuickFilter" data-type="best">
-        <text class="tag-text">Best match</text>
-      </view>
-      <view class="filter-tag" bindtap="onQuickFilter" data-type="category">
-        <text class="tag-text">Category</text>
-      </view>
-      <view class="filter-tag" bindtap="onQuickFilter" data-type="size">
-        <text class="tag-text">Size</text>
-      </view>
-      <view class="filter-tag" bindtap="onQuickFilter" data-type="color">
-        <text class="tag-text">Color</text>
-      </view>
-      <view class="filter-tag" bindtap="onQuickFilter" data-type="style">
-        <text class="tag-text">Style</text>
-      </view>
-      <view class="filter-tag" bindtap="onQuickFilter" data-type="price">
-        <text class="tag-text">Price</text>
+  <!-- 筛选标签栏 -->
+  <view class="filter-bar">
+    <scroll-view class="filter-scroll" scroll-x="{{true}}" show-scrollbar="{{false}}" enhanced="{{true}}" bounces="{{true}}">
+      <view class="filter-tags-container">
+        <view class="filter-tag" bindtap="onQuickFilter" data-type="category">
+          <text class="tag-text">分类</text>
+        </view>
+        <view class="filter-tag" bindtap="onQuickFilter" data-type="material">
+          <text class="tag-text">材质</text>
+        </view>
+        <view class="filter-tag" bindtap="onQuickFilter" data-type="color">
+          <text class="tag-text">颜色</text>
+        </view>
+        <view class="filter-tag" bindtap="onQuickFilter" data-type="style">
+          <text class="tag-text">风格</text>
+        </view>
+        <view class="filter-tag" bindtap="onQuickFilter" data-type="size">
+          <text class="tag-text">尺寸</text>
+        </view>
+        <view class="filter-tag" bindtap="onQuickFilter" data-type="price">
+          <text class="tag-text">价格</text>
+        </view>
+        <!-- 全部筛选按钮放在最后 -->
+        <view class="filter-all-btn" bindtap="onShowFilter">
+          <text class="filter-icon">筛选</text>
+          <text wx:if="{{hasActiveFilters}}" class="filter-badge">{{filterCount}}</text>
+        </view>
       </view>
     </scroll-view>
-    
-    <!-- 筛选按钮 -->
-    <view class="filter-button" bindtap="onShowFilter">
-      <text class="filter-icon">⚙</text>
-      <text wx:if="{{hasActiveFilters}}" class="filter-badge">{{filterCount}}</text>
-    </view>
   </view>
 
   <!-- 商品数量和视图切换 -->

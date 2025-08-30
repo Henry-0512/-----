@@ -529,22 +529,8 @@ Page({
     const { type } = e.currentTarget.dataset
     console.log('🔍 快速筛选点击:', type)
     
-    switch (type) {
-      case 'best':
-        this.setData({ currentSort: 'rent_desc' })
-        this.loadItems(true)
-        break
-      case 'category':
-      case 'size':
-      case 'color':
-      case 'style':
-      case 'price':
-        // 打开对应的筛选器
-        this.showSpecificFilter(type)
-        break
-      default:
-        console.log('未知筛选类型:', type)
-    }
+    // 所有标签都打开对应的单项筛选器
+    this.showSpecificFilter(type)
   },
 
   /**
@@ -571,12 +557,22 @@ Page({
       material: {
         title: '材质',
         options: ["布艺","皮质","实木","金属","玻璃","塑料","藤编","大理石"]
+      },
+      price: {
+        title: '价格',
+        options: [] // 价格使用完整筛选器
       }
     }
 
     const config = filterConfig[filterType]
     if (!config) {
       console.error('未知的筛选类型:', filterType)
+      return
+    }
+
+    // 价格筛选使用完整筛选器
+    if (filterType === 'price') {
+      this.setData({ showFilterSheet: true })
       return
     }
 
