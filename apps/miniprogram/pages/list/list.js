@@ -79,11 +79,19 @@ Page({
       const query = this.createSelectorQuery()
       query.select('.filter-scroll').boundingClientRect()
       query.select('.filter-tags-container').boundingClientRect()
+      query.selectAll('.filter-tag').boundingClientRect()
       query.exec((res) => {
         console.log('🔍 滚动区域尺寸:', res[0])
         console.log('🔍 内容区域尺寸:', res[1])
+        console.log('🔍 标签数量:', res[2] ? res[2].length : 0)
+        if (res[2] && res[2].length > 0) {
+          const totalTagsWidth = res[2].reduce((sum, tag) => sum + tag.width, 0)
+          console.log('🔍 所有标签总宽度:', totalTagsWidth)
+          console.log('🔍 平均标签宽度:', totalTagsWidth / res[2].length)
+        }
         if (res[1] && res[0]) {
           console.log('🔍 是否需要滚动:', res[1].width > res[0].width)
+          console.log('🔍 内容宽度:', res[1].width, '容器宽度:', res[0].width)
         }
       })
     }, 1000)
