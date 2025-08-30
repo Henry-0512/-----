@@ -29,9 +29,8 @@
           <text class="item-name">{{item.title || item.name}}</text>
           <text class="item-desc">{{item.brand}}, {{item.color && item.color[0] ? item.color[0] : ''}}</text>
           <view class="item-price">
-            <text class="price-symbol">¥</text>
-            <text class="price-value">{{item.price}}</text>
-            <text class="price-unit">/月</text>
+            <text class="price-main">£{{item.rent_monthly_gbp || 8}}/mo</text>
+            <text wx:if="{{item.purchase_price_gbp}}" class="price-old">£{{item.purchase_price_gbp}}</text>
           </view>
         </view>
         
@@ -59,9 +58,7 @@
       
       <view class="total-section">
         <text class="total-label">合计：</text>
-        <text class="total-symbol">¥</text>
-        <text class="total-value">{{totalAmount}}</text>
-        <text class="total-unit">/月</text>
+        <text class="total-main">£{{totalAmount}}/mo</text>
       </view>
       
       <view class="checkout-btn {{selectedItems.length > 0 ? 'active' : ''}}" bindtap="onCheckout">

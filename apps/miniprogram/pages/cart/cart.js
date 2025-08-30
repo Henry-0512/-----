@@ -68,11 +68,11 @@ Page({
     const selectedItems = cartItems.filter(item => item.selected)
     const allSelected = cartItems.length > 0 && selectedItems.length === cartItems.length
     
-    // 计算总金额
+    // 计算总金额（基于英镑月租）
     const totalAmount = selectedItems.reduce((sum, item) => {
-      const price = parseFloat(item.price) || 0
+      const rentPrice = parseFloat(item.rent_monthly_gbp) || 8
       const quantity = item.quantity || 1
-      return sum + (price * quantity)
+      return sum + (rentPrice * quantity)
     }, 0)
     
     this.setData({

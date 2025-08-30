@@ -39,9 +39,9 @@
       
       <view class="price-info">
         <!-- 普通价格显示模式 -->
-        <view wx:if="{{priceInfo.mode !== 'ask'}}">
-          <text class="monthly-price">{{priceInfo.display}}</text>
-          <text wx:if="{{priceInfo.originalPrice}}" class="original-price">{{priceInfo.originalPrice}}</text>
+        <view wx:if="{{priceInfo.mode !== 'ask'}}" class="price-row">
+          <text class="price-main">£{{sku.rent_monthly_gbp || 8}}/mo</text>
+          <text wx:if="{{sku.purchase_price_gbp}}" class="price-old">£{{sku.purchase_price_gbp}}</text>
         </view>
         
         <!-- 咨询价格模式 -->

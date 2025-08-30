@@ -173,16 +173,26 @@
   gap: 8rpx;
 }
 
-.monthly-price {
-  font-size: 48rpx;
-  font-weight: bold;
-  color: #FF6B6B;
+/* 价格行 - 英镑月租优先 */
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12rpx;
+  margin-top: 8rpx;
 }
 
-.original-price {
+.price-main {
+  font-size: 48rpx;
+  font-weight: 800;
+  color: #111;
+  line-height: 1;
+}
+
+.price-old {
   font-size: 28rpx;
-  color: #999;
+  color: #9aa0a6;
   text-decoration: line-through;
+  font-weight: 400;
 }
 
 /* 价格咨询模式 */

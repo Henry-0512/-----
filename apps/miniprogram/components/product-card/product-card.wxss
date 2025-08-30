@@ -115,29 +115,25 @@
   align-items: center;
 }
 
-/* 价格容器 */
-.price-container {
+/* 价格行 - 英镑月租优先 */
+.price-row {
   display: flex;
   align-items: baseline;
-  gap: 4rpx;
-}
-
-.price-symbol {
-  font-size: 32rpx;
-  font-weight: 700;
-  color: #111;
+  gap: 12rpx;
+  margin-top: 8rpx;
 }
 
 .price-main {
-  font-size: 48rpx; /* 大号价格，突出价格优势 */
-  font-weight: 700;
+  font-size: 34rpx;
+  font-weight: 800;
   color: #111;
   line-height: 1;
 }
 
-.price-unit {
-  font-size: 24rpx;
-  color: #666;
+.price-old {
+  font-size: 22rpx;
+  color: #9aa0a6;
+  text-decoration: line-through;
   font-weight: 400;
 }
 

@@ -35,10 +35,9 @@
     <!-- 价格或咨询区域 -->
     <view class="price-section">
       <!-- 价格模式 -->
-      <view wx:if="{{priceInfo.mode !== 'ask'}}" class="price-container">
-        <text class="price-symbol">¥</text>
-        <text class="price-main">{{priceNumber}}</text>
-        <text wx:if="{{priceInfo.mode === 'from'}}" class="price-unit">/月</text>
+      <view wx:if="{{priceInfo.mode !== 'ask'}}" class="price-row">
+        <text class="price-main">£{{safeProduct.rent_monthly_gbp || 8}}/mo</text>
+        <text wx:if="{{safeProduct.purchase_price_gbp}}" class="price-old">£{{safeProduct.purchase_price_gbp}}</text>
       </view>
       
       <!-- 咨询模式 -->

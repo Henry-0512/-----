@@ -3475,5 +3475,149 @@
     "id": "track_1756580486874_i8nczb",
     "timestamp": "2025-08-30T19:01:26.874Z",
     "date": "2025-08-30"
+  },
+  {
+    "event": "sort_change",
+    "payload": {
+      "old_sort": "rent_desc",
+      "new_sort": "rent_asc",
+      "sort_name": "月租从低到高",
+      "from_page": "list",
+      "page": {
+        "route": "pages/list/list",
+        "options": {
+          "title": "全部商品",
+          "sort": "rent_desc"
+        }
+      },
+      "timestamp": "2025-08-30T19:18:08.508Z"
+    },
+    "openid": "mock_openid_1756581478022_cqazw0vn",
+    "sessionId": "session_1756581477346_hd9yr6xt",
+    "userTimestamp": "2025-08-30T19:18:08.508Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/880",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756581488614_rfp1ym",
+    "timestamp": "2025-08-30T19:18:08.614Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "sort_change",
+    "payload": {
+      "old_sort": "rent_asc",
+      "new_sort": "rent_desc",
+      "sort_name": "月租从高到低",
+      "from_page": "list",
+      "page": {
+        "route": "pages/list/list",
+        "options": {
+          "title": "全部商品",
+          "sort": "rent_desc"
+        }
+      },
+      "timestamp": "2025-08-30T19:18:12.848Z"
+    },
+    "openid": "mock_openid_1756581478022_cqazw0vn",
+    "sessionId": "session_1756581477346_hd9yr6xt",
+    "userTimestamp": "2025-08-30T19:18:12.848Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/880",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756581492947_zbi12d",
+    "timestamp": "2025-08-30T19:18:12.947Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "filter_apply",
+    "payload": {
+      "filters": {
+        "monthlyPrice": {
+          "min": 8,
+          "max": 15
+        }
+      },
+      "filterCount": 1,
+      "page": {
+        "route": "pages/list/list",
+        "options": {
+          "title": "全部商品",
+          "sort": "rent_desc"
+        }
+      },
+      "timestamp": "2025-08-30T19:18:24.571Z"
+    },
+    "openid": "mock_openid_1756581478022_cqazw0vn",
+    "sessionId": "session_1756581477346_hd9yr6xt",
+    "userTimestamp": "2025-08-30T19:18:24.571Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/880",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756581504672_90v5cw",
+    "timestamp": "2025-08-30T19:18:24.672Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_sofa_001",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_sofa_001"
+        }
+      },
+      "timestamp": "2025-08-30T19:22:21.298Z"
+    },
+    "openid": "mock_openid_1756581478022_cqazw0vn",
+    "sessionId": "session_1756581733094_8uf9qapv",
+    "userTimestamp": "2025-08-30T19:22:21.298Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/881",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756581741349_cyts54",
+    "timestamp": "2025-08-30T19:22:21.349Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "quote_submit",
+    "payload": {
+      "skuId": "sku_sofa_001",
+      "duration": 1,
+      "durationUnit": "month",
+      "quantity": 1,
+      "services": [],
+      "city": "",
+      "hasCity": false,
+      "serviceCount": 0,
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_sofa_001"
+        }
+      },
+      "timestamp": "2025-08-30T19:22:21.320Z"
+    },
+    "openid": "mock_openid_1756581478022_cqazw0vn",
+    "sessionId": "session_1756581733094_8uf9qapv",
+    "userTimestamp": "2025-08-30T19:22:21.320Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/881",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756581741374_ypd5dm",
+    "timestamp": "2025-08-30T19:22:21.374Z",
+    "date": "2025-08-30"
   }
 ]
