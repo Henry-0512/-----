@@ -25,6 +25,7 @@ Page({
     
     // 排序状态
     currentSort: 'newest',
+    currentSortName: '综合排序',
     sortOptions: [
       { key: 'newest', name: '综合排序' },
       { key: 'price_asc', name: '价格从低到高' },
@@ -377,6 +378,7 @@ Page({
         if (selectedSort && selectedSort.key !== currentSort) {
           this.setData({
             currentSort: selectedSort.key,
+            currentSortName: selectedSort.name,
             page: 1,  // 重置分页
             items: []  // 清空当前数据
           })

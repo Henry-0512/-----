@@ -24,7 +24,7 @@
   <!-- 排序状态显示 -->
   <view wx:if="{{currentSort !== 'newest'}}" class="sort-status">
     <text class="sort-text">
-      当前排序：{{sortOptions.find(item => item.key === currentSort).name}}
+      当前排序：{{currentSortName}}
     </text>
   </view>
 
