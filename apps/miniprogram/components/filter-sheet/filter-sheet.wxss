@@ -136,22 +136,36 @@
 
 .multi-option {
   position: relative;
-  border: 1rpx solid #e0e0e0;
-  border-radius: 8rpx;
-  padding: 16rpx 24rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
   background: #fafafa;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 8rpx;
+  justify-content: space-between;
+  gap: 12rpx;
   min-width: 120rpx;
-  justify-content: center;
+  cursor: pointer;
+}
+
+.multi-option:hover {
+  border-color: #007AFF;
+  background: #f8f9ff;
+  transform: translateY(-1rpx);
+}
+
+.multi-option:active {
+  transform: scale(0.98);
+  background: #f0f0f0;
 }
 
 .multi-option.selected {
-  background: #e6f3ff;
+  background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
   border-color: #007AFF;
-  color: #007AFF;
+  color: white;
+  box-shadow: 0 4rpx 12rpx rgba(0, 122, 255, 0.3);
+  transform: translateY(-2rpx);
 }
 
 .multi-option.disabled {
@@ -162,8 +176,15 @@
 }
 
 .option-text {
-  font-size: 26rpx;
+  font-size: 28rpx;
+  font-weight: 500;
   color: inherit;
+  flex: 1;
+}
+
+.multi-option.selected .option-text {
+  font-weight: 600;
+  color: white;
 }
 
 .option-note {
@@ -173,9 +194,25 @@
 }
 
 .option-check {
-  font-size: 20rpx;
-  color: #007AFF;
+  font-size: 32rpx;
+  color: white;
   font-weight: bold;
+  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.2);
+  animation: checkmark 0.3s ease-in-out;
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 /* 布尔筛选 */
@@ -198,9 +235,11 @@
 }
 
 .bool-option.selected {
-  background: #e6f3ff;
+  background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
   border-color: #007AFF;
-  color: #007AFF;
+  color: white;
+  box-shadow: 0 4rpx 12rpx rgba(0, 122, 255, 0.3);
+  transform: translateY(-2rpx);
 }
 
 /* 底部操作 */
@@ -213,16 +252,23 @@
 .apply-btn {
   width: 100%;
   height: 88rpx;
-  background: #007AFF;
+  background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
   color: white;
   border: none;
   border-radius: 12rpx;
   font-size: 32rpx;
-  font-weight: 500;
+  font-weight: 600;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8rpx;
+  box-shadow: 0 6rpx 20rpx rgba(0, 122, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.apply-btn:active {
+  transform: translateY(2rpx);
+  box-shadow: 0 4rpx 15rpx rgba(0, 122, 255, 0.4);
 }
 
 .apply-btn::after {
