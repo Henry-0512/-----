@@ -165,21 +165,27 @@ Component({
      * 范围滑块变化
      */
     onRangeChange(e) {
-      const { key } = e.currentTarget.dataset
+      const { key, type } = e.currentTarget.dataset
       const value = e.detail.value
       const schemaItem = this.data.schema.find(item => item.key === key)
       
-      console.log('🔍 滑块变化:', { key, value })
+      console.log('🔍 滑块变化:', { key, type, value })
       
-      // 简化为单个滑块控制最大值
-      const currentValues = this.data.internalValues[key] || { min: 0, max: 1000 }
-      currentValues.max = value
+      const currentValues = { ...this.data.internalValues[key] } || { min: schemaItem.min, max: schemaItem.max }
+      
+      if (type === 'min') {
+        // 最低价滑块：确保不超过最高价
+        currentValues.min = Math.min(value, currentValues.max)
+      } else if (type === 'max') {
+        // 最高价滑块：确保不低于最低价
+        currentValues.max = Math.max(value, currentValues.min)
+      }
+      
+      console.log('🔍 滑块更新后价格范围:', currentValues)
       
       this.setData({
         [`internalValues.${key}`]: currentValues
       })
-      
-      console.log('🔍 滑块更新后价格范围:', currentValues)
     },
 
     /**
