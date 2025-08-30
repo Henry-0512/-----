@@ -3067,5 +3067,175 @@
     "id": "track_1756577101605_19li7h",
     "timestamp": "2025-08-30T18:05:01.605Z",
     "date": "2025-08-30"
+  },
+  {
+    "event": "sort_change",
+    "payload": {
+      "old_sort": "price_desc",
+      "new_sort": "price_asc",
+      "sort_name": "价格从低到高",
+      "from_page": "list",
+      "page": {
+        "route": "pages/list/list",
+        "options": {
+          "title": "全部商品"
+        }
+      },
+      "timestamp": "2025-08-30T18:11:51.783Z"
+    },
+    "openid": "mock_openid_1756576423239_wi9ase07",
+    "sessionId": "session_1756577497944_e29zj9wj",
+    "userTimestamp": "2025-08-30T18:11:51.783Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/802",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756577511846_s0fchn",
+    "timestamp": "2025-08-30T18:11:51.846Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "filter_apply",
+    "payload": {
+      "filters": {
+        "material": [
+          "布艺"
+        ]
+      },
+      "filterCount": 1,
+      "appliedFilters": [
+        "material"
+      ],
+      "pageTitle": "全部商品",
+      "searchQuery": "",
+      "page": {
+        "route": "pages/list/list",
+        "options": {
+          "title": "全部商品"
+        }
+      },
+      "timestamp": "2025-08-30T18:12:03.471Z"
+    },
+    "openid": "mock_openid_1756576423239_wi9ase07",
+    "sessionId": "session_1756577497944_e29zj9wj",
+    "userTimestamp": "2025-08-30T18:12:03.471Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/802",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756577523482_5768za",
+    "timestamp": "2025-08-30T18:12:03.482Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "filter_apply",
+    "payload": {
+      "filters": {},
+      "filterCount": 0,
+      "appliedFilters": [],
+      "pageTitle": "全部商品",
+      "searchQuery": "",
+      "page": {
+        "route": "pages/list/list",
+        "options": {
+          "title": "全部商品"
+        }
+      },
+      "timestamp": "2025-08-30T18:12:13.802Z"
+    },
+    "openid": "mock_openid_1756576423239_wi9ase07",
+    "sessionId": "session_1756577497944_e29zj9wj",
+    "userTimestamp": "2025-08-30T18:12:13.803Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/802",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756577533815_7g0x5c",
+    "timestamp": "2025-08-30T18:12:13.815Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "sort_change",
+    "payload": {
+      "old_sort": "price_asc",
+      "new_sort": "condition_new",
+      "sort_name": "成色从新到旧",
+      "from_page": "list",
+      "page": {
+        "route": "pages/list/list",
+        "options": {
+          "title": "全部商品"
+        }
+      },
+      "timestamp": "2025-08-30T18:13:10.577Z"
+    },
+    "openid": "mock_openid_1756576423239_wi9ase07",
+    "sessionId": "session_1756577497944_e29zj9wj",
+    "userTimestamp": "2025-08-30T18:13:10.577Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/802",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756577590638_su0999",
+    "timestamp": "2025-08-30T18:13:10.638Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "sort_change",
+    "payload": {
+      "old_sort": "condition_new",
+      "new_sort": "price_desc",
+      "sort_name": "价格从高到低",
+      "from_page": "list",
+      "page": {
+        "route": "pages/list/list",
+        "options": {
+          "title": "全部商品"
+        }
+      },
+      "timestamp": "2025-08-30T18:13:19.311Z"
+    },
+    "openid": "mock_openid_1756576423239_wi9ase07",
+    "sessionId": "session_1756577497944_e29zj9wj",
+    "userTimestamp": "2025-08-30T18:13:19.311Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/802",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756577599401_kmtyav",
+    "timestamp": "2025-08-30T18:13:19.401Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "sort_change",
+    "payload": {
+      "old_sort": "price_desc",
+      "new_sort": "condition_old",
+      "sort_name": "成色从旧到新",
+      "from_page": "list",
+      "page": {
+        "route": "pages/list/list",
+        "options": {
+          "title": "全部商品"
+        }
+      },
+      "timestamp": "2025-08-30T18:13:23.262Z"
+    },
+    "openid": "mock_openid_1756576423239_wi9ase07",
+    "sessionId": "session_1756577497944_e29zj9wj",
+    "userTimestamp": "2025-08-30T18:13:23.262Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/802",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756577603316_l08ayn",
+    "timestamp": "2025-08-30T18:13:23.316Z",
+    "date": "2025-08-30"
   }
 ]

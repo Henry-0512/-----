@@ -266,6 +266,21 @@ Page({
       console.log('🔍 API返回结果:', res)
       
       const newItems = res.data?.items || []
+      
+      // 详细调试排序结果
+      if (newItems.length > 0) {
+        console.log('🔍 排序前商品价格:', newItems.map(item => ({ id: item.id, price: item.price, title: item.title })))
+        
+        // 前端再次排序（确保排序生效）
+        if (currentSort === 'price_asc') {
+          newItems.sort((a, b) => (a.price || 0) - (b.price || 0))
+          console.log('🔍 前端价格升序排序后:', newItems.map(item => ({ id: item.id, price: item.price })))
+        } else if (currentSort === 'price_desc') {
+          newItems.sort((a, b) => (b.price || 0) - (a.price || 0))
+          console.log('🔍 前端价格降序排序后:', newItems.map(item => ({ id: item.id, price: item.price })))
+        }
+      }
+      
       const items = reset ? newItems : [...this.data.items, ...newItems]
       
       this.setData({

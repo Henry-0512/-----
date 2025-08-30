@@ -225,12 +225,134 @@ const mockApi = {
     return Promise.resolve(mockData.filtersMeta)
   },
 
-  searchProducts(params = {}) {
-    return Promise.resolve(mockData.products)
+  searchProducts(keyword = '', options = {}) {
+    console.log('🔍 Mock searchProducts调用:', { keyword, options })
+    
+    let items = [...mockData.products.data.items]
+    
+    // 搜索筛选
+    if (keyword) {
+      const query = keyword.toLowerCase()
+      items = items.filter(item => 
+        item.title.toLowerCase().includes(query) ||
+        item.brand.toLowerCase().includes(query) ||
+        (item.category && item.category.some(cat => cat.toLowerCase().includes(query)))
+      )
+    }
+    
+    // 排序处理
+    const sort = options.sort || 'price_desc'
+    console.log('🔍 Mock排序参数:', sort)
+    
+    switch (sort) {
+      case 'price_asc':
+        items.sort((a, b) => (a.price || 0) - (b.price || 0))
+        console.log('🔍 Mock价格升序排序')
+        break
+      case 'price_desc':
+        items.sort((a, b) => (b.price || 0) - (a.price || 0))
+        console.log('🔍 Mock价格降序排序')
+        break
+      case 'condition_new':
+        items.sort((a, b) => (b.condition_grade || 0) - (a.condition_grade || 0))
+        console.log('🔍 Mock成色新到旧排序')
+        break
+      case 'condition_old':
+        items.sort((a, b) => (a.condition_grade || 0) - (b.condition_grade || 0))
+        console.log('🔍 Mock成色旧到新排序')
+        break
+    }
+    
+    console.log('🔍 Mock排序后价格:', items.slice(0, 5).map(item => ({ id: item.id, price: item.price })))
+    
+    // 分页处理
+    const page = parseInt(options.page) || 1
+    const page_size = parseInt(options.page_size) || 10
+    const startIndex = (page - 1) * page_size
+    const endIndex = startIndex + page_size
+    const paginatedItems = items.slice(startIndex, endIndex)
+    
+    return Promise.resolve({
+      success: true,
+      data: {
+        items: paginatedItems,
+        total: items.length,
+        page,
+        page_size,
+        total_pages: Math.ceil(items.length / page_size),
+        has_more: endIndex < items.length
+      }
+    })
   },
 
-  filterProducts(filters = {}) {
-    return Promise.resolve(mockData.products)
+  filterProducts(filters = {}, options = {}) {
+    console.log('🔍 Mock filterProducts调用:', { filters, options })
+    
+    let items = [...mockData.products.data.items]
+    
+    // 分类筛选
+    if (filters.categories && filters.categories.length > 0) {
+      items = items.filter(item => 
+        item.category && item.category.some(cat => 
+          filters.categories.includes(cat)
+        )
+      )
+      console.log('🔍 Mock分类筛选后数量:', items.length)
+    }
+    
+    // 材质筛选
+    if (filters.material && filters.material.length > 0) {
+      items = items.filter(item => 
+        item.material && item.material.some(mat => 
+          filters.material.includes(mat)
+        )
+      )
+      console.log('🔍 Mock材质筛选后数量:', items.length)
+    }
+    
+    // 排序处理
+    const sort = options.sort || 'price_desc'
+    console.log('🔍 Mock排序参数:', sort)
+    
+    switch (sort) {
+      case 'price_asc':
+        items.sort((a, b) => (a.price || 0) - (b.price || 0))
+        console.log('🔍 Mock价格升序排序')
+        break
+      case 'price_desc':
+        items.sort((a, b) => (b.price || 0) - (a.price || 0))
+        console.log('🔍 Mock价格降序排序')
+        break
+      case 'condition_new':
+        items.sort((a, b) => (b.condition_grade || 0) - (a.condition_grade || 0))
+        console.log('🔍 Mock成色新到旧排序')
+        break
+      case 'condition_old':
+        items.sort((a, b) => (a.condition_grade || 0) - (b.condition_grade || 0))
+        console.log('🔍 Mock成色旧到新排序')
+        break
+    }
+    
+    console.log('🔍 Mock排序后价格:', items.slice(0, 5).map(item => ({ id: item.id, price: item.price })))
+    
+    // 分页处理
+    const page = parseInt(options.page) || 1
+    const page_size = parseInt(options.page_size) || 10
+    const startIndex = (page - 1) * page_size
+    const endIndex = startIndex + page_size
+    const paginatedItems = items.slice(startIndex, endIndex)
+    
+    return Promise.resolve({
+      success: true,
+      data: {
+        items: paginatedItems,
+        total: items.length,
+        page,
+        page_size,
+        total_pages: Math.ceil(items.length / page_size),
+        has_more: endIndex < items.length
+      }
+    })
   },
 
   getProductDetail(id) {

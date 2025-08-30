@@ -90,16 +90,18 @@ const api = {
     })
   },
 
-  filterProducts(filters = {}) {
+  filterProducts(filters = {}, options = {}) {
     wx.showLoading({ title: '加载中...', mask: true })
-    return mockApi.filterProducts(filters).finally(() => {
+    console.log('🔍 request-mock filterProducts调用:', { filters, options })
+    return mockApi.filterProducts(filters, options).finally(() => {
       wx.hideLoading()
     })
   },
 
-  searchProducts(params = {}) {
+  searchProducts(keyword = '', options = {}) {
     wx.showLoading({ title: '加载中...', mask: true })
-    return mockApi.searchProducts(params).finally(() => {
+    console.log('🔍 request-mock searchProducts调用:', { keyword, options })
+    return mockApi.searchProducts(keyword, options).finally(() => {
       wx.hideLoading()
     })
   },
