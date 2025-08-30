@@ -182,11 +182,21 @@ Page({
       return
     }
     
-    console.log('🔍 准备跳转到:', `/pages/list/list?category=${encodeURIComponent(name)}&sort=price_desc`)
+    console.log('🔍 准备跳转到列表页，分类:', name)
     
-    // 直接跳转，不用弹窗
+    // 简化URL，避免编码问题
     wx.navigateTo({
-      url: `/pages/list/list?category=${encodeURIComponent(name)}&sort=price_desc&title=${encodeURIComponent(name)}`
+      url: `/pages/list/list?category=${name}&title=${name}`,
+      success: () => {
+        console.log('🔍 跳转成功')
+      },
+      fail: (error) => {
+        console.error('🔍 跳转失败:', error)
+        wx.showToast({
+          title: '跳转失败',
+          icon: 'none'
+        })
+      }
     })
   },
 
@@ -213,9 +223,15 @@ Page({
   onViewMoreHot() {
     console.log('🔍 查看更多被点击')
     
-    // 直接跳转
+    // 简化跳转
     wx.navigateTo({
-      url: '/pages/list/list?all=1&sort=price_desc&title=全部商品'
+      url: '/pages/list/list?title=全部商品',
+      success: () => {
+        console.log('🔍 查看更多跳转成功')
+      },
+      fail: (error) => {
+        console.error('🔍 查看更多跳转失败:', error)
+      }
     })
   },
 

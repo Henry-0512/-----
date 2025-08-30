@@ -92,8 +92,8 @@ Page({
     
     console.log('🔍 列表页onLoad完成')
     
-    // 先加载基础数据，不做复杂筛选
-    this.loadItems(true)
+    // 暂时不加载数据，先确保页面能跳转
+    console.log('🔍 跳过数据加载，页面应该显示')
   },
 
   onReady() {
