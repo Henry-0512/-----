@@ -66,36 +66,63 @@ Page({
   },
 
   onLoad(options) {
-    const { category, q, sort, department, title } = options
+    const { category, q, sort, department, title, all } = options
+    
+    // 解码分类参数
+    const categoryName = category ? decodeURIComponent(category) : null
+    const sortType = sort || 'price_desc'
     
     // 设置页面标题
     let pageTitle = '商品列表'
     if (title) {
       pageTitle = decodeURIComponent(title)
-    } else if (category) {
-      pageTitle = decodeURIComponent(category)
+    } else if (categoryName) {
+      pageTitle = categoryName
     } else if (q) {
       pageTitle = `搜索: ${decodeURIComponent(q)}`
     } else if (department) {
       pageTitle = decodeURIComponent(department)
+    } else if (all === '1') {
+      pageTitle = '全部商品'
     }
     
-    this.setData({ pageTitle })
+    // 设置筛选条件
+    const currentFilters = categoryName ? { 
+      ...this.data.currentFilters, 
+      categories: [categoryName] 
+    } : this.data.currentFilters
     
-    // 处理URL参数
-    if (category) {
-      this.setData({
-        'selectedFilters.categories': [category]
+    // 设置排序名称
+    const sortOption = this.data.sortOptions.find(option => option.key === sortType)
+    const currentSortName = sortOption ? sortOption.name : '价格从高到低'
+    
+    this.setData({ 
+      pageTitle,
+      currentSort: sortType,
+      currentSortName,
+      currentFilters,
+      searchQuery: q ? decodeURIComponent(q) : '',
+      page: 1,
+      items: [],
+      loadedIds: new Set()
+    })
+    
+    // 设置导航栏标题
+    if (pageTitle !== '商品列表') {
+      wx.setNavigationBarTitle({
+        title: pageTitle
       })
     }
     
-    if (q) {
-      this.setData({ searchQuery: decodeURIComponent(q) })
-    }
-    
-    // 初始化数据
+    this.fetchList()
     this.loadFilterOptions()
-    this.loadItems(true)
+  },
+
+  onReady() {
+    // 记录列表顶部位置（用于排序后回到顶端）
+    wx.createSelectorQuery().select('#listTop').boundingClientRect(rect => {
+      this.setData({ listTop: rect ? rect.top : 0 })
+    }).exec()
   },
 
   onShow() {
@@ -138,7 +165,74 @@ Page({
   },
 
   /**
-   * 加载商品列表
+   * 统一的数据获取方法
+   */
+  async fetchList() {
+    try {
+      this.setData({ loading: true, error: null })
+      
+      const { currentFilters, currentSort, page, page_size, searchQuery } = this.data
+      
+      let result
+      if (searchQuery) {
+        // 搜索模式
+        result = await api.searchProducts(searchQuery, {
+          page,
+          page_size,
+          sort: currentSort
+        })
+      } else {
+        // 筛选模式
+        result = await api.filterProducts(currentFilters, {
+          page,
+          page_size,
+          sort: currentSort
+        })
+      }
+      
+      if (result.success) {
+        const newItems = result.data.items || []
+        const { loadedIds } = this.data
+        
+        // 去重处理
+        const uniqueItems = newItems.filter(item => {
+          if (loadedIds.has(item.id)) {
+            return false
+          }
+          loadedIds.add(item.id)
+          return true
+        })
+        
+        // 合并数据
+        const items = page === 1 ? uniqueItems : [...this.data.items, ...uniqueItems]
+        
+        this.setData({
+          items,
+          total: result.data.total || 0,
+          total_pages: result.data.total_pages || 0,
+          hasMore: result.data.has_more !== false,
+          loading: false,
+          loadedIds
+        })
+      } else {
+        throw new Error(result.message || '加载失败')
+      }
+    } catch (error) {
+      console.error('fetchList失败:', error)
+      this.setData({
+        loading: false,
+        error: {
+          type: 'NETWORK',
+          message: '加载失败，请检查网络',
+          canRetry: true,
+          onRetry: () => this.fetchList()
+        }
+      })
+    }
+  },
+
+  /**
+   * 加载商品列表（保持兼容）
    */
   async loadItems(reset = false) {
     if (this.data.loading && !reset) return
@@ -421,13 +515,36 @@ Page({
       success: (res) => {
         const selectedSort = sortOptions[res.tapIndex]
         if (selectedSort && selectedSort.key !== currentSort) {
+          // 即选即用排序
           this.setData({
             currentSort: selectedSort.key,
             currentSortName: selectedSort.name,
-            page: 1,  // 重置分页
-            items: []  // 清空当前数据
+            page: 1,
+            items: [],
+            loadedIds: new Set() // 重置去重集合
           })
-          this.loadItems(true)  // 重新加载第一页
+          
+          // 立即重新获取数据
+          this.fetchList()
+          
+          // 滚动到列表顶部
+          wx.pageScrollTo({ 
+            scrollTop: this.data.listTop || 0, 
+            duration: 300 
+          })
+          
+          // 埋点追踪
+          try {
+            const { track, TrackEvents } = require('../../utils/track.js')
+            track(TrackEvents.SORT_CHANGE, {
+              old_sort: currentSort,
+              new_sort: selectedSort.key,
+              sort_name: selectedSort.name,
+              from_page: 'list'
+            })
+          } catch (error) {
+            console.warn('埋点失败:', error)
+          }
         }
       }
     })

@@ -123,7 +123,7 @@
   padding: 0 24rpx 32rpx;
 }
 
-.category-item {
+.cat {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -132,11 +132,11 @@
   padding: 16rpx 8rpx; /* 扩大点击区域 */
   cursor: pointer;
   position: relative;
-  z-index: 10; /* 确保不被遮挡 */
+  z-index: 2; /* 防遮挡 */
   box-sizing: border-box;
 }
 
-.category-item:active {
+.cat:active {
   opacity: 0.7;
   transform: scale(0.95);
 }

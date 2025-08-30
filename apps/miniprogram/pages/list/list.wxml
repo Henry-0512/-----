@@ -9,6 +9,9 @@
     <view class="nav-placeholder"></view>
   </view>
 
+  <!-- 列表顶部锚点 -->
+  <view id="listTop"></view>
+
   <!-- 筛选控制栏 -->
   <view class="filter-controls">
     <view class="control-button" bindtap="onShowSort">

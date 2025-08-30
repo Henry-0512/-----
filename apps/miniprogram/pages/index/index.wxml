@@ -62,9 +62,9 @@
         <view 
           wx:for="{{categories}}" 
           wx:key="id" 
-          class="category-item"
-          data-category="{{item}}"
-          bindtap="onCategoryTap"
+          class="cat"
+          data-name="{{item.name}}"
+          bindtap="onTapCategory"
         >
           <view class="category-icon">{{item.name.charAt(0)}}</view>
           <text class="category-name">{{item.name}}</text>

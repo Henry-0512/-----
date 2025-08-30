@@ -170,11 +170,11 @@ Page({
   /**
    * 分类点击
    */
-  onCategoryTap(e) {
-    const { category } = e.currentTarget.dataset
-    console.log('分类点击:', category)
+  onTapCategory(e) {
+    const name = e.currentTarget.dataset.name
+    console.log('分类点击:', name)
     
-    if (!category || !category.id) {
+    if (!name) {
       wx.showToast({
         title: '分类数据错误',
         icon: 'none'
@@ -186,8 +186,7 @@ Page({
     try {
       const { track, TrackEvents } = require('../../utils/track.js')
       track(TrackEvents.CATEGORY_CLICK, {
-        category_id: category.id,
-        category_name: category.name,
+        category_name: name,
         from_page: 'homepage'
       })
     } catch (error) {
@@ -195,7 +194,7 @@ Page({
     }
     
     wx.navigateTo({
-      url: `/pages/list/list?category=${encodeURIComponent(category.name)}&title=${encodeURIComponent(category.name)}`
+      url: `/pages/list/list?category=${encodeURIComponent(name)}&sort=price_desc`
     })
   },
 

@@ -2194,5 +2194,316 @@
     "id": "track_1756572329030_hwjnmi",
     "timestamp": "2025-08-30T16:45:29.030Z",
     "date": "2025-08-30"
+  },
+  {
+    "event": "category_click",
+    "payload": {
+      "category_id": "书桌",
+      "category_name": "书桌",
+      "from_page": "homepage",
+      "page": {
+        "route": "pages/index/index",
+        "options": {}
+      },
+      "timestamp": "2025-08-30T17:22:53.046Z"
+    },
+    "openid": "mock_openid_1756574567876_1x7xwod0",
+    "sessionId": "session_1756574567342_yo2dwg3o",
+    "userTimestamp": "2025-08-30T17:22:53.046Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/731",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756574573053_epzoq2",
+    "timestamp": "2025-08-30T17:22:53.053Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "category_click",
+    "payload": {
+      "category_id": "沙发",
+      "category_name": "沙发",
+      "from_page": "homepage",
+      "page": {
+        "route": "pages/index/index",
+        "options": {}
+      },
+      "timestamp": "2025-08-30T17:22:57.902Z"
+    },
+    "openid": "mock_openid_1756574567876_1x7xwod0",
+    "sessionId": "session_1756574567342_yo2dwg3o",
+    "userTimestamp": "2025-08-30T17:22:57.902Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/731",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756574577909_80xheq",
+    "timestamp": "2025-08-30T17:22:57.909Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "category_click",
+    "payload": {
+      "category_id": "沙发",
+      "category_name": "沙发",
+      "from_page": "homepage",
+      "page": {
+        "route": "pages/index/index",
+        "options": {}
+      },
+      "timestamp": "2025-08-30T17:23:01.320Z"
+    },
+    "openid": "mock_openid_1756574567876_1x7xwod0",
+    "sessionId": "session_1756574567342_yo2dwg3o",
+    "userTimestamp": "2025-08-30T17:23:01.320Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/731",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756574581327_mf7z3l",
+    "timestamp": "2025-08-30T17:23:01.327Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "more_click",
+    "payload": {
+      "section": "hot_items",
+      "from_page": "homepage",
+      "page": {
+        "route": "pages/index/index",
+        "options": {}
+      },
+      "timestamp": "2025-08-30T17:23:03.711Z"
+    },
+    "openid": "mock_openid_1756574567876_1x7xwod0",
+    "sessionId": "session_1756574567342_yo2dwg3o",
+    "userTimestamp": "2025-08-30T17:23:03.711Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/731",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756574583719_cv3jpz",
+    "timestamp": "2025-08-30T17:23:03.719Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "sort_change",
+    "payload": {
+      "sort_type": "price_asc",
+      "sort_name": "价格从低到高",
+      "from_page": "homepage",
+      "page": {
+        "route": "pages/index/index",
+        "options": {}
+      },
+      "timestamp": "2025-08-30T17:23:11.044Z"
+    },
+    "openid": "mock_openid_1756574567876_1x7xwod0",
+    "sessionId": "session_1756574567342_yo2dwg3o",
+    "userTimestamp": "2025-08-30T17:23:11.044Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/731",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756574591057_rl0fpp",
+    "timestamp": "2025-08-30T17:23:11.057Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "sort_change",
+    "payload": {
+      "sort_type": "condition_new",
+      "sort_name": "成色从新到旧",
+      "from_page": "homepage",
+      "page": {
+        "route": "pages/index/index",
+        "options": {}
+      },
+      "timestamp": "2025-08-30T17:23:27.353Z"
+    },
+    "openid": "mock_openid_1756574567876_1x7xwod0",
+    "sessionId": "session_1756574567342_yo2dwg3o",
+    "userTimestamp": "2025-08-30T17:23:27.353Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/731",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756574607364_awimx2",
+    "timestamp": "2025-08-30T17:23:27.364Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "sort_change",
+    "payload": {
+      "sort_type": "condition_old",
+      "sort_name": "成色从旧到新",
+      "from_page": "homepage",
+      "page": {
+        "route": "pages/index/index",
+        "options": {}
+      },
+      "timestamp": "2025-08-30T17:23:31.901Z"
+    },
+    "openid": "mock_openid_1756574567876_1x7xwod0",
+    "sessionId": "session_1756574567342_yo2dwg3o",
+    "userTimestamp": "2025-08-30T17:23:31.901Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/731",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756574611917_f3bdyh",
+    "timestamp": "2025-08-30T17:23:31.917Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "category_click",
+    "payload": {
+      "category_id": "床",
+      "category_name": "床",
+      "from_page": "homepage",
+      "page": {
+        "route": "pages/index/index",
+        "options": {}
+      },
+      "timestamp": "2025-08-30T17:23:43.405Z"
+    },
+    "openid": "mock_openid_1756574567876_1x7xwod0",
+    "sessionId": "session_1756574567342_yo2dwg3o",
+    "userTimestamp": "2025-08-30T17:23:43.405Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/731",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756574623418_8eukwm",
+    "timestamp": "2025-08-30T17:23:43.418Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "sort_change",
+    "payload": {
+      "sort_type": "condition_new",
+      "sort_name": "成色从新到旧",
+      "from_page": "homepage",
+      "page": {
+        "route": "pages/index/index",
+        "options": {}
+      },
+      "timestamp": "2025-08-30T17:24:12.669Z"
+    },
+    "openid": "mock_openid_1756574646145_1tjo2ztt",
+    "sessionId": "session_1756574645607_8j80r7tv",
+    "userTimestamp": "2025-08-30T17:24:12.669Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/732",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756574652680_6wmdtl",
+    "timestamp": "2025-08-30T17:24:12.680Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "sort_change",
+    "payload": {
+      "sort_type": "price_asc",
+      "sort_name": "价格从低到高",
+      "from_page": "homepage",
+      "page": {
+        "route": "pages/index/index",
+        "options": {}
+      },
+      "timestamp": "2025-08-30T17:24:16.808Z"
+    },
+    "openid": "mock_openid_1756574646145_1tjo2ztt",
+    "sessionId": "session_1756574645607_8j80r7tv",
+    "userTimestamp": "2025-08-30T17:24:16.808Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/732",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756574656818_ednv5j",
+    "timestamp": "2025-08-30T17:24:16.818Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "category_click",
+    "payload": {
+      "category_id": "床",
+      "category_name": "床",
+      "from_page": "homepage",
+      "page": {
+        "route": "pages/index/index",
+        "options": {}
+      },
+      "timestamp": "2025-08-30T17:24:26.303Z"
+    },
+    "openid": "mock_openid_1756574646145_1tjo2ztt",
+    "sessionId": "session_1756574645607_8j80r7tv",
+    "userTimestamp": "2025-08-30T17:24:26.303Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/732",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756574666313_nyeq7e",
+    "timestamp": "2025-08-30T17:24:26.313Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "category_click",
+    "payload": {
+      "category_id": "床",
+      "category_name": "床",
+      "from_page": "homepage",
+      "page": {
+        "route": "pages/index/index",
+        "options": {}
+      },
+      "timestamp": "2025-08-30T17:24:27.216Z"
+    },
+    "openid": "mock_openid_1756574646145_1tjo2ztt",
+    "sessionId": "session_1756574645607_8j80r7tv",
+    "userTimestamp": "2025-08-30T17:24:27.216Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/732",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756574667226_azd1m3",
+    "timestamp": "2025-08-30T17:24:27.226Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "category_click",
+    "payload": {
+      "category_id": "餐桌",
+      "category_name": "餐桌",
+      "from_page": "homepage",
+      "page": {
+        "route": "pages/index/index",
+        "options": {}
+      },
+      "timestamp": "2025-08-30T17:24:27.906Z"
+    },
+    "openid": "mock_openid_1756574646145_1tjo2ztt",
+    "sessionId": "session_1756574645607_8j80r7tv",
+    "userTimestamp": "2025-08-30T17:24:27.906Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/732",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756574667916_08gzk9",
+    "timestamp": "2025-08-30T17:24:27.916Z",
+    "date": "2025-08-30"
   }
 ]
