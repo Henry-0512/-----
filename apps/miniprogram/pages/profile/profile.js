@@ -112,24 +112,39 @@ Page({
     try {
       this.setData({ loading: true })
       
-      const orders = storage.get('orders', [])
-      const favoriteItems = storage.get('favorites', [])
-      const compareItems = storage.get('compareList', [])
+      const orders = storage.get('orders') || []
+      const favoriteItems = storage.get('favorites') || []
+      const compareItems = storage.get('compareList') || []
+      
+      // 确保数据为数组类型
+      const safeOrders = Array.isArray(orders) ? orders : []
+      const safeFavorites = Array.isArray(favoriteItems) ? favoriteItems : []
+      const safeCompare = Array.isArray(compareItems) ? compareItems : []
       
       this.setData({
-        orders,
-        favoriteItems,
-        compareItems,
+        orders: safeOrders,
+        favoriteItems: safeFavorites,
+        compareItems: safeCompare,
         statsData: {
-          totalOrders: orders.length,
-          totalFavorites: favoriteItems.length,
-          totalCompare: compareItems.length
+          totalOrders: safeOrders.length,
+          totalFavorites: safeFavorites.length,
+          totalCompare: safeCompare.length
         },
         loading: false
       })
     } catch (error) {
       console.error('加载数据失败：', error)
-      this.setData({ loading: false })
+      this.setData({ 
+        loading: false,
+        orders: [],
+        favoriteItems: [],
+        compareItems: [],
+        statsData: {
+          totalOrders: 0,
+          totalFavorites: 0,
+          totalCompare: 0
+        }
+      })
     }
   },
 
