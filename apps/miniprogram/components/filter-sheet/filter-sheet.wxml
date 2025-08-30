@@ -70,7 +70,7 @@
             wx:for="{{item.options}}" 
             wx:for-item="option"
             wx:for-index="optionIndex"
-            wx:key="*this"
+            wx:key="{{option.value || option}}"
             class="multi-option {{internalValues[item.key].includes(option.value || option) ? 'selected' : ''}}"
             data-key="{{item.key}}"
             data-option="{{option.value || option}}"

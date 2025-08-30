@@ -103,17 +103,22 @@ Component({
      * 多选项切换
      */
     onMultiToggle(e) {
+      console.log('🔍 多选切换点击:', e.currentTarget.dataset)
       const { key, option } = e.currentTarget.dataset
       const currentValues = this.data.internalValues[key] || []
       const index = currentValues.indexOf(option)
+      
+      console.log('🔍 当前值:', { key, option, currentValues, index })
       
       let newValues
       if (index > -1) {
         // 取消选择
         newValues = currentValues.filter(item => item !== option)
+        console.log('🔍 取消选择:', newValues)
       } else {
         // 添加选择
         newValues = [...currentValues, option]
+        console.log('🔍 添加选择:', newValues)
       }
       
       this.setData({
@@ -206,6 +211,8 @@ Component({
    */
   lifetimes: {
     attached() {
+      console.log('🔍 FilterSheet初始化:', { schema: this.data.schema, values: this.data.values })
+      
       // 初始化内部值
       const internalValues = { ...this.data.values }
       const sliderValues = {}
@@ -215,12 +222,17 @@ Component({
           const value = internalValues[item.key] || { min: item.min, max: item.max }
           internalValues[item.key] = value
           sliderValues[item.key] = [value.min, value.max]
+          console.log('🔍 初始化range:', item.key, value)
         } else if (item.type === 'multi') {
-          internalValues[item.key] = internalValues[item.key] || []
+          internalValues[item.key] = Array.isArray(internalValues[item.key]) ? internalValues[item.key] : []
+          console.log('🔍 初始化multi:', item.key, internalValues[item.key])
         } else if (item.type === 'bool') {
           internalValues[item.key] = internalValues[item.key] || false
+          console.log('🔍 初始化bool:', item.key, internalValues[item.key])
         }
       })
+      
+      console.log('🔍 最终internalValues:', internalValues)
       
       this.setData({
         internalValues,

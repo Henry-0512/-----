@@ -328,8 +328,13 @@ Page({
       apiFilters.categories = filters.categories
     }
     
-    // 处理月租金筛选
-    if (filters.monthlyPrice) {
+    // 处理月租金筛选（支持price和monthlyPrice字段名）
+    if (filters.price) {
+      apiFilters.monthlyPrice = {
+        min: filters.price.min,
+        max: filters.price.max
+      }
+    } else if (filters.monthlyPrice) {
       apiFilters.monthlyPrice = {
         min: filters.monthlyPrice.min,
         max: filters.monthlyPrice.max
