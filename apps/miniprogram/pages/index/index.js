@@ -101,6 +101,25 @@ Page({
   },
 
   /**
+   * 管理员入口（隐藏功能）
+   */
+  onAdminAccess() {
+    wx.showModal({
+      title: '管理员入口',
+      content: '确定要进入管理系统吗？',
+      confirmText: '进入',
+      cancelText: '取消',
+      success: (res) => {
+        if (res.confirm) {
+          wx.navigateTo({
+            url: '/pages/admin/intents'
+          })
+        }
+      }
+    })
+  },
+
+  /**
    * 搜索输入
    */
   onSearchInput(e) {

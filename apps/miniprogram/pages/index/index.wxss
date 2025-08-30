@@ -356,3 +356,13 @@
   color: #999;
   margin-bottom: 48rpx;
 }
+
+/* 隐藏管理入口 */
+.admin-trigger {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60rpx;
+  height: 60rpx;
+  opacity: 0;
+}

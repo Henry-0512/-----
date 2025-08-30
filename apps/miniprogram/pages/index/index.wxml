@@ -34,6 +34,8 @@
         <text class="search-icon">🔍</text>
         <text class="search-placeholder">搜索家具...</text>
       </view>
+      <!-- 临时管理入口 - 长按5秒显示 -->
+      <view class="admin-trigger" bindlongpress="onAdminAccess"></view>
     </view>
 
     <!-- 轮播图 -->
