@@ -77,32 +77,36 @@
 
 .filter-scroll {
   width: 100%;
-  height: 80rpx; /* 明确设置高度 */
+  height: 80rpx;
+  white-space: nowrap;
 }
 
 .filter-tags-container {
-  display: inline-flex;
-  align-items: center;
-  padding: 0 24rpx;
-  gap: 16rpx;
+  display: inline-block;
   white-space: nowrap;
-  height: 80rpx; /* 确保容器高度 */
-  min-width: max-content; /* 确保内容不被压缩 */
+  padding: 0 24rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.scroll-padding {
+  display: inline-block;
+  width: 24rpx;
+  height: 80rpx;
 }
 
 .filter-tag {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   padding: 16rpx 32rpx;
+  margin-right: 16rpx;
   border: 2rpx solid #e0e0e0;
   border-radius: 50rpx;
   background: white;
   transition: all 0.3s ease;
   white-space: nowrap;
-  flex-shrink: 0;
-  min-width: fit-content; /* 确保标签宽度适应内容 */
-  height: 60rpx; /* 固定高度 */
+  vertical-align: middle;
+  line-height: 48rpx;
+  text-align: center;
 }
 
 .filter-tag:active {
@@ -119,18 +123,17 @@
 /* 全部筛选按钮 */
 .filter-all-btn {
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-block;
   padding: 16rpx 32rpx;
+  margin-right: 16rpx;
   border: 2rpx solid #007AFF;
   border-radius: 50rpx;
   background: #007AFF;
   transition: all 0.3s ease;
   white-space: nowrap;
-  flex-shrink: 0;
-  min-width: fit-content; /* 确保按钮宽度适应内容 */
-  height: 60rpx; /* 与标签高度一致 */
+  vertical-align: middle;
+  line-height: 48rpx;
+  text-align: center;
 }
 
 .filter-all-btn:active {

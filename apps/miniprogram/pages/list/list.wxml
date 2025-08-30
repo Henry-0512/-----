@@ -20,7 +20,12 @@
 
   <!-- 筛选标签栏 -->
   <view class="filter-bar">
-    <scroll-view class="filter-scroll" scroll-x="{{true}}" show-scrollbar="{{false}}" enhanced="{{true}}" bounces="{{true}}">
+    <scroll-view 
+      class="filter-scroll" 
+      scroll-x 
+      show-scrollbar="{{false}}"
+      scroll-with-animation="{{true}}"
+    >
       <view class="filter-tags-container">
         <view class="filter-tag" bindtap="onQuickFilter" data-type="category">
           <text class="tag-text">商品分类</text>
@@ -51,6 +56,8 @@
           <text class="filter-icon">全部筛选</text>
           <text wx:if="{{hasActiveFilters}}" class="filter-badge">{{filterCount}}</text>
         </view>
+        <!-- 添加额外的右边距确保最后一个元素可见 -->
+        <view class="scroll-padding"></view>
       </view>
     </scroll-view>
   </view>
