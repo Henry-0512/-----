@@ -17,7 +17,7 @@ const PRICE_DISPLAY_MODES = {
 const FEATURE_FLAGS = {
   // 价格显示模式
   // 可选值: 'show' | 'range' | 'from' | 'ask'
-  PRICE_DISPLAY_MODE: 'ask',
+  PRICE_DISPLAY_MODE: 'show',
   
   // 其他功能开关（预留扩展）
   ENABLE_FAVORITES: true,           // 是否启用收藏功能
