@@ -34,10 +34,6 @@
         "text": "📂 分类"
       },
       {
-        "pagePath": "pages/list/list",
-        "text": "🔍 搜索"
-      },
-      {
         "pagePath": "pages/cart/cart",
         "text": "🛒 购物车"
       },
