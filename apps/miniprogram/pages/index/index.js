@@ -13,19 +13,19 @@ Page({
     banners: [
       {
         id: '1',
-        image: 'https://picsum.photos/750/400?random=10',
+        image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=750&h=400&fit=crop',
         title: '精品家具租赁',
         link: '/pages/list/list'
       },
       {
         id: '2', 
-        image: 'https://picsum.photos/750/400?random=11',
+        image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=750&h=400&fit=crop',
         title: '灵活租期',
         link: '/pages/category/category'
       },
       {
         id: '3',
-        image: 'https://picsum.photos/750/400?random=12',
+        image: 'https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=750&h=400&fit=crop',
         title: '品质保证',
         link: '/pages/list/list?category=sofa'
       }

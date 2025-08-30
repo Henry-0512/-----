@@ -39,12 +39,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=101",
+        "url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=102",
-        "type": "scene"
       }
     ],
     "care": "可拆洗外套，低温水洗；木质部位用微湿布擦拭。",
@@ -124,7 +120,8 @@
       "value": "new",
       "discount": 0
     },
-    "originalPrice": 3999
+    "originalPrice": 3999,
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_bed_002",
@@ -164,12 +161,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=bed0021",
+        "url": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=bed0022",
-        "type": "scene"
       }
     ],
     "care": "表面清洁使用干布或微湿布；避免长时日晒。",
@@ -248,7 +241,8 @@
       "value": "90_new",
       "discount": 0.1
     },
-    "originalPrice": 3299
+    "originalPrice": 3299,
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_table_003",
@@ -288,12 +282,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=table0031",
+        "url": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=table0032",
-        "type": "scene"
       }
     ],
     "care": "定期使用木质护理油保养；避免尖锐物品划伤。",
@@ -373,7 +363,8 @@
       "value": "95_new",
       "discount": 0.05
     },
-    "originalPrice": 2899
+    "originalPrice": 2899,
+    "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_chair_004",
@@ -413,12 +404,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=chair0041",
+        "url": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=chair0042",
-        "type": "scene"
       }
     ],
     "care": "PU皮面用湿布擦拭；金属部位避免潮湿环境。",
@@ -497,7 +484,8 @@
       "value": "new",
       "discount": 0
     },
-    "originalPrice": 599
+    "originalPrice": 599,
+    "image": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_chair_005",
@@ -537,12 +525,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=chair0051",
+        "url": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=chair0052",
-        "type": "scene"
       }
     ],
     "care": "网布可用吸尘器清洁；滑轮定期加润滑油。",
@@ -622,7 +606,8 @@
       "value": "90_new",
       "discount": 0.1
     },
-    "originalPrice": 1899
+    "originalPrice": 1899,
+    "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_desk_006",
@@ -662,12 +647,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=desk0061",
+        "url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=desk0062",
-        "type": "scene"
       }
     ],
     "care": "表面防水处理，用湿布即可清洁；避免重物撞击。",
@@ -746,7 +727,8 @@
       "value": "new",
       "discount": 0
     },
-    "originalPrice": 1299
+    "originalPrice": 1299,
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_rug_007",
@@ -786,12 +768,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=rug0071",
+        "url": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=rug0072",
-        "type": "scene"
       }
     ],
     "care": "可机洗，冷水洗涤；定期吸尘保持清洁。",
@@ -870,7 +848,8 @@
       "value": "90_new",
       "discount": 0.1
     },
-    "originalPrice": 899
+    "originalPrice": 899,
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_table_008",
@@ -910,12 +889,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=table0081",
+        "url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=table0082",
-        "type": "scene"
       }
     ],
     "care": "玻璃面用玻璃清洁剂；不锈钢用专用清洁布。",
@@ -995,7 +970,8 @@
       "value": "80_new",
       "discount": 0.2
     },
-    "originalPrice": 1599
+    "originalPrice": 1599,
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_wardrobe_009",
@@ -1035,12 +1011,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=wardrobe0091",
+        "url": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=wardrobe0092",
-        "type": "scene"
       }
     ],
     "care": "轨道定期清洁润滑；面板用微湿布擦拭。",
@@ -1119,7 +1091,8 @@
       "value": "95_new",
       "discount": 0.05
     },
-    "originalPrice": 4599
+    "originalPrice": 4599,
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_mattress_010",
@@ -1159,12 +1132,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=mattress0101",
+        "url": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=mattress0102",
-        "type": "scene"
       }
     ],
     "care": "每3个月翻转一次；床单套装保护表面。",
@@ -1244,7 +1213,8 @@
       "value": "95_new",
       "discount": 0.05
     },
-    "originalPrice": 2199
+    "originalPrice": 2199,
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_nightstand_011",
@@ -1284,12 +1254,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=nightstand0111",
+        "url": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=nightstand0112",
-        "type": "scene"
       }
     ],
     "care": "木质表面用专用护理蜡；抽屉滑轨定期润滑。",
@@ -1368,7 +1334,8 @@
       "value": "80_new",
       "discount": 0.2
     },
-    "originalPrice": 699
+    "originalPrice": 699,
+    "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_bookshelf_012",
@@ -1408,12 +1375,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=bookshelf0121",
+        "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=bookshelf0122",
-        "type": "scene"
       }
     ],
     "care": "木板用微湿布清洁；铁艺部分防锈处理。",
@@ -1492,7 +1455,8 @@
       "value": "90_new",
       "discount": 0.1
     },
-    "originalPrice": 1399
+    "originalPrice": 1399,
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_dresser_013",
@@ -1532,12 +1496,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=dresser0131",
+        "url": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=dresser0132",
-        "type": "scene"
       }
     ],
     "care": "镜面用玻璃清洁剂；抽屉轨道定期清洁。",
@@ -1617,7 +1577,8 @@
       "value": "new",
       "discount": 0
     },
-    "originalPrice": 1899
+    "originalPrice": 1899,
+    "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_sofa_014",
@@ -1657,12 +1618,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=sofa0141",
+        "url": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=sofa0142",
-        "type": "scene"
       }
     ],
     "care": "科技布面料可湿布擦拭；避免尖锐物品划伤。",
@@ -1713,7 +1670,8 @@
       "value": "new",
       "discount": 0
     },
-    "originalPrice": 5999
+    "originalPrice": 5999,
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_lamp_015",
@@ -1753,12 +1711,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=lamp0151",
+        "url": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=lamp0152",
-        "type": "scene"
       }
     ],
     "care": "灯罩用干布清洁；底座可用湿布擦拭。",
@@ -1837,7 +1791,8 @@
       "value": "80_new",
       "discount": 0.2
     },
-    "originalPrice": 399
+    "originalPrice": 399,
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_organizer_016",
@@ -1877,12 +1832,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=organizer0161",
+        "url": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=organizer0162",
-        "type": "scene"
       }
     ],
     "care": "竹木制品用干布清洁；避免长时间浸水。",
@@ -1961,7 +1912,8 @@
       "value": "new",
       "discount": 0
     },
-    "originalPrice": 199
+    "originalPrice": 199,
+    "image": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_pillow_017",
@@ -2001,12 +1953,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=pillow0171",
+        "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=pillow0172",
-        "type": "scene"
       }
     ],
     "care": "枕套可机洗；枕芯通风晾晒即可。",
@@ -2085,7 +2033,8 @@
       "value": "80_new",
       "discount": 0.2
     },
-    "originalPrice": 299
+    "originalPrice": 299,
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_stool_018",
@@ -2125,12 +2074,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=stool0181",
+        "url": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=stool0182",
-        "type": "scene"
       }
     ],
     "care": "绒布面料用软毛刷清洁；金属腿可湿布擦拭。",
@@ -2209,7 +2154,8 @@
       "value": "new",
       "discount": 0
     },
-    "originalPrice": 399
+    "originalPrice": 399,
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_mirror_019",
@@ -2249,12 +2195,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=mirror0191",
+        "url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=mirror0192",
-        "type": "scene"
       }
     ],
     "care": "镜面用玻璃清洁剂；边框用干布擦拭。",
@@ -2334,7 +2276,8 @@
       "value": "90_new",
       "discount": 0.1
     },
-    "originalPrice": 599
+    "originalPrice": 599,
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_cabinet_020",
@@ -2374,12 +2317,8 @@
     ],
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=cabinet0201",
+        "url": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
         "type": "main"
-      },
-      {
-        "url": "https://picsum.photos/400/300?random=cabinet0202",
-        "type": "scene"
       }
     ],
     "care": "表面防潮处理，用湿布清洁；通风保持干燥。",
@@ -2458,7 +2397,8 @@
       "value": "80_new",
       "discount": 0.2
     },
-    "originalPrice": 1199
+    "originalPrice": 1199,
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_沙发_021",
@@ -2498,7 +2438,7 @@
     "monthlyPrice": 56,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1000",
+        "url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -2551,7 +2491,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_床_022",
@@ -2591,7 +2532,7 @@
     "monthlyPrice": 15,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1001",
+        "url": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -2643,7 +2584,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_餐桌_023",
@@ -2683,7 +2625,7 @@
     "monthlyPrice": 18,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1002",
+        "url": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -2736,7 +2678,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_椅子_024",
@@ -2776,7 +2719,7 @@
     "monthlyPrice": 8,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1003",
+        "url": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -2829,7 +2772,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_书桌_025",
@@ -2869,7 +2813,7 @@
     "monthlyPrice": 22,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1004",
+        "url": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -2921,7 +2865,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_茶几_026",
@@ -2961,7 +2906,7 @@
     "monthlyPrice": 13,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1005",
+        "url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -3013,7 +2958,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_衣柜_027",
@@ -3053,7 +2999,7 @@
     "monthlyPrice": 15,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1006",
+        "url": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -3106,7 +3052,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_书架_028",
@@ -3146,7 +3093,7 @@
     "monthlyPrice": 7,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1007",
+        "url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -3199,7 +3146,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_沙发_029",
@@ -3239,7 +3187,7 @@
     "monthlyPrice": 33,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1008",
+        "url": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -3291,7 +3239,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_床_030",
@@ -3331,7 +3280,7 @@
     "monthlyPrice": 26,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1009",
+        "url": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -3383,7 +3332,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_餐桌_031",
@@ -3423,7 +3373,7 @@
     "monthlyPrice": 18,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1010",
+        "url": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -3476,7 +3426,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_椅子_032",
@@ -3516,7 +3467,7 @@
     "monthlyPrice": 8,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1011",
+        "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -3568,7 +3519,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_书桌_033",
@@ -3608,7 +3560,7 @@
     "monthlyPrice": 16,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1012",
+        "url": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -3660,7 +3612,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_茶几_034",
@@ -3700,7 +3653,7 @@
     "monthlyPrice": 11,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1013",
+        "url": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -3753,7 +3706,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_衣柜_035",
@@ -3793,7 +3747,7 @@
     "monthlyPrice": 30,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1014",
+        "url": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -3846,7 +3800,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_书架_036",
@@ -3886,7 +3841,7 @@
     "monthlyPrice": 11,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1015",
+        "url": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -3939,7 +3894,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_沙发_037",
@@ -3979,7 +3935,7 @@
     "monthlyPrice": 45,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1016",
+        "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -4031,7 +3987,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_床_038",
@@ -4071,7 +4028,7 @@
     "monthlyPrice": 16,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1017",
+        "url": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -4124,7 +4081,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_餐桌_039",
@@ -4164,7 +4122,7 @@
     "monthlyPrice": 10,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1018",
+        "url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -4216,7 +4174,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_椅子_040",
@@ -4256,7 +4215,7 @@
     "monthlyPrice": 7,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1019",
+        "url": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -4308,7 +4267,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_书桌_041",
@@ -4348,7 +4308,7 @@
     "monthlyPrice": 8,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1020",
+        "url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -4400,7 +4360,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_茶几_042",
@@ -4440,7 +4401,7 @@
     "monthlyPrice": 10,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1021",
+        "url": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -4493,7 +4454,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_衣柜_043",
@@ -4533,7 +4495,7 @@
     "monthlyPrice": 41,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1022",
+        "url": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -4586,7 +4548,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_书架_044",
@@ -4626,7 +4589,7 @@
     "monthlyPrice": 19,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1023",
+        "url": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -4678,7 +4641,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_沙发_045",
@@ -4718,7 +4682,7 @@
     "monthlyPrice": 30,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1024",
+        "url": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -4770,7 +4734,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_床_046",
@@ -4810,7 +4775,7 @@
     "monthlyPrice": 11,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1025",
+        "url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -4863,7 +4828,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_餐桌_047",
@@ -4903,7 +4869,7 @@
     "monthlyPrice": 32,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1026",
+        "url": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -4955,7 +4921,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_椅子_048",
@@ -4995,7 +4962,7 @@
     "monthlyPrice": 12,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1027",
+        "url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -5048,7 +5015,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_书桌_049",
@@ -5088,7 +5056,7 @@
     "monthlyPrice": 14,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1028",
+        "url": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -5140,7 +5108,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_茶几_050",
@@ -5180,7 +5149,7 @@
     "monthlyPrice": 12,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1029",
+        "url": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -5232,7 +5201,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_衣柜_051",
@@ -5272,7 +5242,7 @@
     "monthlyPrice": 27,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1030",
+        "url": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -5324,7 +5294,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_书架_052",
@@ -5364,7 +5335,7 @@
     "monthlyPrice": 15,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1031",
+        "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -5417,7 +5388,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_沙发_053",
@@ -5457,7 +5429,7 @@
     "monthlyPrice": 41,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1032",
+        "url": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -5510,7 +5482,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_床_054",
@@ -5550,7 +5523,7 @@
     "monthlyPrice": 14,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1033",
+        "url": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -5602,7 +5575,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_餐桌_055",
@@ -5642,7 +5616,7 @@
     "monthlyPrice": 19,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1034",
+        "url": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -5694,7 +5668,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_椅子_056",
@@ -5734,7 +5709,7 @@
     "monthlyPrice": 8,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1035",
+        "url": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -5786,7 +5761,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_书桌_057",
@@ -5826,7 +5802,7 @@
     "monthlyPrice": 7,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1036",
+        "url": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -5879,7 +5855,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_茶几_058",
@@ -5919,7 +5896,7 @@
     "monthlyPrice": 4,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1037",
+        "url": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -5972,7 +5949,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_衣柜_059",
@@ -6012,7 +5990,7 @@
     "monthlyPrice": 50,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1038",
+        "url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -6065,7 +6043,8 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
   },
   {
     "id": "sku_书架_060",
@@ -6105,7 +6084,7 @@
     "monthlyPrice": 9,
     "images": [
       {
-        "url": "https://picsum.photos/400/300?random=1039",
+        "url": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
         "type": "main"
       }
     ],
@@ -6158,6 +6137,7 @@
         "question": "配送范围是哪里？",
         "answer": "目前支持Durham及周边地区"
       }
-    ]
+    ],
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
   }
 ]
