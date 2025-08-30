@@ -172,7 +172,26 @@ Page({
    */
   onTapCategory(e) {
     const name = e.currentTarget.dataset.name
-    console.log('分类点击:', name)
+    console.log('🔍 分类点击调试:', { 
+      name, 
+      dataset: e.currentTarget.dataset,
+      event: e
+    })
+    
+    // 先测试基本跳转
+    wx.showModal({
+      title: '分类点击测试',
+      content: `点击了分类: ${name || '未获取到名称'}`,
+      confirmText: '跳转',
+      cancelText: '取消',
+      success: (res) => {
+        if (res.confirm && name) {
+          wx.navigateTo({
+            url: `/pages/list/list?category=${encodeURIComponent(name)}&sort=price_desc`
+          })
+        }
+      }
+    })
     
     if (!name) {
       wx.showToast({
@@ -219,21 +238,21 @@ Page({
    * 查看更多热门商品
    */
   onViewMoreHot() {
-    console.log('查看更多被点击')
+    console.log('🔍 查看更多被点击')
     
-    // 埋点追踪
-    try {
-      const { track, TrackEvents } = require('../../utils/track.js')
-      track(TrackEvents.MORE_CLICK, {
-        section: 'hot_items',
-        from_page: 'homepage'
-      })
-    } catch (error) {
-      console.warn('埋点失败:', error)
-    }
-    
-    wx.navigateTo({
-      url: '/pages/list/list?all=1&sort=price_desc&title=全部商品'
+    // 先测试基本跳转
+    wx.showModal({
+      title: '查看更多测试',
+      content: '点击了查看更多按钮',
+      confirmText: '跳转',
+      cancelText: '取消',
+      success: (res) => {
+        if (res.confirm) {
+          wx.navigateTo({
+            url: '/pages/list/list?all=1&sort=price_desc&title=全部商品'
+          })
+        }
+      }
     })
   },
 

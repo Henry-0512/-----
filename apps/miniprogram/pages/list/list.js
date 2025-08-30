@@ -35,7 +35,7 @@ Page({
     ],
     
     // 去重相关
-    loadedIds: new Set(),
+    loadedIds: [],
     
     // 筛选相关
     filterOptions: {
@@ -104,7 +104,7 @@ Page({
       searchQuery: q ? decodeURIComponent(q) : '',
       page: 1,
       items: [],
-      loadedIds: new Set()
+      loadedIds: []
     })
     
     // 设置导航栏标题
@@ -169,6 +169,13 @@ Page({
    */
   async fetchList() {
     try {
+      console.log('🔍 fetchList 开始调用:', {
+        currentFilters: this.data.currentFilters,
+        currentSort: this.data.currentSort,
+        page: this.data.page,
+        searchQuery: this.data.searchQuery
+      })
+      
       this.setData({ loading: true, error: null })
       
       const { currentFilters, currentSort, page, page_size, searchQuery } = this.data
@@ -196,10 +203,10 @@ Page({
         
         // 去重处理
         const uniqueItems = newItems.filter(item => {
-          if (loadedIds.has(item.id)) {
+          if (loadedIds.includes(item.id)) {
             return false
           }
-          loadedIds.add(item.id)
+          loadedIds.push(item.id)
           return true
         })
         
@@ -521,7 +528,7 @@ Page({
             currentSortName: selectedSort.name,
             page: 1,
             items: [],
-            loadedIds: new Set() // 重置去重集合
+            loadedIds: [] // 重置去重集合
           })
           
           // 立即重新获取数据
