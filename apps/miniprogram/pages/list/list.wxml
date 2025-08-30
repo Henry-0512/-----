@@ -23,26 +23,32 @@
     <scroll-view class="filter-scroll" scroll-x="{{true}}" show-scrollbar="{{false}}" enhanced="{{true}}" bounces="{{true}}">
       <view class="filter-tags-container">
         <view class="filter-tag" bindtap="onQuickFilter" data-type="category">
-          <text class="tag-text">分类</text>
+          <text class="tag-text">商品分类</text>
         </view>
         <view class="filter-tag" bindtap="onQuickFilter" data-type="material">
-          <text class="tag-text">材质</text>
+          <text class="tag-text">材质选择</text>
         </view>
         <view class="filter-tag" bindtap="onQuickFilter" data-type="color">
-          <text class="tag-text">颜色</text>
+          <text class="tag-text">颜色选择</text>
         </view>
         <view class="filter-tag" bindtap="onQuickFilter" data-type="style">
-          <text class="tag-text">风格</text>
+          <text class="tag-text">风格样式</text>
         </view>
         <view class="filter-tag" bindtap="onQuickFilter" data-type="size">
-          <text class="tag-text">尺寸</text>
+          <text class="tag-text">尺寸大小</text>
         </view>
         <view class="filter-tag" bindtap="onQuickFilter" data-type="price">
-          <text class="tag-text">价格</text>
+          <text class="tag-text">价格范围</text>
+        </view>
+        <view class="filter-tag" bindtap="onQuickFilter" data-type="brand">
+          <text class="tag-text">品牌选择</text>
+        </view>
+        <view class="filter-tag" bindtap="onQuickFilter" data-type="condition">
+          <text class="tag-text">成色等级</text>
         </view>
         <!-- 全部筛选按钮放在最后 -->
         <view class="filter-all-btn" bindtap="onShowFilter">
-          <text class="filter-icon">筛选</text>
+          <text class="filter-icon">全部筛选</text>
           <text wx:if="{{hasActiveFilters}}" class="filter-badge">{{filterCount}}</text>
         </view>
       </view>
