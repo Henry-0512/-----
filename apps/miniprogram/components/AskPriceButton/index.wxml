@@ -1,0 +1,9 @@
+<!-- components/AskPriceButton/index.wxml -->
+<button 
+  class="ask-price-btn {{sizeClass}} {{variantClass}} {{fullWidth ? 'full-width' : ''}} {{disabled ? 'disabled' : ''}} {{loading ? 'loading' : ''}}"
+  disabled="{{disabled || loading}}"
+  bindtap="onTap"
+>
+  <view wx:if="{{loading}}" class="loading-icon">⏳</view>
+  <text class="btn-text">{{label}}</text>
+</button>

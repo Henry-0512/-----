@@ -204,6 +204,9 @@ const TrackEvents = {
   USER_LOGIN: 'user_login',
   USER_LOGOUT: 'user_logout',
   
+  // 按钮交互
+  ASK_PRICE_CLICK: 'ask_price_click',
+  
   // 页面访问
   PAGE_VIEW: 'page_view',
   PAGE_SHARE: 'page_share'

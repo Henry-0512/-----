@@ -33,6 +33,9 @@ Page({
       buttonText: ''
     },
     
+    // 按钮埋点数据
+    detailButtonData: {},
+    
     // 租期选择器
     durationUnit: 'month',  // 'week' | 'month'
     quantity: 1,
@@ -108,9 +111,18 @@ Page({
       // 格式化价格信息
       const priceInfo = formatPriceDisplay(sku)
       
+      // 设置按钮埋点数据
+      const detailButtonData = {
+        sku_id: sku.id,
+        product_name: sku.name,
+        from_page: 'detail',
+        price_mode: priceInfo.mode || 'ask'
+      }
+      
       this.setData({
         sku,
         priceInfo,
+        detailButtonData,
         availableCities: sku.deliverable_cities || [],
         loading: false
       })

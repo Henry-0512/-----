@@ -43,7 +43,8 @@ Component({
       showButton: false,
       buttonText: ''
     },
-    safeProduct: null
+    safeProduct: null,
+    buttonData: {}
   },
 
   /**
@@ -102,16 +103,25 @@ Component({
      * 更新价格显示
      */
     updatePriceDisplay() {
-      const { product } = this.data
+      const { product, cardType } = this.data
       if (!product) return
 
       // 应用敏感词过滤
       const safeProductData = safeProduct(product)
       const priceInfo = formatPriceDisplay(safeProductData)
       
+      // 设置按钮埋点数据
+      const buttonData = {
+        sku_id: product.id,
+        product_name: product.name,
+        from_page: cardType === 'grid' ? 'product_grid' : 'product_list',
+        price_mode: priceInfo.mode || 'ask'
+      }
+      
       this.setData({ 
         priceInfo,
-        safeProduct: safeProductData
+        safeProduct: safeProductData,
+        buttonData
       })
     },
 
@@ -208,7 +218,7 @@ Component({
     },
 
     /**
-     * 价格咨询按钮点击
+     * 价格咨询按钮点击 - 仅处理业务逻辑，埋点由AskPriceButton组件统一处理
      */
     onPriceInquiry() {
       const { product } = this.data

@@ -91,3 +91,50 @@ page {
 .p-32 {
   padding: 32rpx;
 }
+
+/* 通用按钮类 - AskPriceButton 样式别名 */
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 72rpx;
+  padding: 0 32rpx;
+  border: none;
+  border-radius: 12rpx;
+  background: linear-gradient(90deg, #6F7BF7 0%, #9B6DF3 100%);
+  color: white;
+  font-size: 28rpx;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.action-btn::after {
+  border: none;
+}
+
+.action-btn:active {
+  opacity: 0.8;
+  transform: translateY(1rpx);
+}
+
+.action-btn--sm {
+  height: 56rpx;
+  padding: 0 24rpx;
+  font-size: 24rpx;
+}
+
+.action-btn--outline {
+  background: transparent;
+  border: 2rpx solid #6F7BF7;
+  color: #6F7BF7;
+}
+
+.action-btn--outline:active {
+  background: rgba(111, 123, 247, 0.1);
+  transform: none;
+}
+
+.action-btn--full-width {
+  width: 100%;
+}

@@ -60,9 +60,14 @@
       <!-- 咨询价格模式 -->
       <view wx:else class="price-inquiry">
         <text class="inquiry-text">{{priceInfo.display}}</text>
-        <button class="inquiry-btn" bindtap="onPriceInquiry" catchtap>
-          {{priceInfo.buttonText}}
-        </button>
+        <ask-price-button 
+          label="{{priceInfo.buttonText}}"
+          fullWidth="{{true}}"
+          size="md"
+          variant="solid"
+          bind:tap="onPriceInquiry"
+          data="{{buttonData}}"
+        />
       </view>
     </view>
     
