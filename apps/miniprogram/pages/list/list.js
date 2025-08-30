@@ -68,75 +68,32 @@ Page({
   onLoad(options) {
     console.log('🔍 列表页onLoad被调用:', options)
     
-    try {
-      const { category, q, sort, department, title, all } = options
-      
-      // 解码分类参数
-      const categoryName = category ? decodeURIComponent(category) : null
-      const sortType = sort || 'price_desc'
-      
-      // 设置页面标题
-      let pageTitle = '商品列表'
-      if (title) {
-        pageTitle = decodeURIComponent(title)
-      } else if (categoryName) {
-        pageTitle = categoryName
-      } else if (q) {
-        pageTitle = `搜索: ${decodeURIComponent(q)}`
-      } else if (department) {
-        pageTitle = decodeURIComponent(department)
-      } else if (all === '1') {
-        pageTitle = '全部商品'
-      }
-      
-      console.log('🔍 页面参数解析:', {
-        categoryName,
-        sortType,
-        pageTitle
-      })
-      
-      // 设置筛选条件
-      const selectedFilters = categoryName ? { 
-        categories: [categoryName] 
-      } : {}
-      
-      // 先设置基本数据
-      this.setData({ 
-        pageTitle,
-        currentSort: sortType,
-        currentSortName: sortType === 'price_desc' ? '价格从高到低' : '综合排序',
-        selectedFilters,
-        searchQuery: q ? decodeURIComponent(q) : '',
-        page: 1,
-        items: [],
-        loadedIds: [],
-        loading: false
-      })
-      
-      console.log('🔍 数据设置完成:', {
-        selectedFilters,
-        currentSort: sortType,
-        searchQuery: q ? decodeURIComponent(q) : ''
-      })
-      
-      // 设置导航栏标题
-      if (pageTitle !== '商品列表') {
-        wx.setNavigationBarTitle({
-          title: pageTitle
-        })
-      }
-      
-      // 简单加载，先不用fetchList
-      this.loadItems(true)
-      this.loadFilterOptions()
-      
-    } catch (error) {
-      console.error('🔍 列表页onLoad错误:', error)
-      wx.showToast({
-        title: '页面加载失败',
-        icon: 'none'
-      })
+    // 最简单的实现，避免复杂逻辑导致错误
+    const { category, title } = options
+    
+    let pageTitle = '商品列表'
+    if (category) {
+      pageTitle = decodeURIComponent(category)
+    } else if (title) {
+      pageTitle = decodeURIComponent(title)
     }
+    
+    console.log('🔍 设置页面标题:', pageTitle)
+    
+    this.setData({ 
+      pageTitle,
+      loading: false
+    })
+    
+    // 设置导航栏标题
+    wx.setNavigationBarTitle({
+      title: pageTitle
+    })
+    
+    console.log('🔍 列表页onLoad完成')
+    
+    // 先加载基础数据，不做复杂筛选
+    this.loadItems(true)
   },
 
   onReady() {
