@@ -1,319 +1,193 @@
-// utils/safe-text.js - 敏感词过滤和文本安全处理工具
-
 /**
- * 敏感词替换表
- * 用于在展示层统一处理敏感词汇，不影响真实数据存储
+ * 敏感词过滤工具
+ * 用于在展示层统一处理敏感词替换，不影响真实数据
  */
-const SENSITIVE_WORD_MAP = {
+
+// 敏感词替换表
+const SENSITIVE_WORDS_MAP = {
   // 配送相关
   '配送': '到家协助',
-  '送货': '到家服务',
-  '快递': '物流协助',
-  '邮寄': '寄送服务',
-  '运输': '物流运送',
-  '发货': '商品寄出',
+  '送货': '到家协助',
+  '快递': '到家协助',
+  '物流': '到家协助',
   
-  // 租赁相关
-  '租赁': '使用服务',
-  '租金': '使用费',
-  '押金': '服务保证金',
-  '租期': '使用期限',
-  '月租': '月度使用费',
-  '周租': '周度使用费',
-  
-  // 商业相关
-  '购买': '获取',
-  '买卖': '交易',
-  '销售': '提供',
-  '价格': '费用',
-  '优惠': '特惠',
-  '折扣': '减免',
+  // 安装相关
+  '安装': '组装协助',
+  '装配': '组装协助',
+  '组装': '组装协助',
   
   // 服务相关
-  '客服': '服务顾问',
+  '客服': '顾问',
   '售后': '后续服务',
-  '退款': '费用退还',
-  '维修': '维护服务',
-  '保修': '保障服务',
+  '维修': '维护',
+  '保修': '质保',
   
-  // 其他可能的敏感词
-  '投诉': '意见反馈',
-  '纠纷': '协商处理',
-  '违约': '协议调整',
-  '赔偿': '补偿服务'
+  // 金融相关
+  '贷款': '分期',
+  '借款': '分期',
+  '信贷': '分期',
+  
+  // 其他敏感词
+  '投诉': '反馈',
+  '纠纷': '协商',
+  '退款': '退还',
+  '赔偿': '补偿'
+}
+
+// 保护词汇（不进行替换的上下文）
+const PROTECTED_WORDS_REGEX = [
+  /配送费/g,  // 配送费保持不变
+  /配送范围/g, // 配送范围保持不变
+  /配送时间/g  // 配送时间保持不变
+]
+
+/**
+ * 单个文本敏感词过滤
+ * @param {string} text - 原始文本
+ * @returns {string} - 过滤后的文本
+ */
+function safeText(text) {
+  if (!text || typeof text !== 'string') {
+    return text
+  }
+  
+  let result = text
+  
+  // 检查是否包含保护词汇
+  const hasProtectedWords = PROTECTED_WORDS_REGEX.some(regex => regex.test(text))
+  if (hasProtectedWords) {
+    return result // 包含保护词汇时不进行替换
+  }
+  
+  // 进行敏感词替换
+  Object.keys(SENSITIVE_WORDS_MAP).forEach(sensitiveWord => {
+    const replacement = SENSITIVE_WORDS_MAP[sensitiveWord]
+    const regex = new RegExp(sensitiveWord, 'g')
+    result = result.replace(regex, replacement)
+  })
+  
+  return result
 }
 
 /**
- * 特殊处理规则
- * 某些词汇需要根据上下文进行不同的处理
+ * 商品对象敏感词过滤
+ * @param {Object} product - 商品对象
+ * @returns {Object} - 过滤后的商品对象（浅拷贝）
  */
-const CONTEXT_RULES = {
-  // 上下文相关的替换
-  contextReplacements: [
-    {
-      pattern: /配送到(.+)/g,
-      replacement: '到家协助送至$1'
-    },
-    {
-      pattern: /(\d+)天配送/g,
-      replacement: '$1天到家协助'
-    },
-    {
-      pattern: /免费配送/g,
-      replacement: '免费到家协助'
-    }
-  ],
+function safeProduct(product) {
+  if (!product || typeof product !== 'object') {
+    return product
+  }
   
-  // 保护词汇（不进行替换的词汇）
-  protectedWords: [
-    '家具', '沙发', '床', '桌子', '椅子', // 商品名称
-    '北京', '上海', '广州', '深圳',     // 城市名称
-    'Durham', 'Newcastle', 'London'     // 英文城市名
+  const safeObj = { ...product }
+  
+  // 需要过滤的字段
+  const textFields = [
+    'name', 'title', 'description', 'brand', 'material', 
+    'color', 'style', 'notes', 'features', 'care_instructions',
+    'warranty', 'delivery_info'
   ]
-}
-
-/**
- * 安全文本处理器
- */
-class SafeTextProcessor {
-  constructor() {
-    this.enabled = true
-    this.wordMap = { ...SENSITIVE_WORD_MAP }
-    this.contextRules = { ...CONTEXT_RULES }
-  }
-
-  /**
-   * 处理单个文本
-   * @param {string} text 原始文本
-   * @param {Object} options 处理选项
-   * @returns {string} 处理后的文本
-   */
-  process(text, options = {}) {
-    if (!this.enabled || !text || typeof text !== 'string') {
-      return text
+  
+  textFields.forEach(field => {
+    if (safeObj[field] && typeof safeObj[field] === 'string') {
+      safeObj[field] = safeText(safeObj[field])
     }
-
-    let processedText = text
-
-    try {
-      // 1. 检查保护词汇
-      const hasProtectedWords = this.contextRules.protectedWords.some(word => 
-        processedText.includes(word)
-      )
-
-      // 2. 应用上下文规则
-      if (!hasProtectedWords || !options.skipContext) {
-        this.contextRules.contextReplacements.forEach(rule => {
-          processedText = processedText.replace(rule.pattern, rule.replacement)
-        })
-      }
-
-      // 3. 应用敏感词替换
-      Object.entries(this.wordMap).forEach(([sensitive, safe]) => {
-        // 避免替换保护词汇中包含的敏感词
-        if (!hasProtectedWords || !this.isInProtectedContext(processedText, sensitive)) {
-          const regex = new RegExp(sensitive, 'g')
-          processedText = processedText.replace(regex, safe)
-        }
-      })
-
-      return processedText
-
-    } catch (error) {
-      console.warn('文本安全处理失败:', error)
-      return text // 失败时返回原文本
-    }
+  })
+  
+  // 处理数组字段
+  if (Array.isArray(safeObj.features)) {
+    safeObj.features = safeObj.features.map(feature => 
+      typeof feature === 'string' ? safeText(feature) : feature
+    )
   }
-
-  /**
-   * 批量处理对象中的文本字段
-   * @param {Object} obj 包含文本的对象
-   * @param {Array} fields 需要处理的字段名数组
-   * @returns {Object} 处理后的对象
-   */
-  processObject(obj, fields = []) {
-    if (!obj || typeof obj !== 'object') {
-      return obj
-    }
-
-    const processed = { ...obj }
-
-    fields.forEach(field => {
-      if (processed[field] && typeof processed[field] === 'string') {
-        processed[field] = this.process(processed[field])
-      }
-    })
-
-    return processed
+  
+  if (Array.isArray(safeObj.care_instructions)) {
+    safeObj.care_instructions = safeObj.care_instructions.map(instruction => 
+      typeof instruction === 'string' ? safeText(instruction) : instruction
+    )
   }
-
-  /**
-   * 处理数组中的对象
-   * @param {Array} array 对象数组
-   * @param {Array} fields 需要处理的字段名数组
-   * @returns {Array} 处理后的数组
-   */
-  processArray(array, fields = []) {
-    if (!Array.isArray(array)) {
-      return array
-    }
-
-    return array.map(item => this.processObject(item, fields))
-  }
-
-  /**
-   * 检查是否在保护词汇的上下文中
-   * @param {string} text 文本
-   * @param {string} sensitive 敏感词
-   * @returns {boolean} 是否在保护上下文中
-   */
-  isInProtectedContext(text, sensitive) {
-    return this.contextRules.protectedWords.some(protected => {
-      const protectedIndex = text.indexOf(protected)
-      const sensitiveIndex = text.indexOf(sensitive)
-      
-      // 如果保护词汇和敏感词距离很近，则不替换
-      return protectedIndex !== -1 && sensitiveIndex !== -1 && 
-             Math.abs(protectedIndex - sensitiveIndex) < 10
-    })
-  }
-
-  /**
-   * 添加敏感词
-   * @param {string} sensitive 敏感词
-   * @param {string} safe 安全替换词
-   */
-  addSensitiveWord(sensitive, safe) {
-    this.wordMap[sensitive] = safe
-  }
-
-  /**
-   * 移除敏感词
-   * @param {string} sensitive 敏感词
-   */
-  removeSensitiveWord(sensitive) {
-    delete this.wordMap[sensitive]
-  }
-
-  /**
-   * 启用/禁用安全文本处理
-   * @param {boolean} enabled 是否启用
-   */
-  setEnabled(enabled) {
-    this.enabled = enabled
-  }
-
-  /**
-   * 获取当前敏感词列表
-   * @returns {Object} 敏感词映射表
-   */
-  getSensitiveWords() {
-    return { ...this.wordMap }
-  }
-}
-
-// 创建全局安全文本处理器实例
-const safeTextProcessor = new SafeTextProcessor()
-
-/**
- * 快捷方法：处理单个文本
- * @param {string} text 原始文本
- * @param {Object} options 处理选项
- * @returns {string} 安全文本
- */
-const safeText = (text, options = {}) => {
-  return safeTextProcessor.process(text, options)
-}
-
-/**
- * 快捷方法：处理商品对象
- * @param {Object} product 商品对象
- * @returns {Object} 处理后的商品对象
- */
-const safeProduct = (product) => {
-  if (!product) return product
-
-  const textFields = ['title', 'brand', 'care', 'name']
-  const processed = safeTextProcessor.processObject(product, textFields)
-
-  // 处理嵌套的配送信息
-  if (processed.delivery && processed.delivery.modes) {
-    processed.delivery.modes = processed.delivery.modes.map(mode => safeText(mode))
-  }
-
+  
   // 处理FAQ
-  if (processed.faq && Array.isArray(processed.faq)) {
-    processed.faq = processed.faq.map(item => ({
+  if (Array.isArray(safeObj.faq)) {
+    safeObj.faq = safeObj.faq.map(item => ({
       ...item,
-      q: safeText(item.q),
-      a: safeText(item.a)
+      question: typeof item.question === 'string' ? safeText(item.question) : item.question,
+      answer: typeof item.answer === 'string' ? safeText(item.answer) : item.answer
     }))
   }
-
-  return processed
-}
-
-/**
- * 快捷方法：处理商品列表
- * @param {Array} products 商品列表
- * @returns {Array} 处理后的商品列表
- */
-const safeProductList = (products) => {
-  if (!Array.isArray(products)) return products
-  return products.map(product => safeProduct(product))
-}
-
-/**
- * 快捷方法：处理报价信息
- * @param {Object} quoteData 报价数据
- * @returns {Object} 处理后的报价数据
- */
-const safeQuote = (quoteData) => {
-  if (!quoteData || !quoteData.breakdown) return quoteData
-
-  const processed = { ...quoteData }
   
-  // 处理标签文本
-  const labelFields = [
-    'unitPriceLabel', 'baseRentLabel', 'serviceTotalLabel', 
-    'depositReason', 'totalRentLabel', 'grandTotalLabel'
-  ]
-  
-  processed.breakdown = safeTextProcessor.processObject(processed.breakdown, labelFields)
-  
-  // 处理服务名称
-  if (processed.breakdown.services) {
-    processed.breakdown.services = processed.breakdown.services.map(service => ({
+  // 处理服务信息
+  if (safeObj.services && Array.isArray(safeObj.services)) {
+    safeObj.services = safeObj.services.map(service => ({
       ...service,
-      name: safeText(service.name)
+      name: typeof service.name === 'string' ? safeText(service.name) : service.name,
+      description: typeof service.description === 'string' ? safeText(service.description) : service.description
     }))
   }
-
-  // 处理计算说明
-  if (processed.calculation) {
-    processed.calculation = {
-      ...processed.calculation,
-      note: safeText(processed.calculation.note),
-      formula: safeText(processed.calculation.formula)
-    }
-  }
-
-  return processed
+  
+  return safeObj
 }
 
-// 调试信息
-const { isDev } = require('../config/env.js')
-if (isDev()) {
-  console.log('📝 敏感词过滤系统已启用')
-  console.log('敏感词数量:', Object.keys(SENSITIVE_WORD_MAP).length)
+/**
+ * 报价对象敏感词过滤
+ * @param {Object} quote - 报价对象
+ * @returns {Object} - 过滤后的报价对象
+ */
+function safeQuote(quote) {
+  if (!quote || typeof quote !== 'object') {
+    return quote
+  }
+  
+  const safeObj = { ...quote }
+  
+  // 处理breakdown中的文本
+  if (safeObj.breakdown && Array.isArray(safeObj.breakdown)) {
+    safeObj.breakdown = safeObj.breakdown.map(item => ({
+      ...item,
+      label: typeof item.label === 'string' ? safeText(item.label) : item.label,
+      note: typeof item.note === 'string' ? safeText(item.note) : item.note
+    }))
+  }
+  
+  // 处理服务信息
+  if (safeObj.services && Array.isArray(safeObj.services)) {
+    safeObj.services = safeObj.services.map(service => ({
+      ...service,
+      name: typeof service.name === 'string' ? safeText(service.name) : service.name,
+      description: typeof service.description === 'string' ? safeText(service.description) : service.description
+    }))
+  }
+  
+  // 处理配送信息
+  if (safeObj.deliveryInfo && typeof safeObj.deliveryInfo === 'object') {
+    const deliveryInfo = { ...safeObj.deliveryInfo }
+    if (deliveryInfo.note) {
+      deliveryInfo.note = safeText(deliveryInfo.note)
+    }
+    safeObj.deliveryInfo = deliveryInfo
+  }
+  
+  return safeObj
+}
+
+/**
+ * 批量处理数组中的对象
+ * @param {Array} items - 对象数组
+ * @param {Function} processor - 处理函数 (safeProduct 或 safeQuote)
+ * @returns {Array} - 处理后的数组
+ */
+function safeBatch(items, processor = safeProduct) {
+  if (!Array.isArray(items)) {
+    return items
+  }
+  
+  return items.map(item => processor(item))
 }
 
 module.exports = {
   safeText,
   safeProduct,
-  safeProductList,
   safeQuote,
-  safeTextProcessor,
-  SENSITIVE_WORD_MAP,
-  CONTEXT_RULES
+  safeBatch,
+  SENSITIVE_WORDS_MAP
 }
