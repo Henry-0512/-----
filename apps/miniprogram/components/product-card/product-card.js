@@ -44,7 +44,8 @@ Component({
       buttonText: ''
     },
     safeProduct: null,
-    buttonData: {}
+    buttonData: {},
+    priceText: '' // 精简价格显示文本
   },
 
   /**
@@ -110,6 +111,28 @@ Component({
       const safeProductData = safeProduct(product)
       const priceInfo = formatPriceDisplay(safeProductData)
       
+      // 生成精简价格文本
+      let priceText = ''
+      switch (priceInfo.mode) {
+        case 'show':
+          priceText = `¥${product.price || 0}`
+          break
+        case 'from':
+          priceText = `From ¥${product.price || 0}/月`
+          break
+        case 'range':
+          if (product.price_min && product.price_max && product.price_min !== product.price_max) {
+            priceText = `¥${product.price_min}–¥${product.price_max}`
+          } else {
+            priceText = `¥${product.price || 0}`
+          }
+          break
+        case 'ask':
+        default:
+          priceText = '' // ask模式下隐藏价格chip
+          break
+      }
+      
       // 设置按钮埋点数据
       const buttonData = {
         sku_id: product.id,
@@ -120,6 +143,7 @@ Component({
       
       this.setData({ 
         priceInfo,
+        priceText,
         safeProduct: safeProductData,
         buttonData
       })
@@ -254,16 +278,32 @@ Component({
     },
 
     /**
-     * 预览图片
+     * 图片预览
      */
-    onImageTap() {
-      const { product } = this.data
-      if (product.images && product.images.length > 0) {
+    onImagePreview() {
+      const { safeProduct } = this.data
+      if (!safeProduct) return
+      
+      let imageUrl = ''
+      if (safeProduct.images && safeProduct.images[0]) {
+        imageUrl = safeProduct.images[0].url || safeProduct.images[0]
+      } else if (safeProduct.image) {
+        imageUrl = safeProduct.image
+      }
+      
+      if (imageUrl) {
         wx.previewImage({
-          urls: product.images,
-          current: product.images[0]
+          current: imageUrl,
+          urls: [imageUrl]
         })
       }
+    },
+
+    /**
+     * 预览图片 - 保持兼容
+     */
+    onImageTap() {
+      this.onImagePreview()
     }
   }
 })

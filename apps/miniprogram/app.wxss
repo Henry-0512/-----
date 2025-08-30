@@ -1,4 +1,6 @@
 /**app.wxss**/
+@import "styles/tokens.wxss";
+
 .container {
   height: 100%;
   display: flex;
@@ -12,6 +14,14 @@
 page {
   background-color: #f8f8f8;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+/* 卡片网格容器 - 全局复用 */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--card-gap, 24rpx);
+  padding: var(--space-lg, 24rpx);
 }
 
 /* 通用样式 */

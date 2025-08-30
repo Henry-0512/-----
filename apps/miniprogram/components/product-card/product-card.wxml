@@ -1,103 +1,65 @@
-<!--components/product-card/product-card.wxml-->
-<view class="product-card {{cardType}}-card" bindtap="onCardTap">
-  <!-- 商品图片 -->
-  <view class="card-image-container">
-    <image 
-      class="card-image" 
-      src="{{product.images[0].url || product.images[0] || 'https://picsum.photos/400/300?random=0'}}" 
-      mode="aspectFill"
-      bindtap="onImageTap"
-      catchtap
-    ></image>
-    
-    <!-- 标签 -->
-    <view wx:if="{{product.tags && product.tags.length > 0}}" class="card-tags">
-      <text wx:for="{{product.tags}}" wx:key="*this" class="tag">{{item}}</text>
-    </view>
-    
-    <!-- 操作按钮 -->
-    <view class="card-actions">
-      <!-- 收藏按钮 -->
-      <view 
-        wx:if="{{showFavorite}}" 
-        class="action-btn favorite-btn {{isFavorited ? 'favorited' : ''}}"
-        bindtap="onFavoriteTap"
+<!-- components/product-card/product-card.wxml -->
+<view class="product-card {{cardType === 'grid' ? 'grid-card' : 'list-card'}}" bindtap="onCardTap">
+  <!-- 卡片容器 -->
+  <view class="card">
+    <!-- 顶部图片区域 - 占整卡宽度 -->
+    <view class="media">
+      <image 
+        class="img" 
+        src="{{safeProduct.images && safeProduct.images[0] ? safeProduct.images[0].url : safeProduct.image || 'https://picsum.photos/400/300?random=' + safeProduct.id}}" 
+        mode="aspectFill" 
+        lazy-load="true"
+        bindtap="onImagePreview"
         catchtap
-      >
-        <text class="action-icon">{{isFavorited ? '♥' : '♡'}}</text>
-      </view>
+      />
       
-      <!-- 对比按钮 -->
-      <view 
-        wx:if="{{showCompare}}" 
-        class="action-btn compare-btn {{isCompared ? 'compared' : ''}}"
-        bindtap="onCompareTap"
-        catchtap
-      >
-        <text class="action-icon">{{isCompared ? '✓' : '⚖'}}</text>
+      <!-- 操作按钮区域 -->
+      <view class="actions">
+        <view 
+          class="action-btn favorite-btn {{isFavorited ? 'favorited' : ''}}"
+          bindtap="onToggleFavorite"
+          catchtap
+        >
+          <text class="action-icon">{{isFavorited ? '❤️' : '🤍'}}</text>
+        </view>
+        <view 
+          class="action-btn compare-btn {{isCompared ? 'compared' : ''}}"
+          bindtap="onToggleCompare"
+          catchtap
+        >
+          <text class="action-icon">{{isCompared ? '📊' : '📈'}}</text>
+        </view>
       </view>
     </view>
-  </view>
 
-  <!-- 商品信息 -->
-  <view class="card-info">
-    <!-- 商品名称 -->
-    <text class="card-title">{{product.title || product.name || '商品名称'}}</text>
-    
-    <!-- 品牌信息 -->
-    <text class="card-brand">{{product.brand}}</text>
-    
-    <!-- 价格信息 -->
-    <view class="card-price">
-      <!-- 普通价格显示模式 -->
-      <view wx:if="{{priceInfo.mode !== 'ask'}}">
-        <text class="monthly-price">{{priceInfo.display}}</text>
-        <text wx:if="{{priceInfo.originalPrice}}" class="original-price">
-          {{priceInfo.originalPrice}}
-        </text>
-      </view>
+    <!-- 商品信息区域 -->
+    <view class="info">
+      <!-- 标题 -->
+      <text class="title">{{safeProduct.title || safeProduct.name}}</text>
       
-      <!-- 咨询价格模式 -->
-      <view wx:else class="price-inquiry">
-        <text class="inquiry-text">{{priceInfo.display}}</text>
-        <ask-price-button 
-          label="{{priceInfo.buttonText}}"
-          fullWidth="{{true}}"
-          size="md"
-          variant="solid"
-          bind:tap="onPriceInquiry"
+      <!-- 品牌 -->
+      <text class="brand">{{safeProduct.brand}}</text>
+
+      <!-- 精简价格行 -->
+      <view class="meta-row">
+        <!-- 价格chip - ask模式下隐藏 -->
+        <text wx:if="{{priceText}}" class="price-chip">{{priceText}}</text>
+        
+        <!-- 小号咨询按钮 -->
+        <ask-price-button
+          wx:if="{{priceInfo.mode === 'ask'}}"
+          label="咨询"
+          size="sm"
+          fullWidth="{{false}}"
+          variant="outline"
           data="{{buttonData}}"
+          bind:tap="onPriceInquiry"
         />
       </view>
-    </view>
-    
-    <!-- 尺寸信息 (仅列表模式显示) -->
-    <view wx:if="{{cardType === 'list'}}" class="card-dimensions">
-      <text class="dimensions-text">
-        {{product.width_mm/10}}×{{product.depth_mm/10}}×{{product.height_mm/10}}cm
-      </text>
-    </view>
-    
-    <!-- 额外信息 (仅列表模式显示) -->
-    <view wx:if="{{cardType === 'list'}}" class="card-extra">
-      <view class="extra-item">
-        <text class="extra-label">风格：</text>
-        <text class="extra-value">{{product.style ? product.style.join('、') : '未知'}}</text>
-      </view>
-      <view class="extra-item">
-        <text class="extra-label">材质：</text>
-        <text class="extra-value">{{product.material ? product.material.join('、') : '未知'}}</text>
-      </view>
-      <view class="extra-item">
-        <text class="extra-label">颜色：</text>
-        <text class="extra-value">{{product.color ? product.color.join('、') : '未知'}}</text>
-      </view>
-    </view>
-    
-    <!-- 库存状态 -->
-    <view class="card-status">
-      <text class="status-text {{(product.stock && product.stock[0] && product.stock[0].qty > 0) ? 'available' : 'unavailable'}}">
-        {{(product.stock && product.stock[0] && product.stock[0].qty > 0) ? '现货' + product.stock[0].qty + '件' : '暂时缺货'}}
+
+      <!-- 库存徽标 -->
+      <text wx:if="{{safeProduct.stock && safeProduct.stock[0]}}" class="stock">
+        现货{{safeProduct.stock[0].qty}}件
       </text>
     </view>
   </view>

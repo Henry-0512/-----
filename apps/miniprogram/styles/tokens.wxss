@@ -1,0 +1,44 @@
+/* styles/tokens.wxss - 全局设计令牌 */
+
+:root {
+  /* 卡片相关 */
+  --card-radius: 16rpx;
+  --card-gap: 24rpx;
+  --card-shadow: 0 8rpx 24rpx rgba(0,0,0,0.06);
+  --card-shadow-hover: 0 12rpx 32rpx rgba(0,0,0,0.1);
+  
+  /* 图片比例 */
+  --ratio-product: 75%; /* 4:3 */
+  --ratio-banner: 56.25%; /* 16:9 */
+  --ratio-square: 100%; /* 1:1 */
+  
+  /* 按钮尺寸 */
+  --btn-height-md: 72rpx;
+  --btn-height-sm: 56rpx;
+  --btn-radius: 12rpx;
+  
+  /* 间距系统 */
+  --space-xs: 4rpx;
+  --space-sm: 8rpx;
+  --space-md: 16rpx;
+  --space-lg: 24rpx;
+  --space-xl: 32rpx;
+  
+  /* 字体系统 */
+  --font-xs: 20rpx;
+  --font-sm: 22rpx;
+  --font-md: 24rpx;
+  --font-lg: 28rpx;
+  --font-xl: 30rpx;
+  --font-2xl: 32rpx;
+  
+  /* 颜色系统 */
+  --color-primary: #6F7BF7;
+  --color-primary-light: #9B6DF3;
+  --color-text-primary: #111;
+  --color-text-secondary: #8a8a8a;
+  --color-text-muted: #666;
+  --color-bg-chip: #f2f3f5;
+  --color-success: #1f7a4d;
+  --color-success-bg: #e7f7ee;
+}
