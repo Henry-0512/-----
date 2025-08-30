@@ -390,6 +390,38 @@ const submitIntentOrder = (orderData) => {
   })
 }
 
+/**
+ * 获取意向订单列表（管理员）
+ * @param {string} token 管理员令牌
+ * @param {Object} options 查询选项
+ */
+const getIntentOrderList = (token, options = {}) => {
+  const { status = 'all', page = 1, limit = 20 } = options
+  
+  return request({
+    url: '/api/intent-order/list',
+    method: 'GET',
+    data: { token, status, page, limit },
+    showLoading: true
+  })
+}
+
+/**
+ * 更新意向订单状态（管理员）
+ * @param {string} orderId 订单ID
+ * @param {string} token 管理员令牌
+ * @param {string} status 新状态
+ * @param {string} note 备注
+ */
+const updateIntentOrderStatus = (orderId, token, status, note = '') => {
+  return request({
+    url: `/api/intent-order/${orderId}/status`,
+    method: 'PUT',
+    data: { token, status, note },
+    showLoading: true
+  })
+}
+
 // 本地存储工具
 const storage = {
   get: (key) => {
@@ -451,6 +483,8 @@ const api = {
   getRecommendations,
   getQuote,
   submitIntentOrder,
+  getIntentOrderList,
+  updateIntentOrderStatus,
   
   // 工具方法
   storage,

@@ -1,0 +1,176 @@
+<!--pages/admin/intents.wxml-->
+<view class="container">
+  <!-- 未认证状态 -->
+  <view wx:if="{{!isAuthenticated}}" class="auth-section">
+    <view class="auth-header">
+      <text class="auth-title">意向订单管理</text>
+      <text class="auth-desc">请输入管理员访问令牌</text>
+    </view>
+    
+    <view class="auth-form">
+      <view class="input-group">
+        <input 
+          class="token-input" 
+          type="text"
+          placeholder="请输入访问令牌"
+          value="{{inputToken}}"
+          bindinput="onTokenInput"
+          password="{{true}}"
+        />
+      </view>
+      <button class="auth-btn" bindtap="onAuthenticate">验证访问</button>
+    </view>
+    
+    <view class="auth-footer">
+      <text class="auth-note">此页面仅供管理员使用</text>
+    </view>
+  </view>
+
+  <!-- 已认证状态 -->
+  <view wx:else class="admin-content">
+    <!-- 管理头部 -->
+    <view class="admin-header">
+      <view class="header-info">
+        <text class="admin-title">意向订单管理</text>
+        <text class="admin-desc">管理员模式</text>
+      </view>
+      <button class="logout-btn" bindtap="onLogout">退出</button>
+    </view>
+
+    <!-- 统计信息 -->
+    <view class="stats-section">
+      <view class="stat-item">
+        <text class="stat-number">{{stats.total}}</text>
+        <text class="stat-label">总订单</text>
+      </view>
+      <view class="stat-item pending">
+        <text class="stat-number">{{stats.pending}}</text>
+        <text class="stat-label">待处理</text>
+      </view>
+      <view class="stat-item contacted">
+        <text class="stat-number">{{stats.contacted}}</text>
+        <text class="stat-label">已联系</text>
+      </view>
+      <view class="stat-item done">
+        <text class="stat-number">{{stats.done}}</text>
+        <text class="stat-label">已完成</text>
+      </view>
+    </view>
+
+    <!-- 状态筛选 -->
+    <view class="filter-tabs">
+      <view 
+        wx:for="{{statusOptions}}" 
+        wx:key="key"
+        class="filter-tab {{currentStatus === item.key ? 'active' : ''}}"
+        data-status="{{item.key}}"
+        bindtap="onStatusFilter"
+      >
+        <text class="tab-text">{{item.name}}</text>
+      </view>
+    </view>
+
+    <!-- 加载状态 -->
+    <view wx:if="{{loading && orders.length === 0}}" class="loading">
+      <text>加载中...</text>
+    </view>
+
+    <!-- 错误状态 -->
+    <view wx:elif="{{error}}" class="error">
+      <text>{{error}}</text>
+      <button class="retry-btn" bindtap="onRetry">重试</button>
+    </view>
+
+    <!-- 空状态 -->
+    <view wx:elif="{{isEmpty}}" class="empty">
+      <text class="empty-icon">📋</text>
+      <text class="empty-text">暂无订单数据</text>
+    </view>
+
+    <!-- 订单列表 -->
+    <view wx:else class="orders-list">
+      <view 
+        wx:for="{{orders}}" 
+        wx:key="id"
+        class="order-card"
+        data-order="{{item}}"
+        bindtap="onViewOrder"
+      >
+        <!-- 订单头部 -->
+        <view class="order-header">
+          <view class="order-info">
+            <text class="order-id">{{item.id}}</text>
+            <text class="order-time">{{item.createdAt}}</text>
+          </view>
+          <view class="order-status {{item.status}}">
+            <text class="status-text">
+              {{item.status === 'pending' ? '待处理' : item.status === 'contacted' ? '已联系' : '已完成'}}
+            </text>
+          </view>
+        </view>
+
+        <!-- 商品信息 -->
+        <view class="order-product">
+          <image class="product-image" src="{{item.sku.image}}" mode="aspectFill"></image>
+          <view class="product-info">
+            <text class="product-title">{{item.sku.title}}</text>
+            <text class="product-brand">{{item.sku.brand}}</text>
+            <text class="product-specs">
+              {{item.quantity}}件 × {{item.duration}}{{item.durationUnit === 'week' ? '周' : '月'}}
+            </text>
+          </view>
+          <view class="product-price">
+            <text class="price-amount">¥{{item.totalAmount}}</text>
+          </view>
+        </view>
+
+        <!-- 用户信息 -->
+        <view wx:if="{{item.userInfo.phone || item.userInfo.name}}" class="order-user">
+          <text wx:if="{{item.userInfo.name}}" class="user-name">{{item.userInfo.name}}</text>
+          <text wx:if="{{item.userInfo.phone}}" class="user-phone">{{item.userInfo.phone}}</text>
+        </view>
+
+        <!-- 操作按钮 -->
+        <view class="order-actions">
+          <button 
+            wx:if="{{item.status === 'pending'}}"
+            class="action-btn contacted"
+            data-order-id="{{item.id}}"
+            data-new-status="contacted"
+            bindtap="onUpdateStatus"
+            catchtap
+          >
+            标记已联系
+          </button>
+          <button 
+            wx:if="{{item.status === 'contacted'}}"
+            class="action-btn done"
+            data-order-id="{{item.id}}"
+            data-new-status="done"
+            bindtap="onUpdateStatus"
+            catchtap
+          >
+            标记完成
+          </button>
+          <button 
+            wx:if="{{item.status === 'done'}}"
+            class="action-btn completed"
+            disabled
+          >
+            已完成
+          </button>
+        </view>
+      </view>
+
+      <!-- 加载更多 -->
+      <view wx:if="{{loading && orders.length > 0}}" class="load-more">
+        <text>加载更多...</text>
+      </view>
+
+      <!-- 没有更多 -->
+      <view wx:elif="{{!hasMore && orders.length > 0}}" class="no-more">
+        <text>— 已显示全部订单 —</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -26,6 +26,59 @@ try {
   console.warn('种子数据加载失败，使用空数据:', error.message)
 }
 
+// 意向订单数据管理
+const INTENT_ORDERS_FILE = path.join(__dirname, '../data/intent-orders.json')
+const ADMIN_TOKEN = 'furniture_admin_2024'  // 管理员访问令牌
+
+/**
+ * 读取意向订单数据
+ */
+async function readIntentOrders() {
+  try {
+    const data = await fs.readFile(INTENT_ORDERS_FILE, 'utf8')
+    return JSON.parse(data)
+  } catch (error) {
+    // 文件不存在时返回空数组
+    return []
+  }
+}
+
+/**
+ * 写入意向订单数据
+ */
+async function writeIntentOrders(orders) {
+  try {
+    await fs.writeFile(INTENT_ORDERS_FILE, JSON.stringify(orders, null, 2), 'utf8')
+    return true
+  } catch (error) {
+    console.error('写入意向订单失败:', error)
+    return false
+  }
+}
+
+/**
+ * 添加新的意向订单
+ */
+async function addIntentOrder(orderData) {
+  try {
+    const orders = await readIntentOrders()
+    const newOrder = {
+      ...orderData,
+      id: `intent_${Date.now()}_${Math.random().toString(36).substr(2, 6)}`,
+      status: 'pending',
+      createdAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    }
+    
+    orders.push(newOrder)
+    await writeIntentOrders(orders)
+    return newOrder
+  } catch (error) {
+    console.error('添加意向订单失败:', error)
+    throw error
+  }
+}
+
 // API 路由
 
 // 获取筛选元数据
@@ -433,9 +486,145 @@ fastify.post('/api/quote', async (request, reply) => {
   }
 })
 
+// 获取意向订单列表（管理员接口）
+fastify.get('/api/intent-order/list', async (request, reply) => {
+  const { token, status, page = 1, limit = 20 } = request.query
+  
+  // 验证管理员令牌
+  if (token !== ADMIN_TOKEN) {
+    return reply.code(401).send({
+      success: false,
+      message: '访问令牌无效'
+    })
+  }
+  
+  try {
+    let orders = await readIntentOrders()
+    
+    // 按状态筛选
+    if (status && status !== 'all') {
+      orders = orders.filter(order => order.status === status)
+    }
+    
+    // 按创建时间倒序排列
+    orders.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    
+    // 分页处理
+    const total = orders.length
+    const startIndex = (page - 1) * limit
+    const endIndex = startIndex + parseInt(limit)
+    const paginatedOrders = orders.slice(startIndex, endIndex)
+    
+    // 统计信息
+    const allOrders = await readIntentOrders()
+    const stats = {
+      total: allOrders.length,
+      pending: allOrders.filter(o => o.status === 'pending').length,
+      contacted: allOrders.filter(o => o.status === 'contacted').length,
+      done: allOrders.filter(o => o.status === 'done').length
+    }
+    
+    return {
+      success: true,
+      data: {
+        orders: paginatedOrders,
+        pagination: {
+          page: parseInt(page),
+          limit: parseInt(limit),
+          total,
+          totalPages: Math.ceil(total / limit)
+        },
+        stats
+      }
+    }
+  } catch (error) {
+    console.error('获取意向订单列表失败:', error)
+    return reply.code(500).send({
+      success: false,
+      message: '获取订单列表失败'
+    })
+  }
+})
+
+// 更新意向订单状态（管理员接口）
+fastify.put('/api/intent-order/:id/status', async (request, reply) => {
+  const { id } = request.params
+  const { token, status, note = '' } = request.body || {}
+  
+  // 验证管理员令牌
+  if (token !== ADMIN_TOKEN) {
+    return reply.code(401).send({
+      success: false,
+      message: '访问令牌无效'
+    })
+  }
+  
+  // 验证状态值
+  const validStatuses = ['pending', 'contacted', 'done']
+  if (!validStatuses.includes(status)) {
+    return reply.code(400).send({
+      success: false,
+      message: `无效的状态值，支持的状态：${validStatuses.join(', ')}`
+    })
+  }
+  
+  try {
+    const orders = await readIntentOrders()
+    const orderIndex = orders.findIndex(order => order.id === id)
+    
+    if (orderIndex === -1) {
+      return reply.code(404).send({
+        success: false,
+        message: '订单未找到'
+      })
+    }
+    
+    // 更新订单状态
+    orders[orderIndex] = {
+      ...orders[orderIndex],
+      status,
+      note,
+      updatedAt: new Date().toISOString(),
+      statusHistory: [
+        ...(orders[orderIndex].statusHistory || []),
+        {
+          status,
+          note,
+          timestamp: new Date().toISOString()
+        }
+      ]
+    }
+    
+    await writeIntentOrders(orders)
+    
+    return {
+      success: true,
+      data: {
+        message: '订单状态更新成功',
+        order: orders[orderIndex]
+      }
+    }
+  } catch (error) {
+    console.error('更新订单状态失败:', error)
+    return reply.code(500).send({
+      success: false,
+      message: '更新订单状态失败'
+    })
+  }
+})
+
 // 创建意向订单
 fastify.post('/api/intent-order', async (request, reply) => {
-  const { skuId, duration, startDate, userInfo } = request.body || {}
+  const { 
+    skuId, 
+    duration, 
+    durationUnit = 'month',
+    quantity = 1,
+    services = [],
+    startDate, 
+    userInfo = {},
+    quoteData = null
+  } = request.body || {}
   
   if (!skuId || !duration || !startDate) {
     return reply.code(400).send({
@@ -452,30 +641,54 @@ fastify.post('/api/intent-order', async (request, reply) => {
     })
   }
   
-  const orderId = `ORDER_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
-  
-  // 计算月租价格（假设按商品价格的1/50计算月租）
-  const monthlyPrice = Math.ceil(sku.price / 50)
-  
-  return {
-    success: true,
-    data: {
-      orderId,
+  try {
+    // 计算月租价格
+    const monthlyPrice = Math.ceil(sku.price / 50)
+    
+    // 构建订单数据
+    const orderData = {
       skuId,
       duration,
+      durationUnit,
+      quantity,
+      services,
       startDate,
       monthlyPrice,
-      totalAmount: monthlyPrice * duration,
-      status: 'pending',
-      createdAt: new Date().toISOString(),
+      totalAmount: monthlyPrice * duration * quantity,
       sku: {
         id: sku.id,
         title: sku.title,
         brand: sku.brand,
-        image: sku.images[0]?.url || '',
-        price: sku.price
+        price: sku.price,
+        image: sku.images?.[0]?.url || '',
+        images: sku.images?.slice(0, 1) || []
+      },
+      userInfo,
+      quoteData, // 保存完整的报价信息
+      clientInfo: {
+        userAgent: request.headers['user-agent'] || '',
+        ip: request.ip || '',
+        timestamp: new Date().toISOString()
       }
     }
+    
+    // 写入本地文件
+    const savedOrder = await addIntentOrder(orderData)
+    
+    return {
+      success: true,
+      data: {
+        orderId: savedOrder.id,
+        status: savedOrder.status,
+        message: '意向订单提交成功，我们会尽快联系您'
+      }
+    }
+  } catch (error) {
+    console.error('创建意向订单失败:', error)
+    return reply.code(500).send({
+      success: false,
+      message: '订单创建失败，请稍后重试'
+    })
   }
 })
 
