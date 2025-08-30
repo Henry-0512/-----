@@ -57,6 +57,8 @@ const mockData = {
           package: { width_mm: 2150, depth_mm: 950, height_mm: 700, weight_kg: 55 },
           price: 3999,
           monthlyPrice: 80, // price/50
+          condition: { label: '八成新', value: '80_new', grade: 2, discount: 0.2 },
+          condition_grade: 2,
           stock: [{ city: "Durham", qty: 8 }],
           images: [
             { url: "https://picsum.photos/400/300?random=1", type: "main" },
@@ -85,6 +87,8 @@ const mockData = {
           package: { width_mm: 2100, depth_mm: 300, height_mm: 260, weight_kg: 42 },
           price: 3299,
           monthlyPrice: 66,
+          condition: { label: '九五新', value: '95_new', grade: 4, discount: 0.05 },
+          condition_grade: 4,
           stock: [{ city: "Durham", qty: 5 }],
           images: [
             { url: "https://picsum.photos/400/300?random=2", type: "main" },
@@ -113,6 +117,8 @@ const mockData = {
           package: { width_mm: 1650, depth_mm: 850, height_mm: 150, weight_kg: 38 },
           price: 2899,
           monthlyPrice: 58,
+          condition: { label: '九成新', value: '90_new', grade: 3, discount: 0.1 },
+          condition_grade: 3,
           stock: [{ city: "Durham", qty: 12 }],
           images: [
             { url: "https://picsum.photos/400/300?random=3", type: "main" },
@@ -141,6 +147,8 @@ const mockData = {
           package: { width_mm: 500, depth_mm: 570, height_mm: 450, weight_kg: 8 },
           price: 599,
           monthlyPrice: 12,
+          condition: { label: '全新', value: 'new', grade: 5, discount: 0 },
+          condition_grade: 5,
           stock: [{ city: "Durham", qty: 20 }],
           images: [
             { url: "https://picsum.photos/400/300?random=4", type: "main" },
@@ -169,6 +177,8 @@ const mockData = {
           package: { width_mm: 700, depth_mm: 350, height_mm: 700, weight_kg: 18 },
           price: 1899,
           monthlyPrice: 38,
+          condition: { label: '九成新', value: '90_new', grade: 3, discount: 0.1 },
+          condition_grade: 3,
           stock: [{ city: "Durham", qty: 15 }],
           images: [
             { url: "https://picsum.photos/400/300?random=5", type: "main" },
@@ -197,6 +207,8 @@ const mockData = {
           package: { width_mm: 1250, depth_mm: 650, height_mm: 100, weight_kg: 25 },
           price: 1299,
           monthlyPrice: 26,
+          condition: { label: '七成新', value: '70_new', grade: 1, discount: 0.3 },
+          condition_grade: 1,
           stock: [{ city: "Durham", qty: 18 }],
           images: [
             { url: "https://picsum.photos/400/300?random=6", type: "main" },
