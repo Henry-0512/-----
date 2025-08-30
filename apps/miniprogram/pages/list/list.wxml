@@ -22,6 +22,9 @@
       <text class="control-text">筛选</text>
       <text wx:if="{{hasActiveFilters}}" class="filter-count">({{filterCount}})</text>
     </view>
+    <view wx:if="{{hasActiveFilters}}" class="reset-button" bindtap="onResetFilters">
+      <text class="reset-text">清空</text>
+    </view>
   </view>
 
   <!-- 排序状态显示 -->

@@ -51,7 +51,7 @@
 /* 筛选控制栏 */
 .filter-controls {
   display: flex;
-  gap: 24rpx;
+  gap: 16rpx;
   padding: 24rpx;
   background: white;
   border-bottom: 2rpx solid #f0f0f0;
@@ -94,6 +94,29 @@
   font-size: 24rpx;
   color: #007AFF;
   font-weight: 600;
+}
+
+/* 重置按钮 */
+.reset-button {
+  padding: 20rpx 24rpx;
+  border: 2rpx solid #FF6B35;
+  border-radius: 12rpx;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.reset-button:active {
+  background: #FF6B35;
+}
+
+.reset-text {
+  font-size: 28rpx;
+  color: #FF6B35;
+  font-weight: 500;
+}
+
+.reset-button:active .reset-text {
+  color: white;
 }
 
 /* 排序状态显示 */

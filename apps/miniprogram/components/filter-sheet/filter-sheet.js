@@ -248,7 +248,9 @@ Component({
     'values': function(newValues) {
       console.log('🔍 FilterSheet接收到新的values:', newValues)
       
-      const internalValues = { ...newValues }
+      // 如果newValues为null或undefined，使用空对象
+      const safeValues = newValues || {}
+      const internalValues = { ...safeValues }
       const sliderValues = {}
       
       this.data.schema.forEach(item => {

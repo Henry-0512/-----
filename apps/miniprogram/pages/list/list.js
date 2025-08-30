@@ -78,8 +78,14 @@ Page({
     
     this.setData({ 
       pageTitle,
-      loading: false
+      loading: false,
+      currentFilters: {}, // 初始化为空对象
+      hasActiveFilters: false,
+      filterCount: 0
     })
+    
+    // 更新筛选状态
+    this.updateFilterStatus()
     
     // 设置导航栏标题
     wx.setNavigationBarTitle({
@@ -487,6 +493,26 @@ Page({
   },
 
   /**
+   * 重置筛选条件
+   */
+  onResetFilters() {
+    console.log('🔍 重置所有筛选条件')
+    
+    this.setData({
+      currentFilters: {},
+      selectedFilters: {},
+      hasActiveFilters: false,
+      filterCount: 0,
+      page: 1,
+      items: [],
+      loadedIds: []
+    })
+    
+    this.updateFilterStatus()
+    this.loadItems(true)
+  },
+
+  /**
    * 商品卡片点击
    */
   onProductCardTap(e) {
@@ -615,19 +641,39 @@ Page({
    */
   updateFilterStatus() {
     const { currentFilters } = this.data
+    console.log('🔍 更新筛选状态，currentFilters:', currentFilters)
+    
     let hasActiveFilters = false
     let filterCount = 0
 
     // 检查是否有活跃的筛选条件
-    if (currentFilters) {
+    if (currentFilters && typeof currentFilters === 'object') {
       Object.keys(currentFilters).forEach(key => {
-        if (currentFilters[key] && 
-            (Array.isArray(currentFilters[key]) ? currentFilters[key].length > 0 : currentFilters[key])) {
+        const value = currentFilters[key]
+        console.log('🔍 检查筛选项:', key, value)
+        
+        if (key === 'price' && value) {
+          // 价格范围筛选：检查是否不是默认值
+          if (value.min !== 8 || value.max !== 15) {
+            hasActiveFilters = true
+            filterCount++
+            console.log('🔍 价格筛选生效:', value)
+          }
+        } else if (Array.isArray(value) && value.length > 0) {
+          // 多选筛选：数组不为空
+          hasActiveFilters = true
+          filterCount += value.length
+          console.log('🔍 多选筛选生效:', key, value.length)
+        } else if (typeof value === 'boolean' && value) {
+          // 布尔筛选：为true
           hasActiveFilters = true
           filterCount++
+          console.log('🔍 布尔筛选生效:', key)
         }
       })
     }
+
+    console.log('🔍 最终筛选状态:', { hasActiveFilters, filterCount })
 
     this.setData({
       hasActiveFilters,
