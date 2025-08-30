@@ -88,6 +88,9 @@ fastify.get('/api/filters/meta', async (request, reply) => {
   const brandStats = {}
   const styleStats = {}
   
+  // 统计可配送城市
+  const cityStats = {}
+  
   skuData.forEach(sku => {
     // 统计分类（取第一个分类作为主分类）
     const mainCategory = sku.category[0]
@@ -100,6 +103,13 @@ fastify.get('/api/filters/meta', async (request, reply) => {
     sku.style.forEach(style => {
       styleStats[style] = (styleStats[style] || 0) + 1
     })
+    
+    // 统计可配送城市
+    if (sku.deliverable_cities) {
+      sku.deliverable_cities.forEach(cityInfo => {
+        cityStats[cityInfo.city] = (cityStats[cityInfo.city] || 0) + 1
+      })
+    }
   })
   
   return {
@@ -122,6 +132,11 @@ fastify.get('/api/filters/meta', async (request, reply) => {
         count
       })),
       styles: Object.entries(styleStats).map(([id, count]) => ({
+        id,
+        name: id,
+        count
+      })),
+      cities: Object.entries(cityStats).map(([id, count]) => ({
         id,
         name: id,
         count
@@ -162,6 +177,7 @@ fastify.post('/api/filter', async (request, reply) => {
     priceRange, 
     brands, 
     styles,
+    cities,     // 可配送城市筛选
     page = 1,
     page_size = 10,
     sort = 'newest'
@@ -194,6 +210,14 @@ fastify.post('/api/filter', async (request, reply) => {
   if (styles && styles.length > 0) {
     filteredData = filteredData.filter(item => 
       item.style.some(style => styles.includes(style))
+    )
+  }
+  
+  // 按可配送城市筛选
+  if (cities && cities.length > 0) {
+    filteredData = filteredData.filter(item => 
+      item.deliverable_cities && 
+      item.deliverable_cities.some(cityInfo => cities.includes(cityInfo.city))
     )
   }
   
@@ -369,7 +393,9 @@ fastify.post('/api/quote', async (request, reply) => {
     duration, 
     durationUnit = 'month',  // 'week' | 'month'
     quantity = 1,
-    services = []  // 可选服务数组
+    services = [],  // 可选服务数组
+    city = '',      // 配送城市
+    postcode = ''   // 邮政编码
   } = request.body || {}
   
   if (!skuId || !duration) {
@@ -385,6 +411,65 @@ fastify.post('/api/quote', async (request, reply) => {
       success: false,
       message: 'SKU 未找到'
     })
+  }
+
+  // 城市配送验证
+  let deliveryInfo = null
+  let isDeliverable = true
+  let deliveryGuide = null
+
+  if (city || postcode) {
+    const deliverableCities = sku.deliverable_cities || []
+    
+    // 查找匹配的城市
+    const matchedCity = deliverableCities.find(cityInfo => {
+      if (city && cityInfo.city === city) return true
+      if (postcode && cityInfo.postcode.some(code => postcode.startsWith(code))) return true
+      return false
+    })
+
+    if (matchedCity) {
+      deliveryInfo = matchedCity
+      isDeliverable = true
+    } else {
+      isDeliverable = false
+      deliveryGuide = {
+        message: `很抱歉，该商品暂不支持配送到${city || postcode}`,
+        suggestions: [
+          {
+            type: 'submit_request',
+            title: '提交配送需求',
+            description: '我们会评估您所在区域的配送可行性',
+            action: 'submit_delivery_request'
+          },
+          {
+            type: 'notify_available',
+            title: '开通通知',
+            description: '配送服务开通时我们会第一时间通知您',
+            action: 'subscribe_delivery_notify'
+          },
+          {
+            type: 'alternative_cities',
+            title: '可配送城市',
+            description: '查看该商品支持配送的城市列表',
+            cities: deliverableCities.map(c => c.city)
+          }
+        ]
+      }
+    }
+  }
+  
+  // 如果不可配送，直接返回引导信息
+  if (!isDeliverable) {
+    return {
+      success: false,
+      error_type: 'delivery_unavailable',
+      message: deliveryGuide.message,
+      data: {
+        deliveryGuide,
+        availableCities: sku.deliverable_cities || []
+      }
+    }
   }
   
   // 基础单价计算
@@ -448,6 +533,15 @@ fastify.post('/api/quote', async (request, reply) => {
       quantity,
       duration,
       durationUnit,
+      
+      // 配送信息
+      delivery: {
+        city: city || deliveryInfo?.city || '',
+        postcode: postcode || '',
+        isDeliverable,
+        etaDays: deliveryInfo?.eta_days || sku.delivery?.eta_days || [7, 14],
+        deliveryModes: sku.delivery?.modes || ['送货到门']
+      },
       
       // 价格明细
       breakdown: {

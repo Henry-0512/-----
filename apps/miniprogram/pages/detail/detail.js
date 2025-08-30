@@ -37,6 +37,12 @@ Page({
     quantity: 1,
     selectedServices: [],
     
+    // 配送信息
+    selectedCity: '',
+    selectedPostcode: '',
+    availableCities: [],
+    deliveryInfo: null,
+    
     // 可选服务
     availableServices: [
       { id: 'delivery', name: '送货到门', price: 50, selected: false },
@@ -97,6 +103,7 @@ Page({
       this.setData({
         sku,
         priceInfo,
+        availableCities: sku.deliverable_cities || [],
         loading: false
       })
       
@@ -458,7 +465,7 @@ Page({
    * 计算报价
    */
   async calculateQuote() {
-    const { sku, duration, durationUnit, quantity, selectedServices } = this.data
+    const { sku, duration, durationUnit, quantity, selectedServices, selectedCity, selectedPostcode } = this.data
     if (!sku || !sku.id) return
 
     try {
@@ -469,19 +476,33 @@ Page({
         duration,
         durationUnit,
         quantity,
-        services: selectedServices
+        services: selectedServices,
+        city: selectedCity,
+        postcode: selectedPostcode
       })
 
       this.setData({
         quoteData: res.data,
+        deliveryInfo: res.data?.delivery,
         quoteLoading: false
       })
     } catch (error) {
       console.error('计算报价失败:', error)
-      this.setData({
-        quoteLoading: false,
-        quoteError: error.message || '报价计算失败'
-      })
+      
+      // 处理配送不可达的情况
+      if (error.error_type === 'delivery_unavailable') {
+        this.setData({
+          quoteLoading: false,
+          quoteError: null,
+          deliveryGuide: error.data?.deliveryGuide
+        })
+        this.showDeliveryGuide(error.data?.deliveryGuide)
+      } else {
+        this.setData({
+          quoteLoading: false,
+          quoteError: error.message || '报价计算失败'
+        })
+      }
     }
   },
 
@@ -560,6 +581,85 @@ Page({
       selectedServices
     })
     this.calculateQuote()
+  },
+
+  /**
+   * 城市选择
+   */
+  onCitySelect() {
+    const { availableCities } = this.data
+    const cityNames = availableCities.map(city => city.city)
+    
+    wx.showActionSheet({
+      itemList: cityNames,
+      success: (res) => {
+        const selectedCityInfo = availableCities[res.tapIndex]
+        this.setData({
+          selectedCity: selectedCityInfo.city,
+          selectedPostcode: selectedCityInfo.postcode[0] || ''
+        })
+        this.calculateQuote()
+      }
+    })
+  },
+
+  /**
+   * 显示配送引导
+   */
+  showDeliveryGuide(guide) {
+    if (!guide) return
+
+    const suggestions = guide.suggestions.map(s => s.title).join('\n')
+    
+    wx.showModal({
+      title: '配送提醒',
+      content: `${guide.message}\n\n我们为您提供以下选择：\n${suggestions}`,
+      confirmText: '提交需求',
+      cancelText: '查看可配送城市',
+      success: (res) => {
+        if (res.confirm) {
+          this.onSubmitDeliveryRequest()
+        } else {
+          this.showAvailableCities()
+        }
+      }
+    })
+  },
+
+  /**
+   * 提交配送需求
+   */
+  onSubmitDeliveryRequest() {
+    const { sku, selectedCity } = this.data
+    
+    wx.showModal({
+      title: '提交配送需求',
+      content: `商品：${sku.title}\n城市：${selectedCity}\n\n我们会评估配送可行性并尽快回复您`,
+      confirmText: '提交',
+      success: (res) => {
+        if (res.confirm) {
+          wx.showToast({
+            title: '需求已提交',
+            icon: 'success'
+          })
+        }
+      }
+    })
+  },
+
+  /**
+   * 显示可配送城市
+   */
+  showAvailableCities() {
+    const { availableCities } = this.data
+    const cities = availableCities.map(city => city.city).join('、')
+    
+    wx.showModal({
+      title: '可配送城市',
+      content: `该商品支持配送到以下城市：\n\n${cities}`,
+      confirmText: '知道了',
+      showCancel: false
+    })
   },
 
   /**

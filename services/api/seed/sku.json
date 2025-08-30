@@ -4,28 +4,133 @@
     "spu_id": "spu_sofa_a",
     "title": "Nappa 布艺三人沙发 2.1m",
     "brand": "HomeNest",
-    "category": ["沙发","客厅"],
-    "style": ["现代","北欧"],
-    "material": ["布艺","实木框架"],
-    "color": ["灰"],
+    "category": [
+      "沙发",
+      "客厅"
+    ],
+    "style": [
+      "现代",
+      "北欧"
+    ],
+    "material": [
+      "布艺",
+      "实木框架"
+    ],
+    "color": [
+      "灰"
+    ],
     "width_mm": 2100,
     "depth_mm": 890,
     "height_mm": 840,
-    "package": { "width_mm": 2150, "depth_mm": 950, "height_mm": 700, "weight_kg": 55 },
+    "package": {
+      "width_mm": 2150,
+      "depth_mm": 950,
+      "height_mm": 700,
+      "weight_kg": 55
+    },
     "price": 3999,
     "price_min": 3500,
     "price_max": 4500,
-    "stock": [{ "city": "Durham", "qty": 8 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 8
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=101", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=102", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=101",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=102",
+        "type": "scene"
+      }
     ],
     "care": "可拆洗外套，低温水洗；木质部位用微湿布擦拭。",
-    "delivery": { "modes": ["送货到门","白手套安装"], "eta_days": [5,10], "upstairs": true },
-    "variants": [{ "name": "颜色", "value": "灰" }],
-    "bundle_suggestions": ["sku_table_003","sku_rug_007"],
+    "delivery": {
+      "modes": [
+        "送货到门",
+        "白手套安装"
+      ],
+      "eta_days": [
+        5,
+        10
+      ],
+      "upstairs": true
+    },
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "杭州",
+        "postcode": [
+          "310000",
+          "311000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      }
+    ],
+    "variants": [
+      {
+        "name": "颜色",
+        "value": "灰"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_table_003",
+      "sku_rug_007"
+    ],
     "faq": [
-      { "q": "沙发套可机洗吗？", "a": "可机洗，建议低温柔洗。" }
+      {
+        "q": "沙发套可机洗吗？",
+        "a": "可机洗，建议低温柔洗。"
+      }
     ]
   },
   {
@@ -33,26 +138,178 @@
     "spu_id": "spu_bed_b",
     "title": "橡木平台床 1.5m",
     "brand": "Oak&Co",
-    "category": ["床","卧室"],
-    "style": ["原木","极简"],
-    "material": ["实木","橡木"],
-    "color": ["原木"],
+    "category": [
+      "床",
+      "卧室"
+    ],
+    "style": [
+      "原木",
+      "极简"
+    ],
+    "material": [
+      "实木",
+      "橡木"
+    ],
+    "color": [
+      "原木"
+    ],
     "width_mm": 2060,
     "depth_mm": 1560,
     "height_mm": 320,
-    "package": { "width_mm": 2100, "depth_mm": 300, "height_mm": 260, "weight_kg": 42 },
+    "package": {
+      "width_mm": 2100,
+      "depth_mm": 300,
+      "height_mm": 260,
+      "weight_kg": 42
+    },
     "price": 3299,
-    "stock": [{ "city": "Durham", "qty": 5 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 5
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=bed0021", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=bed0022", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=bed0021",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=bed0022",
+        "type": "scene"
+      }
     ],
     "care": "表面清洁使用干布或微湿布；避免长时日晒。",
-    "delivery": { "modes": ["送货到门"], "eta_days": [7,14], "upstairs": true },
-    "variants": [{ "name": "尺寸", "value": "150x200cm" }],
-    "bundle_suggestions": ["sku_mattress_010","sku_nightstand_011"],
+    "delivery": {
+      "modes": [
+        "送货到门"
+      ],
+      "eta_days": [
+        7,
+        14
+      ],
+      "upstairs": true
+    },
+    "variants": [
+      {
+        "name": "尺寸",
+        "value": "150x200cm"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_mattress_010",
+      "sku_nightstand_011"
+    ],
     "faq": [
-      { "q": "是否需要自行安装？", "a": "默认送货到门，可选加价安装服务。" }
+      {
+        "q": "是否需要自行安装？",
+        "a": "默认送货到门，可选加价安装服务。"
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000",
+          "102000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000",
+          "202000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000",
+          "512000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100",
+          "518200"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "杭州",
+        "postcode": [
+          "310000",
+          "311000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "南京",
+        "postcode": [
+          "210000",
+          "211000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "武汉",
+        "postcode": [
+          "430000",
+          "431000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "成都",
+        "postcode": [
+          "610000",
+          "611000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "西安",
+        "postcode": [
+          "710000",
+          "711000"
+        ],
+        "eta_days": [
+          6,
+          8
+        ]
+      }
     ]
   },
   {
@@ -60,26 +317,179 @@
     "spu_id": "spu_table_c",
     "title": "胡桃木餐桌 1.6m",
     "brand": "WoodCraft",
-    "category": ["餐桌","餐厅"],
-    "style": ["现代","工业风"],
-    "material": ["胡桃木","金属腿"],
-    "color": ["胡桃木色"],
+    "category": [
+      "餐桌",
+      "餐厅"
+    ],
+    "style": [
+      "现代",
+      "工业风"
+    ],
+    "material": [
+      "胡桃木",
+      "金属腿"
+    ],
+    "color": [
+      "胡桃木色"
+    ],
     "width_mm": 1600,
     "depth_mm": 800,
     "height_mm": 750,
-    "package": { "width_mm": 1650, "depth_mm": 850, "height_mm": 150, "weight_kg": 38 },
+    "package": {
+      "width_mm": 1650,
+      "depth_mm": 850,
+      "height_mm": 150,
+      "weight_kg": 38
+    },
     "price": 2899,
-    "stock": [{ "city": "Durham", "qty": 12 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 12
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=table0031", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=table0032", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=table0031",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=table0032",
+        "type": "scene"
+      }
     ],
     "care": "定期使用木质护理油保养；避免尖锐物品划伤。",
-    "delivery": { "modes": ["送货到门","白手套安装"], "eta_days": [3,7], "upstairs": true },
-    "variants": [{ "name": "长度", "value": "160cm" }],
-    "bundle_suggestions": ["sku_chair_004","sku_chair_005"],
+    "delivery": {
+      "modes": [
+        "送货到门",
+        "白手套安装"
+      ],
+      "eta_days": [
+        3,
+        7
+      ],
+      "upstairs": true
+    },
+    "variants": [
+      {
+        "name": "长度",
+        "value": "160cm"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_chair_004",
+      "sku_chair_005"
+    ],
     "faq": [
-      { "q": "餐桌可承重多少？", "a": "承重可达100kg，适合日常使用。" }
+      {
+        "q": "餐桌可承重多少？",
+        "a": "承重可达100kg，适合日常使用。"
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000",
+          "102000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000",
+          "202000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000",
+          "512000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100",
+          "518200"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "杭州",
+        "postcode": [
+          "310000",
+          "311000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "南京",
+        "postcode": [
+          "210000",
+          "211000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "武汉",
+        "postcode": [
+          "430000",
+          "431000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "成都",
+        "postcode": [
+          "610000",
+          "611000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "西安",
+        "postcode": [
+          "710000",
+          "711000"
+        ],
+        "eta_days": [
+          6,
+          8
+        ]
+      }
     ]
   },
   {
@@ -87,26 +497,218 @@
     "spu_id": "spu_chair_d",
     "title": "软包餐椅 单椅",
     "brand": "ComfortSeats",
-    "category": ["椅子","餐厅"],
-    "style": ["现代","简约"],
-    "material": ["PU皮","钢管"],
-    "color": ["米白"],
+    "category": [
+      "椅子",
+      "餐厅"
+    ],
+    "style": [
+      "现代",
+      "简约"
+    ],
+    "material": [
+      "PU皮",
+      "钢管"
+    ],
+    "color": [
+      "米白"
+    ],
     "width_mm": 450,
     "depth_mm": 520,
     "height_mm": 830,
-    "package": { "width_mm": 500, "depth_mm": 570, "height_mm": 450, "weight_kg": 8 },
+    "package": {
+      "width_mm": 500,
+      "depth_mm": 570,
+      "height_mm": 450,
+      "weight_kg": 8
+    },
     "price": 599,
-    "stock": [{ "city": "Durham", "qty": 20 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 20
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=chair0041", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=chair0042", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=chair0041",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=chair0042",
+        "type": "scene"
+      }
     ],
     "care": "PU皮面用湿布擦拭；金属部位避免潮湿环境。",
-    "delivery": { "modes": ["送货到门"], "eta_days": [2,5], "upstairs": true },
-    "variants": [{ "name": "颜色", "value": "米白" }],
-    "bundle_suggestions": ["sku_table_003","sku_chair_005"],
+    "delivery": {
+      "modes": [
+        "送货到门"
+      ],
+      "eta_days": [
+        2,
+        5
+      ],
+      "upstairs": true
+    },
+    "variants": [
+      {
+        "name": "颜色",
+        "value": "米白"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_table_003",
+      "sku_chair_005"
+    ],
     "faq": [
-      { "q": "椅子高度可调节吗？", "a": "固定高度，座面高度46cm。" }
+      {
+        "q": "椅子高度可调节吗？",
+        "a": "固定高度，座面高度46cm。"
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000",
+          "102000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000",
+          "202000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000",
+          "512000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100",
+          "518200"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "杭州",
+        "postcode": [
+          "310000",
+          "311000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "南京",
+        "postcode": [
+          "210000",
+          "211000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "武汉",
+        "postcode": [
+          "430000",
+          "431000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "成都",
+        "postcode": [
+          "610000",
+          "611000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "西安",
+        "postcode": [
+          "710000",
+          "711000"
+        ],
+        "eta_days": [
+          6,
+          8
+        ]
+      },
+      {
+        "city": "苏州",
+        "postcode": [
+          "215000"
+        ],
+        "eta_days": [
+          5,
+          8
+        ]
+      },
+      {
+        "city": "无锡",
+        "postcode": [
+          "214000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "宁波",
+        "postcode": [
+          "315000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "青岛",
+        "postcode": [
+          "266000"
+        ],
+        "eta_days": [
+          7,
+          10
+        ]
+      }
     ]
   },
   {
@@ -114,26 +716,219 @@
     "spu_id": "spu_chair_e",
     "title": "人体工学办公椅",
     "brand": "ErgoTech",
-    "category": ["椅子","办公室"],
-    "style": ["现代","人体工学"],
-    "material": ["网布","尼龙"],
-    "color": ["黑"],
+    "category": [
+      "椅子",
+      "办公室"
+    ],
+    "style": [
+      "现代",
+      "人体工学"
+    ],
+    "material": [
+      "网布",
+      "尼龙"
+    ],
+    "color": [
+      "黑"
+    ],
     "width_mm": 650,
     "depth_mm": 650,
     "height_mm": 1150,
-    "package": { "width_mm": 700, "depth_mm": 350, "height_mm": 700, "weight_kg": 18 },
+    "package": {
+      "width_mm": 700,
+      "depth_mm": 350,
+      "height_mm": 700,
+      "weight_kg": 18
+    },
     "price": 1899,
-    "stock": [{ "city": "Durham", "qty": 15 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 15
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=chair0051", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=chair0052", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=chair0051",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=chair0052",
+        "type": "scene"
+      }
     ],
     "care": "网布可用吸尘器清洁；滑轮定期加润滑油。",
-    "delivery": { "modes": ["送货到门","白手套安装"], "eta_days": [3,7], "upstairs": true },
-    "variants": [{ "name": "功能", "value": "可升降+腰托" }],
-    "bundle_suggestions": ["sku_desk_006","sku_lamp_015"],
+    "delivery": {
+      "modes": [
+        "送货到门",
+        "白手套安装"
+      ],
+      "eta_days": [
+        3,
+        7
+      ],
+      "upstairs": true
+    },
+    "variants": [
+      {
+        "name": "功能",
+        "value": "可升降+腰托"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_desk_006",
+      "sku_lamp_015"
+    ],
     "faq": [
-      { "q": "最大承重多少？", "a": "最大承重120kg，通过SGS认证。" }
+      {
+        "q": "最大承重多少？",
+        "a": "最大承重120kg，通过SGS认证。"
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000",
+          "102000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000",
+          "202000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000",
+          "512000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100",
+          "518200"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "杭州",
+        "postcode": [
+          "310000",
+          "311000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "南京",
+        "postcode": [
+          "210000",
+          "211000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "武汉",
+        "postcode": [
+          "430000",
+          "431000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "成都",
+        "postcode": [
+          "610000",
+          "611000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "西安",
+        "postcode": [
+          "710000",
+          "711000"
+        ],
+        "eta_days": [
+          6,
+          8
+        ]
+      },
+      {
+        "city": "苏州",
+        "postcode": [
+          "215000"
+        ],
+        "eta_days": [
+          5,
+          8
+        ]
+      },
+      {
+        "city": "无锡",
+        "postcode": [
+          "214000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "宁波",
+        "postcode": [
+          "315000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "青岛",
+        "postcode": [
+          "266000"
+        ],
+        "eta_days": [
+          7,
+          10
+        ]
+      }
     ]
   },
   {
@@ -141,26 +936,218 @@
     "spu_id": "spu_desk_f",
     "title": "简约书桌 1.2m",
     "brand": "MinimalWork",
-    "category": ["书桌","办公室"],
-    "style": ["极简","现代"],
-    "material": ["密度板","钢管"],
-    "color": ["白"],
+    "category": [
+      "书桌",
+      "办公室"
+    ],
+    "style": [
+      "极简",
+      "现代"
+    ],
+    "material": [
+      "密度板",
+      "钢管"
+    ],
+    "color": [
+      "白"
+    ],
     "width_mm": 1200,
     "depth_mm": 600,
     "height_mm": 750,
-    "package": { "width_mm": 1250, "depth_mm": 650, "height_mm": 100, "weight_kg": 25 },
+    "package": {
+      "width_mm": 1250,
+      "depth_mm": 650,
+      "height_mm": 100,
+      "weight_kg": 25
+    },
     "price": 1299,
-    "stock": [{ "city": "Durham", "qty": 18 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 18
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=desk0061", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=desk0062", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=desk0061",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=desk0062",
+        "type": "scene"
+      }
     ],
     "care": "表面防水处理，用湿布即可清洁；避免重物撞击。",
-    "delivery": { "modes": ["送货到门"], "eta_days": [2,5], "upstairs": true },
-    "variants": [{ "name": "尺寸", "value": "120x60cm" }],
-    "bundle_suggestions": ["sku_chair_005","sku_organizer_016"],
+    "delivery": {
+      "modes": [
+        "送货到门"
+      ],
+      "eta_days": [
+        2,
+        5
+      ],
+      "upstairs": true
+    },
+    "variants": [
+      {
+        "name": "尺寸",
+        "value": "120x60cm"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_chair_005",
+      "sku_organizer_016"
+    ],
     "faq": [
-      { "q": "桌面承重如何？", "a": "均匀承重30kg，适合放置电脑设备。" }
+      {
+        "q": "桌面承重如何？",
+        "a": "均匀承重30kg，适合放置电脑设备。"
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000",
+          "102000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000",
+          "202000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000",
+          "512000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100",
+          "518200"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "杭州",
+        "postcode": [
+          "310000",
+          "311000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "南京",
+        "postcode": [
+          "210000",
+          "211000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "武汉",
+        "postcode": [
+          "430000",
+          "431000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "成都",
+        "postcode": [
+          "610000",
+          "611000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "西安",
+        "postcode": [
+          "710000",
+          "711000"
+        ],
+        "eta_days": [
+          6,
+          8
+        ]
+      },
+      {
+        "city": "苏州",
+        "postcode": [
+          "215000"
+        ],
+        "eta_days": [
+          5,
+          8
+        ]
+      },
+      {
+        "city": "无锡",
+        "postcode": [
+          "214000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "宁波",
+        "postcode": [
+          "315000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "青岛",
+        "postcode": [
+          "266000"
+        ],
+        "eta_days": [
+          7,
+          10
+        ]
+      }
     ]
   },
   {
@@ -168,26 +1155,218 @@
     "spu_id": "spu_rug_g",
     "title": "北欧几何地毯 2x3m",
     "brand": "Nordic",
-    "category": ["地毯","客厅"],
-    "style": ["北欧","几何"],
-    "material": ["聚丙烯","防滑底"],
-    "color": ["灰白"],
+    "category": [
+      "地毯",
+      "客厅"
+    ],
+    "style": [
+      "北欧",
+      "几何"
+    ],
+    "material": [
+      "聚丙烯",
+      "防滑底"
+    ],
+    "color": [
+      "灰白"
+    ],
     "width_mm": 2000,
     "depth_mm": 3000,
     "height_mm": 8,
-    "package": { "width_mm": 150, "depth_mm": 150, "height_mm": 2050, "weight_kg": 12 },
+    "package": {
+      "width_mm": 150,
+      "depth_mm": 150,
+      "height_mm": 2050,
+      "weight_kg": 12
+    },
     "price": 899,
-    "stock": [{ "city": "Durham", "qty": 25 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 25
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=rug0071", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=rug0072", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=rug0071",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=rug0072",
+        "type": "scene"
+      }
     ],
     "care": "可机洗，冷水洗涤；定期吸尘保持清洁。",
-    "delivery": { "modes": ["送货到门"], "eta_days": [1,3], "upstairs": true },
-    "variants": [{ "name": "尺寸", "value": "200x300cm" }],
-    "bundle_suggestions": ["sku_sofa_001","sku_table_008"],
+    "delivery": {
+      "modes": [
+        "送货到门"
+      ],
+      "eta_days": [
+        1,
+        3
+      ],
+      "upstairs": true
+    },
+    "variants": [
+      {
+        "name": "尺寸",
+        "value": "200x300cm"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_sofa_001",
+      "sku_table_008"
+    ],
     "faq": [
-      { "q": "地毯会掉毛吗？", "a": "采用防掉毛工艺，正常使用不掉毛。" }
+      {
+        "q": "地毯会掉毛吗？",
+        "a": "采用防掉毛工艺，正常使用不掉毛。"
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000",
+          "102000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000",
+          "202000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000",
+          "512000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100",
+          "518200"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "杭州",
+        "postcode": [
+          "310000",
+          "311000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "南京",
+        "postcode": [
+          "210000",
+          "211000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "武汉",
+        "postcode": [
+          "430000",
+          "431000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "成都",
+        "postcode": [
+          "610000",
+          "611000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "西安",
+        "postcode": [
+          "710000",
+          "711000"
+        ],
+        "eta_days": [
+          6,
+          8
+        ]
+      },
+      {
+        "city": "苏州",
+        "postcode": [
+          "215000"
+        ],
+        "eta_days": [
+          5,
+          8
+        ]
+      },
+      {
+        "city": "无锡",
+        "postcode": [
+          "214000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "宁波",
+        "postcode": [
+          "315000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "青岛",
+        "postcode": [
+          "266000"
+        ],
+        "eta_days": [
+          7,
+          10
+        ]
+      }
     ]
   },
   {
@@ -195,26 +1374,219 @@
     "spu_id": "spu_table_h",
     "title": "玻璃茶几 圆形",
     "brand": "CrystalHome",
-    "category": ["茶几","客厅"],
-    "style": ["现代","轻奢"],
-    "material": ["钢化玻璃","不锈钢"],
-    "color": ["透明"],
+    "category": [
+      "茶几",
+      "客厅"
+    ],
+    "style": [
+      "现代",
+      "轻奢"
+    ],
+    "material": [
+      "钢化玻璃",
+      "不锈钢"
+    ],
+    "color": [
+      "透明"
+    ],
     "width_mm": 800,
     "depth_mm": 800,
     "height_mm": 420,
-    "package": { "width_mm": 850, "depth_mm": 850, "height_mm": 200, "weight_kg": 22 },
+    "package": {
+      "width_mm": 850,
+      "depth_mm": 850,
+      "height_mm": 200,
+      "weight_kg": 22
+    },
     "price": 1599,
-    "stock": [{ "city": "Durham", "qty": 10 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 10
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=table0081", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=table0082", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=table0081",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=table0082",
+        "type": "scene"
+      }
     ],
     "care": "玻璃面用玻璃清洁剂；不锈钢用专用清洁布。",
-    "delivery": { "modes": ["送货到门","白手套安装"], "eta_days": [5,10], "upstairs": true },
-    "variants": [{ "name": "形状", "value": "圆形80cm" }],
-    "bundle_suggestions": ["sku_sofa_001","sku_rug_007"],
+    "delivery": {
+      "modes": [
+        "送货到门",
+        "白手套安装"
+      ],
+      "eta_days": [
+        5,
+        10
+      ],
+      "upstairs": true
+    },
+    "variants": [
+      {
+        "name": "形状",
+        "value": "圆形80cm"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_sofa_001",
+      "sku_rug_007"
+    ],
     "faq": [
-      { "q": "玻璃安全吗？", "a": "采用10mm钢化玻璃，安全系数高。" }
+      {
+        "q": "玻璃安全吗？",
+        "a": "采用10mm钢化玻璃，安全系数高。"
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000",
+          "102000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000",
+          "202000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000",
+          "512000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100",
+          "518200"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "杭州",
+        "postcode": [
+          "310000",
+          "311000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "南京",
+        "postcode": [
+          "210000",
+          "211000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "武汉",
+        "postcode": [
+          "430000",
+          "431000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "成都",
+        "postcode": [
+          "610000",
+          "611000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "西安",
+        "postcode": [
+          "710000",
+          "711000"
+        ],
+        "eta_days": [
+          6,
+          8
+        ]
+      },
+      {
+        "city": "苏州",
+        "postcode": [
+          "215000"
+        ],
+        "eta_days": [
+          5,
+          8
+        ]
+      },
+      {
+        "city": "无锡",
+        "postcode": [
+          "214000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "宁波",
+        "postcode": [
+          "315000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "青岛",
+        "postcode": [
+          "266000"
+        ],
+        "eta_days": [
+          7,
+          10
+        ]
+      }
     ]
   },
   {
@@ -222,26 +1594,178 @@
     "spu_id": "spu_wardrobe_i",
     "title": "推拉门衣柜 2.4m",
     "brand": "StoragePlus",
-    "category": ["衣柜","卧室"],
-    "style": ["现代","简约"],
-    "material": ["板材","铝合金"],
-    "color": ["白橡"],
+    "category": [
+      "衣柜",
+      "卧室"
+    ],
+    "style": [
+      "现代",
+      "简约"
+    ],
+    "material": [
+      "板材",
+      "铝合金"
+    ],
+    "color": [
+      "白橡"
+    ],
     "width_mm": 2400,
     "depth_mm": 600,
     "height_mm": 2200,
-    "package": { "width_mm": 2450, "depth_mm": 650, "height_mm": 200, "weight_kg": 85 },
+    "package": {
+      "width_mm": 2450,
+      "depth_mm": 650,
+      "height_mm": 200,
+      "weight_kg": 85
+    },
     "price": 4599,
-    "stock": [{ "city": "Durham", "qty": 6 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 6
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=wardrobe0091", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=wardrobe0092", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=wardrobe0091",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=wardrobe0092",
+        "type": "scene"
+      }
     ],
     "care": "轨道定期清洁润滑；面板用微湿布擦拭。",
-    "delivery": { "modes": ["白手套安装"], "eta_days": [7,14], "upstairs": true },
-    "variants": [{ "name": "宽度", "value": "240cm" }],
-    "bundle_suggestions": ["sku_bed_002","sku_nightstand_011"],
+    "delivery": {
+      "modes": [
+        "白手套安装"
+      ],
+      "eta_days": [
+        7,
+        14
+      ],
+      "upstairs": true
+    },
+    "variants": [
+      {
+        "name": "宽度",
+        "value": "240cm"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_bed_002",
+      "sku_nightstand_011"
+    ],
     "faq": [
-      { "q": "需要预约安装吗？", "a": "是的，我们会提前1天电话预约安装时间。" }
+      {
+        "q": "需要预约安装吗？",
+        "a": "是的，我们会提前1天电话预约安装时间。"
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000",
+          "102000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000",
+          "202000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000",
+          "512000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100",
+          "518200"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "杭州",
+        "postcode": [
+          "310000",
+          "311000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "南京",
+        "postcode": [
+          "210000",
+          "211000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "武汉",
+        "postcode": [
+          "430000",
+          "431000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "成都",
+        "postcode": [
+          "610000",
+          "611000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "西安",
+        "postcode": [
+          "710000",
+          "711000"
+        ],
+        "eta_days": [
+          6,
+          8
+        ]
+      }
     ]
   },
   {
@@ -249,26 +1773,179 @@
     "spu_id": "spu_mattress_j",
     "title": "记忆棉床垫 1.5m",
     "brand": "SleepWell",
-    "category": ["床垫","卧室"],
-    "style": ["健康","舒适"],
-    "material": ["记忆棉","独立弹簧"],
-    "color": ["白"],
+    "category": [
+      "床垫",
+      "卧室"
+    ],
+    "style": [
+      "健康",
+      "舒适"
+    ],
+    "material": [
+      "记忆棉",
+      "独立弹簧"
+    ],
+    "color": [
+      "白"
+    ],
     "width_mm": 1500,
     "depth_mm": 2000,
     "height_mm": 250,
-    "package": { "width_mm": 400, "depth_mm": 400, "height_mm": 1550, "weight_kg": 28 },
+    "package": {
+      "width_mm": 400,
+      "depth_mm": 400,
+      "height_mm": 1550,
+      "weight_kg": 28
+    },
     "price": 2199,
-    "stock": [{ "city": "Durham", "qty": 14 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 14
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=mattress0101", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=mattress0102", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=mattress0101",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=mattress0102",
+        "type": "scene"
+      }
     ],
     "care": "每3个月翻转一次；床单套装保护表面。",
-    "delivery": { "modes": ["送货到门","白手套安装"], "eta_days": [3,7], "upstairs": true },
-    "variants": [{ "name": "软硬度", "value": "中等偏软" }],
-    "bundle_suggestions": ["sku_bed_002","sku_pillow_017"],
+    "delivery": {
+      "modes": [
+        "送货到门",
+        "白手套安装"
+      ],
+      "eta_days": [
+        3,
+        7
+      ],
+      "upstairs": true
+    },
+    "variants": [
+      {
+        "name": "软硬度",
+        "value": "中等偏软"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_bed_002",
+      "sku_pillow_017"
+    ],
     "faq": [
-      { "q": "有异味吗？", "a": "新床垫通风1-2天即可消除包装异味。" }
+      {
+        "q": "有异味吗？",
+        "a": "新床垫通风1-2天即可消除包装异味。"
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000",
+          "102000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000",
+          "202000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000",
+          "512000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100",
+          "518200"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "杭州",
+        "postcode": [
+          "310000",
+          "311000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "南京",
+        "postcode": [
+          "210000",
+          "211000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "武汉",
+        "postcode": [
+          "430000",
+          "431000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "成都",
+        "postcode": [
+          "610000",
+          "611000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "西安",
+        "postcode": [
+          "710000",
+          "711000"
+        ],
+        "eta_days": [
+          6,
+          8
+        ]
+      }
     ]
   },
   {
@@ -276,26 +1953,218 @@
     "spu_id": "spu_nightstand_k",
     "title": "简约床头柜 单个",
     "brand": "BedroomEssentials",
-    "category": ["床头柜","卧室"],
-    "style": ["极简","现代"],
-    "material": ["橡木","金属把手"],
-    "color": ["原木"],
+    "category": [
+      "床头柜",
+      "卧室"
+    ],
+    "style": [
+      "极简",
+      "现代"
+    ],
+    "material": [
+      "橡木",
+      "金属把手"
+    ],
+    "color": [
+      "原木"
+    ],
     "width_mm": 500,
     "depth_mm": 400,
     "height_mm": 550,
-    "package": { "width_mm": 550, "depth_mm": 450, "height_mm": 150, "weight_kg": 15 },
+    "package": {
+      "width_mm": 550,
+      "depth_mm": 450,
+      "height_mm": 150,
+      "weight_kg": 15
+    },
     "price": 699,
-    "stock": [{ "city": "Durham", "qty": 22 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 22
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=nightstand0111", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=nightstand0112", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=nightstand0111",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=nightstand0112",
+        "type": "scene"
+      }
     ],
     "care": "木质表面用专用护理蜡；抽屉滑轨定期润滑。",
-    "delivery": { "modes": ["送货到门"], "eta_days": [2,5], "upstairs": true },
-    "variants": [{ "name": "抽屉", "value": "2抽屉" }],
-    "bundle_suggestions": ["sku_bed_002","sku_lamp_015"],
+    "delivery": {
+      "modes": [
+        "送货到门"
+      ],
+      "eta_days": [
+        2,
+        5
+      ],
+      "upstairs": true
+    },
+    "variants": [
+      {
+        "name": "抽屉",
+        "value": "2抽屉"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_bed_002",
+      "sku_lamp_015"
+    ],
     "faq": [
-      { "q": "抽屉滑轨质量如何？", "a": "采用阻尼滑轨，开合顺滑静音。" }
+      {
+        "q": "抽屉滑轨质量如何？",
+        "a": "采用阻尼滑轨，开合顺滑静音。"
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000",
+          "102000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000",
+          "202000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000",
+          "512000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100",
+          "518200"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "杭州",
+        "postcode": [
+          "310000",
+          "311000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "南京",
+        "postcode": [
+          "210000",
+          "211000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "武汉",
+        "postcode": [
+          "430000",
+          "431000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "成都",
+        "postcode": [
+          "610000",
+          "611000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "西安",
+        "postcode": [
+          "710000",
+          "711000"
+        ],
+        "eta_days": [
+          6,
+          8
+        ]
+      },
+      {
+        "city": "苏州",
+        "postcode": [
+          "215000"
+        ],
+        "eta_days": [
+          5,
+          8
+        ]
+      },
+      {
+        "city": "无锡",
+        "postcode": [
+          "214000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "宁波",
+        "postcode": [
+          "315000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "青岛",
+        "postcode": [
+          "266000"
+        ],
+        "eta_days": [
+          7,
+          10
+        ]
+      }
     ]
   },
   {
@@ -303,26 +2172,218 @@
     "spu_id": "spu_bookshelf_l",
     "title": "开放式书架 5层",
     "brand": "StudySpace",
-    "category": ["书架","书房"],
-    "style": ["工业风","开放式"],
-    "material": ["钢木结合","铁艺"],
-    "color": ["黑胡桃"],
+    "category": [
+      "书架",
+      "书房"
+    ],
+    "style": [
+      "工业风",
+      "开放式"
+    ],
+    "material": [
+      "钢木结合",
+      "铁艺"
+    ],
+    "color": [
+      "黑胡桃"
+    ],
     "width_mm": 800,
     "depth_mm": 300,
     "height_mm": 1800,
-    "package": { "width_mm": 850, "depth_mm": 350, "height_mm": 200, "weight_kg": 32 },
+    "package": {
+      "width_mm": 850,
+      "depth_mm": 350,
+      "height_mm": 200,
+      "weight_kg": 32
+    },
     "price": 1399,
-    "stock": [{ "city": "Durham", "qty": 16 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 16
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=bookshelf0121", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=bookshelf0122", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=bookshelf0121",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=bookshelf0122",
+        "type": "scene"
+      }
     ],
     "care": "木板用微湿布清洁；铁艺部分防锈处理。",
-    "delivery": { "modes": ["送货到门"], "eta_days": [3,7], "upstairs": true },
-    "variants": [{ "name": "层数", "value": "5层" }],
-    "bundle_suggestions": ["sku_desk_006","sku_chair_005"],
+    "delivery": {
+      "modes": [
+        "送货到门"
+      ],
+      "eta_days": [
+        3,
+        7
+      ],
+      "upstairs": true
+    },
+    "variants": [
+      {
+        "name": "层数",
+        "value": "5层"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_desk_006",
+      "sku_chair_005"
+    ],
     "faq": [
-      { "q": "每层承重多少？", "a": "每层可承重20kg，适合放置书籍文件。" }
+      {
+        "q": "每层承重多少？",
+        "a": "每层可承重20kg，适合放置书籍文件。"
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000",
+          "102000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000",
+          "202000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000",
+          "512000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100",
+          "518200"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "杭州",
+        "postcode": [
+          "310000",
+          "311000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "南京",
+        "postcode": [
+          "210000",
+          "211000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "武汉",
+        "postcode": [
+          "430000",
+          "431000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "成都",
+        "postcode": [
+          "610000",
+          "611000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "西安",
+        "postcode": [
+          "710000",
+          "711000"
+        ],
+        "eta_days": [
+          6,
+          8
+        ]
+      },
+      {
+        "city": "苏州",
+        "postcode": [
+          "215000"
+        ],
+        "eta_days": [
+          5,
+          8
+        ]
+      },
+      {
+        "city": "无锡",
+        "postcode": [
+          "214000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "宁波",
+        "postcode": [
+          "315000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "青岛",
+        "postcode": [
+          "266000"
+        ],
+        "eta_days": [
+          7,
+          10
+        ]
+      }
     ]
   },
   {
@@ -330,26 +2391,219 @@
     "spu_id": "spu_dresser_m",
     "title": "梳妆台带镜 1.2m",
     "brand": "BeautyCorner",
-    "category": ["梳妆台","卧室"],
-    "style": ["简约","现代"],
-    "material": ["密度板","银镜"],
-    "color": ["白"],
+    "category": [
+      "梳妆台",
+      "卧室"
+    ],
+    "style": [
+      "简约",
+      "现代"
+    ],
+    "material": [
+      "密度板",
+      "银镜"
+    ],
+    "color": [
+      "白"
+    ],
     "width_mm": 1200,
     "depth_mm": 450,
     "height_mm": 800,
-    "package": { "width_mm": 1250, "depth_mm": 500, "height_mm": 150, "weight_kg": 35 },
+    "package": {
+      "width_mm": 1250,
+      "depth_mm": 500,
+      "height_mm": 150,
+      "weight_kg": 35
+    },
     "price": 1899,
-    "stock": [{ "city": "Durham", "qty": 9 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 9
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=dresser0131", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=dresser0132", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=dresser0131",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=dresser0132",
+        "type": "scene"
+      }
     ],
     "care": "镜面用玻璃清洁剂；抽屉轨道定期清洁。",
-    "delivery": { "modes": ["送货到门","白手套安装"], "eta_days": [5,10], "upstairs": true },
-    "variants": [{ "name": "配置", "value": "带灯镜+储物" }],
-    "bundle_suggestions": ["sku_bed_002","sku_stool_018"],
+    "delivery": {
+      "modes": [
+        "送货到门",
+        "白手套安装"
+      ],
+      "eta_days": [
+        5,
+        10
+      ],
+      "upstairs": true
+    },
+    "variants": [
+      {
+        "name": "配置",
+        "value": "带灯镜+储物"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_bed_002",
+      "sku_stool_018"
+    ],
     "faq": [
-      { "q": "镜子灯带亮度如何？", "a": "LED灯带，三档调光，护眼不刺眼。" }
+      {
+        "q": "镜子灯带亮度如何？",
+        "a": "LED灯带，三档调光，护眼不刺眼。"
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000",
+          "102000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000",
+          "202000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000",
+          "512000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100",
+          "518200"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "杭州",
+        "postcode": [
+          "310000",
+          "311000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "南京",
+        "postcode": [
+          "210000",
+          "211000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "武汉",
+        "postcode": [
+          "430000",
+          "431000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "成都",
+        "postcode": [
+          "610000",
+          "611000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "西安",
+        "postcode": [
+          "710000",
+          "711000"
+        ],
+        "eta_days": [
+          6,
+          8
+        ]
+      },
+      {
+        "city": "苏州",
+        "postcode": [
+          "215000"
+        ],
+        "eta_days": [
+          5,
+          8
+        ]
+      },
+      {
+        "city": "无锡",
+        "postcode": [
+          "214000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "宁波",
+        "postcode": [
+          "315000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "青岛",
+        "postcode": [
+          "266000"
+        ],
+        "eta_days": [
+          7,
+          10
+        ]
+      }
     ]
   },
   {
@@ -357,26 +2611,123 @@
     "spu_id": "spu_sofa_n",
     "title": "L型转角沙发 3+1",
     "brand": "LivingLux",
-    "category": ["沙发","客厅"],
-    "style": ["现代","转角"],
-    "material": ["科技布","高回弹海绵"],
-    "color": ["深灰"],
+    "category": [
+      "沙发",
+      "客厅"
+    ],
+    "style": [
+      "现代",
+      "转角"
+    ],
+    "material": [
+      "科技布",
+      "高回弹海绵"
+    ],
+    "color": [
+      "深灰"
+    ],
     "width_mm": 2800,
     "depth_mm": 1800,
     "height_mm": 850,
-    "package": { "width_mm": 2850, "depth_mm": 1000, "height_mm": 800, "weight_kg": 75 },
+    "package": {
+      "width_mm": 2850,
+      "depth_mm": 1000,
+      "height_mm": 800,
+      "weight_kg": 75
+    },
     "price": 5999,
-    "stock": [{ "city": "Durham", "qty": 4 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 4
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=sofa0141", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=sofa0142", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=sofa0141",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=sofa0142",
+        "type": "scene"
+      }
     ],
     "care": "科技布面料可湿布擦拭；避免尖锐物品划伤。",
-    "delivery": { "modes": ["白手套安装"], "eta_days": [7,14], "upstairs": true },
-    "variants": [{ "name": "配置", "value": "L型3+1人位" }],
-    "bundle_suggestions": ["sku_table_008","sku_rug_007"],
+    "delivery": {
+      "modes": [
+        "白手套安装"
+      ],
+      "eta_days": [
+        7,
+        14
+      ],
+      "upstairs": true
+    },
+    "variants": [
+      {
+        "name": "配置",
+        "value": "L型3+1人位"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_table_008",
+      "sku_rug_007"
+    ],
     "faq": [
-      { "q": "转角部分舒适度如何？", "a": "转角加宽设计，可当躺椅使用。" }
+      {
+        "q": "转角部分舒适度如何？",
+        "a": "转角加宽设计，可当躺椅使用。"
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000",
+          "102000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000",
+          "202000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000",
+          "512000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100",
+          "518200"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      }
     ]
   },
   {
@@ -384,26 +2735,218 @@
     "spu_id": "spu_lamp_o",
     "title": "护眼台灯 调光",
     "brand": "BrightStudy",
-    "category": ["台灯","书房"],
-    "style": ["现代","护眼"],
-    "material": ["铝合金","LED"],
-    "color": ["银"],
+    "category": [
+      "台灯",
+      "书房"
+    ],
+    "style": [
+      "现代",
+      "护眼"
+    ],
+    "material": [
+      "铝合金",
+      "LED"
+    ],
+    "color": [
+      "银"
+    ],
     "width_mm": 200,
     "depth_mm": 200,
     "height_mm": 400,
-    "package": { "width_mm": 250, "depth_mm": 250, "height_mm": 120, "weight_kg": 2 },
+    "package": {
+      "width_mm": 250,
+      "depth_mm": 250,
+      "height_mm": 120,
+      "weight_kg": 2
+    },
     "price": 399,
-    "stock": [{ "city": "Durham", "qty": 30 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 30
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=lamp0151", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=lamp0152", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=lamp0151",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=lamp0152",
+        "type": "scene"
+      }
     ],
     "care": "灯罩用干布清洁；底座可用湿布擦拭。",
-    "delivery": { "modes": ["送货到门"], "eta_days": [1,3], "upstairs": true },
-    "variants": [{ "name": "功能", "value": "无极调光+色温" }],
-    "bundle_suggestions": ["sku_desk_006","sku_chair_005"],
+    "delivery": {
+      "modes": [
+        "送货到门"
+      ],
+      "eta_days": [
+        1,
+        3
+      ],
+      "upstairs": true
+    },
+    "variants": [
+      {
+        "name": "功能",
+        "value": "无极调光+色温"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_desk_006",
+      "sku_chair_005"
+    ],
     "faq": [
-      { "q": "护眼认证如何？", "a": "通过国家3C认证，无频闪护眼。" }
+      {
+        "q": "护眼认证如何？",
+        "a": "通过国家3C认证，无频闪护眼。"
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000",
+          "102000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000",
+          "202000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000",
+          "512000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100",
+          "518200"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "杭州",
+        "postcode": [
+          "310000",
+          "311000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "南京",
+        "postcode": [
+          "210000",
+          "211000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "武汉",
+        "postcode": [
+          "430000",
+          "431000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "成都",
+        "postcode": [
+          "610000",
+          "611000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "西安",
+        "postcode": [
+          "710000",
+          "711000"
+        ],
+        "eta_days": [
+          6,
+          8
+        ]
+      },
+      {
+        "city": "苏州",
+        "postcode": [
+          "215000"
+        ],
+        "eta_days": [
+          5,
+          8
+        ]
+      },
+      {
+        "city": "无锡",
+        "postcode": [
+          "214000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "宁波",
+        "postcode": [
+          "315000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "青岛",
+        "postcode": [
+          "266000"
+        ],
+        "eta_days": [
+          7,
+          10
+        ]
+      }
     ]
   },
   {
@@ -411,26 +2954,218 @@
     "spu_id": "spu_organizer_p",
     "title": "桌面收纳盒 多格",
     "brand": "TidyDesk",
-    "category": ["收纳","办公室"],
-    "style": ["简约","实用"],
-    "material": ["竹木","分隔板"],
-    "color": ["原木"],
+    "category": [
+      "收纳",
+      "办公室"
+    ],
+    "style": [
+      "简约",
+      "实用"
+    ],
+    "material": [
+      "竹木",
+      "分隔板"
+    ],
+    "color": [
+      "原木"
+    ],
     "width_mm": 300,
     "depth_mm": 200,
     "height_mm": 100,
-    "package": { "width_mm": 320, "depth_mm": 220, "height_mm": 120, "weight_kg": 1 },
+    "package": {
+      "width_mm": 320,
+      "depth_mm": 220,
+      "height_mm": 120,
+      "weight_kg": 1
+    },
     "price": 199,
-    "stock": [{ "city": "Durham", "qty": 50 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 50
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=organizer0161", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=organizer0162", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=organizer0161",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=organizer0162",
+        "type": "scene"
+      }
     ],
     "care": "竹木制品用干布清洁；避免长时间浸水。",
-    "delivery": { "modes": ["送货到门"], "eta_days": [1,3], "upstairs": true },
-    "variants": [{ "name": "格数", "value": "6格分类" }],
-    "bundle_suggestions": ["sku_desk_006","sku_lamp_015"],
+    "delivery": {
+      "modes": [
+        "送货到门"
+      ],
+      "eta_days": [
+        1,
+        3
+      ],
+      "upstairs": true
+    },
+    "variants": [
+      {
+        "name": "格数",
+        "value": "6格分类"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_desk_006",
+      "sku_lamp_015"
+    ],
     "faq": [
-      { "q": "可以放什么物品？", "a": "适合放笔、橡皮、回形针等小物件。" }
+      {
+        "q": "可以放什么物品？",
+        "a": "适合放笔、橡皮、回形针等小物件。"
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000",
+          "102000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000",
+          "202000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000",
+          "512000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100",
+          "518200"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "杭州",
+        "postcode": [
+          "310000",
+          "311000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "南京",
+        "postcode": [
+          "210000",
+          "211000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "武汉",
+        "postcode": [
+          "430000",
+          "431000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "成都",
+        "postcode": [
+          "610000",
+          "611000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "西安",
+        "postcode": [
+          "710000",
+          "711000"
+        ],
+        "eta_days": [
+          6,
+          8
+        ]
+      },
+      {
+        "city": "苏州",
+        "postcode": [
+          "215000"
+        ],
+        "eta_days": [
+          5,
+          8
+        ]
+      },
+      {
+        "city": "无锡",
+        "postcode": [
+          "214000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "宁波",
+        "postcode": [
+          "315000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "青岛",
+        "postcode": [
+          "266000"
+        ],
+        "eta_days": [
+          7,
+          10
+        ]
+      }
     ]
   },
   {
@@ -438,26 +3173,218 @@
     "spu_id": "spu_pillow_q",
     "title": "乳胶枕头 护颈",
     "brand": "SleepComfort",
-    "category": ["枕头","卧室"],
-    "style": ["健康","护颈"],
-    "material": ["天然乳胶","竹纤维"],
-    "color": ["白"],
+    "category": [
+      "枕头",
+      "卧室"
+    ],
+    "style": [
+      "健康",
+      "护颈"
+    ],
+    "material": [
+      "天然乳胶",
+      "竹纤维"
+    ],
+    "color": [
+      "白"
+    ],
     "width_mm": 600,
     "depth_mm": 400,
     "height_mm": 120,
-    "package": { "width_mm": 650, "depth_mm": 450, "height_mm": 150, "weight_kg": 2 },
+    "package": {
+      "width_mm": 650,
+      "depth_mm": 450,
+      "height_mm": 150,
+      "weight_kg": 2
+    },
     "price": 299,
-    "stock": [{ "city": "Durham", "qty": 40 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 40
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=pillow0171", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=pillow0172", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=pillow0171",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=pillow0172",
+        "type": "scene"
+      }
     ],
     "care": "枕套可机洗；枕芯通风晾晒即可。",
-    "delivery": { "modes": ["送货到门"], "eta_days": [1,3], "upstairs": true },
-    "variants": [{ "name": "软硬度", "value": "中等支撑" }],
-    "bundle_suggestions": ["sku_mattress_010","sku_bed_002"],
+    "delivery": {
+      "modes": [
+        "送货到门"
+      ],
+      "eta_days": [
+        1,
+        3
+      ],
+      "upstairs": true
+    },
+    "variants": [
+      {
+        "name": "软硬度",
+        "value": "中等支撑"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_mattress_010",
+      "sku_bed_002"
+    ],
     "faq": [
-      { "q": "乳胶会过敏吗？", "a": "天然乳胶过敏率极低，但敏感体质请谨慎。" }
+      {
+        "q": "乳胶会过敏吗？",
+        "a": "天然乳胶过敏率极低，但敏感体质请谨慎。"
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000",
+          "102000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000",
+          "202000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000",
+          "512000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100",
+          "518200"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "杭州",
+        "postcode": [
+          "310000",
+          "311000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "南京",
+        "postcode": [
+          "210000",
+          "211000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "武汉",
+        "postcode": [
+          "430000",
+          "431000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "成都",
+        "postcode": [
+          "610000",
+          "611000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "西安",
+        "postcode": [
+          "710000",
+          "711000"
+        ],
+        "eta_days": [
+          6,
+          8
+        ]
+      },
+      {
+        "city": "苏州",
+        "postcode": [
+          "215000"
+        ],
+        "eta_days": [
+          5,
+          8
+        ]
+      },
+      {
+        "city": "无锡",
+        "postcode": [
+          "214000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "宁波",
+        "postcode": [
+          "315000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "青岛",
+        "postcode": [
+          "266000"
+        ],
+        "eta_days": [
+          7,
+          10
+        ]
+      }
     ]
   },
   {
@@ -465,26 +3392,218 @@
     "spu_id": "spu_stool_r",
     "title": "化妆凳 圆形",
     "brand": "BeautySeats",
-    "category": ["凳子","卧室"],
-    "style": ["简约","轻奢"],
-    "material": ["绒布","不锈钢"],
-    "color": ["粉"],
+    "category": [
+      "凳子",
+      "卧室"
+    ],
+    "style": [
+      "简约",
+      "轻奢"
+    ],
+    "material": [
+      "绒布",
+      "不锈钢"
+    ],
+    "color": [
+      "粉"
+    ],
     "width_mm": 350,
     "depth_mm": 350,
     "height_mm": 450,
-    "package": { "width_mm": 380, "depth_mm": 380, "height_mm": 200, "weight_kg": 5 },
+    "package": {
+      "width_mm": 380,
+      "depth_mm": 380,
+      "height_mm": 200,
+      "weight_kg": 5
+    },
     "price": 399,
-    "stock": [{ "city": "Durham", "qty": 25 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 25
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=stool0181", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=stool0182", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=stool0181",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=stool0182",
+        "type": "scene"
+      }
     ],
     "care": "绒布面料用软毛刷清洁；金属腿可湿布擦拭。",
-    "delivery": { "modes": ["送货到门"], "eta_days": [1,3], "upstairs": true },
-    "variants": [{ "name": "高度", "value": "45cm固定" }],
-    "bundle_suggestions": ["sku_dresser_013","sku_mirror_019"],
+    "delivery": {
+      "modes": [
+        "送货到门"
+      ],
+      "eta_days": [
+        1,
+        3
+      ],
+      "upstairs": true
+    },
+    "variants": [
+      {
+        "name": "高度",
+        "value": "45cm固定"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_dresser_013",
+      "sku_mirror_019"
+    ],
     "faq": [
-      { "q": "承重多少？", "a": "最大承重80kg，坐感舒适稳固。" }
+      {
+        "q": "承重多少？",
+        "a": "最大承重80kg，坐感舒适稳固。"
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000",
+          "102000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000",
+          "202000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000",
+          "512000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100",
+          "518200"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "杭州",
+        "postcode": [
+          "310000",
+          "311000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "南京",
+        "postcode": [
+          "210000",
+          "211000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "武汉",
+        "postcode": [
+          "430000",
+          "431000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "成都",
+        "postcode": [
+          "610000",
+          "611000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "西安",
+        "postcode": [
+          "710000",
+          "711000"
+        ],
+        "eta_days": [
+          6,
+          8
+        ]
+      },
+      {
+        "city": "苏州",
+        "postcode": [
+          "215000"
+        ],
+        "eta_days": [
+          5,
+          8
+        ]
+      },
+      {
+        "city": "无锡",
+        "postcode": [
+          "214000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "宁波",
+        "postcode": [
+          "315000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "青岛",
+        "postcode": [
+          "266000"
+        ],
+        "eta_days": [
+          7,
+          10
+        ]
+      }
     ]
   },
   {
@@ -492,26 +3611,219 @@
     "spu_id": "spu_mirror_s",
     "title": "全身落地镜 1.6m",
     "brand": "ReflectHome",
-    "category": ["镜子","卧室"],
-    "style": ["简约","现代"],
-    "material": ["银镜","铝合金框"],
-    "color": ["银框"],
+    "category": [
+      "镜子",
+      "卧室"
+    ],
+    "style": [
+      "简约",
+      "现代"
+    ],
+    "material": [
+      "银镜",
+      "铝合金框"
+    ],
+    "color": [
+      "银框"
+    ],
     "width_mm": 500,
     "depth_mm": 30,
     "height_mm": 1600,
-    "package": { "width_mm": 550, "depth_mm": 80, "height_mm": 1650, "weight_kg": 12 },
+    "package": {
+      "width_mm": 550,
+      "depth_mm": 80,
+      "height_mm": 1650,
+      "weight_kg": 12
+    },
     "price": 599,
-    "stock": [{ "city": "Durham", "qty": 18 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 18
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=mirror0191", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=mirror0192", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=mirror0191",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=mirror0192",
+        "type": "scene"
+      }
     ],
     "care": "镜面用玻璃清洁剂；边框用干布擦拭。",
-    "delivery": { "modes": ["送货到门","白手套安装"], "eta_days": [3,7], "upstairs": true },
-    "variants": [{ "name": "安装", "value": "可立式+挂式" }],
-    "bundle_suggestions": ["sku_dresser_013","sku_wardrobe_009"],
+    "delivery": {
+      "modes": [
+        "送货到门",
+        "白手套安装"
+      ],
+      "eta_days": [
+        3,
+        7
+      ],
+      "upstairs": true
+    },
+    "variants": [
+      {
+        "name": "安装",
+        "value": "可立式+挂式"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_dresser_013",
+      "sku_wardrobe_009"
+    ],
     "faq": [
-      { "q": "镜子会变形吗？", "a": "采用4mm银镜，成像清晰不变形。" }
+      {
+        "q": "镜子会变形吗？",
+        "a": "采用4mm银镜，成像清晰不变形。"
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000",
+          "102000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000",
+          "202000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000",
+          "512000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100",
+          "518200"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "杭州",
+        "postcode": [
+          "310000",
+          "311000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "南京",
+        "postcode": [
+          "210000",
+          "211000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "武汉",
+        "postcode": [
+          "430000",
+          "431000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "成都",
+        "postcode": [
+          "610000",
+          "611000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "西安",
+        "postcode": [
+          "710000",
+          "711000"
+        ],
+        "eta_days": [
+          6,
+          8
+        ]
+      },
+      {
+        "city": "苏州",
+        "postcode": [
+          "215000"
+        ],
+        "eta_days": [
+          5,
+          8
+        ]
+      },
+      {
+        "city": "无锡",
+        "postcode": [
+          "214000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "宁波",
+        "postcode": [
+          "315000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "青岛",
+        "postcode": [
+          "266000"
+        ],
+        "eta_days": [
+          7,
+          10
+        ]
+      }
     ]
   },
   {
@@ -519,26 +3831,218 @@
     "spu_id": "spu_cabinet_t",
     "title": "玄关鞋柜 1.2m",
     "brand": "EntryWay",
-    "category": ["鞋柜","玄关"],
-    "style": ["现代","实用"],
-    "material": ["密度板","金属把手"],
-    "color": ["白"],
+    "category": [
+      "鞋柜",
+      "玄关"
+    ],
+    "style": [
+      "现代",
+      "实用"
+    ],
+    "material": [
+      "密度板",
+      "金属把手"
+    ],
+    "color": [
+      "白"
+    ],
     "width_mm": 1200,
     "depth_mm": 350,
     "height_mm": 800,
-    "package": { "width_mm": 1250, "depth_mm": 400, "height_mm": 150, "weight_kg": 28 },
+    "package": {
+      "width_mm": 1250,
+      "depth_mm": 400,
+      "height_mm": 150,
+      "weight_kg": 28
+    },
     "price": 1199,
-    "stock": [{ "city": "Durham", "qty": 12 }],
+    "stock": [
+      {
+        "city": "Durham",
+        "qty": 12
+      }
+    ],
     "images": [
-      { "url": "https://picsum.photos/400/300?random=cabinet0201", "type": "main" },
-      { "url": "https://picsum.photos/400/300?random=cabinet0202", "type": "scene" }
+      {
+        "url": "https://picsum.photos/400/300?random=cabinet0201",
+        "type": "main"
+      },
+      {
+        "url": "https://picsum.photos/400/300?random=cabinet0202",
+        "type": "scene"
+      }
     ],
     "care": "表面防潮处理，用湿布清洁；通风保持干燥。",
-    "delivery": { "modes": ["送货到门"], "eta_days": [3,7], "upstairs": true },
-    "variants": [{ "name": "容量", "value": "可放15-20双鞋" }],
-    "bundle_suggestions": ["sku_mirror_019","sku_stool_018"],
+    "delivery": {
+      "modes": [
+        "送货到门"
+      ],
+      "eta_days": [
+        3,
+        7
+      ],
+      "upstairs": true
+    },
+    "variants": [
+      {
+        "name": "容量",
+        "value": "可放15-20双鞋"
+      }
+    ],
+    "bundle_suggestions": [
+      "sku_mirror_019",
+      "sku_stool_018"
+    ],
     "faq": [
-      { "q": "有除臭功能吗？", "a": "内置通风孔设计，保持鞋柜内空气流通。" }
+      {
+        "q": "有除臭功能吗？",
+        "a": "内置通风孔设计，保持鞋柜内空气流通。"
+      }
+    ],
+    "deliverable_cities": [
+      {
+        "city": "北京",
+        "postcode": [
+          "100000",
+          "101000",
+          "102000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "上海",
+        "postcode": [
+          "200000",
+          "201000",
+          "202000"
+        ],
+        "eta_days": [
+          2,
+          4
+        ]
+      },
+      {
+        "city": "广州",
+        "postcode": [
+          "510000",
+          "511000",
+          "512000"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "深圳",
+        "postcode": [
+          "518000",
+          "518100",
+          "518200"
+        ],
+        "eta_days": [
+          3,
+          5
+        ]
+      },
+      {
+        "city": "杭州",
+        "postcode": [
+          "310000",
+          "311000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "南京",
+        "postcode": [
+          "210000",
+          "211000"
+        ],
+        "eta_days": [
+          4,
+          6
+        ]
+      },
+      {
+        "city": "武汉",
+        "postcode": [
+          "430000",
+          "431000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "成都",
+        "postcode": [
+          "610000",
+          "611000"
+        ],
+        "eta_days": [
+          5,
+          7
+        ]
+      },
+      {
+        "city": "西安",
+        "postcode": [
+          "710000",
+          "711000"
+        ],
+        "eta_days": [
+          6,
+          8
+        ]
+      },
+      {
+        "city": "苏州",
+        "postcode": [
+          "215000"
+        ],
+        "eta_days": [
+          5,
+          8
+        ]
+      },
+      {
+        "city": "无锡",
+        "postcode": [
+          "214000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "宁波",
+        "postcode": [
+          "315000"
+        ],
+        "eta_days": [
+          6,
+          9
+        ]
+      },
+      {
+        "city": "青岛",
+        "postcode": [
+          "266000"
+        ],
+        "eta_days": [
+          7,
+          10
+        ]
+      }
     ]
   }
 ]

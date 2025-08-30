@@ -322,6 +322,57 @@
   padding: 0 16rpx;
 }
 
+/* 城市选择器 */
+.city-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.city-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 24rpx;
+  background: #f8f8f8;
+  border-radius: 12rpx;
+  border: 2rpx solid transparent;
+  transition: all 0.2s ease;
+}
+
+.city-input:active {
+  border-color: #007AFF;
+  background: #f0f9ff;
+}
+
+.city-text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.city-input .city-text[data-placeholder] {
+  color: #999;
+}
+
+.city-arrow {
+  font-size: 24rpx;
+  color: #666;
+  font-weight: bold;
+}
+
+.delivery-eta {
+  padding: 12rpx 16rpx;
+  background: #E8F5E8;
+  border-radius: 8rpx;
+  text-align: center;
+}
+
+.eta-text {
+  font-size: 24rpx;
+  color: #2E7D32;
+  font-weight: 500;
+}
+
 /* 服务选择 */
 .services-list {
   display: flex;

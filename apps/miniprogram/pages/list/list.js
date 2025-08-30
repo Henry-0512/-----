@@ -53,6 +53,7 @@ Page({
       { key: "material", type: "multi", label: "材质", options: ["布艺","皮质","实木","金属","玻璃"] },
       { key: "style", type: "multi", label: "风格", options: ["现代","北欧","原木","极简","工业"] },
       { key: "color", type: "multi", label: "颜色", options: ["灰","米白","原木","黑","棕"] },
+      { key: "cities", type: "multi", label: "可配送城市", options: [] }, // 动态加载
       { key: "upstairs", type: "bool", label: "可上楼" }
     ],
     currentFilters: {},
@@ -106,8 +107,21 @@ Page({
   async loadFilterOptions() {
     try {
       const res = await api.getFiltersMeta()
+      
+      // 更新筛选器配置中的城市选项
+      const updatedFilterSchema = this.data.filterSchema.map(filter => {
+        if (filter.key === 'cities') {
+          return {
+            ...filter,
+            options: (res.data.cities || []).map(city => city.name || city.id)
+          }
+        }
+        return filter
+      })
+      
       this.setData({
-        filterOptions: res.data
+        filterOptions: res.data,
+        filterSchema: updatedFilterSchema
       })
     } catch (error) {
       console.error('加载筛选条件失败：', error)
