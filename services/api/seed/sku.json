@@ -15,8 +15,8 @@
     "price": 3999,
     "stock": [{ "city": "Durham", "qty": 8 }],
     "images": [
-      { "url": "/static/sofa001_main.jpg", "type": "main" },
-      { "url": "/static/sofa001_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=101", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=102", "type": "scene" }
     ],
     "care": "可拆洗外套，低温水洗；木质部位用微湿布擦拭。",
     "delivery": { "modes": ["送货到门","白手套安装"], "eta_days": [5,10], "upstairs": true },
@@ -42,8 +42,8 @@
     "price": 3299,
     "stock": [{ "city": "Durham", "qty": 5 }],
     "images": [
-      { "url": "/static/bed002_main.jpg", "type": "main" },
-      { "url": "/static/bed002_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=bed0021", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=bed0022", "type": "scene" }
     ],
     "care": "表面清洁使用干布或微湿布；避免长时日晒。",
     "delivery": { "modes": ["送货到门"], "eta_days": [7,14], "upstairs": true },
@@ -69,8 +69,8 @@
     "price": 2899,
     "stock": [{ "city": "Durham", "qty": 12 }],
     "images": [
-      { "url": "/static/table003_main.jpg", "type": "main" },
-      { "url": "/static/table003_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=table0031", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=table0032", "type": "scene" }
     ],
     "care": "定期使用木质护理油保养；避免尖锐物品划伤。",
     "delivery": { "modes": ["送货到门","白手套安装"], "eta_days": [3,7], "upstairs": true },
@@ -96,8 +96,8 @@
     "price": 599,
     "stock": [{ "city": "Durham", "qty": 20 }],
     "images": [
-      { "url": "/static/chair004_main.jpg", "type": "main" },
-      { "url": "/static/chair004_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=chair0041", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=chair0042", "type": "scene" }
     ],
     "care": "PU皮面用湿布擦拭；金属部位避免潮湿环境。",
     "delivery": { "modes": ["送货到门"], "eta_days": [2,5], "upstairs": true },
@@ -123,8 +123,8 @@
     "price": 1899,
     "stock": [{ "city": "Durham", "qty": 15 }],
     "images": [
-      { "url": "/static/chair005_main.jpg", "type": "main" },
-      { "url": "/static/chair005_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=chair0051", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=chair0052", "type": "scene" }
     ],
     "care": "网布可用吸尘器清洁；滑轮定期加润滑油。",
     "delivery": { "modes": ["送货到门","白手套安装"], "eta_days": [3,7], "upstairs": true },
@@ -150,8 +150,8 @@
     "price": 1299,
     "stock": [{ "city": "Durham", "qty": 18 }],
     "images": [
-      { "url": "/static/desk006_main.jpg", "type": "main" },
-      { "url": "/static/desk006_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=desk0061", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=desk0062", "type": "scene" }
     ],
     "care": "表面防水处理，用湿布即可清洁；避免重物撞击。",
     "delivery": { "modes": ["送货到门"], "eta_days": [2,5], "upstairs": true },
@@ -177,8 +177,8 @@
     "price": 899,
     "stock": [{ "city": "Durham", "qty": 25 }],
     "images": [
-      { "url": "/static/rug007_main.jpg", "type": "main" },
-      { "url": "/static/rug007_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=rug0071", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=rug0072", "type": "scene" }
     ],
     "care": "可机洗，冷水洗涤；定期吸尘保持清洁。",
     "delivery": { "modes": ["送货到门"], "eta_days": [1,3], "upstairs": true },
@@ -204,8 +204,8 @@
     "price": 1599,
     "stock": [{ "city": "Durham", "qty": 10 }],
     "images": [
-      { "url": "/static/table008_main.jpg", "type": "main" },
-      { "url": "/static/table008_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=table0081", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=table0082", "type": "scene" }
     ],
     "care": "玻璃面用玻璃清洁剂；不锈钢用专用清洁布。",
     "delivery": { "modes": ["送货到门","白手套安装"], "eta_days": [5,10], "upstairs": true },
@@ -231,8 +231,8 @@
     "price": 4599,
     "stock": [{ "city": "Durham", "qty": 6 }],
     "images": [
-      { "url": "/static/wardrobe009_main.jpg", "type": "main" },
-      { "url": "/static/wardrobe009_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=wardrobe0091", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=wardrobe0092", "type": "scene" }
     ],
     "care": "轨道定期清洁润滑；面板用微湿布擦拭。",
     "delivery": { "modes": ["白手套安装"], "eta_days": [7,14], "upstairs": true },
@@ -258,8 +258,8 @@
     "price": 2199,
     "stock": [{ "city": "Durham", "qty": 14 }],
     "images": [
-      { "url": "/static/mattress010_main.jpg", "type": "main" },
-      { "url": "/static/mattress010_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=mattress0101", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=mattress0102", "type": "scene" }
     ],
     "care": "每3个月翻转一次；床单套装保护表面。",
     "delivery": { "modes": ["送货到门","白手套安装"], "eta_days": [3,7], "upstairs": true },
@@ -285,8 +285,8 @@
     "price": 699,
     "stock": [{ "city": "Durham", "qty": 22 }],
     "images": [
-      { "url": "/static/nightstand011_main.jpg", "type": "main" },
-      { "url": "/static/nightstand011_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=nightstand0111", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=nightstand0112", "type": "scene" }
     ],
     "care": "木质表面用专用护理蜡；抽屉滑轨定期润滑。",
     "delivery": { "modes": ["送货到门"], "eta_days": [2,5], "upstairs": true },
@@ -312,8 +312,8 @@
     "price": 1399,
     "stock": [{ "city": "Durham", "qty": 16 }],
     "images": [
-      { "url": "/static/bookshelf012_main.jpg", "type": "main" },
-      { "url": "/static/bookshelf012_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=bookshelf0121", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=bookshelf0122", "type": "scene" }
     ],
     "care": "木板用微湿布清洁；铁艺部分防锈处理。",
     "delivery": { "modes": ["送货到门"], "eta_days": [3,7], "upstairs": true },
@@ -339,8 +339,8 @@
     "price": 1899,
     "stock": [{ "city": "Durham", "qty": 9 }],
     "images": [
-      { "url": "/static/dresser013_main.jpg", "type": "main" },
-      { "url": "/static/dresser013_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=dresser0131", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=dresser0132", "type": "scene" }
     ],
     "care": "镜面用玻璃清洁剂；抽屉轨道定期清洁。",
     "delivery": { "modes": ["送货到门","白手套安装"], "eta_days": [5,10], "upstairs": true },
@@ -366,8 +366,8 @@
     "price": 5999,
     "stock": [{ "city": "Durham", "qty": 4 }],
     "images": [
-      { "url": "/static/sofa014_main.jpg", "type": "main" },
-      { "url": "/static/sofa014_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=sofa0141", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=sofa0142", "type": "scene" }
     ],
     "care": "科技布面料可湿布擦拭；避免尖锐物品划伤。",
     "delivery": { "modes": ["白手套安装"], "eta_days": [7,14], "upstairs": true },
@@ -393,8 +393,8 @@
     "price": 399,
     "stock": [{ "city": "Durham", "qty": 30 }],
     "images": [
-      { "url": "/static/lamp015_main.jpg", "type": "main" },
-      { "url": "/static/lamp015_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=lamp0151", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=lamp0152", "type": "scene" }
     ],
     "care": "灯罩用干布清洁；底座可用湿布擦拭。",
     "delivery": { "modes": ["送货到门"], "eta_days": [1,3], "upstairs": true },
@@ -420,8 +420,8 @@
     "price": 199,
     "stock": [{ "city": "Durham", "qty": 50 }],
     "images": [
-      { "url": "/static/organizer016_main.jpg", "type": "main" },
-      { "url": "/static/organizer016_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=organizer0161", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=organizer0162", "type": "scene" }
     ],
     "care": "竹木制品用干布清洁；避免长时间浸水。",
     "delivery": { "modes": ["送货到门"], "eta_days": [1,3], "upstairs": true },
@@ -447,8 +447,8 @@
     "price": 299,
     "stock": [{ "city": "Durham", "qty": 40 }],
     "images": [
-      { "url": "/static/pillow017_main.jpg", "type": "main" },
-      { "url": "/static/pillow017_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=pillow0171", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=pillow0172", "type": "scene" }
     ],
     "care": "枕套可机洗；枕芯通风晾晒即可。",
     "delivery": { "modes": ["送货到门"], "eta_days": [1,3], "upstairs": true },
@@ -474,8 +474,8 @@
     "price": 399,
     "stock": [{ "city": "Durham", "qty": 25 }],
     "images": [
-      { "url": "/static/stool018_main.jpg", "type": "main" },
-      { "url": "/static/stool018_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=stool0181", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=stool0182", "type": "scene" }
     ],
     "care": "绒布面料用软毛刷清洁；金属腿可湿布擦拭。",
     "delivery": { "modes": ["送货到门"], "eta_days": [1,3], "upstairs": true },
@@ -501,8 +501,8 @@
     "price": 599,
     "stock": [{ "city": "Durham", "qty": 18 }],
     "images": [
-      { "url": "/static/mirror019_main.jpg", "type": "main" },
-      { "url": "/static/mirror019_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=mirror0191", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=mirror0192", "type": "scene" }
     ],
     "care": "镜面用玻璃清洁剂；边框用干布擦拭。",
     "delivery": { "modes": ["送货到门","白手套安装"], "eta_days": [3,7], "upstairs": true },
@@ -528,8 +528,8 @@
     "price": 1199,
     "stock": [{ "city": "Durham", "qty": 12 }],
     "images": [
-      { "url": "/static/cabinet020_main.jpg", "type": "main" },
-      { "url": "/static/cabinet020_scene.jpg", "type": "scene" }
+      { "url": "https://picsum.photos/400/300?random=cabinet0201", "type": "main" },
+      { "url": "https://picsum.photos/400/300?random=cabinet0202", "type": "scene" }
     ],
     "care": "表面防潮处理，用湿布清洁；通风保持干燥。",
     "delivery": { "modes": ["送货到门"], "eta_days": [3,7], "upstairs": true },

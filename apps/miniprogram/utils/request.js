@@ -357,7 +357,21 @@ const storage = {
   get: (key) => {
     try {
       const value = wx.getStorageSync(key)
-      return value ? JSON.parse(value) : null
+      if (!value || value === '') {
+        return null
+      }
+      // 如果不是字符串，直接返回
+      if (typeof value !== 'string') {
+        return value
+      }
+      // 尝试解析JSON，如果失败则清除该存储项
+      try {
+        return JSON.parse(value)
+      } catch (parseError) {
+        console.warn(`Storage parse error for key "${key}":`, parseError)
+        wx.removeStorageSync(key) // 清除损坏的数据
+        return null
+      }
     } catch (error) {
       console.error('Storage get error:', error)
       return null

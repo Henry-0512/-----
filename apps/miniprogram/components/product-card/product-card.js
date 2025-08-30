@@ -67,10 +67,10 @@ Component({
      */
     checkFavoriteStatus() {
       const { product } = this.data
-      if (!product.id) return
+      if (!product || !product.id) return
 
-      const favorites = storage.get('favorites', [])
-      const isFavorited = favorites.some(item => item.id === product.id)
+      const favorites = storage.get('favorites') || []
+      const isFavorited = Array.isArray(favorites) && favorites.some(item => item && item.id === product.id)
       this.setData({ isFavorited })
     },
 
@@ -79,10 +79,10 @@ Component({
      */
     checkCompareStatus() {
       const { product } = this.data
-      if (!product.id) return
+      if (!product || !product.id) return
 
-      const compareList = storage.get('compareList', [])
-      const isCompared = compareList.some(item => item.id === product.id)
+      const compareList = storage.get('compareList') || []
+      const isCompared = Array.isArray(compareList) && compareList.some(item => item && item.id === product.id)
       this.setData({ isCompared })
     },
 
