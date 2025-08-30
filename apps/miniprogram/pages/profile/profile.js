@@ -1,16 +1,18 @@
 // pages/profile/profile.js
-const { USE_MOCK_DATA } = require('../../utils/config.js')
-
-const { storage } = USE_MOCK_DATA 
+const { isMockEnabled } = require('../../config/env.js')
+const { storage } = isMockEnabled() 
   ? require('../../utils/request-mock.js')
   : require('../../utils/request.js')
+const { authManager } = require('../../utils/auth.js')
 
 Page({
   data: {
     userInfo: {
       avatar: '',
       nickname: '未登录',
-      phone: ''
+      phone: '',
+      openid: '',
+      isLoggedIn: false
     },
     orders: [],
     favoriteItems: [],
@@ -38,13 +40,69 @@ Page({
    * 加载用户信息
    */
   loadUserInfo() {
-    const userInfo = storage.get('userInfo', {
-      avatar: '',
-      nickname: '未登录',
-      phone: ''
-    })
+    // 从认证管理器获取用户信息
+    const isLoggedIn = authManager.checkLoginStatus()
+    const openid = authManager.getOpenid()
     
-    this.setData({ userInfo })
+    // 从本地存储获取额外用户信息
+    const localUserInfo = storage.get('userInfo') || {}
+    
+    this.setData({
+      userInfo: {
+        avatar: localUserInfo.avatar || '',
+        nickname: localUserInfo.nickname || (isLoggedIn ? '微信用户' : '未登录'),
+        phone: localUserInfo.phone || '',
+        openid: openid ? openid.substr(-8) : '', // 只显示后8位
+        isLoggedIn
+      }
+    })
+  },
+
+  /**
+   * 手动登录
+   */
+  async onLogin() {
+    try {
+      wx.showLoading({ title: '登录中...' })
+      
+      const result = await authManager.wxLogin()
+      
+      wx.hideLoading()
+      wx.showToast({
+        title: '登录成功',
+        icon: 'success'
+      })
+      
+      this.loadUserInfo()
+      
+    } catch (error) {
+      wx.hideLoading()
+      console.error('登录失败:', error)
+      wx.showToast({
+        title: '登录失败，请重试',
+        icon: 'none'
+      })
+    }
+  },
+
+  /**
+   * 退出登录
+   */
+  onLogout() {
+    wx.showModal({
+      title: '确认退出',
+      content: '确定要退出登录吗？',
+      success: (res) => {
+        if (res.confirm) {
+          authManager.logout()
+          this.loadUserInfo()
+          wx.showToast({
+            title: '已退出登录',
+            icon: 'success'
+          })
+        }
+      }
+    })
   },
 
   /**

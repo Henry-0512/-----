@@ -42,10 +42,31 @@
   opacity: 0.8;
 }
 
-.login-arrow {
-  font-size: 32rpx;
-  font-weight: bold;
-  opacity: 0.8;
+.login-actions {
+  display: flex;
+  align-items: center;
+}
+
+.login-btn, .logout-btn {
+  padding: 12rpx 24rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  border: none;
+  margin: 0;
+}
+
+.login-btn {
+  background: #007AFF;
+  color: white;
+}
+
+.logout-btn {
+  background: #FF5722;
+  color: white;
+}
+
+.login-btn::after, .logout-btn::after {
+  border: none;
 }
 
 /* 统计数据 */

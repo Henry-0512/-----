@@ -10,9 +10,15 @@
       ></image>
       <view class="user-details">
         <text class="user-nickname">{{userInfo.nickname}}</text>
-        <text class="user-phone">{{userInfo.phone || '点击登录'}}</text>
+        <text class="user-phone" wx:if="{{userInfo.isLoggedIn}}">
+          ID: {{userInfo.openid}}
+        </text>
+        <text class="user-phone" wx:else>点击登录</text>
       </view>
-      <text class="login-arrow">></text>
+      <view class="login-actions">
+        <button wx:if="{{!userInfo.isLoggedIn}}" class="login-btn" bindtap="onLogin">登录</button>
+        <button wx:else class="logout-btn" bindtap="onLogout">退出</button>
+      </view>
     </view>
     
     <!-- 统计数据 -->

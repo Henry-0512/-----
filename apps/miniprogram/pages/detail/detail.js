@@ -399,27 +399,34 @@ Page({
    * 创建意向订单
    */
   async onCreateOrder() {
-    const { sku, duration } = this.data
+    const { sku, duration, durationUnit, quantity, selectedServices, quoteData, selectedCity } = this.data
     if (!sku) return
     
-    if (!sku.available) {
-      wx.showToast({
-        title: '商品暂时缺货',
-        icon: 'none',
-        duration: 2000
-      })
-      return
-    }
-    
     try {
+      // 确保用户已登录
+      const app = getApp()
+      const openid = await app.ensureUserLogin()
+      
       const startDate = new Date()
       startDate.setDate(startDate.getDate() + 7) // 一周后开始
       
-      const res = await api.createIntentOrder({
+      const orderData = {
         skuId: sku.id,
         duration,
-        startDate: startDate.toISOString().split('T')[0]
-      })
+        durationUnit,
+        quantity,
+        services: selectedServices,
+        startDate: startDate.toISOString().split('T')[0],
+        openid,
+        quoteData,
+        userInfo: {
+          source: 'create_order',
+          city: selectedCity,
+          timestamp: new Date().toISOString()
+        }
+      }
+      
+      const res = await api.submitIntentOrder(orderData)
       
       if (res.success) {
         // 保存订单到本地存储

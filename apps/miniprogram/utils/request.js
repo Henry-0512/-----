@@ -279,6 +279,19 @@ function requestWithRetry(options, onRetry) {
 // ================== API 接口封装 ==================
 
 /**
+ * 微信登录认证
+ * @param {string} code 微信登录code
+ */
+const code2session = (code) => {
+  return request({
+    url: '/api/auth/code2session',
+    method: 'POST',
+    data: { code },
+    showLoading: true
+  })
+}
+
+/**
  * 获取筛选元数据
  */
 const getFiltersMeta = () => {
@@ -476,6 +489,7 @@ const api = {
   requestWithRetry,
   
   // 业务接口
+  code2session,
   getFiltersMeta,
   filterProducts,
   searchProducts,

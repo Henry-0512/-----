@@ -81,6 +81,70 @@ async function addIntentOrder(orderData) {
 
 // API 路由
 
+// 微信登录认证接口
+fastify.post('/api/auth/code2session', async (request, reply) => {
+  const { code, appid = 'demo_appid', secret = 'demo_secret' } = request.body || {}
+  
+  if (!code) {
+    return reply.code(400).send({
+      success: false,
+      message: '缺少必要参数：code'
+    })
+  }
+  
+  try {
+    // 模拟微信code2session接口
+    // 在真实环境中，这里应该调用微信官方接口
+    // const wechatRes = await fetch(`https://api.weixin.qq.com/sns/jscode2session?appid=${appid}&secret=${secret}&js_code=${code}&grant_type=authorization_code`)
+    
+    // 模拟返回数据
+    const mockOpenid = `mock_openid_${Date.now()}_${Math.random().toString(36).substr(2, 8)}`
+    const mockSessionKey = `mock_session_${Date.now()}`
+    
+    // 模拟微信接口响应
+    const sessionData = {
+      openid: mockOpenid,
+      session_key: mockSessionKey,
+      unionid: null, // 可选，如果用户绑定了开放平台
+      errcode: 0,
+      errmsg: 'ok'
+    }
+    
+    // 记录用户登录信息（可选）
+    const loginRecord = {
+      openid: mockOpenid,
+      code,
+      loginTime: new Date().toISOString(),
+      clientInfo: {
+        userAgent: request.headers['user-agent'] || '',
+        ip: request.ip || ''
+      }
+    }
+    
+    console.log('用户登录:', loginRecord)
+    
+    return {
+      success: true,
+      data: {
+        openid: sessionData.openid,
+        session_key: sessionData.session_key,
+        unionid: sessionData.unionid,
+        // 额外的用户信息
+        userInfo: {
+          isNewUser: true, // 可以根据openid查询数据库判断
+          loginTime: loginRecord.loginTime
+        }
+      }
+    }
+  } catch (error) {
+    console.error('code2session失败:', error)
+    return reply.code(500).send({
+      success: false,
+      message: '登录认证失败，请稍后重试'
+    })
+  }
+})
+
 // 获取筛选元数据
 fastify.get('/api/filters/meta', async (request, reply) => {
   // 动态生成分类统计
@@ -761,7 +825,8 @@ fastify.post('/api/intent-order', async (request, reply) => {
     services = [],
     startDate, 
     userInfo = {},
-    quoteData = null
+    quoteData = null,
+    openid = ''  // 用户openid
   } = request.body || {}
   
   if (!skuId || !duration || !startDate) {
@@ -793,6 +858,7 @@ fastify.post('/api/intent-order', async (request, reply) => {
       startDate,
       monthlyPrice,
       totalAmount: monthlyPrice * duration * quantity,
+      openid,  // 用户身份标识
       sku: {
         id: sku.id,
         title: sku.title,
