@@ -1311,5 +1311,30 @@
     "id": "track_1756521363507_vu8xs1",
     "timestamp": "2025-08-30T02:36:03.507Z",
     "date": "2025-08-30"
+  },
+  {
+    "event": "page_view",
+    "payload": {
+      "page": {
+        "route": "pages/policy/policy",
+        "options": {
+          "type": "terms"
+        }
+      },
+      "type": "terms",
+      "source": "about_page",
+      "timestamp": "2025-08-30T14:05:21.980Z"
+    },
+    "openid": "mock_openid_1756521734805_vfhuclbl",
+    "sessionId": "session_1756562721976_q4bqd4ze",
+    "userTimestamp": "2025-08-30T14:05:21.980Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/452",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756562722019_sloeav",
+    "timestamp": "2025-08-30T14:05:22.019Z",
+    "date": "2025-08-30"
   }
 ]

@@ -390,5 +390,98 @@ Page({
     wx.navigateTo({
       url: '/pages/policy/policy?type=privacy'
     })
+  },
+
+  /**
+   * 新增页面功能方法
+   */
+  onViewOrders() {
+    wx.showToast({
+      title: '订单功能开发中',
+      icon: 'none'
+    })
+  },
+
+  onPersonalDetails() {
+    wx.showToast({
+      title: '个人详情功能开发中',
+      icon: 'none'
+    })
+  },
+
+  onAddressBook() {
+    wx.showToast({
+      title: '地址簿功能开发中',
+      icon: 'none'
+    })
+  },
+
+  onPaymentDetails() {
+    wx.showToast({
+      title: '支付详情功能开发中',
+      icon: 'none'
+    })
+  },
+
+  onManageAccount() {
+    wx.showToast({
+      title: '账户管理功能开发中',
+      icon: 'none'
+    })
+  },
+
+  onPriceMatch() {
+    wx.showToast({
+      title: '价格匹配功能开发中',
+      icon: 'none'
+    })
+  },
+
+  onPriceRefund() {
+    wx.showToast({
+      title: '价格退款功能开发中',
+      icon: 'none'
+    })
+  },
+
+  onSettings() {
+    wx.showToast({
+      title: '设置功能开发中',
+      icon: 'none'
+    })
+  },
+
+  onChooseIcon() {
+    wx.showToast({
+      title: '选择图标功能开发中',
+      icon: 'none'
+    })
+  },
+
+  onFeedback() {
+    wx.showToast({
+      title: '反馈功能开发中',
+      icon: 'none'
+    })
+  },
+
+  onHelpContact() {
+    wx.showToast({
+      title: '帮助联系功能开发中',
+      icon: 'none'
+    })
+  },
+
+  onInStoreMode() {
+    wx.showToast({
+      title: '店内模式功能开发中',
+      icon: 'none'
+    })
+  },
+
+  onOurServices() {
+    wx.navigateTo({
+      url: '/pages/about/about'
+    })
   }
 })
