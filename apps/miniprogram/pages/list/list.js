@@ -92,8 +92,9 @@ Page({
     
     console.log('🔍 列表页onLoad完成')
     
-    // 暂时不加载数据，先确保页面能跳转
-    console.log('🔍 跳过数据加载，页面应该显示')
+    // 恢复数据加载
+    console.log('🔍 开始加载商品数据')
+    this.loadItems(true)
   },
 
   onReady() {
@@ -236,7 +237,8 @@ Page({
         currentPage,
         searchQuery,
         selectedFilters,
-        currentSort
+        currentSort,
+        reset
       })
       
       let res
@@ -523,7 +525,7 @@ Page({
           })
           
           // 立即重新获取数据
-          this.fetchList()
+          this.loadItems(true)
           
           // 滚动到列表顶部
           wx.pageScrollTo({ 

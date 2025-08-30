@@ -390,3 +390,19 @@
   height: 60rpx;
   opacity: 0;
 }
+
+/* 商品统计样式 */
+.results-summary {
+  text-align: center;
+  padding: 24rpx;
+  background: white;
+  margin: 0 24rpx 24rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.04);
+}
+
+.results-text {
+  font-size: 28rpx;
+  color: #374151;
+  font-weight: 600;
+}

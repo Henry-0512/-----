@@ -2843,5 +2843,229 @@
     "id": "track_1756575652783_ltatpe",
     "timestamp": "2025-08-30T17:40:52.783Z",
     "date": "2025-08-30"
+  },
+  {
+    "event": "sort_change",
+    "payload": {
+      "sort_type": "price_asc",
+      "sort_name": "价格从低到高",
+      "from_page": "homepage",
+      "page": {
+        "route": "pages/index/index",
+        "options": {}
+      },
+      "timestamp": "2025-08-30T18:00:31.291Z"
+    },
+    "openid": "mock_openid_1756576423239_wi9ase07",
+    "sessionId": "session_1756576800934_ccc2sa48",
+    "userTimestamp": "2025-08-30T18:00:31.291Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/790",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756576831358_ba0el2",
+    "timestamp": "2025-08-30T18:00:31.358Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "sort_change",
+    "payload": {
+      "old_sort": "price_desc",
+      "new_sort": "price_asc",
+      "sort_name": "价格从低到高",
+      "from_page": "list",
+      "page": {
+        "route": "pages/list/list",
+        "options": {
+          "sort": "price_asc",
+          "title": "%E4%BB%B7%E6%A0%BC%E4%BB%8E%E4%BD%8E%E5%88%B0%E9%AB%98"
+        }
+      },
+      "timestamp": "2025-08-30T18:00:39.395Z"
+    },
+    "openid": "mock_openid_1756576423239_wi9ase07",
+    "sessionId": "session_1756576800934_ccc2sa48",
+    "userTimestamp": "2025-08-30T18:00:39.395Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/790",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756576839450_e5wbp4",
+    "timestamp": "2025-08-30T18:00:39.450Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "sort_change",
+    "payload": {
+      "old_sort": "price_desc",
+      "new_sort": "price_asc",
+      "sort_name": "价格从低到高",
+      "from_page": "list",
+      "page": {
+        "route": "pages/list/list",
+        "options": {
+          "title": "全部商品"
+        }
+      },
+      "timestamp": "2025-08-30T18:01:06.052Z"
+    },
+    "openid": "mock_openid_1756576423239_wi9ase07",
+    "sessionId": "session_1756576800934_ccc2sa48",
+    "userTimestamp": "2025-08-30T18:01:06.052Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/790",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756576866094_r6vf1d",
+    "timestamp": "2025-08-30T18:01:06.094Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "sort_change",
+    "payload": {
+      "old_sort": "price_desc",
+      "new_sort": "price_asc",
+      "sort_name": "价格从低到高",
+      "from_page": "list",
+      "page": {
+        "route": "pages/list/list",
+        "options": {
+          "title": "全部商品"
+        }
+      },
+      "timestamp": "2025-08-30T18:02:30.376Z"
+    },
+    "openid": "mock_openid_1756576423239_wi9ase07",
+    "sessionId": "session_1756576800934_ccc2sa48",
+    "userTimestamp": "2025-08-30T18:02:30.376Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/790",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756576950425_7usvoz",
+    "timestamp": "2025-08-30T18:02:30.425Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "sort_change",
+    "payload": {
+      "old_sort": "price_desc",
+      "new_sort": "price_asc",
+      "sort_name": "价格从低到高",
+      "from_page": "list",
+      "page": {
+        "route": "pages/list/list",
+        "options": {
+          "title": "全部商品"
+        }
+      },
+      "timestamp": "2025-08-30T18:03:20.708Z"
+    },
+    "openid": "mock_openid_1756576423239_wi9ase07",
+    "sessionId": "session_1756576992544_2c0av133",
+    "userTimestamp": "2025-08-30T18:03:20.708Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/791",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756577000755_4l9f4u",
+    "timestamp": "2025-08-30T18:03:20.755Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_bed_002",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_bed_002"
+        }
+      },
+      "timestamp": "2025-08-30T18:04:09.806Z"
+    },
+    "openid": "mock_openid_1756576423239_wi9ase07",
+    "sessionId": "session_1756576992544_2c0av133",
+    "userTimestamp": "2025-08-30T18:04:09.806Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/791",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756577049833_7q6zgx",
+    "timestamp": "2025-08-30T18:04:09.833Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "quote_submit",
+    "payload": {
+      "skuId": "sku_bed_002",
+      "duration": 1,
+      "durationUnit": "month",
+      "quantity": 1,
+      "services": [],
+      "city": "",
+      "hasCity": false,
+      "serviceCount": 0,
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_bed_002"
+        }
+      },
+      "timestamp": "2025-08-30T18:04:09.825Z"
+    },
+    "openid": "mock_openid_1756576423239_wi9ase07",
+    "sessionId": "session_1756576992544_2c0av133",
+    "userTimestamp": "2025-08-30T18:04:09.825Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/791",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756577049853_yst2n1",
+    "timestamp": "2025-08-30T18:04:09.853Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "filter_apply",
+    "payload": {
+      "filters": {
+        "material": [
+          "布艺"
+        ]
+      },
+      "filterCount": 1,
+      "appliedFilters": [
+        "material"
+      ],
+      "pageTitle": "全部商品",
+      "searchQuery": "",
+      "page": {
+        "route": "pages/list/list",
+        "options": {
+          "title": "全部商品"
+        }
+      },
+      "timestamp": "2025-08-30T18:05:01.594Z"
+    },
+    "openid": "mock_openid_1756576423239_wi9ase07",
+    "sessionId": "session_1756576992544_2c0av133",
+    "userTimestamp": "2025-08-30T18:05:01.594Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/791",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756577101605_19li7h",
+    "timestamp": "2025-08-30T18:05:01.605Z",
+    "date": "2025-08-30"
   }
 ]

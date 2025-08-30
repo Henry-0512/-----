@@ -235,57 +235,7 @@ Page({
     })
   },
 
-  /**
-   * 显示排序选项
-   */
-  onShowSort() {
-    wx.showActionSheet({
-      itemList: ['价格从低到高', '价格从高到低', '成色从新到旧', '成色从旧到新'],
-      success: (res) => {
-        const sortOptions = ['price_asc', 'price_desc', 'condition_new', 'condition_old']
-        const selectedSort = sortOptions[res.tapIndex]
-        const sortNames = ['价格从低到高', '价格从高到低', '成色从新到旧', '成色从旧到新']
-        
-        // 埋点追踪
-        try {
-          const { track, TrackEvents } = require('../../utils/track.js')
-          track(TrackEvents.SORT_CHANGE, {
-            sort_type: selectedSort,
-            sort_name: sortNames[res.tapIndex],
-            from_page: 'homepage'
-          })
-        } catch (error) {
-          console.warn('埋点失败:', error)
-        }
-        
-        wx.navigateTo({
-          url: `/pages/list/list?sort=${selectedSort}&title=${encodeURIComponent(sortNames[res.tapIndex])}`
-        })
-      }
-    })
-  },
-
-  /**
-   * 显示筛选器
-   */
-  onShowFilter() {
-    wx.navigateTo({
-      url: '/pages/list/list?showFilter=true'
-    })
-  },
-
-  /**
-   * 清除筛选
-   */
-  onClearFilter() {
-    wx.showToast({
-      title: '已清除筛选条件',
-      icon: 'success'
-    })
-    
-    // 重新加载数据
-    this.loadHomeData()
-  },
+  // 首页排序筛选功能已移除
 
   /**
    * 重试加载

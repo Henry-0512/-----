@@ -73,26 +73,9 @@
       </view>
     </view>
 
-    <!-- 筛选栏 -->
-    <view class="filter-bar">
-      <view class="filter-controls">
-        <view class="filter-button" bindtap="onShowSort">
-          <text>排序</text>
-          <text class="filter-arrow">⌄</text>
-        </view>
-        <view class="filter-button active" bindtap="onShowFilter">
-          <text>筛选</text>
-          <text class="filter-count">(1)</text>
-        </view>
-      </view>
-      <view class="filter-tags">
-        <text class="filter-tag" bindtap="onClearFilter">清除筛选</text>
-        <text class="filter-tag active">全部优惠</text>
-        <text class="filter-close" bindtap="onClearFilter">✕</text>
-      </view>
-      <view class="results-count">
-        <text>{{totalCount}} 商品</text>
-      </view>
+    <!-- 商品统计 -->
+    <view class="results-summary">
+      <text class="results-text">共 {{totalCount}} 件商品</text>
     </view>
 
     <!-- 热门商品 -->
