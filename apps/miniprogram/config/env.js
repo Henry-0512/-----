@@ -26,7 +26,7 @@ const ENV_CONFIG = {
     API_TIMEOUT: 10000,
     DEBUG: true,
     LOG_LEVEL: 'debug',
-    MOCK_ENABLED: false  // 现在使用真实API
+    MOCK_ENABLED: true   // 临时使用Mock数据
   },
   
   // 生产环境
