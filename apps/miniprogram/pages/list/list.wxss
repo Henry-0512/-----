@@ -4,7 +4,7 @@
   background: #f8f9fa;
   width: 100vw; /* 明确设置容器宽度 */
   max-width: 100vw; /* 防止超出屏幕 */
-  overflow-x: visible; /* 允许子元素横向滚动 */
+  overflow-x: hidden; /* 恢复隐藏水平溢出 */
   box-sizing: border-box; /* 包含padding和border */
 }
 
@@ -12,7 +12,9 @@
 .hero-section {
   position: relative;
   height: 400rpx;
-  overflow: hidden;
+  width: 100vw; /* 明确设置宽度 */
+  max-width: 100vw; /* 防止超出 */
+  overflow: hidden; /* 确保图片不溢出 */
 }
 
 .hero-image {
@@ -73,6 +75,11 @@
   background: white;
   border-bottom: 2rpx solid #f0f0f0;
   padding: 24rpx 0;
+  width: 100%; /* 使用100%而不是100vw */
+  max-width: 100vw; /* 防止超出屏幕 */
+  position: relative; /* 创建新的定位上下文 */
+  overflow: visible; /* 允许子元素滚动 */
+  isolation: isolate; /* 创建独立的滚动上下文 */
 }
 
 .filter-scroll {
@@ -158,6 +165,9 @@
   justify-content: space-between;
   padding: 24rpx;
   background: white;
+  width: 100%; /* 明确设置宽度 */
+  max-width: 100vw; /* 防止超出 */
+  box-sizing: border-box; /* 包含padding */
 }
 
 .products-count {
@@ -202,6 +212,9 @@
   padding: 0 24rpx 24rpx;
   background: white;
   gap: 24rpx;
+  width: 100%; /* 明确设置宽度 */
+  max-width: 100vw; /* 防止超出 */
+  box-sizing: border-box; /* 包含padding */
 }
 
 .location-item {
@@ -239,6 +252,7 @@
   background: white;
   box-sizing: border-box; /* 确保padding不会导致溢出 */
   width: 100%; /* 明确设置宽度 */
+  max-width: 100vw; /* 防止超出屏幕 */
   overflow: hidden; /* 防止内容溢出 */
 }
 
