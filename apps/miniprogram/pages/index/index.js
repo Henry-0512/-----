@@ -172,26 +172,7 @@ Page({
    */
   onTapCategory(e) {
     const name = e.currentTarget.dataset.name
-    console.log('🔍 分类点击调试:', { 
-      name, 
-      dataset: e.currentTarget.dataset,
-      event: e
-    })
-    
-    // 先测试基本跳转
-    wx.showModal({
-      title: '分类点击测试',
-      content: `点击了分类: ${name || '未获取到名称'}`,
-      confirmText: '跳转',
-      cancelText: '取消',
-      success: (res) => {
-        if (res.confirm && name) {
-          wx.navigateTo({
-            url: `/pages/list/list?category=${encodeURIComponent(name)}&sort=price_desc`
-          })
-        }
-      }
-    })
+    console.log('🔍 分类点击:', name)
     
     if (!name) {
       wx.showToast({
@@ -201,19 +182,11 @@ Page({
       return
     }
     
-    // 埋点追踪
-    try {
-      const { track, TrackEvents } = require('../../utils/track.js')
-      track(TrackEvents.CATEGORY_CLICK, {
-        category_name: name,
-        from_page: 'homepage'
-      })
-    } catch (error) {
-      console.warn('埋点失败:', error)
-    }
+    console.log('🔍 准备跳转到:', `/pages/list/list?category=${encodeURIComponent(name)}&sort=price_desc`)
     
+    // 直接跳转，不用弹窗
     wx.navigateTo({
-      url: `/pages/list/list?category=${encodeURIComponent(name)}&sort=price_desc`
+      url: `/pages/list/list?category=${encodeURIComponent(name)}&sort=price_desc&title=${encodeURIComponent(name)}`
     })
   },
 
@@ -240,19 +213,9 @@ Page({
   onViewMoreHot() {
     console.log('🔍 查看更多被点击')
     
-    // 先测试基本跳转
-    wx.showModal({
-      title: '查看更多测试',
-      content: '点击了查看更多按钮',
-      confirmText: '跳转',
-      cancelText: '取消',
-      success: (res) => {
-        if (res.confirm) {
-          wx.navigateTo({
-            url: '/pages/list/list?all=1&sort=price_desc&title=全部商品'
-          })
-        }
-      }
+    // 直接跳转
+    wx.navigateTo({
+      url: '/pages/list/list?all=1&sort=price_desc&title=全部商品'
     })
   },
 

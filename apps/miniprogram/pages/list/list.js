@@ -66,56 +66,77 @@ Page({
   },
 
   onLoad(options) {
-    const { category, q, sort, department, title, all } = options
+    console.log('🔍 列表页onLoad被调用:', options)
     
-    // 解码分类参数
-    const categoryName = category ? decodeURIComponent(category) : null
-    const sortType = sort || 'price_desc'
-    
-    // 设置页面标题
-    let pageTitle = '商品列表'
-    if (title) {
-      pageTitle = decodeURIComponent(title)
-    } else if (categoryName) {
-      pageTitle = categoryName
-    } else if (q) {
-      pageTitle = `搜索: ${decodeURIComponent(q)}`
-    } else if (department) {
-      pageTitle = decodeURIComponent(department)
-    } else if (all === '1') {
-      pageTitle = '全部商品'
-    }
-    
-    // 设置筛选条件
-    const currentFilters = categoryName ? { 
-      ...this.data.currentFilters, 
-      categories: [categoryName] 
-    } : this.data.currentFilters
-    
-    // 设置排序名称
-    const sortOption = this.data.sortOptions.find(option => option.key === sortType)
-    const currentSortName = sortOption ? sortOption.name : '价格从高到低'
-    
-    this.setData({ 
-      pageTitle,
-      currentSort: sortType,
-      currentSortName,
-      currentFilters,
-      searchQuery: q ? decodeURIComponent(q) : '',
-      page: 1,
-      items: [],
-      loadedIds: []
-    })
-    
-    // 设置导航栏标题
-    if (pageTitle !== '商品列表') {
-      wx.setNavigationBarTitle({
-        title: pageTitle
+    try {
+      const { category, q, sort, department, title, all } = options
+      
+      // 解码分类参数
+      const categoryName = category ? decodeURIComponent(category) : null
+      const sortType = sort || 'price_desc'
+      
+      // 设置页面标题
+      let pageTitle = '商品列表'
+      if (title) {
+        pageTitle = decodeURIComponent(title)
+      } else if (categoryName) {
+        pageTitle = categoryName
+      } else if (q) {
+        pageTitle = `搜索: ${decodeURIComponent(q)}`
+      } else if (department) {
+        pageTitle = decodeURIComponent(department)
+      } else if (all === '1') {
+        pageTitle = '全部商品'
+      }
+      
+      console.log('🔍 页面参数解析:', {
+        categoryName,
+        sortType,
+        pageTitle
+      })
+      
+      // 设置筛选条件
+      const selectedFilters = categoryName ? { 
+        categories: [categoryName] 
+      } : {}
+      
+      // 先设置基本数据
+      this.setData({ 
+        pageTitle,
+        currentSort: sortType,
+        currentSortName: sortType === 'price_desc' ? '价格从高到低' : '综合排序',
+        selectedFilters,
+        searchQuery: q ? decodeURIComponent(q) : '',
+        page: 1,
+        items: [],
+        loadedIds: [],
+        loading: false
+      })
+      
+      console.log('🔍 数据设置完成:', {
+        selectedFilters,
+        currentSort: sortType,
+        searchQuery: q ? decodeURIComponent(q) : ''
+      })
+      
+      // 设置导航栏标题
+      if (pageTitle !== '商品列表') {
+        wx.setNavigationBarTitle({
+          title: pageTitle
+        })
+      }
+      
+      // 简单加载，先不用fetchList
+      this.loadItems(true)
+      this.loadFilterOptions()
+      
+    } catch (error) {
+      console.error('🔍 列表页onLoad错误:', error)
+      wx.showToast({
+        title: '页面加载失败',
+        icon: 'none'
       })
     }
-    
-    this.fetchList()
-    this.loadFilterOptions()
   },
 
   onReady() {
@@ -254,9 +275,17 @@ Page({
       const currentPage = reset ? 1 : this.data.page
       const { searchQuery, selectedFilters, page_size, currentSort } = this.data
       
+      console.log('🔍 loadItems调用参数:', {
+        currentPage,
+        searchQuery,
+        selectedFilters,
+        currentSort
+      })
+      
       let res
-      if (searchQuery.trim()) {
+      if (searchQuery && searchQuery.trim()) {
         // 搜索模式
+        console.log('🔍 使用搜索模式')
         res = await api.searchProducts(searchQuery.trim(), {
           page: currentPage,
           page_size,
@@ -264,13 +293,18 @@ Page({
         })
       } else {
         // 筛选模式
+        console.log('🔍 使用筛选模式')
         const filterData = this.formatFiltersForAPI(selectedFilters)
+        console.log('🔍 筛选数据:', filterData)
+        
         res = await api.filterProducts(filterData, {
           page: currentPage,
           page_size,
           sort: currentSort
         })
       }
+      
+      console.log('🔍 API返回结果:', res)
       
       const newItems = res.data?.items || []
       const items = reset ? newItems : [...this.data.items, ...newItems]
