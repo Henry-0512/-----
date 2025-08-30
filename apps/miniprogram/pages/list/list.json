@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "product-card": "../../components/product-card/product-card",
-    "filter-sheet": "../../components/filter-sheet/filter-sheet"
+    "filter-sheet": "../../components/filter-sheet/filter-sheet",
+    "single-filter": "../../components/single-filter/single-filter"
   },
   "navigationBarTitleText": "商品列表",
   "enablePullDownRefresh": true,

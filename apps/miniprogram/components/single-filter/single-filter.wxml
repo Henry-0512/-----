@@ -1,0 +1,67 @@
+<!-- 单项筛选器组件 -->
+<view wx:if="{{visible}}" class="filter-mask" bindtap="onMaskTap">
+  <view class="filter-sheet" catchtap="stopPropagation">
+    <!-- 头部 -->
+    <view class="filter-header">
+      <text class="filter-title">{{title}}</text>
+      <view class="header-actions">
+        <text class="reset-btn" bindtap="onReset">重置</text>
+        <text class="close-btn" bindtap="onClose">✕</text>
+      </view>
+    </view>
+
+    <!-- 筛选内容 -->
+    <scroll-view class="filter-content" scroll-y="{{true}}">
+      <!-- 颜色特殊显示 -->
+      <view wx:if="{{type === 'color'}}" class="color-grid">
+        <view 
+          wx:for="{{options}}" 
+          wx:key="*this"
+          class="color-item {{selectedValues.includes(item) ? 'selected' : ''}}"
+          data-value="{{item}}"
+          bindtap="onToggleOption"
+        >
+          <view class="color-circle" style="background-color: {{getColorCode(item)}}"></view>
+          <text class="color-name">{{item}}</text>
+          <text wx:if="{{selectedValues.includes(item)}}" class="check-icon">✓</text>
+        </view>
+      </view>
+
+      <!-- 尺寸网格显示 -->
+      <view wx:elif="{{type === 'size'}}" class="size-grid">
+        <view 
+          wx:for="{{options}}" 
+          wx:key="*this"
+          class="size-item {{selectedValues.includes(item) ? 'selected' : ''}}"
+          data-value="{{item}}"
+          bindtap="onToggleOption"
+        >
+          <text class="size-text">{{item}}</text>
+          <text wx:if="{{selectedValues.includes(item)}}" class="check-icon">✓</text>
+        </view>
+      </view>
+
+      <!-- 普通列表显示 -->
+      <view wx:else class="option-list">
+        <view 
+          wx:for="{{options}}" 
+          wx:key="*this"
+          class="option-item {{selectedValues.includes(item) ? 'selected' : ''}}"
+          data-value="{{item}}"
+          bindtap="onToggleOption"
+        >
+          <text class="option-text">{{item}}</text>
+          <text wx:if="{{selectedValues.includes(item)}}" class="check-icon">✓</text>
+        </view>
+      </view>
+    </scroll-view>
+
+    <!-- 底部按钮 -->
+    <view class="filter-footer">
+      <view class="selected-count">已选择 {{selectedValues.length}} 项</view>
+      <button class="apply-btn" bindtap="onApply">
+        应用筛选
+      </button>
+    </view>
+  </view>
+</view>

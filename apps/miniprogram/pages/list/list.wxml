@@ -154,4 +154,15 @@
     bind:apply="onFilterApply"
     bind:close="onFilterClose"
   />
+
+  <!-- 单项筛选器组件 -->
+  <single-filter
+    visible="{{showSingleFilter}}"
+    type="{{singleFilterType}}"
+    title="{{singleFilterTitle}}"
+    options="{{singleFilterOptions}}"
+    selectedValues="{{singleFilterSelected}}"
+    bind:apply="onSingleFilterApply"
+    bind:close="onSingleFilterClose"
+  />
 </view>

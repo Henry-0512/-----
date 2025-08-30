@@ -1,0 +1,232 @@
+/* components/single-filter/single-filter.wxss */
+
+/* 遮罩层 */
+.filter-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* 筛选器主体 */
+.filter-sheet {
+  width: 100%;
+  max-height: 80vh;
+  background: white;
+  border-radius: 24rpx 24rpx 0 0;
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* 头部 */
+.filter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32rpx 24rpx 24rpx;
+  border-bottom: 2rpx solid #f0f0f0;
+}
+
+.filter-title {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+}
+
+.reset-btn {
+  font-size: 28rpx;
+  color: #666;
+  padding: 8rpx 16rpx;
+}
+
+.close-btn {
+  font-size: 32rpx;
+  color: #666;
+  padding: 8rpx;
+}
+
+/* 内容区域 */
+.filter-content {
+  flex: 1;
+  padding: 24rpx;
+  max-height: 60vh;
+}
+
+/* 颜色网格 */
+.color-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16rpx;
+}
+
+.color-item {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  padding: 20rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  background: white;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.color-item.selected {
+  background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+  border-color: #007AFF;
+  color: white;
+  box-shadow: 0 4rpx 12rpx rgba(0, 122, 255, 0.3);
+}
+
+.color-circle {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 2rpx solid #ddd;
+  flex-shrink: 0;
+}
+
+.color-item.selected .color-circle {
+  border-color: white;
+}
+
+.color-name {
+  font-size: 28rpx;
+  font-weight: 500;
+  flex: 1;
+}
+
+.color-item.selected .color-name {
+  color: white;
+}
+
+/* 尺寸网格 */
+.size-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16rpx;
+}
+
+.size-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  background: white;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.size-item.selected {
+  background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+  border-color: #007AFF;
+  color: white;
+  box-shadow: 0 4rpx 12rpx rgba(0, 122, 255, 0.3);
+}
+
+.size-text {
+  font-size: 32rpx;
+  font-weight: 600;
+  text-align: center;
+  flex: 1;
+}
+
+.size-item.selected .size-text {
+  color: white;
+}
+
+/* 普通选项列表 */
+.option-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx;
+  border: 2rpx solid #e0e0e0;
+  border-radius: 12rpx;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.option-item.selected {
+  background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+  border-color: #007AFF;
+  color: white;
+  box-shadow: 0 4rpx 12rpx rgba(0, 122, 255, 0.3);
+}
+
+.option-text {
+  font-size: 32rpx;
+  font-weight: 500;
+  flex: 1;
+}
+
+.option-item.selected .option-text {
+  color: white;
+}
+
+/* 选中图标 */
+.check-icon {
+  font-size: 32rpx;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.2);
+}
+
+/* 底部 */
+.filter-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24rpx;
+  border-top: 2rpx solid #f0f0f0;
+  background: white;
+}
+
+.selected-count {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.apply-btn {
+  padding: 20rpx 40rpx;
+  background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+  color: white;
+  border: none;
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  box-shadow: 0 6rpx 20rpx rgba(0, 122, 255, 0.3);
+}
+
+.apply-btn::after {
+  border: none;
+}

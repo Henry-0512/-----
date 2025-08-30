@@ -61,6 +61,13 @@ Page({
     ],
     currentFilters: {},
     
+    // 单项筛选器状态
+    showSingleFilter: false,
+    singleFilterType: '',
+    singleFilterTitle: '',
+    singleFilterOptions: [],
+    singleFilterSelected: [],
+    
     error: null
   },
 
@@ -544,8 +551,45 @@ Page({
    * 显示特定筛选器
    */
   showSpecificFilter(filterType) {
-    // 暂时还是打开完整的筛选器，后续可以优化为单独的筛选器
-    this.setData({ showFilterSheet: true })
+    const filterConfig = {
+      category: {
+        title: '分类',
+        options: ["沙发","床","桌子","椅子","柜子","装饰","灯具","地毯"]
+      },
+      size: {
+        title: '尺寸',
+        options: ["小型","中型","大型","超大型"]
+      },
+      color: {
+        title: '颜色',
+        options: ["白色","黑色","灰色","棕色","米色","蓝色","绿色","红色","黄色","粉色"]
+      },
+      style: {
+        title: '风格',
+        options: ["现代","北欧","极简","工业","简约","复古","田园","中式","美式"]
+      },
+      material: {
+        title: '材质',
+        options: ["布艺","皮质","实木","金属","玻璃","塑料","藤编","大理石"]
+      }
+    }
+
+    const config = filterConfig[filterType]
+    if (!config) {
+      console.error('未知的筛选类型:', filterType)
+      return
+    }
+
+    // 获取当前选中的值
+    const currentSelected = this.data.currentFilters[filterType] || []
+
+    this.setData({
+      showSingleFilter: true,
+      singleFilterType: filterType,
+      singleFilterTitle: config.title,
+      singleFilterOptions: config.options,
+      singleFilterSelected: currentSelected
+    })
   },
 
   /**
@@ -565,6 +609,46 @@ Page({
     wx.showToast({
       title: '门店选择功能开发中',
       icon: 'none'
+    })
+  },
+
+  /**
+   * 单项筛选器应用
+   */
+  onSingleFilterApply(e) {
+    const { type, values } = e.detail
+    console.log('🔍 单项筛选器应用:', { type, values })
+
+    // 更新筛选条件
+    const newFilters = { ...this.data.currentFilters }
+    if (values && values.length > 0) {
+      newFilters[type] = values
+    } else {
+      delete newFilters[type]
+    }
+
+    this.setData({
+      currentFilters: newFilters,
+      selectedFilters: this.formatFiltersForAPI(newFilters),
+      page: 1,
+      items: [],
+      loadedIds: []
+    })
+
+    this.updateFilterStatus()
+    this.loadItems(true)
+  },
+
+  /**
+   * 单项筛选器关闭
+   */
+  onSingleFilterClose() {
+    this.setData({
+      showSingleFilter: false,
+      singleFilterType: '',
+      singleFilterTitle: '',
+      singleFilterOptions: [],
+      singleFilterSelected: []
     })
   },
 
