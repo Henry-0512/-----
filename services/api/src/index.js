@@ -104,7 +104,15 @@ function getCategoryName(categoryId) {
 
 // 筛选商品
 fastify.post('/api/filter', async (request, reply) => {
-  const { categories, priceRange, brands, styles } = request.body || {}
+  const { 
+    categories, 
+    priceRange, 
+    brands, 
+    styles,
+    page = 1,
+    page_size = 10,
+    sort = 'newest'
+  } = request.body || {}
   
   let filteredData = [...skuData]
   
@@ -136,21 +144,59 @@ fastify.post('/api/filter', async (request, reply) => {
     )
   }
   
+  // 排序处理
+  switch (sort) {
+    case 'price_asc':
+      filteredData.sort((a, b) => a.price - b.price)
+      break
+    case 'price_desc':
+      filteredData.sort((a, b) => b.price - a.price)
+      break
+    case 'newest':
+      // 按ID倒序（假设ID越大越新）
+      filteredData.sort((a, b) => b.id.localeCompare(a.id))
+      break
+    default:
+      // 默认综合排序（按价格和库存综合）
+      filteredData.sort((a, b) => {
+        const aStock = a.stock?.[0]?.qty || 0
+        const bStock = b.stock?.[0]?.qty || 0
+        return (bStock - aStock) || (a.price - b.price)
+      })
+  }
+  
+  // 分页处理
+  const total = filteredData.length
+  const totalPages = Math.ceil(total / page_size)
+  const startIndex = (page - 1) * page_size
+  const endIndex = startIndex + page_size
+  const items = filteredData.slice(startIndex, endIndex)
+  
   return {
     success: true,
     data: {
-      items: filteredData,
-      total: filteredData.length
+      items,
+      total,
+      page: parseInt(page),
+      page_size: parseInt(page_size),
+      total_pages: totalPages,
+      has_more: page < totalPages
     }
   }
 })
 
 // 搜索商品
 fastify.get('/api/search', async (request, reply) => {
-  const { q, page = 1, limit = 10 } = request.query
+  const { 
+    q, 
+    page = 1, 
+    page_size = 10,
+    sort = 'newest'
+  } = request.query
   
   let results = [...skuData]
   
+  // 搜索筛选
   if (q) {
     const query = q.toLowerCase()
     results = results.filter(item => 
@@ -164,18 +210,43 @@ fastify.get('/api/search', async (request, reply) => {
     )
   }
   
-  const startIndex = (page - 1) * limit
-  const endIndex = startIndex + parseInt(limit)
-  const paginatedResults = results.slice(startIndex, endIndex)
+  // 排序处理
+  switch (sort) {
+    case 'price_asc':
+      results.sort((a, b) => a.price - b.price)
+      break
+    case 'price_desc':
+      results.sort((a, b) => b.price - a.price)
+      break
+    case 'newest':
+      // 按ID倒序（假设ID越大越新）
+      results.sort((a, b) => b.id.localeCompare(a.id))
+      break
+    default:
+      // 默认综合排序（按相关度和价格）
+      results.sort((a, b) => {
+        const aStock = a.stock?.[0]?.qty || 0
+        const bStock = b.stock?.[0]?.qty || 0
+        return (bStock - aStock) || (a.price - b.price)
+      })
+  }
+  
+  // 分页处理
+  const total = results.length
+  const totalPages = Math.ceil(total / page_size)
+  const startIndex = (page - 1) * page_size
+  const endIndex = startIndex + parseInt(page_size)
+  const items = results.slice(startIndex, endIndex)
   
   return {
     success: true,
     data: {
-      items: paginatedResults,
-      total: results.length,
+      items,
+      total,
       page: parseInt(page),
-      limit: parseInt(limit),
-      totalPages: Math.ceil(results.length / limit)
+      page_size: parseInt(page_size),
+      total_pages: totalPages,
+      has_more: page < totalPages
     }
   }
 })

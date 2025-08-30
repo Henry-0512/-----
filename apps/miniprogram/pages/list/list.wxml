@@ -21,6 +21,13 @@
     </view>
   </view>
 
+  <!-- 排序状态显示 -->
+  <view wx:if="{{currentSort !== 'newest'}}" class="sort-status">
+    <text class="sort-text">
+      当前排序：{{sortOptions.find(item => item.key === currentSort).name}}
+    </text>
+  </view>
+
   <!-- 骨架屏加载状态 -->
   <view wx:if="{{loading && items.length === 0}}" class="skeleton">
     <view class="skeleton-header"></view>

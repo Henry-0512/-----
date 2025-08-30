@@ -96,6 +96,19 @@
   font-weight: 600;
 }
 
+/* 排序状态显示 */
+.sort-status {
+  padding: 16rpx 24rpx;
+  background: #F0F9FF;
+  border-bottom: 2rpx solid #E0F2FE;
+}
+
+.sort-text {
+  font-size: 24rpx;
+  color: #0369A1;
+  font-weight: 500;
+}
+
 .result-info {
   padding: 16rpx 24rpx;
   background: #f8f8f8;

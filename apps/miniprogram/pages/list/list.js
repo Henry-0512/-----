@@ -15,12 +15,22 @@ Page({
     items: [],
     total: 0,
     page: 1,
-    limit: 10,
+    page_size: 10,
+    total_pages: 0,
     hasMore: true,
     searchQuery: '',
     pageTitle: '',
     hasActiveFilters: false,
     filterCount: 0,
+    
+    // 排序状态
+    currentSort: 'newest',
+    sortOptions: [
+      { key: 'newest', name: '综合排序' },
+      { key: 'price_asc', name: '价格从低到高' },
+      { key: 'price_desc', name: '价格从高到低' },
+      { key: 'newest', name: '最新上架' }
+    ],
     
     // 筛选相关
     filterOptions: {
@@ -116,33 +126,37 @@ Page({
         isEmpty: false 
       })
       
-      const page = reset ? 1 : this.data.page
-      const { searchQuery, selectedFilters, limit } = this.data
+      const currentPage = reset ? 1 : this.data.page
+      const { searchQuery, selectedFilters, page_size, currentSort } = this.data
       
       let res
       if (searchQuery.trim()) {
         // 搜索模式
         res = await api.searchProducts(searchQuery.trim(), {
-          page,
-          limit
+          page: currentPage,
+          page_size,
+          sort: currentSort
         })
       } else {
         // 筛选模式
         const filterData = this.formatFiltersForAPI(selectedFilters)
-        res = await api.filterProducts(filterData)
-        
-        // 手动实现分页（因为API返回全部数据）
-        res = this.paginateResults(res, page, limit)
+        res = await api.filterProducts(filterData, {
+          page: currentPage,
+          page_size,
+          sort: currentSort
+        })
       }
       
-      const newItems = res.data?.items || res.data || []
+      const newItems = res.data?.items || []
       const items = reset ? newItems : [...this.data.items, ...newItems]
       
       this.setData({
         items,
-        total: res.data?.total || newItems.length,
-        page: res.data?.page || page,
-        hasMore: (res.data?.page || page) < (res.data?.totalPages || 1),
+        total: res.data?.total || 0,
+        page: res.data?.page || currentPage,
+        page_size: res.data?.page_size || page_size,
+        total_pages: res.data?.total_pages || 0,
+        hasMore: res.data?.has_more || false,
         loading: false,
         isEmpty: items.length === 0
       })
@@ -320,10 +334,16 @@ Page({
    * 上拉加载更多
    */
   onReachBottom() {
-    if (this.data.hasMore && !this.data.loading) {
-      this.setData({ page: this.data.page + 1 })
-      this.loadItems()
+    const { hasMore, loading, page, total_pages } = this.data
+    
+    // 检查是否可以加载更多
+    if (!hasMore || loading || page >= total_pages) {
+      return
     }
+    
+    // 增加页码并加载下一页
+    this.setData({ page: page + 1 })
+    this.loadItems(false)  // 追加模式，不重置数据
   },
 
   /**
@@ -347,11 +367,21 @@ Page({
    * 显示排序选项
    */
   onShowSort() {
+    const { sortOptions, currentSort } = this.data
+    const itemList = sortOptions.map(option => option.name)
+    
     wx.showActionSheet({
-      itemList: ['综合排序', '价格从低到高', '价格从高到低', '最新上架'],
+      itemList,
       success: (res) => {
-        console.log('选择排序:', res.tapIndex)
-        // TODO: 实现排序逻辑
+        const selectedSort = sortOptions[res.tapIndex]
+        if (selectedSort && selectedSort.key !== currentSort) {
+          this.setData({
+            currentSort: selectedSort.key,
+            page: 1,  // 重置分页
+            items: []  // 清空当前数据
+          })
+          this.loadItems(true)  // 重新加载第一页
+        }
       }
     })
   },

@@ -292,28 +292,53 @@ const getFiltersMeta = () => {
 /**
  * 商品筛选
  * @param {Object} filters 筛选条件
+ * @param {Object} options 分页和排序选项
  */
-const filterProducts = (filters = {}) => {
+const filterProducts = (filters = {}, options = {}) => {
+  const {
+    page = 1,
+    page_size = 10,
+    sort = 'newest'
+  } = options
+  
+  const requestData = {
+    ...filters,
+    page,
+    page_size,
+    sort
+  }
+  
   return requestWithRetry({
     url: '/api/filter',
     method: 'POST',
-    data: filters,
+    data: requestData,
     showLoading: true
-  }, () => filterProducts(filters))
+  }, () => filterProducts(filters, options))
 }
 
 /**
  * 商品搜索
  * @param {string} keyword 搜索关键词
- * @param {Object} filters 附加筛选条件
+ * @param {Object} options 分页和排序选项
  */
-const searchProducts = (keyword, filters = {}) => {
+const searchProducts = (keyword, options = {}) => {
+  const {
+    page = 1,
+    page_size = 10,
+    sort = 'newest'
+  } = options
+  
   return requestWithRetry({
     url: '/api/search',
     method: 'GET',
-    data: { q: keyword, ...filters },
+    data: { 
+      q: keyword, 
+      page,
+      page_size,
+      sort
+    },
     showLoading: true
-  }, () => searchProducts(keyword, filters))
+  }, () => searchProducts(keyword, options))
 }
 
 /**

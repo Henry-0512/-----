@@ -61,7 +61,7 @@ Page({
       // 并行加载分类数据和热门商品
       const [filterRes, hotItemsRes] = await Promise.all([
         api.getFiltersMeta(),
-        api.filterProducts({ limit: 6, sortBy: 'popular' })
+        api.filterProducts({}, { page: 1, page_size: 6, sort: 'newest' })
       ])
       
       const categories = filterRes.data?.categories || filterRes.data || []
