@@ -9,9 +9,10 @@
   box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.06);
   display: flex;
   flex-direction: column;
-  width: calc(50vw - 32rpx); /* 严格控制宽度，防止超出 */
-  max-width: calc(50vw - 32rpx);
+  width: 100%; /* 使用100%宽度，由网格控制 */
+  max-width: 100%; /* 防止超出网格 */
   box-sizing: border-box;
+  min-width: 0; /* 防止flex项目超出容器 */
 }
 
 .product-card:active {
@@ -25,12 +26,15 @@
   width: 100%;
   height: 300rpx; /* 固定高度，避免超出 */
   overflow: hidden;
+  box-sizing: border-box; /* 确保不超出容器 */
 }
 
 .product-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block; /* 确保图片正确显示 */
+  max-width: 100%; /* 防止图片超出容器 */
 }
 
 /* 收藏按钮 */
