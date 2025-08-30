@@ -22,7 +22,8 @@
   <view class="filter-bar">
     <scroll-view 
       class="filter-scroll" 
-      scroll-x 
+      scroll-x="{{true}}"
+      enable-flex="{{true}}"
       show-scrollbar="{{false}}"
       scroll-with-animation="{{true}}"
     >
@@ -50,6 +51,15 @@
         </view>
         <view class="filter-tag" bindtap="onQuickFilter" data-type="condition">
           <text class="tag-text">成色等级</text>
+        </view>
+        <view class="filter-tag" bindtap="onQuickFilter" data-type="delivery">
+          <text class="tag-text">配送方式</text>
+        </view>
+        <view class="filter-tag" bindtap="onQuickFilter" data-type="availability">
+          <text class="tag-text">库存状态</text>
+        </view>
+        <view class="filter-tag" bindtap="onQuickFilter" data-type="discount">
+          <text class="tag-text">优惠活动</text>
         </view>
         <!-- 全部筛选按钮放在最后 -->
         <view class="filter-all-btn" bindtap="onShowFilter">

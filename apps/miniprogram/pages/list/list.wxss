@@ -78,15 +78,14 @@
 .filter-scroll {
   width: 100%;
   height: 80rpx;
-  white-space: nowrap;
 }
 
 .filter-tags-container {
-  display: inline-block;
-  white-space: nowrap;
+  display: flex;
+  align-items: center;
   padding: 0 24rpx;
   height: 80rpx;
-  line-height: 80rpx;
+  gap: 16rpx;
 }
 
 .scroll-padding {
@@ -96,17 +95,17 @@
 }
 
 .filter-tag {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 16rpx 32rpx;
-  margin-right: 16rpx;
   border: 2rpx solid #e0e0e0;
   border-radius: 50rpx;
   background: white;
   transition: all 0.3s ease;
   white-space: nowrap;
-  vertical-align: middle;
-  line-height: 48rpx;
-  text-align: center;
+  flex-shrink: 0;
+  min-width: fit-content;
 }
 
 .filter-tag:active {
@@ -123,17 +122,17 @@
 /* 全部筛选按钮 */
 .filter-all-btn {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 16rpx 32rpx;
-  margin-right: 16rpx;
   border: 2rpx solid #007AFF;
   border-radius: 50rpx;
   background: #007AFF;
   transition: all 0.3s ease;
   white-space: nowrap;
-  vertical-align: middle;
-  line-height: 48rpx;
-  text-align: center;
+  flex-shrink: 0;
+  min-width: fit-content;
 }
 
 .filter-all-btn:active {

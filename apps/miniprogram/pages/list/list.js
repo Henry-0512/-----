@@ -74,6 +74,20 @@ Page({
   onLoad(options) {
     console.log('🔍 列表页onLoad被调用:', options)
     
+    // 调试：检查滚动区域
+    setTimeout(() => {
+      const query = this.createSelectorQuery()
+      query.select('.filter-scroll').boundingClientRect()
+      query.select('.filter-tags-container').boundingClientRect()
+      query.exec((res) => {
+        console.log('🔍 滚动区域尺寸:', res[0])
+        console.log('🔍 内容区域尺寸:', res[1])
+        if (res[1] && res[0]) {
+          console.log('🔍 是否需要滚动:', res[1].width > res[0].width)
+        }
+      })
+    }, 1000)
+    
     // 最简单的实现，避免复杂逻辑导致错误
     const { category, title } = options
     
@@ -570,6 +584,18 @@ Page({
       price: {
         title: '价格范围',
         options: [] // 价格使用完整筛选器
+      },
+      delivery: {
+        title: '配送方式',
+        options: ["送货到门","白手套安装","自提","快递配送"]
+      },
+      availability: {
+        title: '库存状态',
+        options: ["现货","预订","缺货"]
+      },
+      discount: {
+        title: '优惠活动',
+        options: ["限时特价","买一送一","新用户优惠","会员专享"]
       }
     }
 
