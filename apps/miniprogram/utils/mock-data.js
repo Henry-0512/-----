@@ -312,6 +312,16 @@ const mockApi = {
       console.log('🔍 Mock分类筛选后数量:', items.length)
     }
     
+    // 价格筛选（月租金）
+    if (filters.monthlyPrice) {
+      const { min, max } = filters.monthlyPrice
+      items = items.filter(item => {
+        const monthlyPrice = item.monthlyPrice || 0
+        return monthlyPrice >= min && monthlyPrice <= max
+      })
+      console.log('🔍 Mock月租金筛选后数量:', items.length, `范围: ¥${min}-¥${max}/月`)
+    }
+    
     // 材质筛选
     if (filters.material && filters.material.length > 0) {
       items = items.filter(item => 
@@ -320,6 +330,16 @@ const mockApi = {
         )
       )
       console.log('🔍 Mock材质筛选后数量:', items.length)
+    }
+    
+    // 风格筛选
+    if (filters.style && filters.style.length > 0) {
+      items = items.filter(item => 
+        item.style && item.style.some(style => 
+          filters.style.includes(style)
+        )
+      )
+      console.log('🔍 Mock风格筛选后数量:', items.length)
     }
     
     // 排序处理

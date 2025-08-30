@@ -52,13 +52,9 @@ Page({
     
     // 新版筛选器配置
     filterSchema: [
-      { key: "price", type: "range", label: "价格", unit: "¥", min: 0, max: 20000, step: 100 },
-      { key: "width_mm", type: "range", label: "宽度", unit: "mm", min: 400, max: 3000, step: 10 },
+      { key: "price", type: "range", label: "价格", unit: "¥/月", min: 0, max: 1000, step: 50 },
       { key: "material", type: "multi", label: "材质", options: ["布艺","皮质","实木","金属","玻璃"] },
-      { key: "style", type: "multi", label: "风格", options: ["现代","北欧","原木","极简","工业"] },
-      { key: "color", type: "multi", label: "颜色", options: ["灰","米白","原木","黑","棕"] },
-      { key: "cities", type: "multi", label: "可配送城市", options: [] }, // 动态加载
-      { key: "upstairs", type: "bool", label: "可上楼" }
+      { key: "style", type: "multi", label: "风格", options: ["现代","北欧","极简","工业","简约"] }
     ],
     currentFilters: {},
     
@@ -411,25 +407,53 @@ Page({
    */
   onFilterApply(e) {
     const filters = e.detail
-    console.log('应用筛选条件:', filters)
+    console.log('🔍 应用筛选条件:', filters)
+    
+    // 格式化筛选条件
+    const formattedFilters = {}
+    
+    // 处理价格范围（使用月租金）
+    if (filters.price && (filters.price.min !== undefined || filters.price.max !== undefined)) {
+      formattedFilters.monthlyPrice = {
+        min: filters.price.min || 0,
+        max: filters.price.max || 1000
+      }
+      console.log('🔍 价格筛选:', formattedFilters.monthlyPrice)
+    }
+    
+    // 处理材质筛选
+    if (filters.material && filters.material.length > 0) {
+      formattedFilters.material = filters.material
+      console.log('🔍 材质筛选:', formattedFilters.material)
+    }
+    
+    // 处理风格筛选
+    if (filters.style && filters.style.length > 0) {
+      formattedFilters.style = filters.style
+      console.log('🔍 风格筛选:', formattedFilters.style)
+    }
     
     // 追踪筛选应用行为
-    track(TrackEvents.FILTER_APPLY, {
-      filters,
-      filterCount: Object.keys(filters).length,
-      appliedFilters: Object.keys(filters).filter(key => {
-        const value = filters[key]
-        return value && (Array.isArray(value) ? value.length > 0 : value)
-      }),
-      pageTitle: this.data.pageTitle,
-      searchQuery: this.data.searchQuery
-    })
+    try {
+      const { track, TrackEvents } = require('../../utils/track.js')
+      track(TrackEvents.FILTER_APPLY, {
+        filters: formattedFilters,
+        filterCount: Object.keys(formattedFilters).length,
+        page: 'list'
+      })
+    } catch (error) {
+      console.warn('埋点失败:', error)
+    }
     
     this.setData({ 
-      currentFilters: filters,
+      selectedFilters: formattedFilters,
+      showFilterSheet: false,
       page: 1,
-      hasMore: true
+      items: [],
+      loadedIds: [] // 重置去重数组
     })
+    
+    console.log('🔍 筛选后重新加载数据，筛选条件:', formattedFilters)
     this.updateFilterStatus()
     this.loadItems(true)
   },
