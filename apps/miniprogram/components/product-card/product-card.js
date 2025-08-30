@@ -1,6 +1,7 @@
 // components/product-card/product-card.js
 const { storage } = require('../../utils/request.js')
 const { formatPriceDisplay, isFeatureEnabled, getCustomerServiceConfig } = require('../../config/feature-flags.js')
+const { safeProduct } = require('../../utils/safe-text.js')
 
 Component({
   /**
@@ -41,7 +42,8 @@ Component({
       originalPrice: '',
       showButton: false,
       buttonText: ''
-    }
+    },
+    safeProduct: null
   },
 
   /**
@@ -103,8 +105,14 @@ Component({
       const { product } = this.data
       if (!product) return
 
-      const priceInfo = formatPriceDisplay(product)
-      this.setData({ priceInfo })
+      // 应用敏感词过滤
+      const safeProductData = safeProduct(product)
+      const priceInfo = formatPriceDisplay(safeProductData)
+      
+      this.setData({ 
+        priceInfo,
+        safeProduct: safeProductData
+      })
     },
 
     /**

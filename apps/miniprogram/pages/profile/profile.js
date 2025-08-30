@@ -363,5 +363,32 @@ Page({
         }
       }
     })
+  },
+
+  /**
+   * 查看关于页面
+   */
+  onViewAbout() {
+    wx.navigateTo({
+      url: '/pages/about/about'
+    })
+  },
+
+  /**
+   * 查看服务条款
+   */
+  onViewTerms() {
+    wx.navigateTo({
+      url: '/pages/policy/policy?type=terms'
+    })
+  },
+
+  /**
+   * 查看隐私政策
+   */
+  onViewPrivacy() {
+    wx.navigateTo({
+      url: '/pages/policy/policy?type=privacy'
+    })
   }
 })

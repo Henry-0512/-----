@@ -1,0 +1,138 @@
+<!--pages/about/about.wxml-->
+<view class="container">
+  <!-- 应用信息 -->
+  <view class="app-info">
+    <view class="app-logo">
+      <image class="logo-image" src="https://picsum.photos/120/120?random=logo" mode="aspectFill"></image>
+    </view>
+    <view class="app-details">
+      <text class="app-name">{{appInfo.name}}</text>
+      <text class="app-version">版本 {{appInfo.version}}</text>
+      <text class="app-description">{{appInfo.description}}</text>
+    </view>
+  </view>
+
+  <!-- 公司信息 -->
+  <view class="company-section">
+    <view class="section-header">
+      <text class="section-title">关于我们</text>
+    </view>
+    <view class="company-info">
+      <text class="company-name">{{appInfo.company}}</text>
+      <text class="company-founded">成立于 {{appInfo.founded}} 年</text>
+      <text class="company-mission">{{appInfo.mission}}</text>
+    </view>
+  </view>
+
+  <!-- 核心特性 -->
+  <view class="features-section">
+    <view class="section-header">
+      <text class="section-title">核心特性</text>
+    </view>
+    <view class="features-grid">
+      <view 
+        wx:for="{{features}}" 
+        wx:key="title"
+        class="feature-item"
+      >
+        <text class="feature-icon">{{item.icon}}</text>
+        <text class="feature-title">{{item.title}}</text>
+        <text class="feature-description">{{item.description}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 联系方式 -->
+  <view class="contact-section">
+    <view class="section-header">
+      <text class="section-title">联系我们</text>
+    </view>
+    
+    <view class="contact-list">
+      <!-- 客服电话 -->
+      <view class="contact-item" bindtap="onCallService">
+        <view class="contact-icon">📞</view>
+        <view class="contact-info">
+          <text class="contact-label">服务顾问热线</text>
+          <text class="contact-value">{{contactInfo.phone}}</text>
+        </view>
+        <view class="contact-action">
+          <text class="action-text">拨打</text>
+        </view>
+      </view>
+
+      <!-- 邮箱 -->
+      <view class="contact-item" data-type="email" bindtap="onCopyContact">
+        <view class="contact-icon">✉️</view>
+        <view class="contact-info">
+          <text class="contact-label">邮箱地址</text>
+          <text class="contact-value">{{contactInfo.email}}</text>
+        </view>
+        <view class="contact-action">
+          <text class="action-text">复制</text>
+        </view>
+      </view>
+
+      <!-- 地址 -->
+      <view class="contact-item" data-type="address" bindtap="onCopyContact">
+        <view class="contact-icon">📍</view>
+        <view class="contact-info">
+          <text class="contact-label">公司地址</text>
+          <text class="contact-value">{{contactInfo.address}}</text>
+        </view>
+        <view class="contact-action">
+          <text class="action-text">复制</text>
+        </view>
+      </view>
+
+      <!-- 工作时间 -->
+      <view class="contact-item">
+        <view class="contact-icon">🕒</view>
+        <view class="contact-info">
+          <text class="contact-label">服务时间</text>
+          <text class="contact-value">{{contactInfo.workTime}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 社交媒体 -->
+  <view class="social-section">
+    <view class="section-header">
+      <text class="section-title">关注我们</text>
+    </view>
+    <view class="social-list">
+      <view 
+        wx:for="{{socialMedia}}" 
+        wx:key="platform"
+        class="social-item"
+      >
+        <text class="social-platform">{{item.platform}}</text>
+        <text class="social-account">{{item.account}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 法律信息 -->
+  <view class="legal-section">
+    <view class="section-header">
+      <text class="section-title">法律信息</text>
+    </view>
+    <view class="legal-links">
+      <view class="legal-item" bindtap="onViewPolicy">
+        <text class="legal-text">服务条款</text>
+        <text class="legal-arrow">></text>
+      </view>
+      <view class="legal-item" bindtap="onViewPrivacy">
+        <text class="legal-text">隐私政策</text>
+        <text class="legal-arrow">></text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 版权信息 -->
+  <view class="copyright-section">
+    <text class="copyright-text">© {{appInfo.founded}} {{appInfo.company}}</text>
+    <text class="copyright-text">保留所有权利</text>
+  </view>
+</view>

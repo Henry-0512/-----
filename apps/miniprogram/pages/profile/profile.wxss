@@ -318,3 +318,46 @@
   font-size: 28rpx;
   color: #999;
 }
+
+/* 页面链接 */
+.page-links {
+  background: white;
+  margin: 20rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.link-item {
+  display: flex;
+  align-items: center;
+  padding: 32rpx 40rpx;
+  border-bottom: 2rpx solid #f8f8f8;
+  transition: background 0.2s ease;
+}
+
+.link-item:last-child {
+  border-bottom: none;
+}
+
+.link-item:active {
+  background: #f0f9ff;
+}
+
+.link-icon {
+  font-size: 32rpx;
+  margin-right: 24rpx;
+  width: 48rpx;
+  text-align: center;
+}
+
+.link-text {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+
+.link-arrow {
+  font-size: 24rpx;
+  color: #999;
+  font-weight: bold;
+}

@@ -158,10 +158,29 @@
             bind:cardtap="onProductCardTap"
             bind:comparechange="onCompareChange"
           />
-        </view>
-      </view>
+              </view>
     </view>
   </view>
+
+  <!-- 页面链接 -->
+  <view class="page-links">
+    <view class="link-item" bindtap="onViewAbout">
+      <text class="link-icon">ℹ️</text>
+      <text class="link-text">关于我们</text>
+      <text class="link-arrow">></text>
+    </view>
+    <view class="link-item" bindtap="onViewTerms">
+      <text class="link-icon">📋</text>
+      <text class="link-text">服务条款</text>
+      <text class="link-arrow">></text>
+    </view>
+    <view class="link-item" bindtap="onViewPrivacy">
+      <text class="link-icon">🔒</text>
+      <text class="link-text">隐私政策</text>
+      <text class="link-arrow">></text>
+    </view>
+  </view>
+</view>
 
   <!-- 功能菜单 -->
   <view class="menu-section">

@@ -1,0 +1,70 @@
+<!--pages/policy/policy.wxml-->
+<view class="container">
+  <!-- 服务条款 -->
+  <view wx:if="{{policyType === 'terms'}}" class="policy-content">
+    <view class="policy-header">
+      <text class="policy-title">{{termsContent.title}}</text>
+      <text class="policy-updated">最后更新：{{termsContent.lastUpdated}}</text>
+    </view>
+    
+    <view class="policy-sections">
+      <view 
+        wx:for="{{termsContent.sections}}" 
+        wx:key="title"
+        class="policy-section"
+      >
+        <text class="section-title">{{item.title}}</text>
+        <text class="section-content">{{item.content}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 隐私政策 -->
+  <view wx:else class="policy-content">
+    <view class="policy-header">
+      <text class="policy-title">{{privacyContent.title}}</text>
+      <text class="policy-updated">最后更新：{{privacyContent.lastUpdated}}</text>
+    </view>
+    
+    <view class="policy-sections">
+      <view 
+        wx:for="{{privacyContent.sections}}" 
+        wx:key="title"
+        class="policy-section"
+      >
+        <text class="section-title">{{item.title}}</text>
+        <text class="section-content">{{item.content}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 联系信息 -->
+  <view class="contact-footer">
+    <view class="footer-text">
+      <text class="footer-title">如有疑问，请联系我们</text>
+      <text class="footer-contact">服务顾问热线：400-888-6666</text>
+      <text class="footer-email">邮箱：service@furniture-durham.co.uk</text>
+    </view>
+    <button class="contact-btn" bindtap="onContactService">联系服务顾问</button>
+  </view>
+
+  <!-- 切换链接 -->
+  <view class="switch-links">
+    <view 
+      wx:if="{{policyType === 'terms'}}"
+      class="switch-link"
+      bindtap="onSwitchToPrivacy"
+    >
+      <text class="switch-text">查看隐私政策</text>
+      <text class="switch-arrow">></text>
+    </view>
+    <view 
+      wx:else
+      class="switch-link"
+      bindtap="onSwitchToTerms"
+    >
+      <text class="switch-text">查看服务条款</text>
+      <text class="switch-arrow">></text>
+    </view>
+  </view>
+</view>

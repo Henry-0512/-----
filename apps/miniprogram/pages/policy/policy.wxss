@@ -1,0 +1,142 @@
+/* pages/policy/policy.wxss */
+.container {
+  background: #f8f8f8;
+  min-height: 100vh;
+  padding-bottom: 120rpx;
+}
+
+/* 政策内容 */
+.policy-content {
+  background: white;
+  margin: 20rpx;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+
+.policy-header {
+  padding: 40rpx;
+  text-align: center;
+  border-bottom: 2rpx solid #f0f0f0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.policy-title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 16rpx;
+}
+
+.policy-updated {
+  font-size: 24rpx;
+  opacity: 0.9;
+}
+
+.policy-sections {
+  padding: 32rpx;
+}
+
+.policy-section {
+  margin-bottom: 48rpx;
+}
+
+.policy-section:last-child {
+  margin-bottom: 0;
+}
+
+.section-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20rpx;
+  padding-bottom: 12rpx;
+  border-bottom: 2rpx solid #e0e0e0;
+}
+
+.section-content {
+  display: block;
+  font-size: 28rpx;
+  color: #555;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+/* 联系信息底部 */
+.contact-footer {
+  background: white;
+  margin: 20rpx;
+  border-radius: 16rpx;
+  padding: 40rpx;
+  text-align: center;
+}
+
+.footer-text {
+  margin-bottom: 32rpx;
+}
+
+.footer-title {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 20rpx;
+}
+
+.footer-contact, .footer-email {
+  display: block;
+  font-size: 26rpx;
+  color: #666;
+  margin-bottom: 8rpx;
+}
+
+.contact-btn {
+  background: #007AFF;
+  color: white;
+  border: none;
+  border-radius: 24rpx;
+  padding: 24rpx 48rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  margin: 0;
+}
+
+.contact-btn:active {
+  background: #0056CC;
+}
+
+.contact-btn::after {
+  border: none;
+}
+
+/* 切换链接 */
+.switch-links {
+  margin: 20rpx;
+}
+
+.switch-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 32rpx 40rpx;
+  border-radius: 16rpx;
+  transition: background 0.2s ease;
+}
+
+.switch-link:active {
+  background: #f0f9ff;
+}
+
+.switch-text {
+  font-size: 28rpx;
+  color: #007AFF;
+  font-weight: 500;
+}
+
+.switch-arrow {
+  font-size: 24rpx;
+  color: #007AFF;
+  font-weight: bold;
+}

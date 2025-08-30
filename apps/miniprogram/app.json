@@ -6,7 +6,9 @@
     "pages/detail/detail",
     "pages/profile/profile",
     "pages/compare/compare",
-    "pages/admin/intents"
+    "pages/admin/intents",
+    "pages/about/about",
+    "pages/policy/policy"
   ],
   "window": {
     "backgroundTextStyle": "light",
