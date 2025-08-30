@@ -233,3 +233,49 @@
   font-size: 26rpx;
   opacity: 0.9;
 }
+
+/* 手动输入价格样式 */
+.range-inputs {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin-bottom: 32rpx;
+}
+
+.input-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.input-label {
+  font-size: 24rpx;
+  color: #666;
+}
+
+.price-input {
+  border: 2rpx solid #E5E7EB;
+  border-radius: 8rpx;
+  padding: 16rpx 12rpx;
+  font-size: 28rpx;
+  text-align: center;
+  background: white;
+}
+
+.input-unit {
+  font-size: 20rpx;
+  color: #666;
+  text-align: center;
+}
+
+.range-slider-container {
+  margin-top: 24rpx;
+}
+
+.slider-label {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 16rpx;
+  display: block;
+}

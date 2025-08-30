@@ -128,20 +128,47 @@ Component({
     },
 
     /**
+     * 价格手动输入
+     */
+    onPriceInput(e) {
+      const { key, type } = e.currentTarget.dataset
+      const value = parseInt(e.detail.value) || 0
+      const currentValues = this.data.internalValues[key] || { min: 0, max: 1000 }
+      
+      console.log('🔍 价格输入:', { key, type, value })
+      
+      if (type === 'min') {
+        currentValues.min = Math.max(0, Math.min(value, currentValues.max))
+      } else if (type === 'max') {
+        currentValues.max = Math.max(currentValues.min, Math.min(value, 1000))
+      }
+      
+      this.setData({
+        [`internalValues.${key}`]: currentValues
+      })
+      
+      console.log('🔍 价格范围更新:', currentValues)
+    },
+
+    /**
      * 范围滑块变化
      */
     onRangeChange(e) {
       const { key } = e.currentTarget.dataset
-      const values = e.detail.value
+      const value = e.detail.value
       const schemaItem = this.data.schema.find(item => item.key === key)
       
+      console.log('🔍 滑块变化:', { key, value })
+      
+      // 简化为单个滑块控制最大值
+      const currentValues = this.data.internalValues[key] || { min: 0, max: 1000 }
+      currentValues.max = value
+      
       this.setData({
-        [`internalValues.${key}`]: {
-          min: values[0],
-          max: values[1]
-        },
-        [`sliderValues.${key}`]: values
+        [`internalValues.${key}`]: currentValues
       })
+      
+      console.log('🔍 滑块更新后价格范围:', currentValues)
     },
 
     /**
