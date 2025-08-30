@@ -309,6 +309,130 @@ fastify.get('/api/sku/:id/recommendations', async (request, reply) => {
   }
 })
 
+// 报价计算接口
+fastify.post('/api/quote', async (request, reply) => {
+  const { 
+    skuId, 
+    duration, 
+    durationUnit = 'month',  // 'week' | 'month'
+    quantity = 1,
+    services = []  // 可选服务数组
+  } = request.body || {}
+  
+  if (!skuId || !duration) {
+    return reply.code(400).send({
+      success: false,
+      message: '缺少必要参数：skuId 和 duration'
+    })
+  }
+  
+  const sku = skuData.find(item => item.id === skuId)
+  if (!sku) {
+    return reply.code(404).send({
+      success: false,
+      message: 'SKU 未找到'
+    })
+  }
+  
+  // 基础单价计算
+  const baseMonthlyPrice = Math.ceil(sku.price / 50)
+  let unitPrice = baseMonthlyPrice
+  
+  // 周租价格调整（周租通常更贵）
+  if (durationUnit === 'week') {
+    unitPrice = Math.ceil(baseMonthlyPrice / 4 * 1.2) // 周租价格为月租的1.2倍/4
+  }
+  
+  // 计算基础租金
+  const baseRent = unitPrice * duration * quantity
+  
+  // 可选服务费用计算
+  const serviceDefinitions = {
+    'delivery': { name: '送货到门', price: 50 },
+    'installation': { name: '白手套安装', price: 150 },
+    'upstairs': { name: '上楼服务', price: 80 },
+    'insurance': { name: '租赁保险', price: Math.ceil(baseRent * 0.02) } // 2%保险费
+  }
+  
+  let serviceTotal = 0
+  const selectedServices = services.map(serviceId => {
+    const service = serviceDefinitions[serviceId]
+    if (service) {
+      serviceTotal += service.price
+      return {
+        id: serviceId,
+        name: service.name,
+        price: service.price
+      }
+    }
+    return null
+  }).filter(Boolean)
+  
+  // 押金计算（通常为1-2个月租金）
+  const depositMonths = Math.min(duration, 2)
+  const deposit = unitPrice * depositMonths * quantity
+  
+  // 折扣计算（长期租赁折扣）
+  let discount = 0
+  let discountReason = null
+  if (durationUnit === 'month' && duration >= 12) {
+    discount = Math.ceil(baseRent * 0.1) // 年租9折
+    discountReason = '年租优惠10%'
+  } else if (durationUnit === 'month' && duration >= 6) {
+    discount = Math.ceil(baseRent * 0.05) // 半年租95折
+    discountReason = '半年租优惠5%'
+  }
+  
+  // 最终计算
+  const totalRent = baseRent + serviceTotal - discount
+  const grandTotal = totalRent + deposit
+  
+  return {
+    success: true,
+    data: {
+      // 基础信息
+      skuId,
+      quantity,
+      duration,
+      durationUnit,
+      
+      // 价格明细
+      breakdown: {
+        // 基础费用
+        unitPrice,
+        unitPriceLabel: `单价（${durationUnit === 'week' ? '周' : '月'}租）`,
+        baseRent,
+        baseRentLabel: `基础租金（${unitPrice} × ${duration} × ${quantity}）`,
+        
+        // 服务费用
+        services: selectedServices,
+        serviceTotal,
+        serviceTotalLabel: '增值服务费',
+        
+        // 优惠折扣
+        discount,
+        discountReason,
+        
+        // 押金
+        deposit,
+        depositReason: `${depositMonths}个${durationUnit === 'week' ? '周' : '月'}租金作为押金`,
+        
+        // 合计
+        totalRent,
+        totalRentLabel: '租金小计',
+        grandTotal,
+        grandTotalLabel: '总计（含押金）'
+      },
+      
+      // 计算说明
+      calculation: {
+        formula: `基础租金 ${baseRent} + 服务费 ${serviceTotal} - 优惠 ${discount} + 押金 ${deposit} = ${grandTotal}`,
+        note: '押金在租期结束后无损退还，租金按实际使用天数计算'
+      }
+    }
+  }
+})
+
 // 创建意向订单
 fastify.post('/api/intent-order', async (request, reply) => {
   const { skuId, duration, startDate, userInfo } = request.body || {}

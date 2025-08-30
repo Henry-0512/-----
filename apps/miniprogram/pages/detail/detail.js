@@ -30,7 +30,25 @@ Page({
       originalPrice: '',
       showButton: false,
       buttonText: ''
-    }
+    },
+    
+    // 租期选择器
+    durationUnit: 'month',  // 'week' | 'month'
+    quantity: 1,
+    selectedServices: [],
+    
+    // 可选服务
+    availableServices: [
+      { id: 'delivery', name: '送货到门', price: 50, selected: false },
+      { id: 'installation', name: '白手套安装', price: 150, selected: false },
+      { id: 'upstairs', name: '上楼服务', price: 80, selected: false },
+      { id: 'insurance', name: '租赁保险', price: 0, selected: false, note: '按租金2%计算' }
+    ],
+    
+    // 报价信息
+    quoteData: null,
+    quoteLoading: false,
+    quoteError: null
   },
 
   onLoad(options) {
@@ -81,6 +99,9 @@ Page({
         priceInfo,
         loading: false
       })
+      
+      // 加载初始报价
+      this.calculateQuote()
     } catch (error) {
       console.error('加载商品详情失败：', error)
       
@@ -431,6 +452,114 @@ Page({
     wx.redirectTo({
       url: `/pages/detail/detail?id=${product.id}`
     })
+  },
+
+  /**
+   * 计算报价
+   */
+  async calculateQuote() {
+    const { sku, duration, durationUnit, quantity, selectedServices } = this.data
+    if (!sku || !sku.id) return
+
+    try {
+      this.setData({ quoteLoading: true, quoteError: null })
+
+      const res = await api.getQuote({
+        skuId: sku.id,
+        duration,
+        durationUnit,
+        quantity,
+        services: selectedServices
+      })
+
+      this.setData({
+        quoteData: res.data,
+        quoteLoading: false
+      })
+    } catch (error) {
+      console.error('计算报价失败:', error)
+      this.setData({
+        quoteLoading: false,
+        quoteError: error.message || '报价计算失败'
+      })
+    }
+  },
+
+  /**
+   * 租期单位切换
+   */
+  onDurationUnitChange(e) {
+    const { value } = e.detail
+    const durationUnit = value === 0 ? 'week' : 'month'
+    
+    this.setData({ 
+      durationUnit,
+      duration: 1  // 重置租期
+    })
+    this.calculateQuote()
+  },
+
+  /**
+   * 租期时长变化
+   */
+  onDurationChange(e) {
+    const { value } = e.detail
+    this.setData({ duration: parseInt(value) })
+    this.calculateQuote()
+  },
+
+  /**
+   * 数量变化
+   */
+  onQuantityChange(e) {
+    const { value } = e.detail
+    this.setData({ quantity: Math.max(1, parseInt(value) || 1) })
+    this.calculateQuote()
+  },
+
+  /**
+   * 数量减少
+   */
+  onQuantityDecrease() {
+    const { quantity } = this.data
+    if (quantity > 1) {
+      this.setData({ quantity: quantity - 1 })
+      this.calculateQuote()
+    }
+  },
+
+  /**
+   * 数量增加
+   */
+  onQuantityIncrease() {
+    const { quantity } = this.data
+    this.setData({ quantity: quantity + 1 })
+    this.calculateQuote()
+  },
+
+  /**
+   * 服务选择变化
+   */
+  onServiceChange(e) {
+    const { serviceId } = e.currentTarget.dataset
+    const { availableServices } = this.data
+    
+    const updatedServices = availableServices.map(service => {
+      if (service.id === serviceId) {
+        return { ...service, selected: !service.selected }
+      }
+      return service
+    })
+    
+    const selectedServices = updatedServices
+      .filter(service => service.selected)
+      .map(service => service.id)
+    
+    this.setData({
+      availableServices: updatedServices,
+      selectedServices
+    })
+    this.calculateQuote()
   },
 
   /**

@@ -365,6 +365,19 @@ const getRecommendations = (skuId) => {
 }
 
 /**
+ * 获取报价计算
+ * @param {Object} quoteData 报价数据
+ */
+const getQuote = (quoteData) => {
+  return request({
+    url: '/api/quote',
+    method: 'POST',
+    data: quoteData,
+    showLoading: false  // 实时计算不显示loading
+  })
+}
+
+/**
  * 提交意向订单
  * @param {Object} orderData 订单数据
  */
@@ -436,6 +449,7 @@ const api = {
   searchProducts,
   getProductDetail,
   getRecommendations,
+  getQuote,
   submitIntentOrder,
   
   // 工具方法

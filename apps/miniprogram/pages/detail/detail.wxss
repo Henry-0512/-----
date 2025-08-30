@@ -218,6 +218,271 @@
   border: none;
 }
 
+/* 租期配置区域 */
+.rental-config {
+  background: white;
+  margin: 16rpx 0;
+  padding: 32rpx;
+}
+
+.config-item {
+  margin-bottom: 32rpx;
+}
+
+.config-label {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 16rpx;
+}
+
+/* 租期单位选择 */
+.radio-group {
+  display: flex;
+  gap: 32rpx;
+}
+
+.radio-item {
+  display: flex;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.radio-text {
+  font-size: 28rpx;
+  color: #333;
+}
+
+/* 租期时长选择器 */
+.duration-selector {
+  display: flex;
+  align-items: center;
+}
+
+.duration-input {
+  display: flex;
+  align-items: center;
+  background: #f8f8f8;
+  border-radius: 12rpx;
+  padding: 16rpx 24rpx;
+  gap: 16rpx;
+}
+
+.duration-number {
+  font-size: 32rpx;
+  color: #333;
+  text-align: center;
+  min-width: 80rpx;
+}
+
+.duration-unit {
+  font-size: 28rpx;
+  color: #666;
+}
+
+/* 数量选择器 */
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  gap: 24rpx;
+}
+
+.qty-btn {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 12rpx;
+  border: 2rpx solid #e0e0e0;
+  background: white;
+  font-size: 32rpx;
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+}
+
+.qty-btn:active {
+  background: #f0f0f0;
+}
+
+.qty-btn::after {
+  border: none;
+}
+
+.qty-input {
+  width: 120rpx;
+  height: 80rpx;
+  text-align: center;
+  font-size: 32rpx;
+  color: #333;
+  background: #f8f8f8;
+  border-radius: 12rpx;
+  padding: 0 16rpx;
+}
+
+/* 服务选择 */
+.services-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.service-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  background: #f8f8f8;
+  border-radius: 12rpx;
+  transition: all 0.2s ease;
+}
+
+.service-item.selected {
+  background: #E3F2FD;
+  border: 2rpx solid #2196F3;
+}
+
+.service-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4rpx;
+}
+
+.service-name {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.service-note {
+  font-size: 24rpx;
+  color: #999;
+}
+
+.service-price {
+  margin-right: 16rpx;
+  font-size: 26rpx;
+  color: #666;
+  font-weight: 500;
+}
+
+.service-check {
+  width: 48rpx;
+  height: 48rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.check-icon {
+  font-size: 32rpx;
+  color: #2196F3;
+  font-weight: bold;
+}
+
+/* 报价明细区域 */
+.quote-section {
+  background: white;
+  margin: 16rpx 0;
+  padding: 32rpx;
+}
+
+.quote-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.quote-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12rpx 0;
+}
+
+.quote-label {
+  font-size: 28rpx;
+  color: #333;
+}
+
+.quote-value {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 500;
+}
+
+.quote-item.service-item .quote-label {
+  color: #666;
+  font-size: 26rpx;
+}
+
+.quote-item.discount .quote-label {
+  color: #4CAF50;
+}
+
+.discount-value {
+  color: #4CAF50 !important;
+}
+
+.quote-item.deposit .quote-label {
+  color: #FF9800;
+}
+
+.quote-divider {
+  height: 2rpx;
+  background: #e0e0e0;
+  margin: 16rpx 0;
+}
+
+.quote-item.subtotal {
+  padding-top: 16rpx;
+  border-top: 2rpx solid #f0f0f0;
+}
+
+.quote-item.total {
+  padding: 20rpx 0;
+  background: #f8f8f8;
+  margin: 0 -16rpx;
+  padding-left: 16rpx;
+  padding-right: 16rpx;
+  border-radius: 12rpx;
+}
+
+.total-value {
+  font-size: 36rpx !important;
+  color: #FF6B6B !important;
+  font-weight: bold !important;
+}
+
+.quote-note {
+  margin-top: 24rpx;
+  padding: 16rpx;
+  background: #FFF3E0;
+  border-radius: 12rpx;
+}
+
+.note-text {
+  font-size: 24rpx;
+  color: #F57C00;
+  line-height: 1.5;
+}
+
+/* 报价状态 */
+.quote-loading, .quote-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40rpx;
+  background: white;
+  margin: 16rpx 0;
+  border-radius: 12rpx;
+  color: #666;
+  font-size: 28rpx;
+}
+
 .sku-attributes {
   margin-bottom: 24rpx;
 }

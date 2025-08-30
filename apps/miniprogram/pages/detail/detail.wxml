@@ -105,6 +105,164 @@
       </view>
     </view>
 
+    <!-- 租期选择器 -->
+    <view class="rental-config">
+      <view class="section-header">
+        <text class="section-title">租赁配置</text>
+      </view>
+      
+      <!-- 租期单位选择 -->
+      <view class="config-item">
+        <text class="config-label">租期单位</text>
+        <radio-group class="radio-group" bindchange="onDurationUnitChange">
+          <label class="radio-item">
+            <radio value="0" checked="{{durationUnit === 'week'}}" />
+            <text class="radio-text">按周租</text>
+          </label>
+          <label class="radio-item">
+            <radio value="1" checked="{{durationUnit === 'month'}}" />
+            <text class="radio-text">按月租</text>
+          </label>
+        </radio-group>
+      </view>
+
+      <!-- 租期时长 -->
+      <view class="config-item">
+        <text class="config-label">租期时长</text>
+        <view class="duration-selector">
+          <view class="duration-input">
+            <input 
+              type="number" 
+              value="{{duration}}" 
+              bindinput="onDurationChange"
+              class="duration-number"
+              placeholder="1"
+              min="1"
+              max="{{durationUnit === 'week' ? 52 : 12}}"
+            />
+            <text class="duration-unit">{{durationUnit === 'week' ? '周' : '月'}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 数量选择 -->
+      <view class="config-item">
+        <text class="config-label">租赁数量</text>
+        <view class="quantity-selector">
+          <button class="qty-btn" bindtap="onQuantityDecrease">-</button>
+          <input 
+            type="number" 
+            value="{{quantity}}" 
+            bindinput="onQuantityChange"
+            class="qty-input"
+            min="1"
+          />
+          <button class="qty-btn" bindtap="onQuantityIncrease">+</button>
+        </view>
+      </view>
+
+      <!-- 可选服务 -->
+      <view class="config-item">
+        <text class="config-label">增值服务</text>
+        <view class="services-list">
+          <view 
+            wx:for="{{availableServices}}" 
+            wx:key="id"
+            class="service-item {{item.selected ? 'selected' : ''}}"
+            data-service-id="{{item.id}}"
+            bindtap="onServiceChange"
+          >
+            <view class="service-info">
+              <text class="service-name">{{item.name}}</text>
+              <text wx:if="{{item.note}}" class="service-note">{{item.note}}</text>
+            </view>
+            <view class="service-price">
+              <text wx:if="{{item.price > 0}}">¥{{item.price}}</text>
+              <text wx:else>动态计算</text>
+            </view>
+            <view class="service-check">
+              <text class="check-icon">{{item.selected ? '✓' : '○'}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 报价明细 -->
+    <view wx:if="{{quoteData}}" class="quote-section">
+      <view class="section-header">
+        <text class="section-title">费用明细</text>
+      </view>
+      
+      <view class="quote-breakdown">
+        <!-- 基础费用 -->
+        <view class="quote-item">
+          <text class="quote-label">{{quoteData.breakdown.unitPriceLabel}}</text>
+          <text class="quote-value">¥{{quoteData.breakdown.unitPrice}}</text>
+        </view>
+        
+        <view class="quote-item">
+          <text class="quote-label">{{quoteData.breakdown.baseRentLabel}}</text>
+          <text class="quote-value">¥{{quoteData.breakdown.baseRent}}</text>
+        </view>
+
+        <!-- 服务费用 -->
+        <view wx:if="{{quoteData.breakdown.services.length > 0}}" class="quote-services">
+          <view 
+            wx:for="{{quoteData.breakdown.services}}" 
+            wx:key="id"
+            class="quote-item service-item"
+          >
+            <text class="quote-label">{{item.name}}</text>
+            <text class="quote-value">¥{{item.price}}</text>
+          </view>
+        </view>
+
+        <!-- 优惠折扣 -->
+        <view wx:if="{{quoteData.breakdown.discount > 0}}" class="quote-item discount">
+          <text class="quote-label">{{quoteData.breakdown.discountReason}}</text>
+          <text class="quote-value discount-value">-¥{{quoteData.breakdown.discount}}</text>
+        </view>
+
+        <!-- 押金 -->
+        <view class="quote-item deposit">
+          <text class="quote-label">{{quoteData.breakdown.depositReason}}</text>
+          <text class="quote-value">¥{{quoteData.breakdown.deposit}}</text>
+        </view>
+
+        <!-- 分割线 -->
+        <view class="quote-divider"></view>
+
+        <!-- 小计 -->
+        <view class="quote-item subtotal">
+          <text class="quote-label">{{quoteData.breakdown.totalRentLabel}}</text>
+          <text class="quote-value">¥{{quoteData.breakdown.totalRent}}</text>
+        </view>
+
+        <!-- 总计 -->
+        <view class="quote-item total">
+          <text class="quote-label">{{quoteData.breakdown.grandTotalLabel}}</text>
+          <text class="quote-value total-value">¥{{quoteData.breakdown.grandTotal}}</text>
+        </view>
+      </view>
+
+      <!-- 计算说明 -->
+      <view class="quote-note">
+        <text class="note-text">{{quoteData.calculation.note}}</text>
+      </view>
+    </view>
+
+    <!-- 报价加载状态 -->
+    <view wx:elif="{{quoteLoading}}" class="quote-loading">
+      <text>计算报价中...</text>
+    </view>
+
+    <!-- 报价错误状态 -->
+    <view wx:elif="{{quoteError}}" class="quote-error">
+      <text>{{quoteError}}</text>
+      <button class="retry-btn" bindtap="calculateQuote">重新计算</button>
+    </view>
+
     <!-- 尺寸信息 -->
     <view class="size-section">
       <view class="section-header">

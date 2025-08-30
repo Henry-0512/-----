@@ -13,6 +13,8 @@
     "height_mm": 840,
     "package": { "width_mm": 2150, "depth_mm": 950, "height_mm": 700, "weight_kg": 55 },
     "price": 3999,
+    "price_min": 3500,
+    "price_max": 4500,
     "stock": [{ "city": "Durham", "qty": 8 }],
     "images": [
       { "url": "https://picsum.photos/400/300?random=101", "type": "main" },
