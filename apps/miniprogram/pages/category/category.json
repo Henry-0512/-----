@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "product-card": "../../components/product-card/product-card"
+    "product-card": "../../components/product-card/product-card",
+    "category-card": "../../components/category-card/category-card"
   },
   "navigationBarTitleText": "商品分类",
   "enablePullDownRefresh": true

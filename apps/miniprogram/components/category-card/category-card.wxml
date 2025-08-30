@@ -1,0 +1,13 @@
+<!-- components/category-card/category-card.wxml -->
+<view class="category-card" bindtap="onTap">
+  <view class="img-wrap">
+    <image 
+      class="img" 
+      src="{{item.cover || item.image}}" 
+      mode="aspectFill" 
+      lazy-load="true"
+    />
+    <view class="gradient"></view>
+    <text class="title">{{item.name}}</text>
+  </view>
+</view>

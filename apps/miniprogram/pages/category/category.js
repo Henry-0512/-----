@@ -12,56 +12,57 @@ Page({
     items: [],
     itemsLoading: false,
     error: null,
+    searchKeyword: '',
     departments: [
       {
         id: 'home_garden',
         name: '家居园艺',
-        image: 'https://picsum.photos/400/300?random=10'
+        cover: 'https://picsum.photos/400/300?random=10'
       },
       {
         id: 'furniture_lights',
         name: '家具灯饰',
-        image: 'https://picsum.photos/400/300?random=11'
+        cover: 'https://picsum.photos/400/300?random=11'
       },
       {
         id: 'electricals',
         name: '电器设备',
-        image: 'https://picsum.photos/400/300?random=12'
+        cover: 'https://picsum.photos/400/300?random=12'
       },
       {
         id: 'women',
         name: '女士用品',
-        image: 'https://picsum.photos/400/300?random=13'
+        cover: 'https://picsum.photos/400/300?random=13'
       },
       {
         id: 'men',
         name: '男士用品',
-        image: 'https://picsum.photos/400/300?random=14'
+        cover: 'https://picsum.photos/400/300?random=14'
       },
       {
         id: 'beauty',
         name: '美妆护理',
-        image: 'https://picsum.photos/400/300?random=15'
+        cover: 'https://picsum.photos/400/300?random=15'
       },
       {
         id: 'baby_kids',
         name: '母婴儿童',
-        image: 'https://picsum.photos/400/300?random=16'
+        cover: 'https://picsum.photos/400/300?random=16'
       },
       {
         id: 'sport_travel',
         name: '运动旅行',
-        image: 'https://picsum.photos/400/300?random=17'
+        cover: 'https://picsum.photos/400/300?random=17'
       },
       {
         id: 'gifts',
         name: '礼品精选',
-        image: 'https://picsum.photos/400/300?random=18'
+        cover: 'https://picsum.photos/400/300?random=18'
       },
       {
         id: 'holiday',
         name: '节日专区',
-        image: 'https://picsum.photos/400/300?random=19'
+        cover: 'https://picsum.photos/400/300?random=19'
       }
     ]
   },
@@ -71,10 +72,7 @@ Page({
   },
 
   onShow() {
-    // 每次显示时检查是否需要刷新数据
-    if (!this.data.categories.length) {
-      this.loadCategories()
-    }
+    // 页面显示时刷新数据
   },
 
   /**
@@ -84,117 +82,76 @@ Page({
     try {
       this.setData({ loading: true, error: null })
       
-      const res = await api.getFiltersMeta()
-      const categories = res.data.categories || []
-      
-      this.setData({
-        categories,
-        selectedCategory: categories[0] || null,
-        loading: false
-      })
-      
-      // 加载第一个分类的商品
-      if (categories.length > 0) {
-        this.loadCategoryItems(categories[0].id)
+      const result = await api.getFiltersMeta()
+      if (result.success) {
+        this.setData({
+          categories: result.data.categories || [],
+          loading: false
+        })
+      } else {
+        throw new Error(result.message || '加载分类失败')
       }
     } catch (error) {
-      console.error('加载分类失败：', error)
+      console.error('加载分类失败:', error)
       this.setData({
-        error: '加载失败，请重试',
-        loading: false
-      })
-    }
-  },
-
-  /**
-   * 加载分类商品
-   */
-  async loadCategoryItems(categoryId) {
-    if (!categoryId) return
-    
-    try {
-      this.setData({ itemsLoading: true })
-      
-      const res = await api.filterProducts({
-        categories: [categoryId]
+        loading: false,
+        error: error.message || '网络连接失败'
       })
       
-      // 只取前6个商品作为预览
-      const items = (res.data.items || []).slice(0, 6)
-      
-      this.setData({
-        items,
-        itemsLoading: false
-      })
-    } catch (error) {
-      console.error('加载分类商品失败：', error)
-      this.setData({ itemsLoading: false })
       wx.showToast({
-        title: '加载商品失败',
-        icon: 'none',
-        duration: 2000
+        title: '加载失败',
+        icon: 'none'
       })
     }
   },
 
   /**
-   * 部门点击
+   * 点击部门卡片
+   */
+  onTapDept(e) {
+    const { item, id } = e.detail
+    
+    if (item && item.id) {
+      // 跳转到列表页并带上分类参数
+      wx.navigateTo({
+        url: `/pages/list/list?dept=${item.id}&title=${encodeURIComponent(item.name)}`
+      })
+    }
+  },
+
+  /**
+   * 搜索输入
+   */
+  onSearchInput(e) {
+    this.setData({
+      searchKeyword: e.detail.value
+    })
+  },
+
+  /**
+   * 搜索确认
+   */
+  onSearch(e) {
+    const keyword = e.detail.value.trim()
+    if (keyword) {
+      wx.navigateTo({
+        url: `/pages/list/list?keyword=${encodeURIComponent(keyword)}`
+      })
+    }
+  },
+
+  /**
+   * 点击分类
    */
   onDepartmentTap(e) {
-    const { department } = e.currentTarget.dataset
-    if (!department) return
+    const { id } = e.currentTarget.dataset
+    const dept = this.data.departments.find(item => item.id === id)
     
-    // 导航到列表页，传递部门参数
-    wx.navigateTo({
-      url: `/pages/list/list?department=${department.id}&title=${department.name}`
-    })
-  },
-
-  /**
-   * 选择分类
-   */
-  onCategoryTap(e) {
-    const { category } = e.currentTarget.dataset
-    if (!category || category.id === this.data.selectedCategory?.id) return
-    
-    this.setData({ selectedCategory: category })
-    this.loadCategoryItems(category.id)
-  },
-
-  /**
-   * 商品卡片点击
-   */
-  onProductCardTap(e) {
-    const { product } = e.detail
-    wx.navigateTo({
-      url: `/pages/detail/detail?id=${product.id}`
-    })
-  },
-
-  /**
-   * 收藏状态变化
-   */
-  onFavoriteChange(e) {
-    console.log('收藏状态变化:', e.detail)
-  },
-
-  /**
-   * 查看分类全部商品
-   */
-  onViewAllTap() {
-    const { selectedCategory } = this.data
-    if (selectedCategory) {
+    if (dept) {
       wx.navigateTo({
-        url: `/pages/list/list?category=${selectedCategory.id}`
+        url: `/pages/list/list?category=${id}&title=${encodeURIComponent(dept.name)}`
       })
     }
-  },
-
-  /**
-   * 重试加载
-   */
-  onRetry() {
-    this.loadCategories()
   },
 
   /**
@@ -204,5 +161,15 @@ Page({
     this.loadCategories().finally(() => {
       wx.stopPullDownRefresh()
     })
+  },
+
+  /**
+   * 页面分享
+   */
+  onShareAppMessage() {
+    return {
+      title: '家具租赁 - 商品分类',
+      path: '/pages/category/category'
+    }
   }
 })
