@@ -5,6 +5,7 @@
     "pages/list/list",
     "pages/detail/detail",
     "pages/profile/profile",
+    "pages/cart/cart",
     "pages/compare/compare",
     "pages/admin/intents",
     "pages/about/about",
@@ -34,6 +35,10 @@
       {
         "pagePath": "pages/list/list",
         "text": "🔍 搜索"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "🛒 购物车"
       },
       {
         "pagePath": "pages/profile/profile",

@@ -118,7 +118,13 @@
         "q": "沙发套可机洗吗？",
         "a": "可机洗，建议低温柔洗。"
       }
-    ]
+    ],
+    "condition": {
+      "label": "全新",
+      "value": "new",
+      "discount": 0
+    },
+    "originalPrice": 3999
   },
   {
     "id": "sku_bed_002",
@@ -149,7 +155,7 @@
       "height_mm": 260,
       "weight_kg": 42
     },
-    "price": 3299,
+    "price": 2969,
     "stock": [
       {
         "city": "Durham",
@@ -236,7 +242,13 @@
         ],
         "region": "secondary"
       }
-    ]
+    ],
+    "condition": {
+      "label": "九成新",
+      "value": "90_new",
+      "discount": 0.1
+    },
+    "originalPrice": 3299
   },
   {
     "id": "sku_table_003",
@@ -267,7 +279,7 @@
       "height_mm": 150,
       "weight_kg": 38
     },
-    "price": 2899,
+    "price": 2754,
     "stock": [
       {
         "city": "Durham",
@@ -355,7 +367,13 @@
         ],
         "region": "secondary"
       }
-    ]
+    ],
+    "condition": {
+      "label": "九五新",
+      "value": "95_new",
+      "discount": 0.05
+    },
+    "originalPrice": 2899
   },
   {
     "id": "sku_chair_004",
@@ -473,7 +491,13 @@
         ],
         "region": "secondary"
       }
-    ]
+    ],
+    "condition": {
+      "label": "全新",
+      "value": "new",
+      "discount": 0
+    },
+    "originalPrice": 599
   },
   {
     "id": "sku_chair_005",
@@ -504,7 +528,7 @@
       "height_mm": 700,
       "weight_kg": 18
     },
-    "price": 1899,
+    "price": 1709,
     "stock": [
       {
         "city": "Durham",
@@ -592,7 +616,13 @@
         ],
         "region": "secondary"
       }
-    ]
+    ],
+    "condition": {
+      "label": "九成新",
+      "value": "90_new",
+      "discount": 0.1
+    },
+    "originalPrice": 1899
   },
   {
     "id": "sku_desk_006",
@@ -710,7 +740,13 @@
         ],
         "region": "secondary"
       }
-    ]
+    ],
+    "condition": {
+      "label": "全新",
+      "value": "new",
+      "discount": 0
+    },
+    "originalPrice": 1299
   },
   {
     "id": "sku_rug_007",
@@ -741,7 +777,7 @@
       "height_mm": 2050,
       "weight_kg": 12
     },
-    "price": 899,
+    "price": 809,
     "stock": [
       {
         "city": "Durham",
@@ -828,7 +864,13 @@
         ],
         "region": "secondary"
       }
-    ]
+    ],
+    "condition": {
+      "label": "九成新",
+      "value": "90_new",
+      "discount": 0.1
+    },
+    "originalPrice": 899
   },
   {
     "id": "sku_table_008",
@@ -859,7 +901,7 @@
       "height_mm": 200,
       "weight_kg": 22
     },
-    "price": 1599,
+    "price": 1279,
     "stock": [
       {
         "city": "Durham",
@@ -947,7 +989,13 @@
         ],
         "region": "secondary"
       }
-    ]
+    ],
+    "condition": {
+      "label": "八成新",
+      "value": "80_new",
+      "discount": 0.2
+    },
+    "originalPrice": 1599
   },
   {
     "id": "sku_wardrobe_009",
@@ -978,7 +1026,7 @@
       "height_mm": 200,
       "weight_kg": 85
     },
-    "price": 4599,
+    "price": 4369,
     "stock": [
       {
         "city": "Durham",
@@ -1065,7 +1113,13 @@
         ],
         "region": "secondary"
       }
-    ]
+    ],
+    "condition": {
+      "label": "九五新",
+      "value": "95_new",
+      "discount": 0.05
+    },
+    "originalPrice": 4599
   },
   {
     "id": "sku_mattress_010",
@@ -1096,7 +1150,7 @@
       "height_mm": 1550,
       "weight_kg": 28
     },
-    "price": 2199,
+    "price": 2089,
     "stock": [
       {
         "city": "Durham",
@@ -1184,7 +1238,13 @@
         ],
         "region": "secondary"
       }
-    ]
+    ],
+    "condition": {
+      "label": "九五新",
+      "value": "95_new",
+      "discount": 0.05
+    },
+    "originalPrice": 2199
   },
   {
     "id": "sku_nightstand_011",
@@ -1215,7 +1275,7 @@
       "height_mm": 150,
       "weight_kg": 15
     },
-    "price": 699,
+    "price": 559,
     "stock": [
       {
         "city": "Durham",
@@ -1302,7 +1362,13 @@
         ],
         "region": "secondary"
       }
-    ]
+    ],
+    "condition": {
+      "label": "八成新",
+      "value": "80_new",
+      "discount": 0.2
+    },
+    "originalPrice": 699
   },
   {
     "id": "sku_bookshelf_012",
@@ -1333,7 +1399,7 @@
       "height_mm": 200,
       "weight_kg": 32
     },
-    "price": 1399,
+    "price": 1259,
     "stock": [
       {
         "city": "Durham",
@@ -1420,7 +1486,13 @@
         ],
         "region": "secondary"
       }
-    ]
+    ],
+    "condition": {
+      "label": "九成新",
+      "value": "90_new",
+      "discount": 0.1
+    },
+    "originalPrice": 1399
   },
   {
     "id": "sku_dresser_013",
@@ -1539,7 +1611,13 @@
         ],
         "region": "secondary"
       }
-    ]
+    ],
+    "condition": {
+      "label": "全新",
+      "value": "new",
+      "discount": 0
+    },
+    "originalPrice": 1899
   },
   {
     "id": "sku_sofa_014",
@@ -1629,7 +1707,13 @@
         ],
         "region": "primary"
       }
-    ]
+    ],
+    "condition": {
+      "label": "全新",
+      "value": "new",
+      "discount": 0
+    },
+    "originalPrice": 5999
   },
   {
     "id": "sku_lamp_015",
@@ -1660,7 +1744,7 @@
       "height_mm": 120,
       "weight_kg": 2
     },
-    "price": 399,
+    "price": 319,
     "stock": [
       {
         "city": "Durham",
@@ -1747,7 +1831,13 @@
         ],
         "region": "secondary"
       }
-    ]
+    ],
+    "condition": {
+      "label": "八成新",
+      "value": "80_new",
+      "discount": 0.2
+    },
+    "originalPrice": 399
   },
   {
     "id": "sku_organizer_016",
@@ -1865,7 +1955,13 @@
         ],
         "region": "secondary"
       }
-    ]
+    ],
+    "condition": {
+      "label": "全新",
+      "value": "new",
+      "discount": 0
+    },
+    "originalPrice": 199
   },
   {
     "id": "sku_pillow_017",
@@ -1896,7 +1992,7 @@
       "height_mm": 150,
       "weight_kg": 2
     },
-    "price": 299,
+    "price": 239,
     "stock": [
       {
         "city": "Durham",
@@ -1983,7 +2079,13 @@
         ],
         "region": "secondary"
       }
-    ]
+    ],
+    "condition": {
+      "label": "八成新",
+      "value": "80_new",
+      "discount": 0.2
+    },
+    "originalPrice": 299
   },
   {
     "id": "sku_stool_018",
@@ -2101,7 +2203,13 @@
         ],
         "region": "secondary"
       }
-    ]
+    ],
+    "condition": {
+      "label": "全新",
+      "value": "new",
+      "discount": 0
+    },
+    "originalPrice": 399
   },
   {
     "id": "sku_mirror_019",
@@ -2132,7 +2240,7 @@
       "height_mm": 1650,
       "weight_kg": 12
     },
-    "price": 599,
+    "price": 539,
     "stock": [
       {
         "city": "Durham",
@@ -2220,7 +2328,13 @@
         ],
         "region": "secondary"
       }
-    ]
+    ],
+    "condition": {
+      "label": "九成新",
+      "value": "90_new",
+      "discount": 0.1
+    },
+    "originalPrice": 599
   },
   {
     "id": "sku_cabinet_020",
@@ -2251,7 +2365,7 @@
       "height_mm": 150,
       "weight_kg": 28
     },
-    "price": 1199,
+    "price": 959,
     "stock": [
       {
         "city": "Durham",
@@ -2338,6 +2452,12 @@
         ],
         "region": "secondary"
       }
-    ]
+    ],
+    "condition": {
+      "label": "八成新",
+      "value": "80_new",
+      "discount": 0.2
+    },
+    "originalPrice": 1199
   }
 ]

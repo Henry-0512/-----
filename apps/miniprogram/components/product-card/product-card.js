@@ -46,7 +46,10 @@ Component({
     safeProduct: null,
     buttonData: {},
     priceText: '', // 精简价格显示文本
-    conditionLabels: ['九成新', '全新', '九五新', '八成新'] // 成色标签
+    conditionLabels: ['九成新', '全新', '九五新', '八成新'], // 成色标签
+    conditionLabel: '', // 当前显示的成色
+    productDesc: '', // 商品描述
+    priceNumber: '' // 价格数字
   },
 
   /**
@@ -142,11 +145,25 @@ Component({
         price_mode: priceInfo.mode || 'ask'
       }
       
+      // 生成成色标签
+      const conditionLabel = safeProductData.condition 
+        ? safeProductData.condition.label 
+        : this.data.conditionLabels[Math.floor(Math.random() * this.data.conditionLabels.length)]
+      
+      // 生成商品描述
+      const productDesc = this.generateProductDesc(safeProductData)
+      
+      // 生成价格数字
+      const priceNumber = this.generatePriceNumber(safeProductData, priceInfo)
+      
       this.setData({ 
         priceInfo,
         priceText,
         safeProduct: safeProductData,
-        buttonData
+        buttonData,
+        conditionLabel,
+        productDesc,
+        priceNumber
       })
     },
 
@@ -317,44 +334,42 @@ Component({
     },
 
     /**
-     * 获取商品描述
+     * 生成商品描述
      */
-    getProductDesc() {
-      const { safeProduct } = this.data
-      if (!safeProduct) return ''
+    generateProductDesc(product) {
+      if (!product) return ''
       
       // 组合描述信息
       const parts = []
-      if (safeProduct.color && safeProduct.color[0]) {
-        parts.push(safeProduct.color[0])
+      if (product.color && product.color[0]) {
+        parts.push(product.color[0])
       }
-      if (safeProduct.material && safeProduct.material[0]) {
-        parts.push(safeProduct.material[0])
+      if (product.material && product.material[0]) {
+        parts.push(product.material[0])
       }
-      if (safeProduct.dimensions && safeProduct.dimensions.length) {
-        parts.push(`${safeProduct.dimensions.length}m`)
+      if (product.dimensions && product.dimensions.length) {
+        parts.push(`${product.dimensions.length}m`)
       }
       
       return parts.join(', ') || '租赁家具'
     },
 
     /**
-     * 获取价格数字
+     * 生成价格数字
      */
-    getPriceNumber() {
-      const { safeProduct, priceInfo } = this.data
-      if (!safeProduct) return '0'
+    generatePriceNumber(product, priceInfo) {
+      if (!product) return '0'
       
       switch (priceInfo.mode) {
         case 'show':
-          return safeProduct.price || '0'
+          return product.price || '0'
         case 'from':
-          return safeProduct.price || '0'
+          return product.price || '0'
         case 'range':
-          if (safeProduct.price_min && safeProduct.price_max) {
-            return `${safeProduct.price_min}–${safeProduct.price_max}`
+          if (product.price_min && product.price_max) {
+            return `${product.price_min}–${product.price_max}`
           }
-          return safeProduct.price || '0'
+          return product.price || '0'
         default:
           return '0'
       }
@@ -366,15 +381,52 @@ Component({
     onAddToCart() {
       const { safeProduct } = this.data
       
-      wx.showToast({
-        title: '已添加到购物车',
-        icon: 'success'
-      })
+      if (!safeProduct || !safeProduct.id) {
+        wx.showToast({
+          title: '商品信息错误',
+          icon: 'none'
+        })
+        return
+      }
       
-      // 触发添加购物车事件
-      this.triggerEvent('addtocart', {
-        product: safeProduct
-      })
+      try {
+        // 获取现有购物车数据
+        const cartItems = storage.get('cartItems') || []
+        const existingItemIndex = cartItems.findIndex(item => item.id === safeProduct.id)
+        
+        if (existingItemIndex >= 0) {
+          // 商品已存在，增加数量
+          cartItems[existingItemIndex].quantity = (cartItems[existingItemIndex].quantity || 1) + 1
+        } else {
+          // 新商品，添加到购物车
+          cartItems.push({
+            ...safeProduct,
+            quantity: 1,
+            selected: true,
+            addedAt: new Date().toISOString()
+          })
+        }
+        
+        // 保存到本地存储
+        storage.set('cartItems', cartItems)
+        
+        wx.showToast({
+          title: '已添加到购物车',
+          icon: 'success'
+        })
+        
+        // 触发添加购物车事件
+        this.triggerEvent('addtocart', {
+          product: safeProduct,
+          cartCount: cartItems.length
+        })
+      } catch (error) {
+        console.error('添加购物车失败:', error)
+        wx.showToast({
+          title: '添加失败，请重试',
+          icon: 'none'
+        })
+      }
     }
   }
 })

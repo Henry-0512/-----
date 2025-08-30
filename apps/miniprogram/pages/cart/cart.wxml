@@ -1,0 +1,82 @@
+<!--pages/cart/cart.wxml-->
+<view class="container">
+  <!-- 页面标题 -->
+  <view class="page-header">
+    <text class="page-title">购物车</text>
+    <text class="cart-count">{{cartItems.length}}件商品</text>
+  </view>
+
+  <!-- 购物车内容 -->
+  <view wx:if="{{cartItems.length > 0}}" class="cart-content">
+    <!-- 商品列表 -->
+    <view class="cart-items">
+      <view 
+        wx:for="{{cartItems}}" 
+        wx:key="id"
+        class="cart-item"
+      >
+        <view class="item-checkbox" bindtap="onToggleSelect" data-id="{{item.id}}">
+          <text class="checkbox {{item.selected ? 'checked' : ''}}">{{item.selected ? '✓' : ''}}</text>
+        </view>
+        
+        <image 
+          class="item-image" 
+          src="{{item.images && item.images[0] ? item.images[0].url : item.image}}"
+          mode="aspectFill"
+        />
+        
+        <view class="item-info">
+          <text class="item-name">{{item.title || item.name}}</text>
+          <text class="item-desc">{{item.brand}}, {{item.color && item.color[0] ? item.color[0] : ''}}</text>
+          <view class="item-price">
+            <text class="price-symbol">¥</text>
+            <text class="price-value">{{item.price}}</text>
+            <text class="price-unit">/月</text>
+          </view>
+        </view>
+        
+        <view class="item-actions">
+          <view class="quantity-controls">
+            <view class="qty-btn" bindtap="onDecreaseQty" data-id="{{item.id}}">-</view>
+            <text class="qty-value">{{item.quantity || 1}}</text>
+            <view class="qty-btn" bindtap="onIncreaseQty" data-id="{{item.id}}">+</view>
+          </view>
+          <view class="remove-btn" bindtap="onRemoveItem" data-id="{{item.id}}">
+            <text class="remove-icon">🗑️</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+    <!-- 底部结算区域 -->
+    <view class="cart-footer">
+      <view class="select-all">
+        <view class="select-all-checkbox" bindtap="onToggleSelectAll">
+          <text class="checkbox {{allSelected ? 'checked' : ''}}">{{allSelected ? '✓' : ''}}</text>
+        </view>
+        <text class="select-all-text">全选</text>
+      </view>
+      
+      <view class="total-section">
+        <text class="total-label">合计：</text>
+        <text class="total-symbol">¥</text>
+        <text class="total-value">{{totalAmount}}</text>
+        <text class="total-unit">/月</text>
+      </view>
+      
+      <view class="checkout-btn {{selectedItems.length > 0 ? 'active' : ''}}" bindtap="onCheckout">
+        <text class="checkout-text">结算({{selectedItems.length}})</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空购物车状态 -->
+  <view wx:else class="empty-cart">
+    <text class="empty-icon">🛒</text>
+    <text class="empty-text">购物车是空的</text>
+    <text class="empty-desc">快去添加一些喜欢的家具吧</text>
+    <view class="go-shopping-btn" bindtap="onGoShopping">
+      <text class="go-shopping-text">去逛逛</text>
+    </view>
+  </view>
+</view>

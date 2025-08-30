@@ -20,7 +20,7 @@
     
     <!-- 成色标签 -->
     <view class="condition-tag">
-      <text class="condition-text">{{getConditionLabel()}}</text>
+      <text class="condition-text">{{conditionLabel}}</text>
     </view>
   </view>
 
@@ -30,14 +30,14 @@
     <text class="product-name">{{safeProduct.title || safeProduct.name}}</text>
     
     <!-- 商品描述/品牌 -->
-    <text class="product-desc">{{safeProduct.brand}}, {{getProductDesc()}}</text>
+    <text class="product-desc">{{safeProduct.brand}}, {{productDesc}}</text>
     
     <!-- 价格或咨询区域 -->
     <view class="price-section">
       <!-- 价格模式 -->
       <view wx:if="{{priceInfo.mode !== 'ask'}}" class="price-container">
         <text class="price-symbol">¥</text>
-        <text class="price-main">{{getPriceNumber()}}</text>
+        <text class="price-main">{{priceNumber}}</text>
         <text wx:if="{{priceInfo.mode === 'from'}}" class="price-unit">/月</text>
       </view>
       
