@@ -121,7 +121,11 @@
       "discount": 0
     },
     "originalPrice": 3999,
-    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 440,
+    "rent_monthly_gbp": 9,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_bed_002",
@@ -242,7 +246,11 @@
       "discount": 0.1
     },
     "originalPrice": 3299,
-    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 327,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_table_003",
@@ -364,7 +372,11 @@
       "discount": 0.05
     },
     "originalPrice": 2899,
-    "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 303,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_chair_004",
@@ -485,7 +497,11 @@
       "discount": 0
     },
     "originalPrice": 599,
-    "image": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 66,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_chair_005",
@@ -607,7 +623,11 @@
       "discount": 0.1
     },
     "originalPrice": 1899,
-    "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 188,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_desk_006",
@@ -728,7 +748,11 @@
       "discount": 0
     },
     "originalPrice": 1299,
-    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 143,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_rug_007",
@@ -849,7 +873,11 @@
       "discount": 0.1
     },
     "originalPrice": 899,
-    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 89,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_table_008",
@@ -971,7 +999,11 @@
       "discount": 0.2
     },
     "originalPrice": 1599,
-    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 141,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_wardrobe_009",
@@ -1092,7 +1124,11 @@
       "discount": 0.05
     },
     "originalPrice": 4599,
-    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 481,
+    "rent_monthly_gbp": 10,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_mattress_010",
@@ -1214,7 +1250,11 @@
       "discount": 0.05
     },
     "originalPrice": 2199,
-    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 230,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_nightstand_011",
@@ -1335,7 +1375,11 @@
       "discount": 0.2
     },
     "originalPrice": 699,
-    "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 61,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_bookshelf_012",
@@ -1456,7 +1500,11 @@
       "discount": 0.1
     },
     "originalPrice": 1399,
-    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 138,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_dresser_013",
@@ -1578,7 +1626,11 @@
       "discount": 0
     },
     "originalPrice": 1899,
-    "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 209,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_sofa_014",
@@ -1671,7 +1723,11 @@
       "discount": 0
     },
     "originalPrice": 5999,
-    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 660,
+    "rent_monthly_gbp": 13,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_lamp_015",
@@ -1792,7 +1848,11 @@
       "discount": 0.2
     },
     "originalPrice": 399,
-    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 35,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_organizer_016",
@@ -1913,7 +1973,11 @@
       "discount": 0
     },
     "originalPrice": 199,
-    "image": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 22,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_pillow_017",
@@ -2034,7 +2098,11 @@
       "discount": 0.2
     },
     "originalPrice": 299,
-    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 26,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_stool_018",
@@ -2155,7 +2223,11 @@
       "discount": 0
     },
     "originalPrice": 399,
-    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 44,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_mirror_019",
@@ -2277,7 +2349,11 @@
       "discount": 0.1
     },
     "originalPrice": 599,
-    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 59,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_cabinet_020",
@@ -2398,7 +2474,11 @@
       "discount": 0.2
     },
     "originalPrice": 1199,
-    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 105,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_沙发_021",
@@ -2492,7 +2572,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 306,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_床_022",
@@ -2585,7 +2669,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 77,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_餐桌_023",
@@ -2679,7 +2767,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 98,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_椅子_024",
@@ -2773,7 +2865,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 43,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_书桌_025",
@@ -2866,7 +2962,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 116,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_茶几_026",
@@ -2959,7 +3059,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 71,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_衣柜_027",
@@ -3053,7 +3157,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 79,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_书架_028",
@@ -3147,7 +3255,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 36,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_沙发_029",
@@ -3240,7 +3352,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 179,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_床_030",
@@ -3333,7 +3449,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 138,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_餐桌_031",
@@ -3427,7 +3547,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 99,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_椅子_032",
@@ -3520,7 +3644,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 42,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_书桌_033",
@@ -3613,7 +3741,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 88,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_茶几_034",
@@ -3707,7 +3839,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 57,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_衣柜_035",
@@ -3801,7 +3937,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 160,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_书架_036",
@@ -3895,7 +4035,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 60,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_沙发_037",
@@ -3988,7 +4132,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 246,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_床_038",
@@ -4082,7 +4230,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 85,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_餐桌_039",
@@ -4175,7 +4327,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 53,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_椅子_040",
@@ -4268,7 +4424,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 38,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_书桌_041",
@@ -4361,7 +4521,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 40,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_茶几_042",
@@ -4455,7 +4619,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 50,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_衣柜_043",
@@ -4549,7 +4717,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 220,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_书架_044",
@@ -4642,7 +4814,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 101,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_沙发_045",
@@ -4735,7 +4911,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 160,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_床_046",
@@ -4829,7 +5009,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 60,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_餐桌_047",
@@ -4922,7 +5106,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 173,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_椅子_048",
@@ -5016,7 +5204,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 64,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_书桌_049",
@@ -5109,7 +5301,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 72,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_茶几_050",
@@ -5202,7 +5398,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 62,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_衣柜_051",
@@ -5295,7 +5495,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1541558869434-2840d308329a?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 148,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_书架_052",
@@ -5389,7 +5593,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 81,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_沙发_053",
@@ -5483,7 +5691,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 223,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_床_054",
@@ -5576,7 +5788,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 72,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_餐桌_055",
@@ -5669,7 +5885,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 101,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_椅子_056",
@@ -5762,7 +5982,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1549497538-303791108f95?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 39,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_书桌_057",
@@ -5856,7 +6080,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 38,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_茶几_058",
@@ -5950,7 +6178,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049035182-249067d7618e?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 21,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_衣柜_059",
@@ -6044,7 +6276,11 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 272,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   },
   {
     "id": "sku_书架_060",
@@ -6138,6 +6374,10 @@
         "answer": "目前支持Durham及周边地区"
       }
     ],
-    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop"
+    "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+    "purchase_price_gbp": 47,
+    "rent_monthly_gbp": 8,
+    "currency": "GBP",
+    "rent_rate": 0.02
   }
 ]

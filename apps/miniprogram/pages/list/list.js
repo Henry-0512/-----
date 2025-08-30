@@ -25,11 +25,11 @@ Page({
     filterCount: 0,
     
     // 排序状态
-    currentSort: 'price_desc',
-    currentSortName: '价格从高到低',
+    currentSort: 'rent_desc',
+    currentSortName: '月租从高到低',
     sortOptions: [
-      { key: 'price_asc', name: '价格从低到高' },
-      { key: 'price_desc', name: '价格从高到低' },
+      { key: 'rent_asc', name: '月租从低到高' },
+      { key: 'rent_desc', name: '月租从高到低' },
       { key: 'condition_new', name: '成色从新到旧' },
       { key: 'condition_old', name: '成色从旧到新' }
     ],
@@ -52,7 +52,7 @@ Page({
     
     // 新版筛选器配置
     filterSchema: [
-      { key: "price", type: "range", label: "价格", unit: "¥/月", min: 0, max: 1000, step: 50 },
+      { key: "price", type: "range", label: "月租（£/月）", unit: "£/mo", min: 8, max: 15, step: 1 },
       { key: "material", type: "multi", label: "材质", options: ["布艺","皮质","实木","金属","玻璃"] },
       { key: "style", type: "multi", label: "风格", options: ["现代","北欧","极简","工业","简约"] }
     ],

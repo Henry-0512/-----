@@ -55,8 +55,11 @@ const mockData = {
           depth_mm: 890,
           height_mm: 840,
           package: { width_mm: 2150, depth_mm: 950, height_mm: 700, weight_kg: 55 },
-          price: 3999,
-          monthlyPrice: 80, // price/50
+          price: 3999, // 原人民币价格（兼容）
+          purchase_price_gbp: 440, // 买断价£440
+          rent_monthly_gbp: 12, // 月租£12
+          monthlyPrice: 80, // 原月租金（兼容）
+          currency: 'GBP',
           condition: { label: '八成新', value: '80_new', grade: 2, discount: 0.2 },
           condition_grade: 2,
           stock: [{ city: "Durham", qty: 8 }],
@@ -86,7 +89,10 @@ const mockData = {
           height_mm: 320,
           package: { width_mm: 2100, depth_mm: 300, height_mm: 260, weight_kg: 42 },
           price: 3299,
+          purchase_price_gbp: 363, // 买断价£363
+          rent_monthly_gbp: 11, // 月租£11
           monthlyPrice: 66,
+          currency: 'GBP',
           condition: { label: '九五新', value: '95_new', grade: 4, discount: 0.05 },
           condition_grade: 4,
           stock: [{ city: "Durham", qty: 5 }],
@@ -116,7 +122,10 @@ const mockData = {
           height_mm: 750,
           package: { width_mm: 1650, depth_mm: 850, height_mm: 150, weight_kg: 38 },
           price: 2899,
+          purchase_price_gbp: 319, // 买断价£319
+          rent_monthly_gbp: 10, // 月租£10
           monthlyPrice: 58,
+          currency: 'GBP',
           condition: { label: '九成新', value: '90_new', grade: 3, discount: 0.1 },
           condition_grade: 3,
           stock: [{ city: "Durham", qty: 12 }],
@@ -146,7 +155,10 @@ const mockData = {
           height_mm: 830,
           package: { width_mm: 500, depth_mm: 570, height_mm: 450, weight_kg: 8 },
           price: 599,
+          purchase_price_gbp: 66, // 买断价£66
+          rent_monthly_gbp: 8, // 月租£8（最低价）
           monthlyPrice: 12,
+          currency: 'GBP',
           condition: { label: '全新', value: 'new', grade: 5, discount: 0 },
           condition_grade: 5,
           stock: [{ city: "Durham", qty: 20 }],
@@ -176,7 +188,10 @@ const mockData = {
           height_mm: 1150,
           package: { width_mm: 700, depth_mm: 350, height_mm: 700, weight_kg: 18 },
           price: 1899,
+          purchase_price_gbp: 209, // 买断价£209
+          rent_monthly_gbp: 9, // 月租£9
           monthlyPrice: 38,
+          currency: 'GBP',
           condition: { label: '九成新', value: '90_new', grade: 3, discount: 0.1 },
           condition_grade: 3,
           stock: [{ city: "Durham", qty: 15 }],
@@ -206,7 +221,10 @@ const mockData = {
           height_mm: 750,
           package: { width_mm: 1250, depth_mm: 650, height_mm: 100, weight_kg: 25 },
           price: 1299,
+          purchase_price_gbp: 143, // 买断价£143
+          rent_monthly_gbp: 8, // 月租£8（最低价）
           monthlyPrice: 26,
+          currency: 'GBP',
           condition: { label: '七成新', value: '70_new', grade: 1, discount: 0.3 },
           condition_grade: 1,
           stock: [{ city: "Durham", qty: 18 }],
@@ -275,7 +293,11 @@ const mockApi = {
         break
     }
     
-    console.log('🔍 Mock排序后价格:', items.slice(0, 5).map(item => ({ id: item.id, price: item.price })))
+    console.log('🔍 Mock排序后价格:', items.slice(0, 5).map(item => ({ 
+      id: item.id, 
+      rent_monthly_gbp: item.rent_monthly_gbp,
+      purchase_price_gbp: item.purchase_price_gbp 
+    })))
     
     // 分页处理
     const page = parseInt(options.page) || 1
@@ -312,14 +334,15 @@ const mockApi = {
       console.log('🔍 Mock分类筛选后数量:', items.length)
     }
     
-    // 价格筛选（月租金）
-    if (filters.monthlyPrice) {
-      const { min, max } = filters.monthlyPrice
+    // 月租价筛选（英镑）
+    if (filters.monthlyPrice || filters.rent_monthly) {
+      const priceFilter = filters.monthlyPrice || filters.rent_monthly
+      const { min, max } = priceFilter
       items = items.filter(item => {
-        const monthlyPrice = item.monthlyPrice || 0
-        return monthlyPrice >= min && monthlyPrice <= max
+        const rentPrice = item.rent_monthly_gbp || item.monthlyPrice || 0
+        return rentPrice >= min && rentPrice <= max
       })
-      console.log('🔍 Mock月租金筛选后数量:', items.length, `范围: ¥${min}-¥${max}/月`)
+      console.log('🔍 Mock月租价筛选后数量:', items.length, `范围: £${min}-£${max}/mo`)
     }
     
     // 材质筛选
@@ -365,7 +388,11 @@ const mockApi = {
         break
     }
     
-    console.log('🔍 Mock排序后价格:', items.slice(0, 5).map(item => ({ id: item.id, price: item.price })))
+    console.log('🔍 Mock排序后价格:', items.slice(0, 5).map(item => ({ 
+      id: item.id, 
+      rent_monthly_gbp: item.rent_monthly_gbp,
+      purchase_price_gbp: item.purchase_price_gbp 
+    })))
     
     // 分页处理
     const page = parseInt(options.page) || 1

@@ -59,10 +59,10 @@ Page({
         isEmpty: false 
       })
       
-      // 并行加载分类数据和热门商品（默认价格从高到低）
+      // 并行加载分类数据和热门商品（默认月租从高到低）
       const [filterRes, hotItemsRes] = await Promise.all([
         api.getFiltersMeta(),
-        api.filterProducts({}, { page: 1, page_size: 8, sort: 'price_desc' })
+        api.filterProducts({}, { page: 1, page_size: 8, sort: 'rent_desc' })
       ])
       
       const categories = filterRes.data?.categories || filterRes.data || []
@@ -186,7 +186,7 @@ Page({
     
     // 简化URL，避免编码问题
     wx.navigateTo({
-      url: `/pages/list/list?category=${name}&title=${name}`,
+      url: `/pages/list/list?category=${name}&title=${name}&sort=rent_desc`,
       success: () => {
         console.log('🔍 跳转成功')
       },
@@ -225,7 +225,7 @@ Page({
     
     // 简化跳转
     wx.navigateTo({
-      url: '/pages/list/list?title=全部商品',
+      url: '/pages/list/list?title=全部商品&sort=rent_desc',
       success: () => {
         console.log('🔍 查看更多跳转成功')
       },

@@ -3412,5 +3412,68 @@
     "id": "track_1756579707187_6rs4c0",
     "timestamp": "2025-08-30T18:48:27.187Z",
     "date": "2025-08-30"
+  },
+  {
+    "event": "filter_apply",
+    "payload": {
+      "filters": {
+        "monthlyPrice": {
+          "min": 0,
+          "max": 150
+        }
+      },
+      "filterCount": 1,
+      "page": {
+        "route": "pages/list/list",
+        "options": {
+          "title": "全部商品"
+        }
+      },
+      "timestamp": "2025-08-30T18:54:46.729Z"
+    },
+    "openid": "mock_openid_1756576423239_wi9ase07",
+    "sessionId": "session_1756580073163_ftjhw1q2",
+    "userTimestamp": "2025-08-30T18:54:46.729Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/847",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756580086826_01ajpw",
+    "timestamp": "2025-08-30T18:54:46.826Z",
+    "date": "2025-08-30"
+  },
+  {
+    "event": "filter_apply",
+    "payload": {
+      "filters": {
+        "monthlyPrice": {
+          "min": 0,
+          "max": 150
+        },
+        "material": [
+          "实木"
+        ]
+      },
+      "filterCount": 2,
+      "page": {
+        "route": "pages/list/list",
+        "options": {
+          "title": "全部商品"
+        }
+      },
+      "timestamp": "2025-08-30T19:01:26.826Z"
+    },
+    "openid": "mock_openid_1756576423239_wi9ase07",
+    "sessionId": "session_1756580073163_ftjhw1q2",
+    "userTimestamp": "2025-08-30T19:01:26.827Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/847",
+      "ip": "127.0.0.1",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756580486874_i8nczb",
+    "timestamp": "2025-08-30T19:01:26.874Z",
+    "date": "2025-08-30"
   }
 ]
