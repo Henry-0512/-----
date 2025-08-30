@@ -32,6 +32,7 @@ Page({
     ],
     categories: [],
     hotItems: [],
+    totalCount: 0,
     searchKeyword: '',
     error: null
   },
@@ -70,6 +71,7 @@ Page({
       this.setData({
         categories,
         hotItems,
+        totalCount: hotItemsRes.data?.total || hotItems.length || 137,
         loading: false,
         isEmpty: categories.length === 0 && hotItems.length === 0
       })
@@ -199,6 +201,45 @@ Page({
     wx.navigateTo({
       url: '/pages/list/list?sort=hot'
     })
+  },
+
+  /**
+   * 显示排序选项
+   */
+  onShowSort() {
+    wx.showActionSheet({
+      itemList: ['价格从低到高', '价格从高到低', '最新上架', '热门推荐'],
+      success: (res) => {
+        const sortOptions = ['price_asc', 'price_desc', 'newest', 'popular']
+        const selectedSort = sortOptions[res.tapIndex]
+        
+        wx.navigateTo({
+          url: `/pages/list/list?sort=${selectedSort}`
+        })
+      }
+    })
+  },
+
+  /**
+   * 显示筛选器
+   */
+  onShowFilter() {
+    wx.navigateTo({
+      url: '/pages/list/list?showFilter=true'
+    })
+  },
+
+  /**
+   * 清除筛选
+   */
+  onClearFilter() {
+    wx.showToast({
+      title: '已清除筛选条件',
+      icon: 'success'
+    })
+    
+    // 重新加载数据
+    this.loadHomeData()
   },
 
   /**
