@@ -49,10 +49,21 @@
     
     <!-- 价格信息 -->
     <view class="card-price">
-      <text class="monthly-price">¥{{product.monthlyPrice || Math.ceil(product.price/50) || 0}}/月</text>
-      <text wx:if="{{product.price}}" class="original-price">
-        原价¥{{product.price}}
-      </text>
+      <!-- 普通价格显示模式 -->
+      <view wx:if="{{priceInfo.mode !== 'ask'}}">
+        <text class="monthly-price">{{priceInfo.display}}</text>
+        <text wx:if="{{priceInfo.originalPrice}}" class="original-price">
+          {{priceInfo.originalPrice}}
+        </text>
+      </view>
+      
+      <!-- 咨询价格模式 -->
+      <view wx:else class="price-inquiry">
+        <text class="inquiry-text">{{priceInfo.display}}</text>
+        <button class="inquiry-btn" bindtap="onPriceInquiry" catchtap>
+          {{priceInfo.buttonText}}
+        </button>
+      </view>
     </view>
     
     <!-- 尺寸信息 (仅列表模式显示) -->

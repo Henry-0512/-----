@@ -1,5 +1,6 @@
 // components/product-card/product-card.js
 const { storage } = require('../../utils/request.js')
+const { formatPriceDisplay, isFeatureEnabled, getCustomerServiceConfig } = require('../../config/feature-flags.js')
 
 Component({
   /**
@@ -33,7 +34,14 @@ Component({
    */
   data: {
     isFavorited: false,
-    isCompared: false
+    isCompared: false,
+    priceInfo: {
+      mode: 'show',
+      display: '',
+      originalPrice: '',
+      showButton: false,
+      buttonText: ''
+    }
   },
 
   /**
@@ -43,6 +51,7 @@ Component({
     attached() {
       this.checkFavoriteStatus()
       this.checkCompareStatus()
+      this.updatePriceDisplay()
     }
   },
 
@@ -54,6 +63,7 @@ Component({
       if (productId) {
         this.checkFavoriteStatus()
         this.checkCompareStatus()
+        this.updatePriceDisplay()
       }
     }
   },
@@ -84,6 +94,17 @@ Component({
       const compareList = storage.get('compareList') || []
       const isCompared = Array.isArray(compareList) && compareList.some(item => item && item.id === product.id)
       this.setData({ isCompared })
+    },
+
+    /**
+     * 更新价格显示
+     */
+    updatePriceDisplay() {
+      const { product } = this.data
+      if (!product) return
+
+      const priceInfo = formatPriceDisplay(product)
+      this.setData({ priceInfo })
     },
 
     /**
@@ -175,6 +196,35 @@ Component({
       this.triggerEvent('comparechange', { 
         product, 
         isCompared: !isCompared 
+      })
+    },
+
+    /**
+     * 价格咨询按钮点击
+     */
+    onPriceInquiry() {
+      const { product } = this.data
+      const customerService = getCustomerServiceConfig()
+
+      wx.showModal({
+        title: '价格咨询',
+        content: `商品：${product.title || product.name}\n\n请联系客服获取详细报价信息\n\n客服电话：${customerService.phone.number}\n工作时间：${customerService.phone.workTime}`,
+        confirmText: '拨打电话',
+        cancelText: '取消',
+        success: (res) => {
+          if (res.confirm && customerService.phone.enabled) {
+            wx.makePhoneCall({
+              phoneNumber: customerService.phone.number,
+              fail: (error) => {
+                console.error('拨打电话失败:', error)
+                wx.showToast({
+                  title: '拨打失败，请稍后重试',
+                  icon: 'none'
+                })
+              }
+            })
+          }
+        }
       })
     },
 

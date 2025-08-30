@@ -3,6 +3,7 @@ const { isMockEnabled } = require('../../config/env.js')
 const { api, storage, ERROR_TYPES } = isMockEnabled() 
   ? require('../../utils/request-mock.js')
   : require('../../utils/request.js')
+const { formatPriceDisplay, isFeatureEnabled, getCustomerServiceConfig } = require('../../config/feature-flags.js')
 
 Page({
   data: {
@@ -20,7 +21,16 @@ Page({
     duration: 1,
     maxDuration: 12,
     minDuration: 1,
-    isFavorited: false
+    isFavorited: false,
+    
+    // 价格显示
+    priceInfo: {
+      mode: 'show',
+      display: '',
+      originalPrice: '',
+      showButton: false,
+      buttonText: ''
+    }
   },
 
   onLoad(options) {
@@ -63,8 +73,12 @@ Page({
         throw new Error('商品不存在')
       }
       
+      // 格式化价格信息
+      const priceInfo = formatPriceDisplay(sku)
+      
       this.setData({
         sku,
+        priceInfo,
         loading: false
       })
     } catch (error) {
@@ -416,6 +430,35 @@ Page({
     const { product } = e.detail
     wx.redirectTo({
       url: `/pages/detail/detail?id=${product.id}`
+    })
+  },
+
+  /**
+   * 价格咨询
+   */
+  onPriceInquiry() {
+    const { sku } = this.data
+    const customerService = getCustomerServiceConfig()
+
+    wx.showModal({
+      title: '价格咨询',
+      content: `商品：${sku.title}\n品牌：${sku.brand}\n\n请联系客服获取详细报价信息\n\n客服电话：${customerService.phone.number}\n工作时间：${customerService.phone.workTime}`,
+      confirmText: '拨打电话',
+      cancelText: '取消',
+      success: (res) => {
+        if (res.confirm && customerService.phone.enabled) {
+          wx.makePhoneCall({
+            phoneNumber: customerService.phone.number,
+            fail: (error) => {
+              console.error('拨打电话失败:', error)
+              wx.showToast({
+                title: '拨打失败，请稍后重试',
+                icon: 'none'
+              })
+            }
+          })
+        }
+      }
     })
   },
 

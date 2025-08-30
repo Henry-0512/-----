@@ -38,8 +38,19 @@
       <text class="sku-brand">{{sku.brand}}</text>
       
       <view class="price-info">
-        <text class="monthly-price">¥{{sku.monthlyPrice || Math.ceil(sku.price/50)}}/月</text>
-        <text class="original-price">原价 ¥{{sku.price || sku.originalPrice}}</text>
+        <!-- 普通价格显示模式 -->
+        <view wx:if="{{priceInfo.mode !== 'ask'}}">
+          <text class="monthly-price">{{priceInfo.display}}</text>
+          <text wx:if="{{priceInfo.originalPrice}}" class="original-price">{{priceInfo.originalPrice}}</text>
+        </view>
+        
+        <!-- 咨询价格模式 -->
+        <view wx:else class="price-inquiry-section">
+          <text class="inquiry-text">{{priceInfo.display}}</text>
+          <button class="inquiry-btn-detail" bindtap="onPriceInquiry">
+            {{priceInfo.buttonText}}
+          </button>
+        </view>
       </view>
 
       <view class="sku-attributes">

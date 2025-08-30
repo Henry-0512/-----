@@ -189,9 +189,9 @@
 /* 价格信息 */
 .card-price {
   display: flex;
-  align-items: baseline;
+  flex-direction: column;
   margin-bottom: 8rpx;
-  gap: 12rpx;
+  gap: 4rpx;
 }
 
 .monthly-price {
@@ -204,6 +204,39 @@
   font-size: 24rpx;
   color: #999;
   text-decoration: line-through;
+}
+
+/* 价格咨询模式 */
+.price-inquiry {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.inquiry-text {
+  font-size: 26rpx;
+  color: #666;
+  font-style: italic;
+}
+
+.inquiry-btn {
+  background: #007AFF;
+  color: white;
+  border: none;
+  border-radius: 16rpx;
+  padding: 12rpx 24rpx;
+  font-size: 24rpx;
+  font-weight: 500;
+  line-height: 1;
+  margin: 0;
+}
+
+.inquiry-btn:active {
+  background: #0056CC;
+}
+
+.inquiry-btn::after {
+  border: none;
 }
 
 /* 额外信息 */

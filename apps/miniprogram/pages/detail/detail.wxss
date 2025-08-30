@@ -168,21 +168,54 @@
 
 .price-info {
   display: flex;
-  align-items: center;
+  flex-direction: column;
   margin-bottom: 32rpx;
+  gap: 8rpx;
 }
 
 .monthly-price {
   font-size: 48rpx;
   font-weight: bold;
   color: #FF6B6B;
-  margin-right: 24rpx;
 }
 
 .original-price {
   font-size: 28rpx;
   color: #999;
   text-decoration: line-through;
+}
+
+/* 价格咨询模式 */
+.price-inquiry-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.inquiry-text {
+  font-size: 32rpx;
+  color: #666;
+  font-style: italic;
+}
+
+.inquiry-btn-detail {
+  background: #007AFF;
+  color: white;
+  border: none;
+  border-radius: 24rpx;
+  padding: 20rpx 40rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+  align-self: flex-start;
+  margin: 0;
+}
+
+.inquiry-btn-detail:active {
+  background: #0056CC;
+}
+
+.inquiry-btn-detail::after {
+  border: none;
 }
 
 .sku-attributes {
