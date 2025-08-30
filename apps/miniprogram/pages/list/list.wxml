@@ -22,50 +22,25 @@
   <view class="filter-bar">
     <scroll-view 
       class="filter-scroll" 
-      scroll-x
+      scroll-x="{{true}}"
       show-scrollbar="{{false}}"
     >
-      <view class="filter-tags-container">
-        <view class="filter-tag" bindtap="onQuickFilter" data-type="category">
-          <text class="tag-text">商品分类</text>
-        </view>
-        <view class="filter-tag" bindtap="onQuickFilter" data-type="material">
-          <text class="tag-text">材质选择</text>
-        </view>
-        <view class="filter-tag" bindtap="onQuickFilter" data-type="color">
-          <text class="tag-text">颜色选择</text>
-        </view>
-        <view class="filter-tag" bindtap="onQuickFilter" data-type="style">
-          <text class="tag-text">风格样式</text>
-        </view>
-        <view class="filter-tag" bindtap="onQuickFilter" data-type="size">
-          <text class="tag-text">尺寸大小</text>
-        </view>
-        <view class="filter-tag" bindtap="onQuickFilter" data-type="price">
-          <text class="tag-text">价格范围</text>
-        </view>
-        <view class="filter-tag" bindtap="onQuickFilter" data-type="brand">
-          <text class="tag-text">品牌选择</text>
-        </view>
-        <view class="filter-tag" bindtap="onQuickFilter" data-type="condition">
-          <text class="tag-text">成色等级</text>
-        </view>
-        <view class="filter-tag" bindtap="onQuickFilter" data-type="delivery">
-          <text class="tag-text">配送方式</text>
-        </view>
-        <view class="filter-tag" bindtap="onQuickFilter" data-type="availability">
-          <text class="tag-text">库存状态</text>
-        </view>
-        <view class="filter-tag" bindtap="onQuickFilter" data-type="discount">
-          <text class="tag-text">优惠活动</text>
-        </view>
-        <!-- 全部筛选按钮放在最后 -->
-        <view class="filter-all-btn" bindtap="onShowFilter">
-          <text class="filter-icon">全部筛选</text>
-          <text wx:if="{{hasActiveFilters}}" class="filter-badge">{{filterCount}}</text>
-        </view>
-        <!-- 添加额外的右边距确保最后一个元素可见 -->
-        <view class="scroll-padding"></view>
+      <!-- 直接在scroll-view内放置标签，不使用嵌套容器 -->
+      <view class="filter-tag" bindtap="onQuickFilter" data-type="category">商品分类</view>
+      <view class="filter-tag" bindtap="onQuickFilter" data-type="material">材质选择</view>
+      <view class="filter-tag" bindtap="onQuickFilter" data-type="color">颜色选择</view>
+      <view class="filter-tag" bindtap="onQuickFilter" data-type="style">风格样式</view>
+      <view class="filter-tag" bindtap="onQuickFilter" data-type="size">尺寸大小</view>
+      <view class="filter-tag" bindtap="onQuickFilter" data-type="price">价格范围</view>
+      <view class="filter-tag" bindtap="onQuickFilter" data-type="brand">品牌选择</view>
+      <view class="filter-tag" bindtap="onQuickFilter" data-type="condition">成色等级</view>
+      <view class="filter-tag" bindtap="onQuickFilter" data-type="delivery">配送方式</view>
+      <view class="filter-tag" bindtap="onQuickFilter" data-type="availability">库存状态</view>
+      <view class="filter-tag" bindtap="onQuickFilter" data-type="discount">优惠活动</view>
+      <!-- 全部筛选按钮放在最后 -->
+      <view class="filter-all-btn" bindtap="onShowFilter">
+        全部筛选
+        <text wx:if="{{hasActiveFilters}}" class="filter-badge">{{filterCount}}</text>
       </view>
     </scroll-view>
   </view>
