@@ -42,7 +42,7 @@ Page({
         selected: false
       }))
       
-      console.log('收藏数据加载:', favoritesWithState)
+      // 收藏数据加载完成
       
       this.setData({
         favoriteItems: favoritesWithState,

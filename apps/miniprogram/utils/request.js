@@ -463,7 +463,7 @@ const storage = {
   get: (key) => {
     try {
       const value = wx.getStorageSync(key)
-      console.log(`Storage get: ${key}`, value)
+      // Storage get operation
       
       if (value === '' || value === null || value === undefined) {
         return null
@@ -481,7 +481,7 @@ const storage = {
     try {
       // 直接存储，不需要JSON.stringify，微信会自动处理
       wx.setStorageSync(key, value)
-      console.log(`Storage set success: ${key}`, value)
+      // Storage set operation
       return true
     } catch (error) {
       console.error('Storage set error:', error)

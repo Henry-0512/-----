@@ -199,10 +199,7 @@ Component({
       const { safeProduct, product, isFavorited } = this.data
       const targetProduct = safeProduct || product
       
-      console.log('onToggleFavorite 被调用:', {
-        targetProduct: targetProduct,
-        isFavorited: isFavorited
-      })
+      // 切换收藏状态
       
       if (!targetProduct || !targetProduct.id) {
         console.error('没有有效的商品数据')
@@ -220,7 +217,7 @@ Component({
           favorites = []
         }
         
-        console.log('操作前收藏列表:', favorites)
+        // 检查现有收藏列表
         
         if (isFavorited) {
           // 取消收藏
@@ -237,7 +234,7 @@ Component({
             favoriteAt: new Date().toISOString()
           }
           favorites.push(productToSave)
-          console.log('添加到收藏:', productToSave)
+          // 添加到收藏列表
           
           wx.showToast({
             title: '已添加收藏',
@@ -249,12 +246,7 @@ Component({
         storage.set('favorites', favorites)
         this.setData({ isFavorited: !isFavorited })
         
-        console.log('收藏操作完成:', {
-          productId: safeProduct.id,
-          isFavorited: !isFavorited,
-          favoritesCount: favorites.length,
-          favorites: favorites
-        })
+        // 收藏操作完成
         
         // 触发收藏状态变化事件
         this.triggerEvent('favoritechange', { 
@@ -441,9 +433,7 @@ Component({
       const { safeProduct, product } = this.data
       const targetProduct = safeProduct || product
       
-      console.log('onAddToCart 被调用:', {
-        targetProduct: targetProduct
-      })
+      // 添加到购物车操作
       
       if (!targetProduct || !targetProduct.id) {
         console.error('没有有效的商品数据')
@@ -464,14 +454,14 @@ Component({
           cartItems = []
         }
         
-        console.log('操作前购物车:', cartItems)
+        // 检查现有购物车数据
         
         const existingItemIndex = cartItems.findIndex(item => item && item.id === targetProduct.id)
         
         if (existingItemIndex >= 0) {
           // 商品已存在，增加数量
           cartItems[existingItemIndex].quantity = (cartItems[existingItemIndex].quantity || 1) + 1
-          console.log('商品已存在，增加数量')
+          // 商品已存在，增加数量
         } else {
           // 新商品，添加到购物车 - 使用原始product数据确保完整性
           const productToSave = {
@@ -481,17 +471,13 @@ Component({
             addedAt: new Date().toISOString()
           }
           cartItems.push(productToSave)
-          console.log('添加新商品到购物车:', productToSave)
+          // 添加新商品到购物车
         }
         
         // 保存到本地存储
         storage.set('cartItems', cartItems)
         
-        console.log('购物车操作完成:', {
-          productId: safeProduct.id,
-          cartCount: cartItems.length,
-          cartItems: cartItems
-        })
+        // 购物车操作完成
         
         wx.showToast({
           title: '已添加到购物车',

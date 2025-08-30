@@ -495,11 +495,5 @@ Page({
     wx.navigateTo({
       url: '/pages/about/about'
     })
-  },
-
-  onDebug() {
-    wx.navigateTo({
-      url: '/pages/debug/debug'
-    })
   }
 })

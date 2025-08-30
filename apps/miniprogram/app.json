@@ -7,7 +7,6 @@
     "pages/profile/profile",
     "pages/cart/cart",
     "pages/favorites/favorites",
-    "pages/debug/debug",
     "pages/compare/compare",
     "pages/admin/intents",
     "pages/about/about",
