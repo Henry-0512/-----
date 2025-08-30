@@ -463,21 +463,14 @@ const storage = {
   get: (key) => {
     try {
       const value = wx.getStorageSync(key)
-      if (!value || value === '') {
+      console.log(`Storage get: ${key}`, value)
+      
+      if (value === '' || value === null || value === undefined) {
         return null
       }
-      // 如果不是字符串，直接返回
-      if (typeof value !== 'string') {
-        return value
-      }
-      // 尝试解析JSON，如果失败则清除该存储项
-      try {
-        return JSON.parse(value)
-      } catch (parseError) {
-        console.warn(`Storage parse error for key "${key}":`, parseError)
-        wx.removeStorageSync(key) // 清除损坏的数据
-        return null
-      }
+      
+      // 微信存储会自动处理JSON，直接返回
+      return value
     } catch (error) {
       console.error('Storage get error:', error)
       return null
@@ -486,7 +479,9 @@ const storage = {
   
   set: (key, value) => {
     try {
-      wx.setStorageSync(key, JSON.stringify(value))
+      // 直接存储，不需要JSON.stringify，微信会自动处理
+      wx.setStorageSync(key, value)
+      console.log(`Storage set success: ${key}`, value)
       return true
     } catch (error) {
       console.error('Storage set error:', error)

@@ -1,0 +1,18 @@
+<!--pages/debug/debug.wxml-->
+<view class="container">
+  <view class="debug-section">
+    <text class="title">存储调试工具</text>
+    
+    <button bindtap="onTestStorage" type="primary">测试存储功能</button>
+    <button bindtap="onCheckFavorites">查看收藏数据</button>
+    <button bindtap="onCheckCart">查看购物车数据</button>
+    <button bindtap="onAddTestFavorite">添加测试收藏</button>
+    <button bindtap="onAddTestCart">添加测试购物车</button>
+    <button bindtap="onClearAll">清空所有数据</button>
+    
+    <view class="log-section">
+      <text class="log-title">调试日志:</text>
+      <view class="log-content">{{debugLog}}</view>
+    </view>
+  </view>
+</view>
