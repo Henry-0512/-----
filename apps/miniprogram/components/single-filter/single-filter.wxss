@@ -73,6 +73,73 @@
   max-height: 60vh;
 }
 
+/* 价格区间样式 */
+.price-ranges {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.price-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32rpx 24rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.price-item:last-child {
+  border-bottom: none;
+}
+
+.price-item:active {
+  background: #f8f9fa;
+}
+
+.price-info {
+  display: flex;
+  align-items: baseline;
+  gap: 24rpx;
+  flex: 1;
+}
+
+.price-range {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.price-count {
+  font-size: 28rpx;
+  color: #666;
+  font-weight: 400;
+}
+
+.price-checkbox {
+  width: 48rpx;
+  height: 48rpx;
+  border: 3rpx solid #ddd;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.price-checkbox.checked {
+  background: #333;
+  border-color: #333;
+}
+
+.check-mark {
+  font-size: 28rpx;
+  color: white;
+  font-weight: bold;
+}
+
 /* 颜色网格 */
 .color-grid {
   display: grid;

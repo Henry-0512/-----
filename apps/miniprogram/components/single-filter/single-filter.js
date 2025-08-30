@@ -30,7 +30,15 @@ Component({
    * 组件的初始数据
    */
   data: {
-    internalSelected: []
+    internalSelected: [],
+    selectedPriceRange: '',
+    priceRanges: [
+      { label: '£0 - 9', min: 0, max: 9, count: 366 },
+      { label: '£10 - 19', min: 10, max: 19, count: 205 },
+      { label: '£20 - 29', min: 20, max: 29, count: 118 },
+      { label: '£30 - 39', min: 30, max: 39, count: 106 },
+      { label: '£40+', min: 40, max: 999, count: 1274 }
+    ]
   },
 
   /**
@@ -82,7 +90,23 @@ Component({
      */
     onReset() {
       this.setData({
-        internalSelected: []
+        internalSelected: [],
+        selectedPriceRange: ''
+      })
+    },
+
+    /**
+     * 选择价格区间
+     */
+    onSelectPriceRange(e) {
+      const { range } = e.currentTarget.dataset
+      console.log('🔍 选择价格区间:', range)
+      
+      // 单选模式，选择新的取消旧的
+      const newRange = this.data.selectedPriceRange === range ? '' : range
+      
+      this.setData({
+        selectedPriceRange: newRange
       })
     },
 
@@ -115,14 +139,35 @@ Component({
      */
     onApply() {
       const { type } = this.data
-      const { internalSelected } = this.data
       
-      console.log('🔍 应用单项筛选:', { type, selected: internalSelected })
-      
-      this.triggerEvent('apply', {
-        type,
-        values: internalSelected
-      })
+      if (type === 'price') {
+        // 价格筛选处理
+        const { selectedPriceRange } = this.data
+        if (selectedPriceRange) {
+          const priceRange = this.data.priceRanges.find(range => range.label === selectedPriceRange)
+          console.log('🔍 应用价格筛选:', { range: selectedPriceRange, priceRange })
+          
+          this.triggerEvent('apply', {
+            type,
+            priceRange: {
+              min: priceRange.min,
+              max: priceRange.max,
+              label: priceRange.label
+            }
+          })
+        } else {
+          this.triggerEvent('apply', { type, priceRange: null })
+        }
+      } else {
+        // 其他筛选处理
+        const { internalSelected } = this.data
+        console.log('🔍 应用单项筛选:', { type, selected: internalSelected })
+        
+        this.triggerEvent('apply', {
+          type,
+          values: internalSelected
+        })
+      }
       
       this.onClose()
     }

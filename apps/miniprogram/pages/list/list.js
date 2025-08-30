@@ -579,11 +579,8 @@ Page({
       return
     }
 
-    // 价格筛选使用完整筛选器
-    if (filterType === 'price') {
-      this.setData({ showFilterSheet: true })
-      return
-    }
+    // 价格筛选也使用单项筛选器
+    // 不需要特殊处理，和其他筛选一样
 
     // 获取当前选中的值
     const currentSelected = this.data.currentFilters[filterType] || []
@@ -621,15 +618,29 @@ Page({
    * 单项筛选器应用
    */
   onSingleFilterApply(e) {
-    const { type, values } = e.detail
-    console.log('🔍 单项筛选器应用:', { type, values })
+    const { type, values, priceRange } = e.detail
+    console.log('🔍 单项筛选器应用:', { type, values, priceRange })
 
     // 更新筛选条件
     const newFilters = { ...this.data.currentFilters }
-    if (values && values.length > 0) {
-      newFilters[type] = values
+    
+    if (type === 'price') {
+      // 价格筛选处理
+      if (priceRange) {
+        newFilters.price = {
+          min: priceRange.min,
+          max: priceRange.max
+        }
+      } else {
+        delete newFilters.price
+      }
     } else {
-      delete newFilters[type]
+      // 其他筛选处理
+      if (values && values.length > 0) {
+        newFilters[type] = values
+      } else {
+        delete newFilters[type]
+      }
     }
 
     this.setData({

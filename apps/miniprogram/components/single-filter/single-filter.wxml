@@ -12,8 +12,27 @@
 
     <!-- 筛选内容 -->
     <scroll-view class="filter-content" scroll-y="{{true}}">
+      <!-- 价格区间特殊显示 -->
+      <view wx:if="{{type === 'price'}}" class="price-ranges">
+        <view 
+          wx:for="{{priceRanges}}" 
+          wx:key="label"
+          class="price-item {{selectedPriceRange === item.label ? 'selected' : ''}}"
+          data-range="{{item.label}}"
+          bindtap="onSelectPriceRange"
+        >
+          <view class="price-info">
+            <text class="price-range">{{item.label}}</text>
+            <text class="price-count">{{item.count}}</text>
+          </view>
+          <view class="price-checkbox {{selectedPriceRange === item.label ? 'checked' : ''}}">
+            <text wx:if="{{selectedPriceRange === item.label}}" class="check-mark">✓</text>
+          </view>
+        </view>
+      </view>
+
       <!-- 颜色特殊显示 -->
-      <view wx:if="{{type === 'color'}}" class="color-grid">
+      <view wx:elif="{{type === 'color'}}" class="color-grid">
         <view 
           wx:for="{{options}}" 
           wx:key="*this"
