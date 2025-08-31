@@ -1,6 +1,6 @@
 // pages/index/index.js
 const { isMockEnabled } = require('../../config/env.js')
-const { api, ERROR_TYPES } = isMockEnabled() 
+const { api, ERROR_TYPES, storage } = isMockEnabled() 
   ? require('../../utils/request-mock.js')
   : require('../../utils/request.js')
 
@@ -34,7 +34,14 @@ Page({
     hotItems: [],
     totalCount: 0,
     searchKeyword: '',
-    error: null
+    error: null,
+
+    // 首次进入引导登录
+    showAuthModal: false,
+    authNickname: '',
+    authAvatar: '',
+    authNickError: false,
+    authAvatarError: false
   },
 
   onLoad() {
@@ -46,6 +53,15 @@ Page({
     if (!this.data.hotItems.length) {
       this.loadHomeData()
     }
+
+    // 引导登录：若未引导且未登录，则显示
+    try {
+      const onboarded = storage.get('onboarded')
+      const user = storage.get('user') || {}
+      if (!onboarded && !(user && user.loggedIn)) {
+        this.setData({ showAuthModal: true })
+      }
+    } catch (e) {}
   },
 
   /**
@@ -88,6 +104,102 @@ Page({
         }
       })
     }
+  },
+
+  // ===== 引导登录相关 =====
+  onAuthInputNick(e) {
+    this.setData({ authNickname: e.detail.value, authNickError: false })
+  },
+  onChooseAuthAvatar(e) {
+    const url = e.detail.avatarUrl
+    if (url) this.setData({ authAvatar: url, authAvatarError: false })
+  },
+  async onAuthLogin() {
+    // 优先尝试获取微信资料，用户可拒绝
+    try {
+      const prof = await new Promise((resolve) => {
+        wx.getUserProfile({ desc: '用于完善资料', success: resolve, fail: resolve })
+      })
+      const nickFromWx = prof && prof.userInfo && prof.userInfo.nickName
+      const avatarFromWx = prof && prof.userInfo && prof.userInfo.avatarUrl
+      if (!this.data.authNickname && nickFromWx) {
+        this.setData({ authNickname: nickFromWx, authNickError: false })
+      }
+      if (!this.data.authAvatar && avatarFromWx) {
+        // 仅在未手动选择头像时使用微信头像
+        this.setData({ authAvatar: avatarFromWx, authAvatarError: false })
+      }
+    } catch (_) {}
+
+    // 校验头像与昵称必填（头像默认空白并提示点击授权）
+    const lacksAvatar = !this.data.authAvatar
+    const lacksNick = !this.data.authNickname || !this.data.authNickname.trim()
+    if (lacksAvatar || lacksNick) {
+      this.setData({ authAvatarError: lacksAvatar, authNickError: lacksNick })
+      wx.showToast({ title: '请完善头像与昵称', icon: 'none' })
+      return
+    }
+    try {
+      const loginRes = await new Promise((resolve, reject) => {
+        wx.login({ timeout: 8000, success: resolve, fail: reject })
+      })
+      const res = await api.code2session(loginRes.code)
+      const openid = res.data?.openid || this.generateLocalId()
+      const user = {
+        openid,
+        nickname: this.data.authNickname,
+        avatar: this.data.authAvatar,
+        phone: '',
+        loggedIn: true
+      }
+      storage.set('user', user)
+      storage.set('client_id', openid)
+      storage.set('onboarded', true)
+      this.setData({ showAuthModal: false })
+      wx.showToast({ title: '登录成功', icon: 'success' })
+    } catch (e) {
+      // 失败走本地ID
+      const id = this.generateLocalId()
+      const user = {
+        openid: id,
+        nickname: this.data.authNickname || '访客用户',
+        avatar: this.data.authAvatar || '',
+        phone: '',
+        loggedIn: true
+      }
+      storage.set('user', user)
+      storage.set('client_id', id)
+      storage.set('onboarded', true)
+      this.setData({ showAuthModal: false })
+      wx.showToast({ title: '已使用本地ID登录', icon: 'none' })
+    }
+  },
+  onAuthSkip() {
+    try {
+      // 确保存在client_id
+      let id = storage.get('client_id')
+      if (!id) {
+        id = this.generateLocalId()
+        storage.set('client_id', id)
+      }
+      const user = storage.get('user') || {}
+      if (!user || !user.openid) {
+        storage.set('user', { openid: id, nickname: '微信用户', avatar: '', phone: '', loggedIn: false })
+      }
+      storage.set('onboarded', true)
+    } catch (e) {}
+    this.setData({ showAuthModal: false })
+  },
+  generateLocalId() {
+    const d = new Date()
+    const pad = n => (n < 10 ? '0' + n : '' + n)
+    const yyyy = d.getFullYear()
+    const mm = pad(d.getMonth() + 1)
+    const dd = pad(d.getDate())
+    const HH = pad(d.getHours())
+    const MM = pad(d.getMinutes())
+    const rand = Math.floor(Math.random() * 9000 + 1000)
+    return `guest-${yyyy}${mm}${dd}-${HH}${MM}-${rand}`
   },
 
   /**

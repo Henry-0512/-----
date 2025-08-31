@@ -3,6 +3,7 @@
     "product-card": "../../components/product-card/product-card"
   },
   "navigationBarTitleText": "家具租赁",
+  "navigationStyle": "custom",
   "enablePullDownRefresh": true,
   "backgroundColor": "#f8f8f8"
 }

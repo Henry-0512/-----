@@ -1,6 +1,6 @@
 // utils/track.js - 用户行为追踪工具
 
-const { api } = require('./request.js')
+const { api, storage } = require('./request.js')
 const { authManager } = require('./auth.js')
 const { log, isDebugEnabled } = require('../config/env.js')
 
@@ -38,6 +38,13 @@ class TrackingManager {
     }
 
     try {
+      // 从本地获取openid（优先user.openid，其次client_id，再退化为空）
+      let openid = ''
+      try {
+        const user = storage.get('user') || {}
+        openid = user && user.openid ? user.openid : (storage.get('client_id') || '')
+      } catch (e) {}
+
       const trackData = {
         event,
         payload: {
@@ -46,7 +53,7 @@ class TrackingManager {
           page: this.getCurrentPage(),
           timestamp: new Date().toISOString()
         },
-        openid: authManager.getOpenid() || '',
+        openid: openid || authManager.getOpenid() || '',
         sessionId: this.sessionId,
         timestamp: new Date().toISOString()
       }

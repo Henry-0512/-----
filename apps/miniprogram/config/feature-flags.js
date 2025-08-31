@@ -46,6 +46,9 @@ const FEATURE_FLAGS = {
   PRELOAD_NEXT_PAGE: false          // 是否预加载下一页
 }
 
+// 意向单总开关（仅影响 PDP 与意向单页）
+const FEATURE_INTENT = true
+
 /**
  * 获取功能开关状态
  * @param {string} flagName 功能开关名称
@@ -194,6 +197,7 @@ module.exports = {
   // 常量定义
   PRICE_DISPLAY_MODES,
   FEATURE_FLAGS,
+  FEATURE_INTENT,
   
   // 核心方法
   getFeatureFlag,

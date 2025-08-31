@@ -1,0 +1,72 @@
+<view class="page">
+  <view class="header">
+    <!-- 为避免 chooseAvatar 并发，完善提示出现时，头部仅展示头像，不提供选择入口 -->
+    <button wx:if="{{!showCompleteTip}}" class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+      <image class="avatar" src="{{user.avatar || 'https://picsum.photos/200/200?random=avatar'}}" />
+    </button>
+    <image wx:else class="avatar" src="{{user.avatar || 'https://picsum.photos/200/200?random=avatar'}}" />
+    <text class="name">{{user.nickname || '微信用户'}}</text>
+    <text class="desc">{{user.loggedIn ? '已登录，欢迎回来' : '登录以同步订单'}}</text>
+    <button wx:if="{{!user.loggedIn}}" class="btn-login" bindtap="onLogin">登录/绑定</button>
+    <button wx:else class="btn-logout" bindtap="onLogout">退出登录</button>
+  </view>
+  <view class="id-row">
+    <text class="id-label">ID：</text>
+    <text class="id-value">{{user.openid}}</text>
+  </view>
+
+  <!-- 完善资料提示 -->
+  <view wx:if="{{showCompleteTip}}" class="complete-tip">
+    <text class="tip-title">完善资料</text>
+    <view class="tip-row">
+      <text>头像：</text>
+      <button class="avatar-btn" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+        <image class="avatar" src="{{user.avatar || 'https://picsum.photos/200/200?random=avatar'}}" />
+      </button>
+    </view>
+    <view class="tip-row">
+      <text>昵称：</text>
+      <input class="nick-input {{nickError ? 'invalid' : ''}}" value="{{editNickname}}" placeholder="输入昵称" bindinput="onEditNickInput"/>
+      <button class="save-nick" bindtap="onSaveNick">保存</button>
+    </view>
+    <text class="tip-desc">登录已成功，但需完善头像与昵称后才算完成</text>
+  </view>
+
+  <view class="section">
+    <view class="section-title">订单与租赁</view>
+    <view class="cell" bindtap="go" data-url="/pages/rental/active"><text>我的租赁（进行中）</text><text class="arrow">›</text></view>
+    <view class="cell" bindtap="go" data-url="/pages/rental/history"><text>历史租赁/已归还</text><text class="arrow">›</text></view>
+    <view class="cell" bindtap="go" data-url="/pages/intent/list"><text>意向单/待跟进</text><text class="arrow">›</text></view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">我的信息</view>
+    <view class="cell" bindtap="go" data-url="/pages/profile/edit"><text>个人资料</text><text class="arrow">›</text></view>
+    <view class="cell" bindtap="go" data-url="/pages/address/list"><text>收货地址</text><text class="arrow">›</text></view>
+    <view class="cell" bindtap="go" data-url="/pages/payment/list"><text>支付方式</text><text class="arrow">›</text></view>
+    <view class="cell" bindtap="goAuth"><text>密码与登录</text><text class="arrow">›</text></view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">配送与上门</view>
+    <view class="cell" bindtap="go" data-url="/pages/help/delivery"><text>配送与上门规则</text><text class="arrow">›</text></view>
+    <view class="cell" bindtap="go" data-url="/pages/booking/list"><text>预约上门（配送/取回）</text><text class="arrow">›</text></view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">帮助与支持</view>
+    <view class="cell" bindtap="go" data-url="/pages/help/faq"><text>常见问题（FAQ）</text><text class="arrow">›</text></view>
+    <view class="cell" bindtap="go" data-url="/pages/help/contact"><text>联系我们（客服/WhatsApp）</text><text class="arrow">›</text></view>
+    <view class="cell" bindtap="go" data-url="/pages/help/terms"><text>条款与隐私</text><text class="arrow">›</text></view>
+  </view>
+
+  <view class="section">
+    <view class="section-title">其他</view>
+    <view class="cell" bindtap="go" data-url="/pages/favorites/favorites"><text>收藏/心愿单</text><text class="arrow">›</text></view>
+    <view class="cell" bindtap="go" data-url="/pages/compare/compare"><text>对比列表</text><text class="arrow">›</text></view>
+    <view class="cell danger" bindtap="onLogout"><text>退出登录</text><text class="arrow">›</text></view>
+    <view class="cell danger" bindtap="go" data-url="/pages/account/delete"><text>注销账号</text><text class="arrow">›</text></view>
+  </view>
+</view>
+
+

@@ -1,10 +1,11 @@
 /**app.wxss**/
+page {
+  background-color: #ffffff; /* 全局页面纯白底，消除灰色区块 */
+}
+
 .container {
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 200rpx 0;
+  display: block; /* 避免全局flex影响页面布局 */
+  padding: 0;     /* 移除全局200rpx顶/底内边距 */
   box-sizing: border-box;
-} 
+}

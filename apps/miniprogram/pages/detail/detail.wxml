@@ -77,28 +77,14 @@
         </view>
       </view>
 
-      <!-- 库存和配送信息 -->
-      <view class="availability-info">
-        <view class="stock-info">
-          <text class="stock-label">库存：</text>
-          <text class="stock-value {{(sku.stock && sku.stock[0] && sku.stock[0].qty > 0) ? 'in-stock' : 'out-of-stock'}}">
-            {{(sku.stock && sku.stock[0]) ? (sku.stock[0].qty > 0 ? '现货 ' + sku.stock[0].qty + ' 件' : '暂时缺货') : '暂时缺货'}}
-          </text>
-        </view>
-        
-        <!-- 预计到货时间 -->
-        <view wx:if="{{sku.delivery && sku.delivery.eta_days}}" class="eta-info">
-          <text class="eta-label">预计送达：</text>
-          <text class="eta-value">{{sku.delivery.eta_days[0]}}-{{sku.delivery.eta_days[1]}}天</text>
-        </view>
+      <!-- 意向单操作（新增，不改原按钮） -->
+      <view wx:if="{{FEATURE_INTENT}}" class="quick-actions intent-inline">
+        <button class="action-btn secondary-btn" bindtap="onAddToIntent">加入意向单</button>
+        <button class="action-btn primary-btn" bindtap="onSubmitIntent">立即提交意向</button>
       </view>
 
       <!-- 快速操作按钮 -->
       <view class="quick-actions">
-        <button class="action-btn secondary-btn" bindtap="onAddToCompare">
-          <text class="btn-icon">⚖</text>
-          <text class="btn-text">对比</text>
-        </button>
         <button class="action-btn secondary-btn" bindtap="onToggleFavorite">
           <text class="btn-icon">{{isFavorited ? '♥' : '♡'}}</text>
           <text class="btn-text">{{isFavorited ? '已收藏' : '收藏'}}</text>
@@ -176,7 +162,7 @@
             </text>
             <text class="city-arrow">⌄</text>
           </view>
-          <view wx:if="{{deliveryInfo}}" class="delivery-eta">
+          <view wx:if="{{deliveryInfo && selectedCity}}" class="delivery-eta">
             <text class="eta-text" wx:if="{{selectedCity === 'Durham'}}">
               预计当天或隔天送达
             </text>
@@ -318,65 +304,13 @@
           </view>
         </view>
         
-        <!-- 包装尺寸 -->
-        <view wx:if="{{sku.package}}" class="size-group">
-          <text class="size-group-title">包装尺寸</text>
-          <view class="size-items">
-            <view class="size-item">
-              <text class="size-label">长：</text>
-              <text class="size-value">{{sku.package.width_mm/10}}cm</text>
-            </view>
-            <view class="size-item">
-              <text class="size-label">宽：</text>
-              <text class="size-value">{{sku.package.depth_mm/10}}cm</text>
-            </view>
-            <view class="size-item">
-              <text class="size-label">高：</text>
-              <text class="size-value">{{sku.package.height_mm/10}}cm</text>
-            </view>
-            <view class="size-item">
-              <text class="size-label">重量：</text>
-              <text class="size-value">{{sku.package.weight_kg}}kg</text>
-            </view>
-          </view>
-        </view>
+        
       </view>
     </view>
 
-    <!-- 租赁配置 -->
-    <view class="rental-section">
-      <text class="section-title">租赁配置</text>
-      <view class="duration-selector">
-        <text class="duration-label">租赁时长：</text>
-        <view class="duration-controls">
-          <view class="duration-btn" data-type="minus" bindtap="onDurationChange">-</view>
-          <text class="duration-value">{{duration}}个月</text>
-          <view class="duration-btn" data-type="plus" bindtap="onDurationChange">+</view>
-        </view>
-      </view>
-      <view class="total-price">
-        <text>总计：¥{{(sku.monthlyPrice || Math.ceil(sku.price/50)) * duration}}</text>
-      </view>
-    </view>
+    
 
-    <!-- 配送信息 -->
-    <view wx:if="{{sku.delivery}}" class="delivery-section">
-      <text class="section-title">配送信息</text>
-      <view class="delivery-info">
-        <view class="delivery-item">
-          <text class="delivery-label">配送方式：</text>
-          <text class="delivery-value">{{sku.delivery.modes ? sku.delivery.modes.join('、') : ''}}</text>
-        </view>
-        <view class="delivery-item">
-          <text class="delivery-label">配送时间：</text>
-          <text class="delivery-value">{{sku.delivery.eta_days ? sku.delivery.eta_days[0] + '-' + sku.delivery.eta_days[1] + '天' : ''}}</text>
-        </view>
-        <view class="delivery-item">
-          <text class="delivery-label">上楼服务：</text>
-          <text class="delivery-value">{{sku.delivery.upstairs ? '支持' : '不支持'}}</text>
-        </view>
-      </view>
-    </view>
+    
 
     <!-- 保养说明 -->
     <view wx:if="{{sku.care}}" class="care-section">

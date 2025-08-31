@@ -1,0 +1,9 @@
+.intent-success { padding: 120rpx 40rpx; text-align:center; }
+.intent-ok { font-size: 100rpx; display:block; margin-bottom: 12rpx; }
+.intent-success-title { display:block; font-size: 34rpx; font-weight: 700; color:#111; }
+.intent-success-sub { display:block; margin-top: 8rpx; color:#6b7280; font-size: 26rpx; }
+.intent-btn { margin-top: 24rpx; height: 72rpx; border-radius: 14rpx; display:flex; align-items:center; justify-content:center; }
+.intent-primary { color:#fff; background: linear-gradient(90deg,#6F7BF7 0%,#9B6DF3 100%); }
+.intent-primary::after { border:none; }
+
+

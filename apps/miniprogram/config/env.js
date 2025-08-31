@@ -22,11 +22,11 @@ try {
 const ENV_CONFIG = {
   // 开发环境
   DEV: {
-    BASE_URL: 'http://localhost:3000',
+    BASE_URL: 'http://172.20.10.2:3000',
     API_TIMEOUT: 10000,
     DEBUG: true,
     LOG_LEVEL: 'debug',
-    MOCK_ENABLED: true   // 临时使用Mock数据
+    MOCK_ENABLED: false   // 为真实接口联调关闭Mock
   },
   
   // 生产环境

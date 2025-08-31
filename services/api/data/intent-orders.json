@@ -1,1 +1,384 @@
-[]
+[
+  {
+    "type": "intent_list",
+    "items": [
+      {
+        "sku_id": "sku_wardrobe_009",
+        "qty": 1,
+        "title": "推拉门衣柜 2.4m",
+        "cover": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+        "rent_monthly_gbp": 10,
+        "condition_grade": 0,
+        "addedAt": "2025-08-31T01:10:15.013Z"
+      }
+    ],
+    "openid": "mock_openid_1756602086880_cuahn3th",
+    "userInfo": {},
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1244",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-08-31T01:10:17.393Z"
+    },
+    "subscribe": {
+      "template_id": "YOUR_WECHAT_SUBSCRIBE_TEMPLATE_ID",
+      "accepted": false,
+      "data": {
+        "thing1": {
+          "value": "推拉门衣柜 2.4m"
+        },
+        "date2": {
+          "value": "2025/8/31上午2:10:17"
+        },
+        "thing3": {
+          "value": "共1件，数量小计1"
+        }
+      }
+    },
+    "id": "intent_1756602617393_6bxirs",
+    "status": "pending",
+    "createdAt": "2025-08-31T01:10:17.393Z",
+    "updatedAt": "2025-08-31T01:10:17.393Z"
+  },
+  {
+    "type": "intent_list",
+    "items": [
+      {
+        "sku_id": "sku_wardrobe_009",
+        "qty": 1,
+        "title": "推拉门衣柜 2.4m",
+        "cover": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+        "rent_monthly_gbp": 10,
+        "condition_grade": 0,
+        "addedAt": "2025-08-31T01:16:54.754Z"
+      }
+    ],
+    "openid": "mock_openid_1756602086880_cuahn3th",
+    "userInfo": {},
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1256",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-08-31T01:17:36.894Z"
+    },
+    "subscribe": {
+      "template_id": "YOUR_WECHAT_SUBSCRIBE_TEMPLATE_ID",
+      "accepted": false,
+      "data": {
+        "thing1": {
+          "value": "推拉门衣柜 2.4m"
+        },
+        "date2": {
+          "value": "2025/8/31上午2:17:36"
+        },
+        "thing3": {
+          "value": "共1件，数量小计1"
+        }
+      }
+    },
+    "id": "intent_1756603056894_hyh10c",
+    "status": "pending",
+    "createdAt": "2025-08-31T01:17:36.894Z",
+    "updatedAt": "2025-08-31T01:17:36.894Z"
+  },
+  {
+    "type": "intent_list",
+    "items": [
+      {
+        "sku_id": "sku_bed_002",
+        "qty": 1,
+        "title": "橡木平台床 1.5m",
+        "cover": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+        "rent_monthly_gbp": 8,
+        "condition_grade": 0,
+        "addedAt": "2025-08-31T01:20:19.017Z"
+      }
+    ],
+    "openid": "mock_openid_1756602086880_cuahn3th",
+    "userInfo": {},
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1257",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-08-31T01:20:40.914Z"
+    },
+    "subscribe": {
+      "template_id": "YOUR_WECHAT_SUBSCRIBE_TEMPLATE_ID",
+      "accepted": false,
+      "data": {
+        "thing1": {
+          "value": "橡木平台床 1.5m"
+        },
+        "date2": {
+          "value": "2025/8/31上午2:20:40"
+        },
+        "thing3": {
+          "value": "共1件，数量小计1"
+        }
+      }
+    },
+    "id": "intent_1756603240914_vr4u0f",
+    "status": "pending",
+    "createdAt": "2025-08-31T01:20:40.914Z",
+    "updatedAt": "2025-08-31T01:20:40.914Z"
+  },
+  {
+    "type": "intent_list",
+    "items": [
+      {
+        "sku_id": "sku_table_003",
+        "qty": 1,
+        "title": "胡桃木餐桌 1.6m",
+        "cover": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop",
+        "rent_monthly_gbp": 8,
+        "condition_grade": 0,
+        "addedAt": "2025-08-31T01:23:19.966Z"
+      }
+    ],
+    "openid": "mock_openid_1756602086880_cuahn3th",
+    "userInfo": {},
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1261",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-08-31T01:24:03.456Z"
+    },
+    "subscribe": {
+      "template_id": "YOUR_WECHAT_SUBSCRIBE_TEMPLATE_ID",
+      "accepted": false,
+      "data": {
+        "thing1": {
+          "value": "胡桃木餐桌 1.6m"
+        },
+        "date2": {
+          "value": "2025/8/31上午2:24:03"
+        },
+        "thing3": {
+          "value": "共1件，数量小计1"
+        }
+      }
+    },
+    "id": "intent_1756603443456_7ykqfx",
+    "status": "pending",
+    "createdAt": "2025-08-31T01:24:03.456Z",
+    "updatedAt": "2025-08-31T01:24:03.456Z"
+  },
+  {
+    "type": "intent_list",
+    "items": [
+      {
+        "sku_id": "sku_wardrobe_009",
+        "qty": 1,
+        "title": "推拉门衣柜 2.4m",
+        "cover": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+        "rent_monthly_gbp": 10,
+        "condition_grade": 0,
+        "addedAt": "2025-08-31T01:29:23.259Z"
+      }
+    ],
+    "openid": "mock_openid_1756602086880_cuahn3th",
+    "userInfo": {},
+    "contact": {
+      "name": "henry",
+      "phone": "13788867555",
+      "wechat": "",
+      "email": "chuhenghuang12@gmail.com",
+      "preferred": "email"
+    },
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1262",
+      "ip": "127.0.0.1",
+      "timestamp": "2025-08-31T01:29:43.082Z"
+    },
+    "subscribe": {
+      "template_id": "YOUR_WECHAT_SUBSCRIBE_TEMPLATE_ID",
+      "accepted": false,
+      "data": {
+        "thing1": {
+          "value": "推拉门衣柜 2.4m"
+        },
+        "date2": {
+          "value": "2025/8/31上午2:29:43"
+        },
+        "thing3": {
+          "value": "共1件，数量小计1"
+        }
+      }
+    },
+    "id": "intent_1756603783083_izib7n",
+    "status": "pending",
+    "createdAt": "2025-08-31T01:29:43.083Z",
+    "updatedAt": "2025-08-31T01:29:43.083Z"
+  },
+  {
+    "type": "intent_list",
+    "items": [
+      {
+        "sku_id": "sku_wardrobe_009",
+        "qty": 1,
+        "title": "推拉门衣柜 2.4m",
+        "cover": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+        "rent_monthly_gbp": 10,
+        "condition_grade": 0,
+        "addedAt": "2025-08-31T01:50:08.126Z"
+      }
+    ],
+    "openid": "guest-20250831-0235-9423",
+    "userInfo": {},
+    "contact": {
+      "name": "henry",
+      "phone": "13788867555",
+      "wechat": "",
+      "email": "chuhenghuang12@gmail.com",
+      "preferred": "email"
+    },
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.61(0x18003d39) NetType/4G Language/zh_CN",
+      "ip": "172.20.10.1",
+      "timestamp": "2025-08-31T01:50:31.016Z"
+    },
+    "subscribe": {
+      "template_id": "YOUR_WECHAT_SUBSCRIBE_TEMPLATE_ID",
+      "accepted": false,
+      "data": {
+        "thing1": {
+          "value": "推拉门衣柜 2.4m"
+        },
+        "date2": {
+          "value": "2025/8/31 02:50:30"
+        },
+        "thing3": {
+          "value": "共1件，数量小计1"
+        }
+      }
+    },
+    "id": "intent_1756605031016_oaatgs",
+    "status": "pending",
+    "createdAt": "2025-08-31T01:50:31.016Z",
+    "updatedAt": "2025-08-31T01:50:31.016Z"
+  },
+  {
+    "type": "single",
+    "skuId": "sku_table_003",
+    "duration": 1,
+    "durationUnit": "week",
+    "quantity": 2,
+    "services": [
+      "delivery",
+      "installation",
+      "upstairs"
+    ],
+    "startDate": "2025-09-07",
+    "monthlyPrice": 56,
+    "totalAmount": 112,
+    "openid": "mock_openid_1756605187390_oj3j1vav",
+    "contact": null,
+    "sku": {
+      "id": "sku_table_003",
+      "title": "胡桃木餐桌 1.6m",
+      "brand": "WoodCraft",
+      "price": 2754,
+      "image": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop",
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop",
+          "type": "main"
+        }
+      ]
+    },
+    "userInfo": {
+      "source": "create_order",
+      "city": "",
+      "timestamp": "2025-08-31T01:54:19.814Z"
+    },
+    "quoteData": {
+      "breakdown": {
+        "unitPriceLabel": "周租单价",
+        "unitPrice": 0,
+        "baseRentLabel": "基础租金",
+        "baseRent": 0,
+        "services": [
+          {
+            "id": "delivery",
+            "name": "送货到门",
+            "price": 50
+          },
+          {
+            "id": "installation",
+            "name": "白手套安装",
+            "price": 150
+          },
+          {
+            "id": "upstairs",
+            "name": "上楼服务",
+            "price": 80
+          }
+        ],
+        "discount": 0,
+        "discountReason": "优惠",
+        "deposit": 34,
+        "depositReason": "押金",
+        "totalRentLabel": "小计",
+        "totalRent": 280,
+        "grandTotalLabel": "总计",
+        "grandTotal": 0
+      },
+      "calculation": {
+        "note": "按周租价格=月租/4，4周≈1个月"
+      }
+    },
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.62(0x18003e36) NetType/WIFI Language/zh_CN",
+      "ip": "172.20.10.6",
+      "timestamp": "2025-08-31T01:54:19.988Z"
+    },
+    "subscribe": null,
+    "id": "intent_1756605259989_tch22j",
+    "status": "pending",
+    "createdAt": "2025-08-31T01:54:19.989Z",
+    "updatedAt": "2025-08-31T01:54:19.989Z"
+  },
+  {
+    "type": "intent_list",
+    "items": [
+      {
+        "sku_id": "sku_table_003",
+        "qty": 2,
+        "title": "胡桃木餐桌 1.6m",
+        "cover": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=300&fit=crop",
+        "rent_monthly_gbp": 8,
+        "condition_grade": 0,
+        "addedAt": "2025-08-31T01:54:28.748Z"
+      }
+    ],
+    "openid": "guest-20250831-0234-5450",
+    "userInfo": {},
+    "contact": {
+      "name": "王诺莹",
+      "phone": "17805850949",
+      "wechat": "",
+      "email": "17805850949@163.com",
+      "preferred": "email"
+    },
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 18_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.62(0x18003e36) NetType/WIFI Language/zh_CN",
+      "ip": "172.20.10.6",
+      "timestamp": "2025-08-31T01:55:42.213Z"
+    },
+    "subscribe": {
+      "template_id": "YOUR_WECHAT_SUBSCRIBE_TEMPLATE_ID",
+      "accepted": false,
+      "data": {
+        "thing1": {
+          "value": "胡桃木餐桌 1.6m"
+        },
+        "date2": {
+          "value": "2025/8/31 02:55:41"
+        },
+        "thing3": {
+          "value": "共1件，数量小计2"
+        }
+      }
+    },
+    "id": "intent_1756605342214_e4ccwy",
+    "status": "pending",
+    "createdAt": "2025-08-31T01:55:42.214Z",
+    "updatedAt": "2025-08-31T01:55:42.214Z"
+  }
+]

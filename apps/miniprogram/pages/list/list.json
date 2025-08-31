@@ -5,6 +5,7 @@
     "single-filter": "../../components/single-filter/single-filter"
   },
   "navigationBarTitleText": "商品列表",
+  "navigationStyle": "custom",
   "enablePullDownRefresh": true,
   "onReachBottomDistance": 50
 }

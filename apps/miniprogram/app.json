@@ -4,13 +4,16 @@
     "pages/category/category",
     "pages/list/list",
     "pages/detail/detail",
-    "pages/profile/profile",
+    "pages/my/my",
+    "pages/profile/edit",
     "pages/cart/cart",
     "pages/favorites/favorites",
     "pages/compare/compare",
     "pages/admin/intents",
     "pages/about/about",
-    "pages/policy/policy"
+    "pages/policy/policy",
+    "pages/intent/list",
+    "pages/intent/success"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -38,7 +41,7 @@
         "text": "🛒 购物车"
       },
       {
-        "pagePath": "pages/profile/profile",
+        "pagePath": "pages/my/my",
         "text": "👤 我的"
       }
     ]

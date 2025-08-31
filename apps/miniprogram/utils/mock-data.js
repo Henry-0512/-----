@@ -449,6 +449,49 @@ const mockApi = {
     })
   },
 
+  // 报价计算（模拟实现）
+  getQuote(payload) {
+    const sku = mockData.products.data.items.find(item => item.id === payload.skuId)
+    const unitMonthly = sku ? (sku.rent_monthly_gbp || sku.monthlyPrice || 8) : 8
+    const duration = Math.max(1, parseInt(payload.duration) || 1)
+    const quantity = Math.max(1, parseInt(payload.quantity) || 1)
+    const unit = (payload.durationUnit === 'week') ? (unitMonthly / 4) : unitMonthly
+
+    const addOns = Array.isArray(payload.services) ? payload.services : []
+    const addOnTotal = addOns.reduce((sum, s) => {
+      switch (s) {
+        case 'delivery': return sum + 50
+        case 'installation': return sum + 150
+        case 'upstairs': return sum + 80
+        case 'insurance': return sum + Math.round(unit * duration * 0.02)
+        default: return sum
+      }
+    }, 0)
+
+    const rent = Math.round(unit * duration * quantity)
+    const deposit = Math.round((sku?.purchase_price_gbp || 100) * 0.2)
+    const total = rent + addOnTotal + deposit
+
+    return Promise.resolve({
+      success: true,
+      data: {
+        breakdown: {
+          unit,
+          duration,
+          quantity,
+          addOnTotal,
+          deposit,
+          rent
+        },
+        total,
+        currency: 'GBP',
+        delivery: {
+          eta_days: sku?.delivery?.eta_days || [3, 7]
+        }
+      }
+    })
+  },
+
   createIntentOrder(orderData) {
     const sku = mockData.products.data.items.find(item => item.id === orderData.skuId)
     const monthlyPrice = sku ? sku.monthlyPrice : 50

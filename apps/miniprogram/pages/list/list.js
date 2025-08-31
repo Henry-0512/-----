@@ -122,12 +122,22 @@ Page({
     console.log('🔍 设置页面标题:', pageTitle)
     console.log('🔍 scroll-view应该支持横向滚动')
     
+    // 根据入口分类初始化筛选
+    const initialCurrentFilters = {}
+    const initialSelectedFilters = {}
+    if (category) {
+      const decoded = decodeURIComponent(category)
+      initialCurrentFilters.category = [decoded]
+      initialSelectedFilters.categories = [decoded]
+    }
+
     this.setData({ 
       pageTitle,
       loading: false,
-      currentFilters: {}, // 初始化为空对象
-      hasActiveFilters: false,
-      filterCount: 0
+      currentFilters: initialCurrentFilters,
+      selectedFilters: initialSelectedFilters,
+      hasActiveFilters: Object.keys(initialCurrentFilters).length > 0,
+      filterCount: initialCurrentFilters.category ? initialCurrentFilters.category.length : 0
     })
     
     // 更新筛选状态
@@ -140,7 +150,7 @@ Page({
     
     console.log('🔍 列表页onLoad完成')
     
-    // 恢复数据加载
+    // 恢复数据加载（带入初始分类）
     console.log('🔍 开始加载商品数据')
     this.loadItems(true)
   },
@@ -315,17 +325,26 @@ Page({
       
       const newItems = res.data?.items || []
       
-      // 详细调试排序结果
+      // 详细调试排序结果（兜底前端排序，防止后端/Mock未按预期排）
       if (newItems.length > 0) {
-        console.log('🔍 排序前商品价格:', newItems.map(item => ({ id: item.id, price: item.price, title: item.title })))
-        
-        // 前端再次排序（确保排序生效）
-        if (currentSort === 'price_asc') {
+        const getRent = (x) => {
+          const v = x.rent_monthly_gbp != null ? x.rent_monthly_gbp : x.monthlyPrice
+          const n = Number(v)
+          return Number.isNaN(n) ? 0 : n
+        }
+
+        if (currentSort === 'rent_asc') {
+          newItems.sort((a, b) => getRent(a) - getRent(b))
+          console.log('🔍 前端月租升序排序后:', newItems.slice(0, 5).map(i => ({ id: i.id, rent: getRent(i) })))
+        } else if (currentSort === 'rent_desc') {
+          newItems.sort((a, b) => getRent(b) - getRent(a))
+          console.log('🔍 前端月租降序排序后:', newItems.slice(0, 5).map(i => ({ id: i.id, rent: getRent(i) })))
+        } else if (currentSort === 'price_asc') {
           newItems.sort((a, b) => (a.price || 0) - (b.price || 0))
-          console.log('🔍 前端价格升序排序后:', newItems.map(item => ({ id: item.id, price: item.price })))
+          console.log('🔍 前端买断价升序排序后:', newItems.slice(0, 5).map(i => ({ id: i.id, price: i.price })))
         } else if (currentSort === 'price_desc') {
           newItems.sort((a, b) => (b.price || 0) - (a.price || 0))
-          console.log('🔍 前端价格降序排序后:', newItems.map(item => ({ id: item.id, price: item.price })))
+          console.log('🔍 前端买断价降序排序后:', newItems.slice(0, 5).map(i => ({ id: i.id, price: i.price })))
         }
       }
       
@@ -653,25 +672,7 @@ Page({
     })
   },
 
-  /**
-   * 选择邮编
-   */
-  onSelectPostcode() {
-    wx.showToast({
-      title: '邮编选择功能开发中',
-      icon: 'none'
-    })
-  },
-
-  /**
-   * 选择门店
-   */
-  onSelectStore() {
-    wx.showToast({
-      title: '门店选择功能开发中',
-      icon: 'none'
-    })
-  },
+  
 
   /**
    * 单项筛选器应用
@@ -801,7 +802,22 @@ Page({
    * 返回上一页
    */
   onGoBack() {
-    wx.navigateBack()
+    try {
+      const pages = getCurrentPages()
+      if (pages && pages.length > 1) {
+        wx.navigateBack({ delta: 1 })
+      } else {
+        // 无历史页面时，兜底回到首页
+        if (wx.switchTab) {
+          wx.switchTab({ url: '/pages/index/index' })
+        } else {
+          wx.reLaunch({ url: '/pages/index/index' })
+        }
+      }
+    } catch (e) {
+      // 发生异常时同样兜底回首页
+      wx.reLaunch({ url: '/pages/index/index' })
+    }
   },
 
   /**

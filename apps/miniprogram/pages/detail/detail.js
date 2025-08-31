@@ -3,7 +3,8 @@ const { isMockEnabled } = require('../../config/env.js')
 const { api, storage, ERROR_TYPES } = isMockEnabled() 
   ? require('../../utils/request-mock.js')
   : require('../../utils/request.js')
-const { formatPriceDisplay, isFeatureEnabled, getCustomerServiceConfig } = require('../../config/feature-flags.js')
+const { formatPriceDisplay, isFeatureEnabled, getCustomerServiceConfig, FEATURE_INTENT } = require('../../config/feature-flags.js')
+const intent = require('../../utils/intent.js')
 const { track, TrackEvents } = require('../../utils/track.js')
 
 Page({
@@ -12,6 +13,8 @@ Page({
     loading: true,
     error: null,
     isEmpty: false,
+    // 功能开关：意向单（首屏即注入，避免初次渲染不显示）
+    FEATURE_INTENT: FEATURE_INTENT === true,
     
     // 数据状态
     sku: null,
@@ -119,11 +122,17 @@ Page({
         price_mode: priceInfo.mode || 'ask'
       }
       
+      const fallbackCities = [
+        { city: 'Durham', postcode: ['DH1','DH2'], deliverable: true, eta_days: [0,1] },
+        { city: 'Newcastle', postcode: ['NE1','NE2'], deliverable: true, eta_days: [2,3] },
+        { city: 'Sunderland', postcode: ['SR1','SR2'], deliverable: true, eta_days: [2,3] }
+      ]
+
       this.setData({
         sku,
         priceInfo,
         detailButtonData,
-        availableCities: sku.deliverable_cities || [],
+        availableCities: (sku.deliverable_cities && sku.deliverable_cities.length > 0) ? sku.deliverable_cities : fallbackCities,
         loading: false
       })
       
@@ -209,8 +218,8 @@ Page({
    * 检查收藏状态
    */
   checkFavoriteStatus(id) {
-    const favorites = storage.get('favorites', [])
-    const isFavorited = favorites.some(item => item.id === id)
+    const favorites = storage.get('favorites') || []
+    const isFavorited = Array.isArray(favorites) && favorites.some(item => item.id === id)
     this.setData({ isFavorited })
   },
 
@@ -261,16 +270,22 @@ Page({
    * 调整租赁时长
    */
   onDurationChange(e) {
-    const { type } = e.currentTarget.dataset
+    // 支持两种触发：按钮（dataset.type）和输入框（e.detail.value）
+    const { type } = e.currentTarget.dataset || {}
     let { duration, minDuration, maxDuration } = this.data
-    
-    if (type === 'minus' && duration > minDuration) {
-      duration--
-    } else if (type === 'plus' && duration < maxDuration) {
-      duration++
+
+    if (type === 'minus') {
+      duration = Math.max(minDuration, (parseInt(duration) || minDuration) - 1)
+    } else if (type === 'plus') {
+      duration = Math.min(maxDuration, (parseInt(duration) || minDuration) + 1)
+    } else if (e && e.detail && e.detail.value != null) {
+      const inputVal = parseInt(e.detail.value)
+      duration = Number.isNaN(inputVal) ? minDuration : inputVal
+      duration = Math.max(minDuration, Math.min(maxDuration, duration))
     }
-    
+
     this.setData({ duration })
+    this.calculateQuote()
   },
 
   /**
@@ -291,7 +306,8 @@ Page({
     const { sku, isFavorited } = this.data
     if (!sku) return
 
-    let favorites = storage.get('favorites', [])
+    let favorites = storage.get('favorites') || []
+    if (!Array.isArray(favorites)) favorites = []
     
     if (isFavorited) {
       // 取消收藏
@@ -318,68 +334,7 @@ Page({
   /**
    * 添加到对比
    */
-  onAddToCompare() {
-    const compareList = storage.get('compareList', [])
-    const { sku } = this.data
-    
-    // 检查是否已在对比列表中
-    const exists = compareList.some(item => item.id === sku.id)
-    if (exists) {
-      wx.showToast({ title: '已在对比列表中', icon: 'none' })
-      return
-    }
-    
-    // 检查对比列表是否已满（最多4件）
-    if (compareList.length >= 4) {
-      wx.showModal({
-        title: '提示',
-        content: '对比列表最多只能添加4件商品，是否替换第一件？',
-        success: (res) => {
-          if (res.confirm) {
-            const newCompareList = compareList.slice(1)
-            newCompareList.push({
-              id: sku.id,
-              title: sku.title || sku.name,
-              monthlyPrice: sku.monthlyPrice || Math.ceil(sku.price/50),
-              price: sku.price,
-              images: sku.images,
-              brand: sku.brand,
-              style: sku.style,
-              material: sku.material,
-              color: sku.color,
-              width_mm: sku.width_mm,
-              depth_mm: sku.depth_mm,
-              height_mm: sku.height_mm,
-              addedAt: new Date().toISOString()
-            })
-            storage.set('compareList', newCompareList)
-            wx.showToast({ title: '已添加到对比', icon: 'success' })
-          }
-        }
-      })
-      return
-    }
-    
-    // 添加到对比列表
-    const newCompareList = [...compareList, {
-      id: sku.id,
-      title: sku.title || sku.name,
-      monthlyPrice: sku.monthlyPrice || Math.ceil(sku.price/50),
-      price: sku.price,
-      images: sku.images,
-      brand: sku.brand,
-      style: sku.style,
-      material: sku.material,
-      color: sku.color,
-      width_mm: sku.width_mm,
-      depth_mm: sku.depth_mm,
-      height_mm: sku.height_mm,
-      addedAt: new Date().toISOString()
-    }]
-    
-    storage.set('compareList', newCompareList)
-    wx.showToast({ title: '已添加到对比', icon: 'success' })
-  },
+  // 已移除对比功能
 
   /**
    * 添加到购物车
@@ -413,6 +368,45 @@ Page({
     }
     
     storage.set('cart', cart)
+  },
+
+  /**
+   * 加入意向单（仅当 FEATURE_INTENT=true 显示）
+   */
+  onAddToIntent() {
+    if (!this.data.FEATURE_INTENT) return
+    const { sku } = this.data
+    if (!sku) return
+    const cover = (sku.images && sku.images.length) ? (typeof sku.images[0] === 'object' ? sku.images[0].url : sku.images[0]) : ''
+    intent.add({
+      sku_id: sku.id,
+      qty: 1,
+      title: sku.title || sku.name || '',
+      cover,
+      rent_monthly_gbp: sku.rent_monthly_gbp || 0,
+      condition_grade: sku.condition_grade || (sku.condition && sku.condition.grade) || 0
+    })
+    wx.showToast({ title: '已加入意向单', icon: 'success' })
+  },
+
+  /**
+   * 立即提交意向：先加入当前商品，再跳转意向单列表
+   */
+  onSubmitIntent() {
+    if (!this.data.FEATURE_INTENT) return
+    const { sku } = this.data
+    if (sku) {
+      const cover = (sku.images && sku.images.length) ? (typeof sku.images[0] === 'object' ? sku.images[0].url : sku.images[0]) : ''
+      intent.add({
+        sku_id: sku.id,
+        qty: 1,
+        title: sku.title || sku.name || '',
+        cover,
+        rent_monthly_gbp: sku.rent_monthly_gbp || 0,
+        condition_grade: sku.condition_grade || (sku.condition && sku.condition.grade) || 0
+      })
+    }
+    wx.navigateTo({ url: '/pages/intent/list?quick=1' })
   },
 
   /**
@@ -545,9 +539,46 @@ Page({
         postcode: selectedPostcode
       })
 
+      const d = res.data || {}
+      const servicesDetail = (selectedServices || []).map(s => {
+        let name = ''
+        let price = 0
+        switch (s) {
+          case 'delivery': name = '送货到门'; price = 50; break
+          case 'installation': name = '白手套安装'; price = 150; break
+          case 'upstairs': name = '上楼服务'; price = 80; break
+          case 'insurance': name = '租赁保险(2%)'; price = Math.round((d.breakdown?.unit || 0) * duration * 0.02); break
+          default: name = s; price = 0
+        }
+        return { id: s, name, price }
+      })
+
+      const breakdown = {
+        unitPriceLabel: durationUnit === 'week' ? '周租单价' : '月租单价',
+        unitPrice: d.breakdown?.unit || 0,
+        baseRentLabel: '基础租金',
+        baseRent: d.breakdown?.rent || 0,
+        services: servicesDetail,
+        discount: 0,
+        discountReason: '优惠',
+        deposit: d.breakdown?.deposit || 0,
+        depositReason: '押金',
+        totalRentLabel: '小计',
+        totalRent: (d.breakdown?.rent || 0) + servicesDetail.reduce((s, i) => s + (i.price || 0), 0),
+        grandTotalLabel: '总计',
+        grandTotal: d.total || 0
+      }
+
+      const quoteData = {
+        breakdown,
+        calculation: {
+          note: durationUnit === 'week' ? '按周租价格=月租/4，4周≈1个月' : '按月租价格=周租×4'
+        }
+      }
+
       this.setData({
-        quoteData: res.data,
-        deliveryInfo: res.data?.delivery,
+        quoteData,
+        deliveryInfo: d.delivery ? { etaDays: d.delivery.eta_days || d.delivery.etaDays || [3,7] } : null,
         quoteLoading: false
       })
     } catch (error) {
@@ -575,7 +606,7 @@ Page({
    */
   onDurationUnitChange(e) {
     const { value } = e.detail
-    const durationUnit = value === 0 ? 'week' : 'month'
+    const durationUnit = (value === '0' || value === 0) ? 'week' : 'month'
     
     this.setData({ 
       durationUnit,

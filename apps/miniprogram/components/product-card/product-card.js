@@ -349,23 +349,9 @@ Component({
     /**
      * 图片预览
      */
+    // 以前的图片预览改为跳转详情，保持方法存在避免引用报错
     onImagePreview() {
-      const { safeProduct } = this.data
-      if (!safeProduct) return
-      
-      let imageUrl = ''
-      if (safeProduct.images && safeProduct.images[0]) {
-        imageUrl = safeProduct.images[0].url || safeProduct.images[0]
-      } else if (safeProduct.image) {
-        imageUrl = safeProduct.image
-      }
-      
-      if (imageUrl) {
-        wx.previewImage({
-          current: imageUrl,
-          urls: [imageUrl]
-        })
-      }
+      this.onCardTap()
     },
 
     /**

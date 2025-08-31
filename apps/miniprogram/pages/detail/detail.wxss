@@ -27,11 +27,14 @@
 .image-section {
   position: relative;
   background: white;
+  margin-top: calc(env(safe-area-inset-top) * -1); /* 向上覆盖安全区上方空白 */
 }
 
 .main-image {
   width: 100%;
-  height: 600rpx;
+  height: 640rpx;
+  object-fit: cover; /* 等比裁切铺满 */
+  display: block;
 }
 
 .image-indicators {

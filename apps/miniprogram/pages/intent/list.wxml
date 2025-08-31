@@ -1,0 +1,69 @@
+<!-- pages/intent/list.wxml -->
+<view class="intent-container">
+  <view class="intent-header">
+    <text class="intent-title">意向清单</text>
+    <text class="intent-sub">仅用于收集需求，不会直接下单</text>
+  </view>
+
+  <view wx:if="{{items.length === 0}}" class="intent-empty">
+    <text class="intent-empty-icon">📝</text>
+    <text class="intent-empty-text">暂无意向商品</text>
+    <button class="intent-btn intent-primary" bindtap="onGoHome">去首页看看</button>
+  </view>
+
+  <view wx:else class="intent-list">
+    <view wx:for="{{items}}" wx:key="sku_id" class="intent-item">
+      <image class="intent-cover" src="{{item.cover}}" mode="aspectFill"/>
+      <view class="intent-info">
+        <text class="intent-name">{{item.title}}</text>
+        <text class="intent-meta">£{{item.rent_monthly_gbp || 0}}/mo · 成色{{item.condition_grade}}</text>
+        <view class="intent-qty">
+          <button class="intent-qty-btn" data-id="{{item.sku_id}}" data-step="-1" bindtap="onQtyStep">-</button>
+          <text class="intent-qty-num">{{item.qty}}</text>
+          <button class="intent-qty-btn" data-id="{{item.sku_id}}" data-step="1" bindtap="onQtyStep">+</button>
+        </view>
+      </view>
+      <button class="intent-remove" data-id="{{item.sku_id}}" bindtap="onRemove">删除</button>
+    </view>
+
+    <!-- 联系方式（称呼、邮箱必填；其余选填；请选择偏好联系方式） -->
+    <view class="intent-contact">
+      <text class="intent-contact-title">联系方式</text>
+      <view class="intent-field">
+        <text class="intent-label">称呼（必填）</text>
+        <input class="intent-input {{contactErrors.name?'invalid':''}}" placeholder="如何称呼您" value="{{contact.name}}" data-key="name" bindinput="onContactInput"/>
+        <text wx:if="{{contactErrors.name}}" class="intent-error">请填写称呼</text>
+      </view>
+      <view class="intent-field">
+        <text class="intent-label">邮箱（必填其一：邮箱或微信号）</text>
+        <input class="intent-input {{contactErrors.email?'invalid':''}}" type="text" placeholder="用于接收确认与报价" value="{{contact.email}}" data-key="email" bindinput="onContactInput"/>
+        <text wx:if="{{contactErrors.email}}" class="intent-error">请填写邮箱或改填微信号</text>
+      </view>
+      <view class="intent-field">
+        <text class="intent-label">手机号（选填）</text>
+        <input class="intent-input" type="number" placeholder="便于回电" value="{{contact.phone}}" data-key="phone" bindinput="onContactInput"/>
+      </view>
+      <view class="intent-field">
+        <text class="intent-label">微信号（选填，和邮箱至少填一项）</text>
+        <input class="intent-input {{contactErrors.wechat?'invalid':''}}" placeholder="便于加微信沟通" value="{{contact.wechat}}" data-key="wechat" bindinput="onContactInput"/>
+        <text wx:if="{{contactErrors.wechat}}" class="intent-error">请填写微信号或改填邮箱</text>
+      </view>
+      <view class="intent-field">
+        <text class="intent-label">偏好联系渠道</text>
+        <view class="intent-prefer">
+          <button class="intent-prefer-btn {{contact.preferred==='email'?'active':''}}" data-value="email" bindtap="onPreferredChange">邮箱</button>
+          <button class="intent-prefer-btn {{contact.preferred==='phone'?'active':''}}" data-value="phone" bindtap="onPreferredChange">电话</button>
+          <button class="intent-prefer-btn {{contact.preferred==='wechat'?'active':''}}" data-value="wechat" bindtap="onPreferredChange">微信</button>
+        </view>
+      </view>
+      <text class="intent-tip">说明：称呼与邮箱为必填。我们将按你勾选的偏好联系方式优先联系。</text>
+    </view>
+
+    <view class="intent-actions">
+      <button class="intent-btn intent-secondary" bindtap="onClear">清空</button>
+      <button class="intent-btn intent-primary" loading="{{submitting}}" disabled="{{submitting}}" bindtap="onSubmit">提交意向</button>
+    </view>
+  </view>
+</view>
+
+

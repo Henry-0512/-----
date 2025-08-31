@@ -1,0 +1,8 @@
+<view class="intent-success">
+  <text class="intent-ok">✅</text>
+  <text class="intent-success-title">提交成功</text>
+  <text class="intent-success-sub">我们已收到您的意向，稍后将与您联系</text>
+  <button class="intent-btn intent-primary" bindtap="onGoHome">返回首页</button>
+</view>
+
+

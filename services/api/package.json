@@ -1,17 +1,18 @@
 {
-  "name": "@furniture-rent/api",
-  "version": "1.0.0",
+  "name": "miniapp-api",
+  "type": "module",
+  "private": true,
+  "version": "0.1.0",
   "description": "家具租赁 API 服务",
   "main": "src/index.js",
-  "type": "module",
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
     "build": "echo 'No build step needed for Node.js'"
   },
   "dependencies": {
-    "fastify": "^4.24.3",
-    "@fastify/cors": "^8.4.0",
+    "fastify": "^4.26.2",
+    "@fastify/cors": "^9.0.0",
     "@fastify/static": "^6.12.0",
     "fastify-plugin": "^4.5.1"
   },

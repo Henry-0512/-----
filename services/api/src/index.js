@@ -31,6 +31,138 @@ const INTENT_ORDERS_FILE = path.join(__dirname, '../data/intent-orders.json')
 const TRACKING_LOG_FILE = path.join(__dirname, '../data/tracking-logs.json')
 const ADMIN_TOKEN = 'furniture_admin_2024'  // 管理员访问令牌
 
+// WeChat订阅消息相关配置（通过环境变量注入）
+const WX_APPID = process.env.WX_APPID || ''
+const WX_SECRET = process.env.WX_SECRET || ''
+const WX_TEMPLATE_INTENT = process.env.WX_TEMPLATE_INTENT || ''
+let WX_ACCESS_TOKEN = ''
+let WX_TOKEN_EXPIRES_AT = 0
+
+// 管理员通知通道（任选其一或多个）
+const SERVERCHAN_SENDKEY = process.env.SERVERCHAN_SENDKEY || '' // Server酱SendKey：sctapi.ftqq.com
+const PUSHPLUS_TOKEN = process.env.PUSHPLUS_TOKEN || ''         // PushPlus token
+const WECHAT_WORK_WEBHOOK = process.env.WECHAT_WORK_WEBHOOK || '' // 企业微信群机器人 webhook
+
+async function getWechatAccessToken() {
+  const now = Date.now()
+  if (WX_ACCESS_TOKEN && WX_TOKEN_EXPIRES_AT - now > 60_000) {
+    return WX_ACCESS_TOKEN
+  }
+  if (!WX_APPID || !WX_SECRET) {
+    console.warn('[WeChat] 缺少 WX_APPID/WX_SECRET，跳过获取 access_token')
+    return ''
+  }
+  try {
+    const resp = await fetch(`https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${WX_APPID}&secret=${WX_SECRET}`)
+    const data = await resp.json()
+    if (data.access_token) {
+      WX_ACCESS_TOKEN = data.access_token
+      WX_TOKEN_EXPIRES_AT = Date.now() + (data.expires_in || 7000) * 1000
+      return WX_ACCESS_TOKEN
+    }
+    console.error('[WeChat] 获取access_token失败:', data)
+    return ''
+  } catch (e) {
+    console.error('[WeChat] 获取access_token异常:', e)
+    return ''
+  }
+}
+
+async function sendSubscribeMessage({ openid, template_id, page = 'pages/intent/success', data = {} }) {
+  try {
+    if (!openid || !(template_id || WX_TEMPLATE_INTENT)) {
+      console.warn('[WeChat] openid或template_id缺失，跳过发送订阅消息')
+      return { ok: false, skipped: true }
+    }
+    const token = await getWechatAccessToken()
+    if (!token) return { ok: false, skipped: true }
+    const url = `https://api.weixin.qq.com/cgi-bin/message/subscribe/send?access_token=${token}`
+    const payload = {
+      touser: openid,
+      template_id: template_id || WX_TEMPLATE_INTENT,
+      page,
+      data
+    }
+    const resp = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+    const resData = await resp.json()
+    if (resData.errcode === 0) {
+      console.log('[WeChat] 订阅消息发送成功:', { openid: openid?.slice(-6), template: payload.template_id })
+      return { ok: true }
+    }
+    console.error('[WeChat] 订阅消息发送失败:', resData)
+    return { ok: false, error: resData }
+  } catch (e) {
+    console.error('[WeChat] 订阅消息发送异常:', e)
+    return { ok: false, error: e }
+  }
+}
+
+// 统一管理员通知
+async function notifyAdminOrder(savedOrder) {
+  try {
+    const title = '[新意向单] ' + (savedOrder?.sku?.title || (savedOrder?.items?.[0]?.title) || '未知商品')
+    const totalItems = savedOrder?.items ? savedOrder.items.reduce((s,i)=> s + (i.qty||1), 0) : (savedOrder?.quantity || 1)
+    const lines = []
+    if (savedOrder.type === 'intent_list' && Array.isArray(savedOrder.items)) {
+      lines.push('清单：')
+      savedOrder.items.slice(0,5).forEach((it, idx) => {
+        lines.push(`${idx+1}. ${it.title || it.sku_id} × ${it.qty||1}`)
+      })
+      if (savedOrder.items.length > 5) lines.push(`… 共 ${savedOrder.items.length} 项`)
+    } else if (savedOrder.sku) {
+      lines.push(`商品：${savedOrder.sku.title}`)
+      lines.push(`数量：${savedOrder.quantity || 1}`)
+      lines.push(`租期：${savedOrder.duration || '-'} ${savedOrder.durationUnit || ''}`)
+    }
+    lines.push(`用户：${(savedOrder.openid || '').slice(-8)}`)
+    if (savedOrder.contact) {
+      const { name, phone, wechat, email, preferred } = savedOrder.contact
+      lines.push(`称呼：${name || '-'}`)
+      lines.push(`手机：${phone || '-'}`)
+      lines.push(`微信：${wechat || '-'}`)
+      lines.push(`邮箱：${email || '-'}`)
+      if (preferred) lines.push(`偏好联系：${preferred}`)
+    }
+    lines.push(`时间：${new Date().toLocaleString()}`)
+    const md = lines.join('\n')
+
+    // 1) Server酱
+    if (SERVERCHAN_SENDKEY) {
+      try {
+        await fetch(`https://sctapi.ftqq.com/${SERVERCHAN_SENDKEY}.send`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+          body: new URLSearchParams({ title, desp: md })
+        })
+      } catch (e) { console.error('[AdminPush][ServerChan] 失败:', e) }
+    }
+
+    // 2) PushPlus
+    if (PUSHPLUS_TOKEN) {
+      try {
+        await fetch('https://www.pushplus.plus/send', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token: PUSHPLUS_TOKEN, title, content: md, template: 'markdown' })
+        })
+      } catch (e) { console.error('[AdminPush][PushPlus] 失败:', e) }
+    }
+
+    // 3) 企业微信机器人
+    if (WECHAT_WORK_WEBHOOK) {
+      try {
+        await fetch(WECHAT_WORK_WEBHOOK, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ msgtype: 'markdown', markdown: { content: `**${title}**\n${md}` } })
+        })
+      } catch (e) { console.error('[AdminPush][WeCom] 失败:', e) }
+    }
+  } catch (e) {
+    console.error('[AdminPush] 异常:', e)
+  }
+}
+
 /**
  * 读取意向订单数据
  */
@@ -265,14 +397,24 @@ fastify.get('/api/filters/meta', async (request, reply) => {
   
   skuData.forEach(sku => {
     // 统计分类（取第一个分类作为主分类）
-    const mainCategory = sku.category[0]
-    categoryStats[mainCategory] = (categoryStats[mainCategory] || 0) + 1
+    const categories = Array.isArray(sku?.category)
+      ? sku.category
+      : (sku?.category ? [sku.category] : [])
+    const mainCategory = categories[0]
+    if (mainCategory) {
+      categoryStats[mainCategory] = (categoryStats[mainCategory] || 0) + 1
+    }
     
     // 统计品牌
-    brandStats[sku.brand] = (brandStats[sku.brand] || 0) + 1
+    const brand = sku?.brand || '未知品牌'
+    brandStats[brand] = (brandStats[brand] || 0) + 1
     
     // 统计风格
-    sku.style.forEach(style => {
+    const styles = Array.isArray(sku?.style)
+      ? sku.style
+      : (sku?.style ? [sku.style] : [])
+    styles.forEach(style => {
+      if (!style) return
       styleStats[style] = (styleStats[style] || 0) + 1
     })
     
@@ -385,9 +527,10 @@ fastify.post('/api/filter', async (request, reply) => {
   
   // 按分类筛选
   if (categories && categories.length > 0) {
-    filteredData = filteredData.filter(item => 
-      item.category.some(cat => categories.includes(cat))
-    )
+    filteredData = filteredData.filter(item => {
+      const itemCats = Array.isArray(item?.category) ? item.category : (item?.category ? [item.category] : [])
+      return itemCats.some(cat => categories.includes(cat))
+    })
   }
   
   // 按价格筛选
@@ -399,16 +542,15 @@ fastify.post('/api/filter', async (request, reply) => {
   
   // 按品牌筛选
   if (brands && brands.length > 0) {
-    filteredData = filteredData.filter(item => 
-      brands.includes(item.brand)
-    )
+    filteredData = filteredData.filter(item => brands.includes(item?.brand || ''))
   }
   
   // 按风格筛选
   if (styles && styles.length > 0) {
-    filteredData = filteredData.filter(item => 
-      item.style.some(style => styles.includes(style))
-    )
+    filteredData = filteredData.filter(item => {
+      const itemStyles = Array.isArray(item?.style) ? item.style : (item?.style ? [item.style] : [])
+      return itemStyles.some(style => styles.includes(style))
+    })
   }
   
   // 按可配送城市筛选
@@ -936,68 +1078,102 @@ fastify.put('/api/intent-order/:id/status', async (request, reply) => {
 
 // 创建意向订单
 fastify.post('/api/intent-order', async (request, reply) => {
-  const { 
-    skuId, 
-    duration, 
+  const body = request.body || {}
+  console.log('[IntentOrder] 请求体:', JSON.stringify(body))
+  const {
+    skuId,
+    duration,
     durationUnit = 'month',
     quantity = 1,
     services = [],
-    startDate, 
+    startDate,
     userInfo = {},
     quoteData = null,
-    openid = ''  // 用户openid
-  } = request.body || {}
-  
-  if (!skuId || !duration || !startDate) {
-    return reply.code(400).send({
-      success: false,
-      message: '缺少必要参数'
-    })
-  }
-  
-  const sku = skuData.find(item => item.id === skuId)
-  if (!sku) {
-    return reply.code(404).send({
-      success: false,
-      message: 'SKU 未找到'
-    })
-  }
-  
+    openid = '', // 用户openid
+    // 新增兼容：从意向单列表提交
+    items = null,
+    subscribe = null,
+    contact = null
+  } = body
+
   try {
-    // 计算月租价格
-    const monthlyPrice = Math.ceil(sku.price / 50)
-    
-    // 构建订单数据
-    const orderData = {
-      skuId,
-      duration,
-      durationUnit,
-      quantity,
-      services,
-      startDate,
-      monthlyPrice,
-      totalAmount: monthlyPrice * duration * quantity,
-      openid,  // 用户身份标识
-      sku: {
-        id: sku.id,
-        title: sku.title,
-        brand: sku.brand,
-        price: sku.price,
-        image: sku.images?.[0]?.url || '',
-        images: sku.images?.slice(0, 1) || []
-      },
-      userInfo,
-      quoteData, // 保存完整的报价信息
-      clientInfo: {
-        userAgent: request.headers['user-agent'] || '',
-        ip: request.ip || '',
-        timestamp: new Date().toISOString()
+    let orderData = null
+    if (items && Array.isArray(items) && items.length > 0) {
+      // 兼容意向单批量提交（无需skuId/duration）
+      orderData = {
+        type: 'intent_list',
+        items,
+        openid,
+        userInfo,
+        contact,
+        clientInfo: {
+          userAgent: request.headers['user-agent'] || '',
+          ip: request.ip || '',
+          timestamp: new Date().toISOString()
+        },
+        subscribe
+      }
+    } else {
+      // 原有单SKU意向提交校验
+      if (!skuId || !duration || !startDate) {
+        return reply.code(400).send({ success: false, message: '缺少必要参数' })
+      }
+      const sku = skuData.find(item => item.id === skuId)
+      if (!sku) {
+        return reply.code(404).send({ success: false, message: 'SKU 未找到' })
+      }
+      const monthlyPrice = Math.ceil(sku.price / 50)
+      orderData = {
+        type: 'single',
+        skuId,
+        duration,
+        durationUnit,
+        quantity,
+        services,
+        startDate,
+        monthlyPrice,
+        totalAmount: monthlyPrice * duration * quantity,
+        openid,
+        contact,
+        sku: {
+          id: sku.id,
+          title: sku.title,
+          brand: sku.brand,
+          price: sku.price,
+          image: sku.images?.[0]?.url || '',
+          images: sku.images?.slice(0, 1) || []
+        },
+        userInfo,
+        quoteData,
+        clientInfo: {
+          userAgent: request.headers['user-agent'] || '',
+          ip: request.ip || '',
+          timestamp: new Date().toISOString()
+        },
+        subscribe
       }
     }
-    
-    // 写入本地文件
+
     const savedOrder = await addIntentOrder(orderData)
-    
+    console.log('[IntentOrder] 已保存:', { id: savedOrder.id, hasContact: Boolean(savedOrder.contact), contact: savedOrder.contact })
+
+    // 若用户同意订阅并配置了公众号信息，则尝试发送订阅消息
+    if (subscribe && subscribe.accepted && openid) {
+      const tplId = subscribe.template_id || WX_TEMPLATE_INTENT
+      if (tplId) {
+        // 简单兜底：若未传data则构造基础数据
+        const basicData = subscribe.data || {
+          thing1: { value: '意向提交成功' },
+          date2: { value: new Date().toLocaleString() },
+          thing3: { value: '我们会尽快与您联系' }
+        }
+        sendSubscribeMessage({ openid, template_id: tplId, data: basicData, page: 'pages/intent/success' })
+      }
+    }
+
+    // 管理员通知
+    notifyAdminOrder(savedOrder)
+
     return {
       success: true,
       data: {
@@ -1008,10 +1184,7 @@ fastify.post('/api/intent-order', async (request, reply) => {
     }
   } catch (error) {
     console.error('创建意向订单失败:', error)
-    return reply.code(500).send({
-      success: false,
-      message: '订单创建失败，请稍后重试'
-    })
+    return reply.code(500).send({ success: false, message: '订单创建失败，请稍后重试' })
   }
 })
 

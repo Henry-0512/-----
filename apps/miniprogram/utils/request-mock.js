@@ -117,11 +117,21 @@ const api = {
     return mockApi.getRecommendations(id)
   },
 
+  // 报价计算（模拟）
+  getQuote(payload) {
+    return mockApi.getQuote(payload)
+  },
+
   createIntentOrder(orderData) {
     wx.showLoading({ title: '创建订单中...', mask: true })
     return mockApi.createIntentOrder(orderData).finally(() => {
       wx.hideLoading()
     })
+  },
+
+  // 兼容真实 API 名称
+  submitIntentOrder(orderData) {
+    return this.createIntentOrder(orderData)
   }
 }
 

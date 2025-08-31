@@ -1,5 +1,7 @@
 <!--pages/index/index.wxml-->
 <view class="container">
+  <!-- 头图（Hero） 满幅覆盖 -->
+  <view class="hero" style="--hero-url: url(https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&h=600&fit=crop)"></view>
   <!-- 骨架屏加载状态 -->
   <view wx:if="{{loading}}" class="skeleton">
     <view class="skeleton-search"></view>
@@ -38,14 +40,9 @@
       <view class="admin-trigger" bindlongpress="onAdminAccess"></view>
     </view>
 
-    <!-- 轮播图 -->
+    <!-- 轮播图（保留，可下移） -->
     <swiper class="banner-swiper" indicator-dots="true" autoplay="true" interval="4000" duration="500">
-      <swiper-item 
-        wx:for="{{banners}}" 
-        wx:key="id"
-        data-banner="{{item}}"
-        bindtap="onBannerTap"
-      >
+      <swiper-item wx:for="{{banners}}" wx:key="id" data-banner="{{item}}" bindtap="onBannerTap">
         <image class="banner-image" src="{{item.image}}" mode="aspectFill"></image>
         <view class="banner-overlay">
           <text class="banner-title">{{item.title}}</text>
@@ -102,4 +99,29 @@
       </view>
     </view>
   </view>
+</view>
+
+<!-- 首次进入引导登录弹窗 -->
+<view wx:if="{{showAuthModal}}" class="auth-mask">
+  <view class="auth-modal">
+    <text class="auth-title">欢迎使用</text>
+    <text class="auth-sub">请登录并设置头像与昵称</text>
+    <button class="avatar-choose" open-type="chooseAvatar" bindchooseavatar="onChooseAuthAvatar" hover-class="none">
+      <block wx:if="{{authAvatar}}">
+        <image class="auth-avatar {{authAvatarError ? 'invalid' : ''}}" src="{{authAvatar}}" mode="aspectFill" />
+      </block>
+      <block wx:else>
+        <view class="auth-avatar placeholder {{authAvatarError ? 'invalid' : ''}}">
+          <text class="avatar-placeholder-icon">👤</text>
+        </view>
+      </block>
+    </button>
+    <text class="auth-tip">点击头像授权</text>
+    <input class="auth-input {{authNickError ? 'invalid' : ''}}" placeholder="输入昵称（必填）" value="{{authNickname}}" bindinput="onAuthInputNick"/>
+    <view class="auth-actions">
+      <button class="auth-skip" bindtap="onAuthSkip">暂不登录</button>
+      <button class="auth-login" bindtap="onAuthLogin">立即登录</button>
+    </view>
+  </view>
+  <view class="auth-safe"/>
 </view>

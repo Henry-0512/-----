@@ -1,22 +1,11 @@
 {
-  "name": "furniture-rent-monorepo",
-  "version": "1.0.0",
-  "description": "家具租赁小程序 MVP",
+  "name": "furniture-miniapp-monorepo",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "services/*",
-    "packages/*"
-  ],
+  "version": "0.1.0",
+  "description": "家具租赁小程序 Monorepo",
   "scripts": {
-    "dev": "concurrently \"npm run dev:api\" \"npm run dev:miniprogram\"",
-    "dev:api": "cd services/api && npm run dev",
-    "dev:miniprogram": "cd apps/miniprogram && npm run dev",
-    "build": "npm run build:api && npm run build:miniprogram",
-    "build:api": "cd services/api && npm run build",
-    "build:miniprogram": "cd apps/miniprogram && npm run build"
-  },
-  "devDependencies": {
-    "concurrently": "^8.2.2"
+    "api:install": "cd services/api && npm install",
+    "api:start": "SERVERCHAN_SENDKEY=${SERVERCHAN_SENDKEY} node services/api/src/index.js",
+    "api:start:serverchan": "SERVERCHAN_SENDKEY=REPLACE_WITH_YOUR_SENDKEY node services/api/src/index.js"
   }
 }
