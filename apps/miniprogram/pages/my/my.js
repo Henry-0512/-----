@@ -130,14 +130,7 @@ Page({
     }
   },
 
-  goAuth() {
-    const { user } = this.data
-    if (!user || !user.loggedIn) {
-      this.onLogin()
-      return
-    }
-    wx.navigateTo({ url: '/pages/auth/security' })
-  },
+  // 移除密码与登录入口
 
   onLogout() {
     try {
