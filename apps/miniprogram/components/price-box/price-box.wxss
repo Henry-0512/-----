@@ -1,0 +1,11 @@
+.pbx{background:#fff;border-radius:16rpx;padding:24rpx;box-shadow:0 4rpx 16rpx rgba(0,0,0,.04)}
+.pbx-row{display:flex;justify-content:space-between;align-items:center;padding:10rpx 0}
+.pbx-title{font-weight:600;font-size:30rpx}
+.pbx-strong{font-weight:700}
+.pbx-muted{color:#888;font-size:24rpx;margin-left:8rpx}
+.pbx-link{color:#1677ff}
+.pbx-waiver{gap:16rpx}
+.pbx-waiver-text{display:flex;flex-direction:column}
+.pbx-summary{margin-top:12rpx;border-top:1px dashed #eee;padding-top:12rpx}
+
+

@@ -77,6 +77,15 @@
         </view>
       </view>
 
+      <!-- 定价引擎价格盒子（新增，最小挂载） -->
+      <price-box
+        msrp="{{sku.purchase_price_gbp || sku.price || 100}}"
+        tier="{{sku.tier || 'mid'}}"
+        months="{{durationUnit==='month'? duration : Math.max(1, Math.ceil(duration/4))}}"
+        useWaiver="{{useWaiver || false}}"
+        bind:change="onPriceBoxChange"
+      />
+
       <!-- 意向单操作（新增，不改原按钮） -->
       <view wx:if="{{FEATURE_INTENT}}" class="quick-actions intent-inline">
         <button class="action-btn secondary-btn" bindtap="onAddToIntent">加入意向单</button>
@@ -213,12 +222,12 @@
         <!-- 基础费用 -->
         <view class="quote-item">
           <text class="quote-label">{{quoteData.breakdown.unitPriceLabel}}</text>
-          <text class="quote-value">¥{{quoteData.breakdown.unitPrice}}</text>
+          <text class="quote-value">£{{quoteData.breakdown.unitPrice}}/mo</text>
         </view>
         
         <view class="quote-item">
           <text class="quote-label">{{quoteData.breakdown.baseRentLabel}}</text>
-          <text class="quote-value">¥{{quoteData.breakdown.baseRent}}</text>
+          <text class="quote-value">£{{quoteData.breakdown.baseRent}}</text>
         </view>
 
         <!-- 服务费用 -->
@@ -229,7 +238,7 @@
             class="quote-item service-item"
           >
             <text class="quote-label">{{item.name}}</text>
-            <text class="quote-value">¥{{item.price}}</text>
+            <text class="quote-value">£{{item.price}}</text>
           </view>
         </view>
 
@@ -242,7 +251,7 @@
         <!-- 押金 -->
         <view class="quote-item deposit">
           <text class="quote-label">{{quoteData.breakdown.depositReason}}</text>
-          <text class="quote-value">¥{{quoteData.breakdown.deposit}}</text>
+          <text class="quote-value">£{{quoteData.breakdown.deposit}}</text>
         </view>
 
         <!-- 分割线 -->
@@ -251,13 +260,13 @@
         <!-- 小计 -->
         <view class="quote-item subtotal">
           <text class="quote-label">{{quoteData.breakdown.totalRentLabel}}</text>
-          <text class="quote-value">¥{{quoteData.breakdown.totalRent}}</text>
+          <text class="quote-value">£{{quoteData.breakdown.totalRent}}</text>
         </view>
 
         <!-- 总计 -->
         <view class="quote-item total">
           <text class="quote-label">{{quoteData.breakdown.grandTotalLabel}}</text>
-          <text class="quote-value total-value">¥{{quoteData.breakdown.grandTotal}}</text>
+          <text class="quote-value total-value">£{{quoteData.breakdown.grandTotal}}</text>
         </view>
       </view>
 
@@ -352,7 +361,7 @@
     </view>
     <button class="action-btn share-btn" open-type="share">分享</button>
     <button class="action-btn primary-btn" bindtap="onCreateOrder">
-      立即租赁 ¥{{(sku.monthlyPrice || Math.ceil(sku.price/50)) * duration}}
+      立即租赁 £{{(sku.rent_monthly_gbp || 8) * duration}}
     </button>
   </view>
 

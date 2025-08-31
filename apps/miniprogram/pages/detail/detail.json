@@ -2,7 +2,8 @@
   "usingComponents": {
     "product-card": "../../components/product-card/product-card",
     "size-sketch": "../../components/size-sketch/size-sketch",
-    "ask-price-button": "../../components/AskPriceButton/index"
+    "ask-price-button": "../../components/AskPriceButton/index",
+    "price-box": "../../components/price-box/price-box"
   },
   "navigationBarTitleText": "商品详情"
 }

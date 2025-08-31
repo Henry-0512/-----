@@ -52,9 +52,8 @@ Page({
     
     // 可选服务
     availableServices: [
-      { id: 'delivery', name: '送货到门', price: 50, selected: false },
-      { id: 'installation', name: '白手套安装', price: 150, selected: false },
-      { id: 'upstairs', name: '上楼服务', price: 80, selected: false },
+      { id: 'delivery', name: '送货到门', price: 0, selected: false },
+      { id: 'upstairs', name: '上楼加安装服务', price: 5, selected: false },
       { id: 'insurance', name: '租赁保险', price: 0, selected: false, note: '按租金2%计算' }
     ],
     
@@ -83,6 +82,11 @@ Page({
         loading: false
       })
     }
+  },
+
+  // 价格盒子回调，保存用于提交意向单
+  onPriceBoxChange(e){
+    this.setData({ pricingOffer: e.detail })
   },
 
   onShow() {
@@ -517,70 +521,50 @@ Page({
     try {
       this.setData({ quoteLoading: true, quoteError: null })
 
-      // 追踪报价计算
-      track(TrackEvents.QUOTE_SUBMIT, {
-        skuId: sku.id,
-        duration,
-        durationUnit,
-        quantity,
-        services: selectedServices,
-        city: selectedCity,
-        hasCity: Boolean(selectedCity),
-        serviceCount: selectedServices.length
-      })
+      // 英镑规则计算（本地统一计算）
+      const monthlyUnit = sku.rent_monthly_gbp || 8
+      const unitPrice = durationUnit === 'week' ? Math.ceil(monthlyUnit / 4) : monthlyUnit
+      const baseRent = unitPrice * duration * quantity
 
-      const res = await api.getQuote({
-        skuId: sku.id,
-        duration,
-        durationUnit,
-        quantity,
-        services: selectedServices,
-        city: selectedCity,
-        postcode: selectedPostcode
-      })
+      // 城市配送费用：Durham=£5，Newcastle/Sunderland=£10，其它=0
+      let cityFee = 0
+      if (selectedCity === 'Durham') cityFee = 5
+      else if (selectedCity === 'Newcastle' || selectedCity === 'Sunderland') cityFee = 10
 
-      const d = res.data || {}
-      const servicesDetail = (selectedServices || []).map(s => {
-        let name = ''
-        let price = 0
-        switch (s) {
-          case 'delivery': name = '送货到门'; price = 50; break
-          case 'installation': name = '白手套安装'; price = 150; break
-          case 'upstairs': name = '上楼服务'; price = 80; break
-          case 'insurance': name = '租赁保险(2%)'; price = Math.round((d.breakdown?.unit || 0) * duration * 0.02); break
-          default: name = s; price = 0
-        }
-        return { id: s, name, price }
-      })
+      // 增值服务
+      const servicesDetail = []
+      if (selectedServices.includes('delivery')) servicesDetail.push({ id: 'delivery', name: '送货到门', price: 0 })
+      if (selectedServices.includes('upstairs')) servicesDetail.push({ id: 'upstairs', name: '上楼加安装服务', price: 5 })
+      if (selectedServices.includes('insurance')) servicesDetail.push({ id: 'insurance', name: '租赁保险(2%)', price: Math.round(baseRent * 0.02) })
+      if (cityFee > 0) servicesDetail.unshift({ id: 'city', name: `城市配送(${selectedCity})`, price: cityFee })
 
-      const breakdown = {
-        unitPriceLabel: durationUnit === 'week' ? '周租单价' : '月租单价',
-        unitPrice: d.breakdown?.unit || 0,
-        baseRentLabel: '基础租金',
-        baseRent: d.breakdown?.rent || 0,
-        services: servicesDetail,
-        discount: 0,
-        discountReason: '优惠',
-        deposit: d.breakdown?.deposit || 0,
-        depositReason: '押金',
-        totalRentLabel: '小计',
-        totalRent: (d.breakdown?.rent || 0) + servicesDetail.reduce((s, i) => s + (i.price || 0), 0),
-        grandTotalLabel: '总计',
-        grandTotal: d.total || 0
-      }
+      const servicesTotal = servicesDetail.reduce((s, i) => s + (i.price || 0), 0)
+      const subTotal = baseRent + servicesTotal
+      const deposit = Math.round(subTotal * 0.5)
+      const grandTotal = subTotal + deposit
 
       const quoteData = {
-        breakdown,
+        breakdown: {
+          unitPriceLabel: durationUnit === 'week' ? '周租单价' : '月租单价',
+          unitPrice,
+          baseRentLabel: '基础租金',
+          baseRent,
+          services: servicesDetail,
+          discount: 0,
+          discountReason: '优惠',
+          deposit,
+          depositReason: '押金（50%）',
+          totalRentLabel: '小计',
+          totalRent: subTotal,
+          grandTotalLabel: '总计',
+          grandTotal
+        },
         calculation: {
-          note: durationUnit === 'week' ? '按周租价格=月租/4，4周≈1个月' : '按月租价格=周租×4'
+          note: '所有价格以英镑计算；总计=小计+押金。'
         }
       }
 
-      this.setData({
-        quoteData,
-        deliveryInfo: d.delivery ? { etaDays: d.delivery.eta_days || d.delivery.etaDays || [3,7] } : null,
-        quoteLoading: false
-      })
+      this.setData({ quoteData, quoteLoading: false })
     } catch (error) {
       console.error('计算报价失败:', error)
       

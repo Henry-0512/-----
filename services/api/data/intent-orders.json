@@ -380,5 +380,74 @@
     "status": "pending",
     "createdAt": "2025-08-31T01:55:42.214Z",
     "updatedAt": "2025-08-31T01:55:42.214Z"
+  },
+  {
+    "type": "single",
+    "skuId": "sku_wardrobe_009",
+    "duration": 1,
+    "durationUnit": "month",
+    "quantity": 1,
+    "services": [
+      "upstairs"
+    ],
+    "startDate": "2025-09-07",
+    "monthlyPrice": 88,
+    "totalAmount": 88,
+    "openid": "mock_openid_1756602083592_f5ntpgac",
+    "contact": null,
+    "sku": {
+      "id": "sku_wardrobe_009",
+      "title": "推拉门衣柜 2.4m",
+      "brand": "StoragePlus",
+      "price": 4369,
+      "image": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+      "images": [
+        {
+          "url": "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&h=300&fit=crop",
+          "type": "main"
+        }
+      ]
+    },
+    "userInfo": {
+      "source": "create_order",
+      "city": "",
+      "timestamp": "2025-08-31T18:15:48.108Z"
+    },
+    "quoteData": {
+      "breakdown": {
+        "unitPriceLabel": "月租单价",
+        "unitPrice": 0,
+        "baseRentLabel": "基础租金",
+        "baseRent": 0,
+        "services": [
+          {
+            "id": "upstairs",
+            "name": "上楼服务",
+            "price": 80
+          }
+        ],
+        "discount": 0,
+        "discountReason": "优惠",
+        "deposit": 88,
+        "depositReason": "押金",
+        "totalRentLabel": "小计",
+        "totalRent": 80,
+        "grandTotalLabel": "总计",
+        "grandTotal": 0
+      },
+      "calculation": {
+        "note": "按月租价格=周租×4"
+      }
+    },
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1302",
+      "ip": "172.20.10.2",
+      "timestamp": "2025-08-31T18:15:48.142Z"
+    },
+    "subscribe": null,
+    "id": "intent_1756664148142_de2ui7",
+    "status": "pending",
+    "createdAt": "2025-08-31T18:15:48.142Z",
+    "updatedAt": "2025-08-31T18:15:48.143Z"
   }
 ]

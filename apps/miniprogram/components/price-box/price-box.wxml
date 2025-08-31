@@ -1,0 +1,45 @@
+<view class="pbx">
+  <view class="pbx-row">
+    <text class="pbx-title">{{title || '租赁定价'}}</text>
+  </view>
+
+  <view class="pbx-row">
+    <text>租期</text>
+    <picker mode="selector" range="{{tenureOptions}}" value="{{tenureIndex}}" bindchange="onPickTenure">
+      <view class="pbx-link">{{months}} 个月</view>
+    </picker>
+  </view>
+
+  <view class="pbx-row">
+    <text>月租</text>
+    <text class="pbx-strong">£{{offer.monthly}}</text>
+    <text wx:if="{{offer.months>=3 && offer.monthlyBeforeWaiver>offer.monthly}}" class="pbx-muted">
+      (已含长租折扣)
+    </text>
+  </view>
+
+  <view class="pbx-row">
+    <text>押金</text>
+    <text>£{{offer.deposit}}</text>
+  </view>
+
+  <view class="pbx-row">
+    <text>运费</text>
+    <text>{{offer.shipping === 0 ? '满期免运费' : ('£'+offer.shipping)}}</text>
+  </view>
+
+  <view class="pbx-row pbx-waiver">
+    <switch checked="{{useWaiver}}" bindchange="toggleWaiver"></switch>
+    <view class="pbx-waiver-text">
+      <view>损坏保障 (月费+12%，押金减半)</view>
+      <view class="pbx-muted">单次损坏你最多自付 £{{offer.meta.waiverUserCopayCap || 20}}</view>
+    </view>
+  </view>
+
+  <view class="pbx-summary">
+    <view>下单需付：<text class="pbx-strong">£{{offer.payAtStart}}</text>（押金+首月+运费）</view>
+    <view class="pbx-muted">之后每月：£{{offer.laterMonthly}}</view>
+  </view>
+</view>
+
+

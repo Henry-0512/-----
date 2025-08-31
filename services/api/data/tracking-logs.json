@@ -2921,5 +2921,893 @@
     "id": "track_1756663176705_0pzb7p",
     "timestamp": "2025-08-31T17:59:36.705Z",
     "date": "2025-08-31"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:14:49.036Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756663993078_g2com3m9",
+    "userTimestamp": "2025-08-31T18:14:49.036Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1302",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756664089072_mjqo6f",
+    "timestamp": "2025-08-31T18:14:49.072Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "quote_submit",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "duration": 1,
+      "durationUnit": "month",
+      "quantity": 1,
+      "services": [],
+      "city": "",
+      "hasCity": false,
+      "serviceCount": 0,
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:14:49.087Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756663993078_g2com3m9",
+    "userTimestamp": "2025-08-31T18:14:49.087Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1302",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756664089279_gako6h",
+    "timestamp": "2025-08-31T18:14:49.279Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "quote_submit",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "duration": 1,
+      "durationUnit": "month",
+      "quantity": 1,
+      "services": [
+        "upstairs"
+      ],
+      "city": "",
+      "hasCity": false,
+      "serviceCount": 1,
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:15:03.360Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756663993078_g2com3m9",
+    "userTimestamp": "2025-08-31T18:15:03.360Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1302",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756664103384_0ikqpr",
+    "timestamp": "2025-08-31T18:15:03.384Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "intent_submit_success",
+    "payload": {
+      "orderId": "intent_1756664148142_de2ui7",
+      "skuId": "sku_wardrobe_009",
+      "duration": 1,
+      "durationUnit": "month",
+      "quantity": 1,
+      "services": [
+        "upstairs"
+      ],
+      "city": "",
+      "hasQuoteData": true,
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:15:48.150Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756663993078_g2com3m9",
+    "userTimestamp": "2025-08-31T18:15:48.150Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1302",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756664148190_tmxv36",
+    "timestamp": "2025-08-31T18:15:48.190Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:16:19.509Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756663993078_g2com3m9",
+    "userTimestamp": "2025-08-31T18:16:19.509Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1302",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756664179544_bo4ga4",
+    "timestamp": "2025-08-31T18:16:19.544Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "quote_submit",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "duration": 1,
+      "durationUnit": "month",
+      "quantity": 1,
+      "services": [],
+      "city": "",
+      "hasCity": false,
+      "serviceCount": 0,
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:16:19.553Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756663993078_g2com3m9",
+    "userTimestamp": "2025-08-31T18:16:19.553Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1302",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756664179752_t389fd",
+    "timestamp": "2025-08-31T18:16:19.752Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:16:29.642Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756664189588_fe8nap94",
+    "userTimestamp": "2025-08-31T18:16:29.642Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1303",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756664189703_6w89dn",
+    "timestamp": "2025-08-31T18:16:29.703Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "quote_submit",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "duration": 1,
+      "durationUnit": "month",
+      "quantity": 1,
+      "services": [],
+      "city": "",
+      "hasCity": false,
+      "serviceCount": 0,
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:16:29.730Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756664189588_fe8nap94",
+    "userTimestamp": "2025-08-31T18:16:29.730Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1303",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756664189869_yg5pdt",
+    "timestamp": "2025-08-31T18:16:29.869Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:16:49.290Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756664206743_upgj46tg",
+    "userTimestamp": "2025-08-31T18:16:49.290Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1304",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756664209323_g2yd0m",
+    "timestamp": "2025-08-31T18:16:49.323Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "quote_submit",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "duration": 1,
+      "durationUnit": "month",
+      "quantity": 1,
+      "services": [],
+      "city": "",
+      "hasCity": false,
+      "serviceCount": 0,
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:16:49.334Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756664206743_upgj46tg",
+    "userTimestamp": "2025-08-31T18:16:49.334Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1304",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756664209496_8ux246",
+    "timestamp": "2025-08-31T18:16:49.496Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "quote_submit",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "duration": 1,
+      "durationUnit": "month",
+      "quantity": 1,
+      "services": [
+        "upstairs"
+      ],
+      "city": "",
+      "hasCity": false,
+      "serviceCount": 1,
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:16:52.821Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756664206743_upgj46tg",
+    "userTimestamp": "2025-08-31T18:16:52.821Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1304",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756664212852_zfh859",
+    "timestamp": "2025-08-31T18:16:52.852Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "quote_submit",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "duration": 1,
+      "durationUnit": "month",
+      "quantity": 1,
+      "services": [],
+      "city": "",
+      "hasCity": false,
+      "serviceCount": 0,
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:17:01.205Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756664206743_upgj46tg",
+    "userTimestamp": "2025-08-31T18:17:01.206Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1304",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756664221231_k3edai",
+    "timestamp": "2025-08-31T18:17:01.231Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "quote_submit",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "duration": 1,
+      "durationUnit": "month",
+      "quantity": 1,
+      "services": [
+        "upstairs"
+      ],
+      "city": "",
+      "hasCity": false,
+      "serviceCount": 1,
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:17:28.535Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756664206743_upgj46tg",
+    "userTimestamp": "2025-08-31T18:17:28.535Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1304",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756664248560_krs4l0",
+    "timestamp": "2025-08-31T18:17:28.560Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "quote_submit",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "duration": 1,
+      "durationUnit": "month",
+      "quantity": 1,
+      "services": [
+        "installation",
+        "upstairs"
+      ],
+      "city": "",
+      "hasCity": false,
+      "serviceCount": 2,
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:18:16.217Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756664206743_upgj46tg",
+    "userTimestamp": "2025-08-31T18:18:16.217Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1304",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756664296242_j56lik",
+    "timestamp": "2025-08-31T18:18:16.242Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "quote_submit",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "duration": 1,
+      "durationUnit": "month",
+      "quantity": 1,
+      "services": [
+        "upstairs"
+      ],
+      "city": "",
+      "hasCity": false,
+      "serviceCount": 1,
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:18:18.035Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756664206743_upgj46tg",
+    "userTimestamp": "2025-08-31T18:18:18.035Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1304",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756664298061_qrf3sc",
+    "timestamp": "2025-08-31T18:18:18.061Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "quote_submit",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "duration": 1,
+      "durationUnit": "month",
+      "quantity": 2,
+      "services": [
+        "upstairs"
+      ],
+      "city": "",
+      "hasCity": false,
+      "serviceCount": 1,
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:18:30.758Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756664206743_upgj46tg",
+    "userTimestamp": "2025-08-31T18:18:30.758Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1304",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756664310782_d48wkx",
+    "timestamp": "2025-08-31T18:18:30.782Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "quote_submit",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "duration": 1,
+      "durationUnit": "month",
+      "quantity": 3,
+      "services": [
+        "upstairs"
+      ],
+      "city": "",
+      "hasCity": false,
+      "serviceCount": 1,
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:18:33.673Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756664206743_upgj46tg",
+    "userTimestamp": "2025-08-31T18:18:33.673Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1304",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756664313696_iucb8c",
+    "timestamp": "2025-08-31T18:18:33.696Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:31:49.688Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756665109644_gami5n3n",
+    "userTimestamp": "2025-08-31T18:31:49.688Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1305",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756665109751_4ubess",
+    "timestamp": "2025-08-31T18:31:49.751Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:32:19.991Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756665139981_ke6ghh8k",
+    "userTimestamp": "2025-08-31T18:32:19.991Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1307",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756665140087_3rzkxc",
+    "timestamp": "2025-08-31T18:32:20.087Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:32:45.573Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756665162836_1bm416u2",
+    "userTimestamp": "2025-08-31T18:32:45.573Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1308",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756665165612_3julia",
+    "timestamp": "2025-08-31T18:32:45.612Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:34:47.713Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756665287633_f3ylposw",
+    "userTimestamp": "2025-08-31T18:34:47.713Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1309",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756665287780_evnj29",
+    "timestamp": "2025-08-31T18:34:47.780Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:34:49.895Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756665289843_64aiavby",
+    "userTimestamp": "2025-08-31T18:34:49.895Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1310",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756665289957_3nc0nn",
+    "timestamp": "2025-08-31T18:34:49.957Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:34:55.958Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756665295949_nle3deg7",
+    "userTimestamp": "2025-08-31T18:34:55.958Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1312",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756665296056_xxfo3v",
+    "timestamp": "2025-08-31T18:34:56.056Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:35:06.519Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756665306455_0ztdgyuj",
+    "userTimestamp": "2025-08-31T18:35:06.520Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1313",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756665306578_t6vkxe",
+    "timestamp": "2025-08-31T18:35:06.578Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:35:13.507Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756665313454_7n5k8963",
+    "userTimestamp": "2025-08-31T18:35:13.507Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1314",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756665313569_7ebq3q",
+    "timestamp": "2025-08-31T18:35:13.569Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:35:26.927Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756665326877_pvide7ea",
+    "userTimestamp": "2025-08-31T18:35:26.927Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1315",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756665326982_e3tetc",
+    "timestamp": "2025-08-31T18:35:26.982Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:35:34.334Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756665334325_0di14cxt",
+    "userTimestamp": "2025-08-31T18:35:34.334Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1317",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756665334431_fsb8cc",
+    "timestamp": "2025-08-31T18:35:34.431Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:35:57.849Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756665357804_4gef8pwc",
+    "userTimestamp": "2025-08-31T18:35:57.849Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1318",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756665357907_gy9k4k",
+    "timestamp": "2025-08-31T18:35:57.907Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:36:04.620Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756665364567_avv5dsfk",
+    "userTimestamp": "2025-08-31T18:36:04.620Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1319",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756665364686_zpz14w",
+    "timestamp": "2025-08-31T18:36:04.686Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:36:16.789Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756665376734_n0z31e0h",
+    "userTimestamp": "2025-08-31T18:36:16.789Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1320",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756665376849_798hli",
+    "timestamp": "2025-08-31T18:36:16.849Z",
+    "date": "2025-08-31"
+  },
+  {
+    "event": "pdp_view",
+    "payload": {
+      "skuId": "sku_wardrobe_009",
+      "source": "direct",
+      "referrer": "",
+      "page": {
+        "route": "pages/detail/detail",
+        "options": {
+          "id": "sku_wardrobe_009"
+        }
+      },
+      "timestamp": "2025-08-31T18:36:24.666Z"
+    },
+    "openid": "guest-20250831-1858-1866",
+    "sessionId": "session_1756665384657_hip5lfpm",
+    "userTimestamp": "2025-08-31T18:36:24.666Z",
+    "clientInfo": {
+      "userAgent": "Mozilla/5.0 (iPhone; CPU iPhone OS 15_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/15.0 Mobile/15E148 Safari/604.1 wechatdevtools/1.06.2504030 MicroMessenger/8.0.5 Language/zh_CN webview/ sessionid/1322",
+      "ip": "172.20.10.2",
+      "referer": "https://servicewechat.com/wx1b7b2e1354ad0a8a/devtools/page-frame.html"
+    },
+    "id": "track_1756665384776_68ucu3",
+    "timestamp": "2025-08-31T18:36:24.776Z",
+    "date": "2025-08-31"
   }
 ]
