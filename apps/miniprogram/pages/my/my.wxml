@@ -44,6 +44,7 @@
     <view class="cell" bindtap="go" data-url="/pages/profile/edit"><text>个人资料</text><text class="arrow">›</text></view>
     <view class="cell" bindtap="go" data-url="/pages/address/list"><text>收货地址</text><text class="arrow">›</text></view>
     <view class="cell" bindtap="go" data-url="/pages/payment/list"><text>支付方式</text><text class="arrow">›</text></view>
+    <view class="cell" bindtap="go" data-url="/pages/favorites/favorites"><text>收藏/心愿单</text><text class="arrow">›</text></view>
     
   </view>
 
@@ -60,13 +61,7 @@
     <view class="cell" bindtap="go" data-url="/pages/help/terms"><text>条款与隐私</text><text class="arrow">›</text></view>
   </view>
 
-  <view class="section">
-    <view class="section-title">其他</view>
-    <view class="cell" bindtap="go" data-url="/pages/favorites/favorites"><text>收藏/心愿单</text><text class="arrow">›</text></view>
-    
-    
-    <view class="cell danger" bindtap="go" data-url="/pages/account/delete"><text>注销账号</text><text class="arrow">›</text></view>
-  </view>
+  
 </view>
 
 
