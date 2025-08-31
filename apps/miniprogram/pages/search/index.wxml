@@ -1,0 +1,47 @@
+<view class="srch-header">
+  <input
+    class="srch-input"
+    placeholder="搜：床、沙发、书桌…"
+    confirm-type="search"
+    focus="{{true}}"
+    value="{{keyword}}"
+    bindinput="onInput"
+    bindconfirm="onConfirm"
+  />
+  <button class="srch-cancel" bindtap="onCancel">取消</button>
+</view>
+
+<view wx:if="{{showSuggest && suggestions.length}}" class="srch-suggest">
+  <view wx:for="{{suggestions}}" wx:key="*this"
+        class="srch-suggest-item"
+        data-k="{{item}}"
+        bindtap="tapSuggest">{{item}}</view>
+</view>
+
+<view wx:if="{{!keyword && history.length}}" class="srch-history">
+  <view class="srch-history-hd">
+    <text>搜索历史</text>
+    <text class="srch-clear" bindtap="clearHistory">清空</text>
+  </view>
+  <view class="srch-tags">
+    <text class="srch-tag" wx:for="{{history}}" wx:key="*this"
+          data-k="{{item}}" bindtap="tapHistory">{{item}}</text>
+  </view>
+</view>
+
+<view class="srch-result">
+  <block wx:for="{{list}}" wx:key="id">
+    <view class="srch-item" data-id="{{item.id}}" bindtap="tapItem">
+      <image class="srch-thumb" src="{{item.cover}}" mode="aspectFill"/>
+      <view class="srch-meta">
+        <view class="srch-title">{{item.title}}</view>
+        <view class="srch-price">£{{item.price}} / 月</view>
+      </view>
+    </view>
+  </block>
+  <view class="srch-empty" wx:if="{{searched && !list.length}}">没找到相关商品</view>
+  <view class="srch-loading" wx:if="{{loading}}">加载中…</view>
+  <view class="srch-nomore" wx:if="{{!hasMore && list.length}}">已到底</view>
+</view>
+
+

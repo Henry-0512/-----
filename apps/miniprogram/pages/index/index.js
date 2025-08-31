@@ -256,9 +256,7 @@ Page({
    * 点击搜索框
    */
   onSearchTap() {
-    wx.navigateTo({
-      url: '/pages/list/list'
-    })
+    wx.navigateTo({ url: '/pages/search/index' })
   },
 
   /**
