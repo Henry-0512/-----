@@ -1,0 +1,120 @@
+<!-- pages/reviews/reviews.wxml -->
+<view class="reviews-page">
+  <!-- 页面头部 -->
+  <view class="page-header">
+    <view class="header-left" bindtap="onBack">
+      <text class="back-icon">←</text>
+    </view>
+    <view class="header-title">
+      <text class="title-text">用户评价</text>
+    </view>
+    <view class="header-right">
+      <button class="share-btn" open-type="share">
+        <text class="share-icon">📤</text>
+      </button>
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view wx:if="{{loading}}" class="loading-container">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <!-- 错误状态 -->
+  <view wx:elif="{{error}}" class="error-container">
+    <text class="error-icon">⚠️</text>
+    <text class="error-text">{{error}}</text>
+    <button class="retry-btn" bindtap="loadReviews">重试</button>
+  </view>
+
+  <!-- 评价内容 -->
+  <view wx:else class="reviews-content">
+    <!-- 商品信息 -->
+    <view class="product-info">
+      <text class="product-name">{{productName}}</text>
+      <view class="rating-summary">
+        <view class="average-rating">
+          <text class="rating-score">{{averageRating}}</text>
+          <view class="stars">
+            <block wx:for="{{5}}" wx:key="*this">
+              <text class="star {{index < Math.floor(averageRating) ? 'filled' : ''}}">★</text>
+            </block>
+          </view>
+        </view>
+        <text class="total-count">共 {{totalCount}} 条评价</text>
+      </view>
+    </view>
+
+    <!-- 评分分布 -->
+    <view class="rating-distribution">
+      <view class="distribution-item" wx:for="{{[5,4,3,2,1]}}" wx:key="*this">
+        <text class="star-label">{{item}}星</text>
+        <view class="progress-bar">
+          <view class="progress-fill" style="width: {{ratingDistribution[item]}}%"></view>
+        </view>
+        <text class="count-label">{{ratingDistribution[item]}}%</text>
+      </view>
+    </view>
+
+    <!-- 评价列表 -->
+    <view class="reviews-list">
+      <view class="review-item" wx:for="{{reviews}}" wx:key="id">
+        <!-- 用户信息 -->
+        <view class="review-header">
+          <image class="user-avatar" src="{{item.avatar}}" mode="aspectFill" />
+          <view class="user-info">
+            <text class="user-name">{{item.user}}</text>
+            <view class="review-rating">
+              <view class="stars">
+                <block wx:for="{{5}}" wx:key="starIndex">
+                  <text class="star {{starIndex < item.rating ? 'filled' : ''}}">★</text>
+                </block>
+              </view>
+              <text class="review-date">{{item.date}}</text>
+            </view>
+          </view>
+        </view>
+
+        <!-- 评价内容 -->
+        <view class="review-content">
+          <text class="review-text">{{item.content}}</text>
+        </view>
+
+        <!-- 评价图片 -->
+        <view wx:if="{{item.images.length > 0}}" class="review-images">
+          <image 
+            wx:for="{{item.images}}" 
+            wx:for-item="image" 
+            wx:key="*this"
+            class="review-image" 
+            src="{{image}}" 
+            mode="aspectFill"
+            bindtap="onImageTap"
+            data-urls="{{item.images}}"
+            data-current="{{image}}"
+          />
+        </view>
+
+        <!-- 评价操作 -->
+        <view class="review-actions">
+          <button 
+            class="helpful-btn" 
+            bindtap="onHelpfulTap" 
+            data-id="{{item.id}}"
+          >
+            <text class="helpful-icon">👍</text>
+            <text class="helpful-text">有用 ({{item.helpful}})</text>
+          </button>
+        </view>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view wx:if="{{reviews.length === 0}}" class="empty-reviews">
+      <text class="empty-icon">💬</text>
+      <text class="empty-text">暂无评价</text>
+      <text class="empty-sub">成为第一个评价的用户吧！</text>
+    </view>
+  </view>
+</view>

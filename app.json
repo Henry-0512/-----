@@ -1,24 +1,62 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/category/category",
+    "pages/list/list",
+    "pages/detail/detail",
+    "pages/my/my",
+    "pages/search/index",
+    "pages/profile/edit",
+    "pages/cart/cart",
+    "pages/favorites/favorites",
+    "pages/compare/compare",
+    "pages/admin/intents",
+    "pages/about/about",
+    "pages/policy/policy",
+    "pages/intent/list",
+    "pages/intent/success",
+    "pages/reviews/reviews"
   ],
   "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "家具租赁",
     "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
+    "backgroundColor": "#f8f8f8"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#007AFF",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab-home.png",
+        "selectedIconPath": "images/tab-home-active.png"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类",
+        "iconPath": "images/tab-category.png",
+        "selectedIconPath": "images/tab-category-active.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物车",
+        "iconPath": "images/tab-cart.png",
+        "selectedIconPath": "images/tab-cart-active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/tab-my.png",
+        "selectedIconPath": "images/tab-my-active.png"
+      }
+    ]
   },
   "style": "v2",
-  "renderer": "skyline",
-  "rendererOptions": {
-    "skyline": {
-      "defaultDisplayBlock": true,
-      "defaultContentBox": true,
-      "tagNameStyleIsolation": "legacy",
-      "disableABTest": true,
-      "sdkVersionBegin": "3.0.0",
-      "sdkVersionEnd": "15.255.255"
-    }
-  },
-  "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"
 }
