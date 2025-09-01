@@ -18,7 +18,7 @@
     <scroll-view scroll-x="true" enable-flex="true" class="filter-scroll">
       <view class="filter-row">
         <view class="filter-chip sort-chip" bindtap="onShowSort">排序：{{currentSortName}}</view>
-        <view class="filter-chip {{currentFilters.category && currentFilters.category.length>0 ? 'is-active' : ''}}" bindtap="onQuickFilter" data-type="category">商品分类</view>
+        <view class="filter-chip {{currentFilters.category && currentFilters.category.length>0 ? 'is-active' : ''}}" catchtap="onQuickFilter" data-type="category">商品分类</view>
         <view class="filter-chip {{currentFilters.material && currentFilters.material.length>0 ? 'is-active' : ''}}" bindtap="onQuickFilter" data-type="material">材质选择</view>
         <view class="filter-chip {{currentFilters.color && currentFilters.color.length>0 ? 'is-active' : ''}}" bindtap="onQuickFilter" data-type="color">颜色选择</view>
         <view class="filter-chip {{currentFilters.style && currentFilters.style.length>0 ? 'is-active' : ''}}" bindtap="onQuickFilter" data-type="style">风格样式</view>

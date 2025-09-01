@@ -673,30 +673,46 @@ Page({
    * 快速筛选标签点击
    */
   onQuickFilter(e) {
+    console.log('🔍 快速筛选点击事件触发')
     const { type } = e.currentTarget.dataset
-    console.log('🔍 快速筛选点击:', type)
+    console.log('🔍 筛选类型:', type)
+    console.log('🔍 事件对象:', e)
+    
+    // 先显示一个简单的提示，确认点击事件正常工作
+    wx.showToast({
+      title: `点击了${type}筛选`,
+      icon: 'none',
+      duration: 1000
+    })
     
     // 根据筛选类型应用不同的筛选逻辑
     switch (type) {
       case 'category':
+        console.log('🔍 执行分类筛选')
         this.applyCategoryFilter()
         break
       case 'material':
+        console.log('🔍 执行材质筛选')
         this.applyMaterialFilter()
         break
       case 'color':
+        console.log('🔍 执行颜色筛选')
         this.applyColorFilter()
         break
       case 'style':
+        console.log('🔍 执行风格筛选')
         this.applyStyleFilter()
         break
       case 'brand':
+        console.log('🔍 执行品牌筛选')
         this.applyBrandFilter()
         break
       case 'condition':
+        console.log('🔍 执行成色筛选')
         this.applyConditionFilter()
         break
       default:
+        console.log('🔍 执行默认筛选器')
         // 其他筛选类型打开对应的单项筛选器
         this.showSpecificFilter(type)
     }

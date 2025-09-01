@@ -86,6 +86,7 @@
   height: 88rpx;
   position: relative;
   z-index: 2;
+  pointer-events: auto;
 }
 
 .filter-row {
@@ -109,6 +110,9 @@
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .filter-chip:active {
@@ -134,6 +138,7 @@
   background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.3) 50%, transparent 70%);
   transform: translateX(-100%);
   animation: shimmer 1.5s infinite;
+  pointer-events: none;
 }
 
 @keyframes shimmer {
