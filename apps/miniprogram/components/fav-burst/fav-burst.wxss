@@ -1,0 +1,3 @@
+.fb{position:fixed;z-index:9998;right:64rpx;top:200rpx;padding:12rpx 16rpx;border-radius:9999rpx;font-weight:700;box-shadow:0 4rpx 16rpx rgba(0,0,0,.08)}
+
+

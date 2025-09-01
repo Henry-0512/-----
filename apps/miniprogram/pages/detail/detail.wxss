@@ -37,23 +37,36 @@
   display: block;
 }
 
-.image-indicators {
+/* 收藏按钮 */
+.favorite-btn {
+  position: absolute;
+  top: 16rpx;
+  right: 16rpx;
+  width: 64rpx;
+  height: 64rpx;
+  background: rgba(255, 255, 255, 0.92);
+  border: none;
+  border-radius: 9999rpx;
   display: flex;
+  align-items: center;
   justify-content: center;
-  padding: 24rpx;
-  gap: 16rpx;
+  box-shadow: 0 6rpx 16rpx rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  transition: opacity 0.2s ease;
 }
 
-.indicator {
-  width: 16rpx;
-  height: 16rpx;
-  border-radius: 50%;
-  background: #ddd;
-  transition: background 0.3s;
+.favorite-btn:active {
+  opacity: 0.85;
 }
 
-.indicator.active {
-  background: #007AFF;
+.favorite-btn.favorited {
+  background: #FFEEF0;
+}
+
+.heart-icon {
+  font-size: 28rpx;
+  line-height: 1;
+  display: block;
 }
 
 /* 基本信息区域 */
@@ -67,7 +80,7 @@
 
 .sku-name {
   display: block;
-  font-size: 36rpx;
+  font-size: 32rpx;
   font-weight: bold;
   color: #333;
   margin-bottom: 8rpx;
@@ -76,11 +89,143 @@
   word-break: break-all;
 }
 
-.sku-brand {
+.price-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+}
+
+.sku-price {
   display: block;
-  font-size: 26rpx;
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 0;
+}
+
+.msrp-text {
+  font-size: 22rpx;
   color: #999;
+  font-weight: normal;
+}
+
+/* 商品头部布局 */
+.product-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin-bottom: 20rpx;
+  padding: 0 32rpx;
+}
+
+.product-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-divider {
+  width: 1rpx;
+  height: 80rpx;
+  background: #e0e0e0;
+  margin: 0 48rpx;
+}
+
+.product-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 评分信息 */
+.rating-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rpx;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.rating-info:active {
+  opacity: 0.7;
+}
+
+.stars {
+  display: flex;
+  gap: 2rpx;
+}
+
+.star {
+  font-size: 28rpx;
+  color: #FFD700;
+}
+
+.rating-score {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+
+
+/* 分割线 */
+.divider {
+  height: 1rpx;
+  background: #f0f0f0;
+  margin: 24rpx 0;
+}
+
+/* 尺寸信息 */
+.dimensions-section {
+  margin-bottom: 24rpx;
+}
+
+.dimensions-title {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12rpx;
+}
+
+.dimensions-content {
+  padding: 16rpx 0;
+}
+
+.dimensions-text {
+  font-size: 28rpx;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* 商品介绍区域 */
+.product-intro-section {
+  margin-bottom: 24rpx;
+}
+
+.product-intro-section .section-title {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 32rpx;
+}
+
+/* 商品介绍 */
+.product-description {
+  margin-bottom: 24rpx;
+}
+
+.description-content {
+  display: block;
+  font-size: 28rpx;
+  color: #666;
+  line-height: 1.6;
+  word-wrap: break-word;
 }
 
 /* 库存和配送信息 */
@@ -170,10 +315,7 @@
 }
 
 .price-info {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 32rpx;
-  gap: 8rpx;
+  display: none;
 }
 
 /* 价格行 - 英镑月租优先 */
@@ -442,7 +584,7 @@
 
 .check-icon {
   font-size: 32rpx;
-  color: #2196F3;
+  color: #333;
   font-weight: bold;
 }
 
@@ -608,26 +750,13 @@
 }
 
 .size-info {
-  display: flex;
-  justify-content: space-around;
+  padding: 20rpx 0;
 }
 
-.size-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.size-label {
-  font-size: 24rpx;
-  color: #666;
-  margin-bottom: 8rpx;
-}
-
-.size-value {
-  font-size: 32rpx;
-  font-weight: bold;
+.size-text {
+  font-size: 28rpx;
   color: #333;
+  line-height: 1.6;
 }
 
 /* 租赁配置区域 */
@@ -695,6 +824,7 @@
   display: inline-block;
   width: 200rpx;
   margin-right: 24rpx;
+  margin-bottom: 60rpx;
   vertical-align: top;
 }
 
@@ -727,50 +857,64 @@
   bottom: 0;
   left: 0;
   right: 0;
-  display: flex;
   padding: 24rpx;
   background: white;
   border-top: 2rpx solid #f0f0f0;
   box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.1);
+}
+
+.cart-btn {
+  width: calc(100% - 24rpx);
+  height: 88rpx;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.cart-btn:active {
+  background: #555;
+}
+
+/* 意向单操作 */
+.intent-actions {
+  padding: 32rpx;
+  background: white;
+  border-bottom: 16rpx solid #f8f8f8;
+  display: flex;
   gap: 16rpx;
 }
 
-.action-btn {
-  padding: 24rpx;
-  border-radius: 12rpx;
-  font-size: 32rpx;
+.intent-btn {
+  flex: 1;
+  height: 88rpx;
   border: none;
+  border-radius: 44rpx;
+  font-size: 32rpx;
+  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.favorite-btn {
-  width: 96rpx;
-  background: #f8f8f8;
-  color: #666;
-  transition: all 0.2s ease;
-}
-
-.favorite-btn.favorited {
-  background: #FF6B6B;
+.intent-btn.secondary-btn {
+  background: #333;
   color: white;
 }
 
-.action-icon {
-  font-size: 36rpx;
-}
-
-.share-btn {
-  width: 120rpx;
-  background: #f8f8f8;
-  color: #333;
-}
-
-.primary-btn {
-  flex: 1;
-  background: #007AFF;
+.intent-btn.primary-btn {
+  background: #333;
   color: white;
+}
+
+.intent-btn:active {
+  opacity: 0.8;
 }
 
 /* 新章节样式 */

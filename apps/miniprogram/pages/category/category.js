@@ -3,6 +3,7 @@ const { isMockEnabled } = require('../../config/env.js')
 const { api } = isMockEnabled() 
   ? require('../../utils/request-mock.js')
   : require('../../utils/request.js')
+const { getCategoryDisplay } = require('../../utils/category-icons.js')
 
 Page({
   data: {
@@ -84,8 +85,13 @@ Page({
       
       const result = await api.getFiltersMeta()
       if (result.success) {
+        const rawCategories = result.data.categories || []
+        const categories = rawCategories.map(cat => ({
+          ...cat,
+          ...getCategoryDisplay(cat)
+        }))
         this.setData({
-          categories: result.data.categories || [],
+          categories,
           loading: false
         })
       } else {

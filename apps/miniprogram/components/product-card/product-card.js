@@ -2,6 +2,7 @@
 const { storage } = require('../../utils/request.js')
 const { formatPriceDisplay, isFeatureEnabled, getCustomerServiceConfig } = require('../../config/feature-flags.js')
 const { safeProduct } = require('../../utils/safe-text.js')
+const { deriveConditionText } = require('../../utils/condition.js')
 
 Component({
   /**
@@ -163,15 +164,16 @@ Component({
       }
       
       // 生成成色标签
-      const conditionLabel = safeProductData.condition 
-        ? safeProductData.condition.label 
-        : this.data.conditionLabels[Math.floor(Math.random() * this.data.conditionLabels.length)]
+      const conditionLabel = deriveConditionText(safeProductData)
       
       // 生成商品描述
       const productDesc = this.generateProductDesc(safeProductData)
       
       // 生成价格数字
       const priceNumber = this.generatePriceNumber(safeProductData, priceInfo)
+      
+      // 格式化价格显示（保留一位小数）
+      const formattedPrice = (safeProductData.rent_monthly_gbp || 8).toFixed(1)
       
       this.setData({ 
         priceInfo,
@@ -180,7 +182,8 @@ Component({
         buttonData,
         conditionLabel,
         productDesc,
-        priceNumber
+        priceNumber,
+        formattedPrice
       })
     },
 

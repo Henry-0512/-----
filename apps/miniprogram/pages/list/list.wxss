@@ -159,35 +159,7 @@
   color: #333;
 }
 
-.view-toggle {
-  display: flex;
-  gap: 8rpx;
-}
 
-.toggle-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60rpx;
-  height: 60rpx;
-  border: 2rpx solid #e0e0e0;
-  border-radius: 8rpx;
-  background: white;
-}
-
-.toggle-btn.active {
-  background: #333;
-  border-color: #333;
-}
-
-.toggle-icon {
-  font-size: 28rpx;
-  color: #666;
-}
-
-.toggle-btn.active .toggle-icon {
-  color: white;
-}
 
 /* 邮编和门店选择 */
 .location-bar {
@@ -226,17 +198,323 @@
   font-weight: 500;
 }
 
-/* 商品网格 */
-.items-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24rpx;
-  padding: 24rpx;
-  background: white;
-  box-sizing: border-box; /* 确保padding不会导致溢出 */
-  width: 100%; /* 明确设置宽度 */
-  max-width: 100vw; /* 防止超出屏幕 */
-  overflow: hidden; /* 防止内容溢出 */
+/* 商品网格 - 一比一复制图片样式 */
+.product-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 16rpx !important;
+  padding: 0 24rpx 24rpx !important;
+  margin: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  max-width: 100vw !important;
+  overflow: hidden !important;
+}
+
+/* 强制覆盖任何可能的父级样式 */
+.container .product-grid,
+.container > view > .product-grid,
+view > .product-grid {
+  padding: 0 24rpx 24rpx !important;
+  margin: 0 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.new-product-card {
+  background: #fff;
+  border-radius: 8rpx;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.1);
+}
+
+/* 商品图片区域 */
+.product-image {
+  position: relative;
+  width: 100%;
+  height: 360rpx;
+  background: #f8f8f8;
+}
+
+.product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 成色徽章 */
+.condition-badge {
+  position: absolute;
+  top: 12rpx;
+  left: 12rpx;
+  background: #FFF6E6;
+  color: #A86200;
+  font-size: 20rpx;
+  font-weight: 600;
+  padding: 4rpx 8rpx;
+  border-radius: 4rpx;
+  border: 1px solid #FFE2B4;
+  z-index: 2;
+}
+
+/* Best seller 徽章 */
+.best-seller-badge {
+  position: absolute;
+  top: 12rpx;
+  right: 12rpx;
+  background: #e31e24;
+  color: #fff;
+  font-size: 20rpx;
+  font-weight: 600;
+  padding: 4rpx 8rpx;
+  border-radius: 4rpx;
+  z-index: 2;
+}
+
+/* 收藏按钮 */
+.new-product-card .favorite-btn {
+  position: absolute !important;
+  top: 12rpx !important;
+  right: 12rpx !important;
+  width: 48rpx !important;
+  height: 48rpx !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: none !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 2rpx 8rpx rgba(0, 0, 0, 0.15) !important;
+  z-index: 2 !important;
+  transition: all 0.3s ease !important;
+  transform: scale(1) !important;
+}
+
+/* 收藏按钮点击动画 */
+.new-product-card .favorite-btn:active {
+  transform: scale(0.9) !important;
+  background: rgba(255, 255, 255, 1) !important;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.2) !important;
+}
+
+/* 已收藏状态 */
+.new-product-card .favorite-btn.favorited {
+  background: rgba(255, 192, 203, 0.9) !important;
+  box-shadow: 0 2rpx 8rpx rgba(255, 105, 180, 0.3) !important;
+}
+
+.new-product-card .favorite-btn.favorited:active {
+  background: rgba(255, 192, 203, 1) !important;
+  box-shadow: 0 4rpx 12rpx rgba(255, 105, 180, 0.4) !important;
+}
+
+.heart-icon {
+  font-size: 24rpx;
+}
+
+
+
+/* 商品信息区域 */
+.product-info {
+  padding: 16rpx;
+  position: relative;
+}
+
+.product-name {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 8rpx;
+  line-height: 1.2;
+}
+
+.product-desc {
+  font-size: 24rpx;
+  color: #666;
+  margin-bottom: 12rpx;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 价格区域 */
+.price-section {
+  margin-bottom: 12rpx;
+  display: flex;
+  align-items: baseline;
+  gap: 12rpx;
+}
+
+.price-text {
+  font-size: 32rpx;
+  font-weight: 800;
+  color: #000;
+}
+
+
+
+/* 评分区域 */
+.rating-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12rpx;
+}
+
+.stars {
+  display: flex;
+  margin-right: 8rpx;
+}
+
+.star {
+  font-size: 24rpx;
+  color: #000;
+  margin-right: 2rpx;
+}
+
+.review-count {
+  font-size: 24rpx;
+  color: #999;
+}
+
+
+
+/* 选项链接 */
+.options-link {
+  font-size: 24rpx;
+  color: #000;
+  font-weight: 500;
+  margin-bottom: 16rpx;
+}
+
+
+
+/* 卡片裁剪，防止任何子元素外溢 */
+.new-product-card, .lv-card { overflow: hidden; }
+
+
+
+
+
+
+/* ===== 大图列表样式 ===== */
+
+/* 容器 */
+.lv-list{
+  display:flex; flex-direction:column; align-items:center;
+  padding: 0 24rpx 24rpx; gap: 16rpx;
+}
+
+/* 卡片 */
+.lv-card{
+  background:#fff; border:1px solid #E5E7EB; border-radius:16rpx;
+  box-shadow:0 4rpx 16rpx rgba(0,0,0,.04); overflow:hidden; position:relative;
+}
+
+/* 大图 */
+.lv-hero{ position:relative; width:100%; }
+.lv-img{ width:100%; height:100%; display:block; object-fit:cover; }
+
+/* 徽标 */
+.lv-badge{
+  position:absolute; left:14rpx; top:14rpx; padding:8rpx 14rpx; border-radius:9999rpx;
+  font-size:22rpx; font-weight:700; background:#FFF6E6; color:#A86200; border:1px solid #FFE2B4;
+}
+
+/* 收藏与加购 */
+.lv-fav{
+  position:absolute; right:14rpx; top:14rpx; width:60rpx; height:60rpx; padding:0; border:none;
+  background:rgba(255,255,255,.92); border-radius:9999rpx; display:flex; justify-content:center; align-items:center;
+  box-shadow:0 4rpx 12rpx rgba(0,0,0,.08);
+  transition: all 0.3s ease;
+}
+
+.lv-fav:active {
+  transform: scale(0.95);
+  background: rgba(255,255,255,1);
+  box-shadow: 0 6rpx 16rpx rgba(0,0,0,.12);
+}
+
+
+
+.lv-ico{ 
+  width:36rpx; height:36rpx; 
+  font-size: 28rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 文本区 */
+.lv-body{ padding:16rpx 18rpx 16rpx; }
+.lv-title{
+  font-size:30rpx; font-weight:800; color:#1F2A37; line-height:40rpx;
+}
+.two-lines{
+  display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; height:80rpx;
+}
+.lv-sub{ color:#6B7280; font-size:24rpx; line-height:34rpx; height:34rpx; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+
+.lv-price-row{ display:flex; align-items:baseline; gap:12rpx; margin-top:10rpx; }
+.lv-price{ font-size:34rpx; font-weight:900; color:#1F2A37; }
+
+
+.lv-meta{ display:flex; flex-direction:column; gap:8rpx; margin-top:10rpx; }
+.lv-dot{ position:relative; padding-left:22rpx; color:#374151; font-size:24rpx; }
+.lv-dot::before{ content:''; position:absolute; left:6rpx; top:12rpx; width:8rpx; height:8rpx; background:#10B981; border-radius:50%; }
+
+.lv-opts{ margin-top:10rpx; color:#2C4E80; font-weight:700; font-size:26rpx; }
+
+/* 兼容清理：避免旧样式把卡片拉伸 */
+.lv-list .old-wrap, .lv-list .item, .lv-list .goods-card{ width:auto; flex:none; }
+
+/* ===== 视图切换按钮样式 ===== */
+
+.view-toggle {
+  display: flex;
+  gap: 8rpx;
+}
+
+.toggle-btn {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 60rpx !important;
+  height: 60rpx !important;
+  border: 2rpx solid #e0e0e0 !important;
+  border-radius: 8rpx !important;
+  background: white !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  position: relative !important;
+  z-index: 10 !important;
+  pointer-events: auto !important;
+}
+
+.toggle-btn:active {
+  transform: scale(0.95);
+  background: #f5f5f5;
+}
+
+.toggle-btn.active {
+  background: #333;
+  border-color: #333;
+}
+
+.toggle-btn.active:active {
+  background: #555;
+}
+
+.toggle-icon {
+  font-size: 28rpx;
+  color: #666;
+  pointer-events: none;
+}
+
+.toggle-btn.active .toggle-icon {
+  color: white;
 }
 
 /* 加载更多 */

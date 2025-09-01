@@ -36,14 +36,13 @@
     <view class="price-section">
       <!-- 价格模式 -->
       <view wx:if="{{priceInfo.mode !== 'ask'}}" class="price-row">
-        <text class="price-main">£{{safeProduct.rent_monthly_gbp || 8}}/mo</text>
-        <text wx:if="{{safeProduct.purchase_price_gbp}}" class="price-old">£{{safeProduct.purchase_price_gbp}}</text>
+        <text class="price-main">£{{formattedPrice}}/mo</text>
       </view>
       
       <!-- 咨询模式 -->
       <view wx:else class="consult-container">
         <ask-price-button 
-          label="咨询"
+          label="咨询价格"
           fullWidth="{{false}}"
           size="sm"
           variant="outline"
@@ -65,14 +64,14 @@
     
     <!-- 更多选项 -->
     <text class="more-options">+ Options</text>
-  </view>
-
-  <!-- 右下角购物车按钮 -->
-  <view 
-    class="cart-btn"
-    bindtap="onAddToCart"
-    catchtap
-  >
-    <text class="cart-icon">🛒</text>
+    
+    <!-- 新增：文字按钮 -->
+    <view class="card-actions" wx:if="{{cardType !== 'grid'}}">
+      <button class="btn-plain addcart-btn"
+              bindtap="onAddToCart"
+              aria-label="Add to cart">
+        Add to cart
+      </button>
+    </view>
   </view>
 </view>

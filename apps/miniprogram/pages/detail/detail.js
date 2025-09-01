@@ -6,6 +6,7 @@ const { api, storage, ERROR_TYPES } = isMockEnabled()
 const { formatPriceDisplay, isFeatureEnabled, getCustomerServiceConfig, FEATURE_INTENT } = require('../../config/feature-flags.js')
 const intent = require('../../utils/intent.js')
 const { track, TrackEvents } = require('../../utils/track.js')
+const pricing = require('../../utils/pricing.js')
 
 Page({
   data: {
@@ -118,6 +119,9 @@ Page({
       // 格式化价格信息
       const priceInfo = formatPriceDisplay(sku)
       
+      // 格式化价格显示（保留一位小数）
+      const formattedPrice = (sku.rent_monthly_gbp || sku.monthlyPrice || 8).toFixed(1)
+      
       // 设置按钮埋点数据
       const detailButtonData = {
         sku_id: sku.id,
@@ -136,6 +140,7 @@ Page({
         sku,
         priceInfo,
         detailButtonData,
+        formattedPrice,
         availableCities: (sku.deliverable_cities && sku.deliverable_cities.length > 0) ? sku.deliverable_cities : fallbackCities,
         loading: false
       })
@@ -344,34 +349,44 @@ Page({
    * 添加到购物车
    */
   onAddToCart() {
-    const cart = storage.get('cart', [])
-    const { sku, duration } = this.data
+    const { storage } = require('../../utils/request.js')
+    let cartItems = storage.get('cartItems') || []
+    const { sku } = this.data
+    
+    if (!sku) {
+      console.error('商品信息不存在')
+      return
+    }
     
     // 检查购物车中是否已有此商品
-    const existingIndex = cart.findIndex(item => item.skuId === sku.id)
+    const existingIndex = cartItems.findIndex(item => item.id === sku.id)
     
-    if (existingIndex > -1) {
+    if (existingIndex >= 0) {
       // 更新数量
-      cart[existingIndex].quantity += 1
-      cart[existingIndex].duration = duration
-      wx.showToast({ title: '已更新购物车', icon: 'success' })
+      cartItems[existingIndex].quantity = (cartItems[existingIndex].quantity || 1) + 1
+      wx.showToast({ title: '数量已增加', icon: 'success' })
     } else {
       // 添加新商品
-      cart.push({
-        skuId: sku.id,
+      const cartItem = {
+        id: sku.id,
         title: sku.title || sku.name,
-        monthlyPrice: sku.monthlyPrice || Math.ceil(sku.price/50),
-        price: sku.price,
-        images: sku.images,
-        brand: sku.brand,
+        cover: sku.cover || (sku.images && sku.images[0] ? (typeof sku.images[0] === 'object' ? sku.images[0].url : sku.images[0]) : ''),
+        rent_monthly_gbp: sku.rent_monthly_gbp || sku.monthlyPrice || 8,
+        purchase_price_gbp: sku.purchase_price_gbp || sku.price,
+        brand: sku.brand || 'LivingLux',
+        material: sku.material || '科技布',
+        color: sku.color || '灰色',
+        condition_grade: sku.condition_grade || sku.condition,
         quantity: 1,
-        duration: duration,
+        selected: true,
         addedAt: new Date().toISOString()
-      })
+      }
+      cartItems.push(cartItem)
       wx.showToast({ title: '已添加到购物车', icon: 'success' })
     }
     
-    storage.set('cart', cart)
+    storage.set('cartItems', cartItems)
+    console.log('购物车已更新:', sku.id, existingIndex >= 0 ? '数量增加' : '新添加')
   },
 
   /**
@@ -506,7 +521,7 @@ Page({
    */
   onRecommendationTap(e) {
     const { product } = e.detail
-    wx.redirectTo({
+    wx.navigateTo({
       url: `/pages/detail/detail?id=${product.id}`
     })
   },
@@ -521,50 +536,61 @@ Page({
     try {
       this.setData({ quoteLoading: true, quoteError: null })
 
-      // 英镑规则计算（本地统一计算）
-      const monthlyUnit = sku.rent_monthly_gbp || 8
-      const unitPrice = durationUnit === 'week' ? Math.ceil(monthlyUnit / 4) : monthlyUnit
-      const baseRent = unitPrice * duration * quantity
+      // 计算增值服务合计（保持现有选择逻辑）
+      let addonTotal = 0
+      if (Array.isArray(selectedServices) && selectedServices.length){
+        // 2%保险来自老逻辑，这里保留
+        const monthlyUnit = sku.rent_monthly_gbp || 8
+        const unitPrice = durationUnit === 'week' ? Math.ceil(monthlyUnit / 4) : monthlyUnit
+        const baseRent = unitPrice * duration * quantity
+        const insuranceFee = selectedServices.includes('insurance') ? Math.round(baseRent * 0.02) : 0
+        const upstairsFee = selectedServices.includes('upstairs') ? 5 : 0
+        const deliveryFee = selectedServices.includes('delivery') ? 0 : 0
+        addonTotal = (insuranceFee + upstairsFee + deliveryFee)
+      }
 
-      // 城市配送费用：Durham=£5，Newcastle/Sunderland=£10，其它=0
-      let cityFee = 0
-      if (selectedCity === 'Durham') cityFee = 5
-      else if (selectedCity === 'Newcastle' || selectedCity === 'Sunderland') cityFee = 10
+      // 兜底推断 MSRP 或用已有月租
+      const tier = sku.tier || 'mid'
+      const msrp = typeof sku.purchase_price_gbp === 'number' ? sku.purchase_price_gbp
+        : (typeof sku.msrp === 'number' ? sku.msrp : 0)
+      const baseMonthly = typeof sku.rent_monthly_gbp === 'number' ? sku.rent_monthly_gbp : undefined
 
-      // 增值服务
-      const servicesDetail = []
-      if (selectedServices.includes('delivery')) servicesDetail.push({ id: 'delivery', name: '送货到门', price: 0 })
-      if (selectedServices.includes('upstairs')) servicesDetail.push({ id: 'upstairs', name: '上楼加安装服务', price: 5 })
-      if (selectedServices.includes('insurance')) servicesDetail.push({ id: 'insurance', name: '租赁保险(2%)', price: Math.round(baseRent * 0.02) })
-      if (cityFee > 0) servicesDetail.unshift({ id: 'city', name: `城市配送(${selectedCity})`, price: cityFee })
+      const quote = pricing.computeOneOffQuote({
+        msrp,
+        baseMonthly,
+        tier,
+        termUnit: this.data.durationUnit,
+        termCount: this.data.duration,
+        qty: this.data.quantity,
+        city: this.data.selectedCity,
+        useWaiver: this.data.selectedServices.includes('insurance'),
+        addonTotal
+      })
 
-      const servicesTotal = servicesDetail.reduce((s, i) => s + (i.price || 0), 0)
-      const subTotal = baseRent + servicesTotal
-      const deposit = Math.round(subTotal * 0.5)
-      const grandTotal = subTotal + deposit
-
+      // 绑定到费用明细
+      const q = quote.price
       const quoteData = {
         breakdown: {
-          unitPriceLabel: durationUnit === 'week' ? '周租单价' : '月租单价',
-          unitPrice,
-          baseRentLabel: '基础租金',
-          baseRent,
-          services: servicesDetail,
+          unitPriceLabel: this.data.durationUnit === 'week' ? '周租单价/件(折后)' : '月租单价/件(折后)',
+          unitPrice: Number(q.monthlyPerItem.toFixed(1)),
+          baseRentLabel: `租金小计（${this.data.termUnit==='week'?'周':'月'}×时长×数量）`,
+          baseRent: Number((q.rentTotal + q.waiverAddon).toFixed(1)),
+          services: [],
           discount: 0,
-          discountReason: '优惠',
-          deposit,
-          depositReason: '押金（50%）',
-          totalRentLabel: '小计',
-          totalRent: subTotal,
-          grandTotalLabel: '总计',
-          grandTotal
+          discountReason: '已自动计算长租折扣',
+          deposit: Number(q.depositTotal.toFixed(1)),
+          depositReason: '押金（单件封顶，验收通过退）',
+          totalRentLabel: '一次性总额',
+          totalRent: Number(q.oneOffTotal.toFixed(1)),
+          grandTotalLabel: '一次性付款',
+          grandTotal: Number(q.oneOffTotal.toFixed(1))
         },
         calculation: {
-          note: '所有价格以英镑计算；总计=小计+押金。'
+          note: '一次性付款 = 押金 + 全期租金(+保障) + 运费 + 增值服务；验收通过7日内原路退押金'
         }
       }
 
-      this.setData({ quoteData, quoteLoading: false })
+      this.setData({ quoteData, quoteLoading: false, quote })
     } catch (error) {
       console.error('计算报价失败:', error)
       
@@ -847,6 +873,25 @@ Page({
       this.loadSkuDetail(id)
       this.loadRecommendations(id)
     }
+  },
+
+  /**
+   * 评分点击跳转
+   */
+  onRatingTap() {
+    const { sku } = this.data
+    
+    if (!sku || !sku.id) {
+      wx.showToast({
+        title: '商品信息不完整',
+        icon: 'none'
+      })
+      return
+    }
+    
+    wx.navigateTo({
+      url: `/pages/reviews/reviews?productId=${sku.id}&productName=${encodeURIComponent(sku.title || sku.name)}`
+    })
   },
 
   /**

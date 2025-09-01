@@ -3,30 +3,30 @@
 /* 卡片基础容器 */
 .product-card {
   position: relative;
-  background: white;
-  border-radius: 8rpx;
+  background: #fff;
+  border-radius: 16rpx;
   overflow: hidden;
-  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.06);
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.04);
   display: flex;
   flex-direction: column;
   width: 100%; /* 使用100%宽度，由网格控制 */
-  max-width: 100%; /* 防止超出网格 */
   box-sizing: border-box;
   min-width: 0; /* 防止flex项目超出容器 */
 }
 
 .product-card:active {
   transform: translateY(-2rpx);
-  box-shadow: 0 4rpx 16rpx rgba(0,0,0,0.1);
+  box-shadow: 0 6rpx 20rpx rgba(0,0,0,0.08);
 }
 
 /* 图片容器 */
 .image-container {
   position: relative;
   width: 100%;
-  height: 300rpx; /* 固定高度，避免超出 */
+  height: 320rpx; /* 增加图片高度，让图片更大更清晰 */
   overflow: hidden;
-  box-sizing: border-box; /* 确保不超出容器 */
+  box-sizing: border-box;
 }
 
 .product-image {
@@ -42,81 +42,84 @@
   position: absolute;
   top: 16rpx;
   right: 16rpx;
-  width: 48rpx;
-  height: 48rpx;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 50%;
+  width: 64rpx; /* 增大按钮 */
+  height: 64rpx;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 9999rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(4rpx);
-  transition: all 0.2s ease;
+  box-shadow: 0 6rpx 16rpx rgba(0,0,0,.1);
+  transition: opacity 0.2s ease;
 }
 
-.favorite-btn:active {
-  transform: scale(0.9);
-}
+.favorite-btn:active { opacity: .85; }
 
 .favorite-icon {
-  font-size: 24rpx;
+  font-size: 28rpx; /* 增大图标 */
 }
 
 .favorite-btn.favorited {
-  background: #FF6B6B;
+  background: #FFEEF0;
 }
 
-/* 成色标签 */
+/* 成色标签 → 胶囊形 */
 .condition-tag {
   position: absolute;
   top: 16rpx;
   left: 16rpx;
-  background: #FF6B35;
-  color: white;
-  padding: 6rpx 12rpx;
-  border-radius: 6rpx;
-  font-size: 20rpx;
-  font-weight: 500;
+  padding: 8rpx 16rpx; /* 增大内边距 */
+  border-radius: 9999rpx;
+  font-size: 24rpx; /* 增大字体 */
+  font-weight: 600;
+  background:#FFF6E6; color:#A86200; border:1px solid #FFE2B4;
 }
 
 /* 商品信息区域 */
 .product-info {
-  padding: 20rpx 20rpx 60rpx 20rpx; /* 底部留空给购物车按钮 */
+  padding: 20rpx 20rpx 24rpx 20rpx; /* 减少底部padding，避免文字被截断 */
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 8rpx;
+  gap: 8rpx; /* 适当收紧，避免总高度超出 */
   box-sizing: border-box;
+  min-height: 0;
 }
 
 /* 商品名称 */
 .product-name {
-  font-size: 28rpx;
-  font-weight: 600;
-  color: #111;
+  font-size: 32rpx; /* 增大字体 */
+  font-weight: 700;
+  color: #1F2A37;
   line-height: 1.3;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+  height: 84rpx; /* 调整高度：2行 × 32rpx × 1.3 */
+  flex-shrink: 0;
 }
 
 /* 商品描述 */
 .product-desc {
-  font-size: 24rpx;
-  color: #666;
+  font-size: 26rpx; /* 增大字体 */
+  color: #6B7280;
   line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  height: 32rpx; /* 调整高度：1行 × 26rpx × 1.2 */
+  flex-shrink: 0;
 }
 
 /* 价格区域 */
 .price-section {
   margin-top: 8rpx;
-  min-height: 60rpx;
+  height: 60rpx; /* 固定高度 */
   display: flex;
   align-items: center;
+  flex-shrink: 0; /* 防止被压缩 */
 }
 
 /* 价格行 - 英镑月租优先 */
@@ -124,27 +127,20 @@
   display: flex;
   align-items: baseline;
   gap: 12rpx;
-  margin-top: 8rpx;
+  margin-top: 10rpx;
 }
 
 .price-main {
-  font-size: 34rpx;
+  font-size: 34rpx; /* 增大字体 */
   font-weight: 800;
   color: #111;
   line-height: 1;
 }
 
-.price-old {
-  font-size: 22rpx;
-  color: #9aa0a6;
-  text-decoration: line-through;
-  font-weight: 400;
-}
+
 
 /* 咨询容器 */
-.consult-container {
-  width: 100%;
-}
+.consult-container { width: 100%; }
 
 /* 评分区域 */
 .rating-section {
@@ -153,151 +149,83 @@
   gap: 8rpx;
   margin-top: 4rpx;
 }
-
-.stars {
-  display: flex;
-  gap: 2rpx;
-}
-
-.star {
-  font-size: 20rpx;
-  color: #ddd;
-}
-
-.star.filled {
-  color: #FFD700;
-}
-
-.rating-count {
-  font-size: 20rpx;
-  color: #666;
-}
+.stars { display: flex; gap: 2rpx; }
+.star { font-size: 20rpx; color: #ddd; }
+.star.filled { color: #FFD700; }
+.rating-count { font-size: 20rpx; color: #666; }
 
 /* 更多选项 */
-.more-options {
-  font-size: 22rpx;
-  color: #007AFF;
-  margin-top: 8rpx;
+.more-options { 
+  font-size: 24rpx; /* 增大字体 */
+  color: #2C4E80; 
+  margin-top: 10rpx; 
+  font-weight: 600; 
+  height: 24rpx; /* 调整高度 */
+  flex-shrink: 0;
 }
 
 /* 右下角购物车按钮 */
 .cart-btn {
   position: absolute;
-  bottom: 20rpx;
-  right: 20rpx;
-  width: 56rpx;
-  height: 56rpx;
-  background: #007AFF;
-  border-radius: 50%;
+  bottom: 16rpx;
+  right: 16rpx;
+  width: 72rpx; /* 增大按钮 */
+  height: 72rpx;
+  background: transparent;
+  border: 2rpx solid #fff;
+  border-radius: 9999rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4rpx 12rpx rgba(0, 122, 255, 0.3);
-  transition: all 0.2s ease;
+  box-shadow: none;
+  transition: opacity 0.2s ease;
 }
 
-.cart-btn:active {
-  transform: scale(0.9);
+.cart-btn:active { opacity: .9; }
+
+/* 卡片裁剪，防止任何子元素外溢 */
+.product-card { overflow: hidden; }
+
+/* 正文底部不再为悬浮按钮留空 */
+.product-info { padding-bottom: 24rpx !important; }
+
+/* "+ Options" 与按钮的区隔（上细线可按需移除） */
+.card-actions {
+  margin-top: 10rpx;
+  border-top: 1px solid #E5E7EB;
+  padding-top: 10rpx;
 }
 
-.cart-icon {
+/* 文本按钮（黑字、透明底、置中、等宽、不超出） */
+.btn-plain{
+  width: 100%;
+  height: 64rpx;
+  line-height: 64rpx;
+  box-sizing: border-box;      /* 防溢出 */
+  background: transparent;
+  border: 0;
+  color: #111827;              /* 近黑 */
   font-size: 28rpx;
-  color: white;
+  font-weight: 800;
+  text-align: center;
+  padding: 0;
+  border-radius: 12rpx;        /* 手感更好；不想要可设为0 */
 }
+.btn-plain:active { opacity: .6; }
+
+/* 彻底隐藏任何残留的悬浮按钮 */
+.cart-btn { display: none !important; }
+
+/* 若旧样式在卡片底部预留了额外空间，这里统一收紧 */
+.product-info .cart-btn { display:none !important; }
 
 /* 网格卡片样式 */
-.grid-card {
-  width: 100%;
-  max-height: 500rpx; /* 限制最大高度，防止超出屏幕 */
-}
+.grid-card { width: 100%; height: 580rpx; /* 统一为更高卡片，避免文字被裁切 */ }
 
 /* 列表卡片样式 */
-.list-card {
-  width: 100%;
-  margin-bottom: 24rpx;
-}
+.list-card { width: 100%; margin-bottom: 24rpx; }
 
-/* 响应式设计 */
+/* 响应式设计：保留现有段落（如需） */
 @media (max-width: 375px) {
-  .image-container {
-    height: 280rpx; /* 小屏幕图片高度调整 */
-  }
-  
-  .product-info {
-    padding: 16rpx 16rpx 56rpx 16rpx;
-  }
-  
-  .product-name {
-    font-size: 26rpx;
-  }
-  
-  .product-desc {
-    font-size: 22rpx;
-  }
-  
-  .price-main {
-    font-size: 44rpx;
-  }
-  
-  .price-symbol {
-    font-size: 28rpx;
-  }
-  
-  .cart-btn {
-    width: 52rpx;
-    height: 52rpx;
-    bottom: 16rpx;
-    right: 16rpx;
-  }
-  
-  .cart-icon {
-    font-size: 26rpx;
-  }
-  
-  .condition-tag {
-    font-size: 18rpx;
-    padding: 5rpx 10rpx;
-  }
-}
-
-@media (min-width: 414px) {
-  .image-container {
-    height: 320rpx; /* 大屏幕图片高度增加 */
-  }
-  
-  .product-info {
-    padding: 24rpx 24rpx 64rpx 24rpx;
-  }
-  
-  .product-name {
-    font-size: 30rpx;
-  }
-  
-  .product-desc {
-    font-size: 26rpx;
-  }
-  
-  .price-main {
-    font-size: 52rpx;
-  }
-  
-  .price-symbol {
-    font-size: 36rpx;
-  }
-  
-  .cart-btn {
-    width: 60rpx;
-    height: 60rpx;
-    bottom: 24rpx;
-    right: 24rpx;
-  }
-  
-  .cart-icon {
-    font-size: 30rpx;
-  }
-  
-  .condition-tag {
-    font-size: 22rpx;
-    padding: 7rpx 14rpx;
-  }
+  .image-container { height: 260rpx; }
 }

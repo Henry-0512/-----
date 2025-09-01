@@ -4,6 +4,29 @@ const { api, ERROR_TYPES } = isMockEnabled()
   ? require('../../utils/request-mock.js')
   : require('../../utils/request.js')
 const { track, TrackEvents } = require('../../utils/track.js')
+const { deriveConditionText } = require('../../utils/condition.js')
+const { getCategoryDisplay } = require('../../utils/category-icons.js')
+
+// 统一两列卡片宽高（rpx）
+const PAGE_PAD = 24
+const GUTTER = 16
+const CARD_W = Math.floor((750 - PAGE_PAD*2 - GUTTER)/2) // ≈343 → 用 342 更稳
+const IMG_RATIO = 0.85 // 图片更"长"更好看（宜家风），想短就降到 0.78
+const IMG_H = Math.round(CARD_W * IMG_RATIO)
+
+// 大图列表尺寸配置
+const LV_CARD_W = 750 - PAGE_PAD*2   // 单列卡片宽度
+const LV_IMG_RATIO = 0.86            // 大图比例（更长更好看，0.80~0.90 皆可）
+const LV_IMG_H = Math.round(LV_CARD_W * LV_IMG_RATIO)
+
+function attachConditionText(list){
+  return (list || []).map(it => ({
+    ...it,
+    _conditionText: deriveConditionText(it)
+  }))
+}
+
+
 
 Page({
   data: {
@@ -68,7 +91,14 @@ Page({
     singleFilterOptions: [],
     singleFilterSelected: [],
     
-    error: null
+    error: null,
+    cardW: 342, // 固定使用 342 更稳
+    imgH: IMG_H,
+    
+    // 大图列表视图配置
+    viewMode: 'list',    // 'list' | 'grid'；默认 list
+    lvCardW: LV_CARD_W,
+    lvImgH: LV_IMG_H
   },
 
   onLoad(options) {
@@ -131,13 +161,18 @@ Page({
       initialSelectedFilters.categories = [decoded]
     }
 
+    // 加载用户保存的视图模式
+    const { storage } = require('../../utils/request.js')
+    const savedViewMode = storage.get('viewMode') || 'list'
+    
     this.setData({ 
       pageTitle,
       loading: false,
       currentFilters: initialCurrentFilters,
       selectedFilters: initialSelectedFilters,
       hasActiveFilters: Object.keys(initialCurrentFilters).length > 0,
-      filterCount: initialCurrentFilters.category ? initialCurrentFilters.category.length : 0
+      filterCount: initialCurrentFilters.category ? initialCurrentFilters.category.length : 0,
+      viewMode: savedViewMode
     })
     
     // 更新筛选状态
@@ -192,8 +227,17 @@ Page({
         return filter
       })
       
+      // 处理分类图标
+      const categoriesWithIcons = (res.data.categories || []).map(cat => ({
+        ...cat,
+        ...getCategoryDisplay(cat)
+      }))
+      
       this.setData({
-        filterOptions: res.data,
+        filterOptions: {
+          ...res.data,
+          categories: categoriesWithIcons
+        },
         filterSchema: updatedFilterSchema
       })
     } catch (error) {
@@ -238,17 +282,48 @@ Page({
         const newItems = result.data.items || []
         const { loadedIds } = this.data
         
-        // 去重处理
+        // 去重处理并添加成色样式
         const uniqueItems = newItems.filter(item => {
           if (loadedIds.includes(item.id)) {
             return false
           }
           loadedIds.push(item.id)
           return true
-        })
+        }).map(item => ({
+          ...item,
+          conditionClass: this.mapBadgeClass(item.condition_grade || item.condition),
+          conditionText: item.condition_grade || item.condition || '全新'
+        }))
         
         // 合并数据
-        const items = page === 1 ? uniqueItems : [...this.data.items, ...uniqueItems]
+        let rawItems = page === 1 ? uniqueItems : [...this.data.items, ...uniqueItems]
+        
+        // 前端排序处理（兜底，防止后端未按预期排序）
+        if (rawItems.length > 0) {
+          if (currentSort === 'condition_new') {
+            // 成色从新到旧：全新 > 九五新 > 九成新 > 八成新 > 七成新
+            const conditionOrder = { '全新': 5, '九五新': 4, '九成新': 3, '八成新': 2, '七成新': 1 }
+            rawItems.sort((a, b) => {
+              const aCondition = deriveConditionText(a)
+              const bCondition = deriveConditionText(b)
+              const aOrder = conditionOrder[aCondition] || 0
+              const bOrder = conditionOrder[bCondition] || 0
+              return bOrder - aOrder // 从新到旧，所以是降序
+            })
+          } else if (currentSort === 'condition_old') {
+            // 成色从旧到新：七成新 > 八成新 > 九成新 > 九五新 > 全新
+            const conditionOrder = { '全新': 5, '九五新': 4, '九成新': 3, '八成新': 2, '七成新': 1 }
+            rawItems.sort((a, b) => {
+              const aCondition = deriveConditionText(a)
+              const bCondition = deriveConditionText(b)
+              const aOrder = conditionOrder[aCondition] || 0
+              const bOrder = conditionOrder[bCondition] || 0
+              return aOrder - bOrder // 从旧到新，所以是升序
+            })
+          }
+        }
+        
+        const items = attachConditionText(rawItems)
         
         this.setData({
           items,
@@ -339,16 +414,33 @@ Page({
         } else if (currentSort === 'rent_desc') {
           newItems.sort((a, b) => getRent(b) - getRent(a))
           console.log('🔍 前端月租降序排序后:', newItems.slice(0, 5).map(i => ({ id: i.id, rent: getRent(i) })))
-        } else if (currentSort === 'price_asc') {
-          newItems.sort((a, b) => (a.price || 0) - (b.price || 0))
-          console.log('🔍 前端买断价升序排序后:', newItems.slice(0, 5).map(i => ({ id: i.id, price: i.price })))
-        } else if (currentSort === 'price_desc') {
-          newItems.sort((a, b) => (b.price || 0) - (a.price || 0))
-          console.log('🔍 前端买断价降序排序后:', newItems.slice(0, 5).map(i => ({ id: i.id, price: i.price })))
+        } else if (currentSort === 'condition_new') {
+          // 成色从新到旧：全新 > 九五新 > 九成新 > 八成新 > 七成新
+          const conditionOrder = { '全新': 5, '九五新': 4, '九成新': 3, '八成新': 2, '七成新': 1 }
+          newItems.sort((a, b) => {
+            const aCondition = deriveConditionText(a)
+            const bCondition = deriveConditionText(b)
+            const aOrder = conditionOrder[aCondition] || 0
+            const bOrder = conditionOrder[bCondition] || 0
+            return bOrder - aOrder // 从新到旧，所以是降序
+          })
+          console.log('🔍 前端成色从新到旧排序后:', newItems.slice(0, 5).map(i => ({ id: i.id, condition: deriveConditionText(i) })))
+        } else if (currentSort === 'condition_old') {
+          // 成色从旧到新：七成新 > 八成新 > 九成新 > 九五新 > 全新
+          const conditionOrder = { '全新': 5, '九五新': 4, '九成新': 3, '八成新': 2, '七成新': 1 }
+          newItems.sort((a, b) => {
+            const aCondition = deriveConditionText(a)
+            const bCondition = deriveConditionText(b)
+            const aOrder = conditionOrder[aCondition] || 0
+            const bOrder = conditionOrder[bCondition] || 0
+            return aOrder - bOrder // 从旧到新，所以是升序
+          })
+          console.log('🔍 前端成色从旧到新排序后:', newItems.slice(0, 5).map(i => ({ id: i.id, condition: deriveConditionText(i) })))
         }
       }
       
-      const items = reset ? newItems : [...this.data.items, ...newItems]
+      const rawItems = reset ? newItems : [...this.data.items, ...newItems]
+      const items = attachConditionText(rawItems)
       
       this.setData({
         items,
@@ -910,5 +1002,186 @@ Page({
       hasActiveFilters,
       filterCount
     })
+  },
+
+  /**
+   * 成色样式映射函数
+   */
+  mapBadgeClass(condition) {
+    if (!condition) return ''
+    const v = String(condition)
+    if (v.includes('全新') || v === 'new') return 'badge-new'
+    if (v.includes('95') || v.includes('九五')) return 'badge-95'
+    if (v.includes('90') || v.includes('九成')) return 'badge-90'
+    return ''
+  },
+
+  /**
+   * 切换收藏状态
+   */
+  onToggleFav(e) {
+    const { id } = e.currentTarget.dataset
+    const { items } = this.data
+    
+    // 找到对应的商品
+    const product = items.find(item => item.id === id)
+    if (!product) {
+      console.error('未找到商品:', id)
+      return
+    }
+    
+    // 获取当前收藏列表
+    const { storage } = require('../../utils/request.js')
+    let favorites = storage.get('favorites') || []
+    
+    // 检查是否已收藏
+    const existingIndex = favorites.findIndex(item => item.id === id)
+    
+    if (existingIndex >= 0) {
+      // 取消收藏
+      favorites.splice(existingIndex, 1)
+      wx.showToast({
+        title: '已取消收藏',
+        icon: 'success'
+      })
+    } else {
+      // 添加收藏
+      const favoriteItem = {
+        id: product.id,
+        title: product.title || product.name,
+        cover: product.cover || product.image || (product.images && product.images[0] ? product.images[0].url : ''),
+        rent_monthly_gbp: product.rent_monthly_gbp || product.monthly || 8,
+        purchase_price_gbp: product.purchase_price_gbp || product.msrp,
+        brand: product.brand || 'LivingLux',
+        material: product.material || '科技布',
+        color: product.color || '灰色',
+        condition_grade: product.condition_grade || product.condition,
+        addedAt: new Date().toISOString()
+      }
+      favorites.push(favoriteItem)
+      wx.showToast({
+        title: '已添加到收藏',
+        icon: 'success'
+      })
+    }
+    
+    // 保存到本地存储
+    storage.set('favorites', favorites)
+    
+    // 更新页面数据
+    const updatedItems = items.map(item => {
+      if (item.id === id) {
+        return { ...item, favored: existingIndex < 0 }
+      }
+      return item
+    })
+    
+    this.setData({
+      items: updatedItems
+    })
+    
+    console.log('收藏状态已更新:', id, existingIndex < 0 ? '已收藏' : '已取消收藏')
+  },
+
+  /**
+   * 添加购物车
+   */
+  onAddToCart(e) {
+    const { id } = e.currentTarget.dataset
+    const { items } = this.data
+    
+    // 找到对应的商品
+    const product = items.find(item => item.id === id)
+    if (!product) {
+      console.error('未找到商品:', id)
+      return
+    }
+    
+    // 获取当前购物车列表
+    const { storage } = require('../../utils/request.js')
+    let cartItems = storage.get('cartItems') || []
+    
+    // 检查是否已在购物车中
+    const existingIndex = cartItems.findIndex(item => item.id === id)
+    
+    if (existingIndex >= 0) {
+      // 增加数量
+      cartItems[existingIndex].quantity = (cartItems[existingIndex].quantity || 1) + 1
+      wx.showToast({
+        title: '数量已增加',
+        icon: 'success'
+      })
+    } else {
+      // 添加到购物车
+      const cartItem = {
+        id: product.id,
+        title: product.title || product.name,
+        cover: product.cover || product.image || (product.images && product.images[0] ? product.images[0].url : ''),
+        rent_monthly_gbp: product.rent_monthly_gbp || product.monthly || 8,
+        purchase_price_gbp: product.purchase_price_gbp || product.msrp,
+        brand: product.brand || 'LivingLux',
+        material: product.material || '科技布',
+        color: product.color || '灰色',
+        condition_grade: product.condition_grade || product.condition,
+        quantity: 1,
+        selected: true,
+        addedAt: new Date().toISOString()
+      }
+      cartItems.push(cartItem)
+      wx.showToast({
+        title: '已添加到购物车',
+        icon: 'success'
+      })
+    }
+    
+    // 保存到本地存储
+    storage.set('cartItems', cartItems)
+    
+    console.log('购物车已更新:', id, existingIndex >= 0 ? '数量增加' : '新添加')
+  },
+
+  /**
+   * 查看选项
+   */
+  onOptions(e) {
+    const { id } = e.currentTarget.dataset
+    console.log('查看选项:', id)
+    // TODO: 实现选项查看逻辑
+  },
+
+  /**
+   * 商品卡片点击
+   */
+  onProductCardTap(e) {
+    const { product } = e.currentTarget.dataset
+    console.log('商品卡片点击:', product)
+    wx.navigateTo({
+      url: `/pages/detail/detail?id=${product.id}`
+    })
+  },
+
+  /**
+   * 切换视图模式
+   */
+  onToggleView(e) {
+    const { mode } = e.currentTarget.dataset
+    console.log('切换视图模式:', mode)
+    
+    // 显示切换提示
+    wx.showToast({
+      title: `切换到${mode === 'grid' ? '网格' : '大图'}视图`,
+      icon: 'none',
+      duration: 1000
+    })
+    
+    this.setData({
+      viewMode: mode
+    })
+    
+    // 保存到本地存储，记住用户偏好
+    const { storage } = require('../../utils/request.js')
+    storage.set('viewMode', mode)
+    
+    console.log('视图模式已更新:', mode)
   }
 })

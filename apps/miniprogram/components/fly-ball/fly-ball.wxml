@@ -1,0 +1,3 @@
+<view wx:if="{{show}}" class="fbll" style="left:{{x}}px;top:{{y}}px; transform: translate3d({{dx}}px, {{dy}}px, 0) scale({{scale}}); background: {{T.colorPrimary}};"></view>
+
+

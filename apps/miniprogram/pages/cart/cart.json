@@ -1,6 +1,9 @@
 {
   "navigationBarTitleText": "购物车",
   "usingComponents": {
-    "product-card": "../../components/product-card/product-card"
+    "product-card": "../../components/product-card/product-card",
+    "notify-banner": "../../components/notify-banner/notify-banner",
+    "fav-burst": "../../components/fav-burst/fav-burst",
+    "fly-ball": "../../components/fly-ball/fly-ball"
   }
 }

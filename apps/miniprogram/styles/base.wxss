@@ -1,0 +1,28 @@
+/* 基础主题 */
+.theme-page{ background: #FAF9F6; min-height:100vh; }
+.theme-surface{ background:#FFFFFF; border-radius:16rpx; }
+.theme-card{ background:#FFFFFF; border:1px solid #E5E7EB; border-radius:16rpx; box-shadow:0 4rpx 16rpx rgba(0,0,0,.04); }
+.theme-divider{ height:1px; background:#E5E7EB; transform:scaleY(.5); }
+
+.text-main{ color:#1F2A37; }
+.text-sec{ color:#6B7280; }
+.text-muted{ color:#9CA3AF; }
+
+.btn{ height:88rpx; border-radius:9999rpx; display:flex; justify-content:center; align-items:center; font-weight:600; }
+.btn-primary{ background:#2C4E80; color:#fff; }
+.btn-primary:active{ opacity:.92; }
+.btn-outline{ border:1px solid #CBD5E1; color:#2C4E80; background:transparent; }
+.btn-ghost{ color:#1F2A37; background:transparent; }
+.btn-ghost:active, .btn-outline:active{ background:#F1F5F9; }
+
+.input{ height:88rpx; background:#F4F3EF; border-radius:9999rpx; padding:0 28rpx; border:1px solid #E5E7EB; }
+.input:focus{ border-color:#2C4E80; }
+
+.badge{ padding:6rpx 12rpx; border-radius:9999rpx; font-size:24rpx; }
+.badge-info{ background:#EEF2FF; color:#2C4E80; }
+.badge-success{ background:#ECFDF5; color:#2E7D32; }
+.badge-warn{ background:#FEF3C7; color:#92400E; }
+
+.actionbar{ position:fixed; left:0; right:0; bottom:0; background:#fff; border-top:1px solid #E5E7EB; padding:16rpx 20rpx; display:flex; gap:16rpx; }
+
+

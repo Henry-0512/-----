@@ -1,0 +1,10 @@
+.nb-wrap{position:fixed;left:0;right:0;z-index:9999;display:flex;justify-content:center;}
+.nb{max-width:640rpx;min-width:560rpx;padding:18rpx 20rpx;display:flex;align-items:center;gap:16rpx}
+.nb-icon{font-size:28rpx}
+.nb-text{flex:1;min-width:0}
+.nb-title{font-size:28rpx;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nb-sub{font-size:24rpx;margin-top:4rpx}
+.nb-action{font-weight:600}
+.nb-dismiss{margin-left:8rpx}
+
+

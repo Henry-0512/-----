@@ -1,5 +1,5 @@
 <!--pages/list/list.wxml-->
-<view class="container">
+<view class="container theme-page">
   <!-- 背景图（Hero） 满幅覆盖，贴合顶部安全区 -->
   <view class="hero" style="--hero-url: url(https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&h=600&fit=crop)">
     <view class="hero-overlay">
@@ -44,10 +44,10 @@
   <view class="products-header">
     <text class="products-count">{{totalCount || items.length}} Products</text>
     <view class="view-toggle">
-      <view class="toggle-btn active">
+      <view class="toggle-btn {{viewMode === 'grid' ? 'active' : ''}}" bindtap="onToggleView" data-mode="grid">
         <text class="toggle-icon">⊞</text>
       </view>
-      <view class="toggle-btn">
+      <view class="toggle-btn {{viewMode === 'list' ? 'active' : ''}}" bindtap="onToggleView" data-mode="list">
         <text class="toggle-icon">☰</text>
       </view>
     </view>
@@ -84,25 +84,92 @@
 
   <!-- 有数据时显示内容 -->
   <view wx:else>
-    <!-- 结果统计 -->
-    <view class="result-info">
-      <text class="result-text">
-        共找到 {{total}} 个结果
-        <text wx:if="{{searchQuery}}" class="search-keyword">"{{searchQuery}}"</text>
-      </text>
+    <notify-banner id="nb" />
+    <fav-burst id="fv" />
+    <fly-ball id="ball" />
+
+
+    <!-- 大图列表（宜家风，默认显示） -->
+    <view wx:if="{{viewMode==='list'}}" class="lv-list">
+      <block wx:for="{{items}}" wx:key="id">
+        <view class="lv-card" style="width:{{lvCardW}}rpx">
+          <!-- 大图 -->
+          <view class="lv-hero" style="height:{{lvImgH}}rpx">
+            <image class="lv-img" src="{{item.cover || item.image || (item.images && item.images[0] ? item.images[0].url : '')}}" mode="aspectFill" />
+            <!-- 左上角徽标：成色/促销 -->
+            <view wx:if="{{item._conditionText}}" class="lv-badge">{{item._conditionText}}</view>
+            <!-- 右上角收藏 -->
+            <button class="lv-fav" data-id="{{item.id}}" bindtap="onToggleFav" catchtap="onToggleFav">
+              <text class="lv-ico">{{item.favored ? '❤️' : '🤍'}}</text>
+            </button>
+          </view>
+
+          <!-- 信息区 -->
+          <view class="lv-body">
+            <view class="lv-title two-lines">{{item.title || item.name}}</view>
+            <view class="lv-sub one-line" wx:if="{{item.brand || item.material || item.color}}">{{item.brand || 'LivingLux'}}, {{item.material || '科技布'}}, {{item.color || '灰色'}}</view>
+
+            <view class="lv-price-row">
+              <text class="lv-price">£{{item.rent_monthly_gbp || item.monthly || 8}}/mo</text>
+            </view>
+
+            <view class="lv-meta" wx:if="{{item.meta1 || item.meta2}}">
+              <view class="lv-dot" wx:if="{{item.meta1}}">{{item.meta1}}</view>
+              <view class="lv-dot" wx:if="{{item.meta2}}">{{item.meta2}}</view>
+            </view>
+
+            <view class="lv-opts" bindtap="onOptions" data-id="{{item.id}}" catchtap="onOptions">+ Options</view>
+          </view>
+        </view>
+      </block>
     </view>
 
-    <!-- 商品列表 - 2列网格布局 -->
-    <view class="items-grid">
-      <product-card
-        wx:for="{{items}}" 
-        wx:key="id"
-        product="{{item}}"
-        card-type="grid"
-        show-favorite="{{true}}"
-        bind:cardtap="onProductCardTap"
-        bind:favoritechange="onFavoriteChange"
-      />
+    <!-- 原两列网格（保留备用） -->
+    <view wx:if="{{viewMode==='grid'}}" class="product-grid">
+      <block wx:for="{{items}}" wx:key="id">
+        <view class="new-product-card">
+          <!-- 商品图片 -->
+          <view class="product-image">
+            <image class="product-img" src="{{item.cover || item.image || (item.images && item.images[0] ? item.images[0].url : '')}}" mode="aspectFill" />
+            <!-- 成色徽章 -->
+            <view wx:if="{{item._conditionText}}" class="condition-badge">{{item._conditionText}}</view>
+            <!-- Best seller 徽章 -->
+            <view class="best-seller-badge" wx:if="{{item.isBestSeller}}">Best seller</view>
+            <!-- 收藏按钮 -->
+            <button class="favorite-btn {{item.favored ? 'favorited' : ''}}" data-id="{{item.id}}" bindtap="onToggleFav" catchtap="onToggleFav">
+              <text class="heart-icon">{{item.favored ? '❤️' : '🤍'}}</text>
+            </button>
+          </view>
+          
+          <!-- 商品信息 -->
+          <view class="product-info" bindtap="onProductCardTap" data-product="{{item}}">
+            <view class="product-name">{{item.title || item.name}}</view>
+            <view class="product-desc">{{item.brand || 'LivingLux'}}, {{item.material || '科技布'}}, {{item.color || '灰色'}}</view>
+            
+            <!-- 价格 -->
+            <view class="price-section">
+              <text class="price-text">£{{item.rent_monthly_gbp || item.monthly || 8}}/mo</text>
+            </view>
+            
+            <!-- 评分 -->
+            <view class="rating-section">
+              <view class="stars">
+                <text class="star">★</text>
+                <text class="star">★</text>
+                <text class="star">★</text>
+                <text class="star">★</text>
+                <text class="star">★</text>
+              </view>
+              <text class="review-count">({{item.reviewCount || 36}})</text>
+            </view>
+            
+            <!-- 选项链接 -->
+            <view class="options-link" bindtap="onOptions" data-id="{{item.id}}" catchtap="onOptions">+ Options</view>
+          </view>
+          
+
+        </view>
+      </block>
     </view>
 
     <!-- 底部加载更多 -->

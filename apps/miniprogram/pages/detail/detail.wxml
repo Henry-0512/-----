@@ -1,5 +1,5 @@
 <!--pages/detail/detail.wxml-->
-<view class="container">
+<view class="container theme-page">
   <!-- 加载状态 -->
   <view wx:if="{{loading}}" class="loading">
     <text>加载中...</text>
@@ -13,6 +13,9 @@
 
   <!-- 商品详情内容 -->
   <view wx:elif="{{sku}}" class="detail-content">
+    <notify-banner id="nb" />
+    <fav-burst id="fv" />
+    <fly-ball id="ball" />
     <!-- 图片展示 -->
     <view class="image-section">
       <image 
@@ -21,89 +24,83 @@
         mode="aspectFill"
         bindtap="onImagePreview"
       ></image>
-      <view class="image-indicators">
-        <view 
-          wx:for="{{sku.images}}" 
-          wx:key="*this" 
-          class="indicator {{index === selectedImage ? 'active' : ''}}"
-          data-index="{{index}}"
-          bindtap="onImageSelect"
-        ></view>
-      </view>
+      <!-- 收藏按钮 -->
+      <button class="favorite-btn {{isFavorited ? 'favorited' : ''}}" bindtap="onToggleFavorite">
+        <text class="heart-icon">{{isFavorited ? '❤️' : '🤍'}}</text>
+      </button>
     </view>
 
     <!-- 商品基本信息 -->
     <view class="info-section">
-      <text class="sku-name">{{sku.title || sku.name}}</text>
-      <text class="sku-brand">{{sku.brand}}</text>
+      <view class="product-header">
+        <view class="product-left">
+          <text class="sku-name">{{sku.title || sku.name}}</text>
+          <view class="price-container">
+            <text class="sku-price">£{{formattedPrice}}/mo</text>
+            <text class="msrp-text">MSRP £{{sku.msrp || sku.purchase_price_gbp || '299'}}</text>
+          </view>
+        </view>
+        <view class="product-divider"></view>
+        <view class="product-right">
+          <view class="rating-info" bindtap="onRatingTap">
+            <text class="rating-score">4.99</text>
+            <view class="stars">
+              <text class="star">★</text>
+              <text class="star">★</text>
+              <text class="star">★</text>
+              <text class="star">★</text>
+              <text class="star">★</text>
+            </view>
+          </view>
+        </view>
+      </view>
       
-      <view class="price-info">
-        <!-- 普通价格显示模式 -->
-        <view wx:if="{{priceInfo.mode !== 'ask'}}" class="price-row">
-          <text class="price-main">£{{sku.rent_monthly_gbp || 8}}/mo</text>
-          <text wx:if="{{sku.purchase_price_gbp}}" class="price-old">£{{sku.purchase_price_gbp}}</text>
+      <view class="divider"></view>
+      
+      <!-- 商品介绍 -->
+      <view class="product-intro-section">
+        <text class="section-title">商品介绍</text>
+        <view class="product-description">
+          <text class="description-content">{{sku.description || sku.desc || '这款商品采用优质材料制作，设计简约时尚，适合现代家居环境。产品经过严格质量检测，确保安全可靠。'}}</text>
+        </view>
+
+        <!-- 商品属性 -->
+        <view class="sku-attributes">
+          <view class="attribute">
+            <text class="attr-label">分类：</text>
+            <text class="attr-value">{{sku.category ? sku.category.join(' / ') : ''}}</text>
+          </view>
+          <view class="attribute">
+            <text class="attr-label">风格：</text>
+            <text class="attr-value">{{sku.style ? sku.style.join('、') : ''}}</text>
+          </view>
+          <view class="attribute">
+            <text class="attr-label">材质：</text>
+            <text class="attr-value">{{sku.material ? sku.material.join('、') : ''}}</text>
+          </view>
+          <view class="attribute">
+            <text class="attr-label">颜色：</text>
+            <text class="attr-value">{{sku.color ? sku.color.join('、') : ''}}</text>
+          </view>
         </view>
         
-        <!-- 咨询价格模式 -->
-        <view wx:else class="price-inquiry-section">
-          <text class="inquiry-text">{{priceInfo.display}}</text>
-          <ask-price-button 
-            label="{{priceInfo.buttonText}}"
-            fullWidth="{{true}}"
-            size="md"
-            variant="solid"
-            bind:tap="onPriceInquiry"
-            data="{{detailButtonData}}"
-          />
+        <!-- 尺寸信息 -->
+        <view class="dimensions-section">
+          <view class="dimensions-title">尺寸信息</view>
+          <view class="dimensions-content">
+            <text class="dimensions-text">{{sku.dimensions || '120 × 80 × 45 cm'}}</text>
+          </view>
         </view>
       </view>
+      
+      <view class="divider"></view>
 
-      <view class="sku-attributes">
-        <view class="attribute">
-          <text class="attr-label">分类：</text>
-          <text class="attr-value">{{sku.category ? sku.category.join(' / ') : ''}}</text>
-        </view>
-        <view class="attribute">
-          <text class="attr-label">风格：</text>
-          <text class="attr-value">{{sku.style ? sku.style.join('、') : ''}}</text>
-        </view>
-        <view class="attribute">
-          <text class="attr-label">材质：</text>
-          <text class="attr-value">{{sku.material ? sku.material.join('、') : ''}}</text>
-        </view>
-        <view class="attribute">
-          <text class="attr-label">颜色：</text>
-          <text class="attr-value">{{sku.color ? sku.color.join('、') : ''}}</text>
-        </view>
-      </view>
+      <!-- 价格盒子移除：避免重复价格展示，仅在“费用明细”展示 -->
 
-      <!-- 定价引擎价格盒子（新增，最小挂载） -->
-      <price-box
-        msrp="{{sku.purchase_price_gbp || sku.price || 100}}"
-        tier="{{sku.tier || 'mid'}}"
-        months="{{durationUnit==='month'? duration : Math.max(1, Math.ceil(duration/4))}}"
-        useWaiver="{{useWaiver || false}}"
-        bind:change="onPriceBoxChange"
-      />
 
-      <!-- 意向单操作（新增，不改原按钮） -->
-      <view wx:if="{{FEATURE_INTENT}}" class="quick-actions intent-inline">
-        <button class="action-btn secondary-btn" bindtap="onAddToIntent">加入意向单</button>
-        <button class="action-btn primary-btn" bindtap="onSubmitIntent">立即提交意向</button>
-      </view>
-
-      <!-- 快速操作按钮 -->
-      <view class="quick-actions">
-        <button class="action-btn secondary-btn" bindtap="onToggleFavorite">
-          <text class="btn-icon">{{isFavorited ? '♥' : '♡'}}</text>
-          <text class="btn-text">{{isFavorited ? '已收藏' : '收藏'}}</text>
-        </button>
-        <button class="action-btn primary-btn" bindtap="onAddToCart">
-          <text class="btn-icon">🛒</text>
-          <text class="btn-text">加入购物车</text>
-        </button>
-      </view>
     </view>
+
+
 
     <!-- 租期选择器 -->
     <view class="rental-config">
@@ -143,6 +140,7 @@
             <text class="duration-unit">{{durationUnit === 'week' ? '周' : '月'}}</text>
           </view>
         </view>
+        <text class="hint-text text-muted">满3/6/12个月享95/90/85折，已自动计算。</text>
       </view>
 
       <!-- 数量选择 -->
@@ -276,6 +274,12 @@
       </view>
     </view>
 
+    <!-- 意向单操作 -->
+    <view wx:if="{{FEATURE_INTENT}}" class="intent-actions">
+      <button class="intent-btn secondary-btn" bindtap="onAddToIntent">加入意向单</button>
+      <button class="intent-btn primary-btn" bindtap="onSubmitIntent">立即提交意向</button>
+    </view>
+
     <!-- 报价加载状态 -->
     <view wx:elif="{{quoteLoading}}" class="quote-loading">
       <text>计算报价中...</text>
@@ -287,35 +291,7 @@
       <button class="retry-btn" bindtap="calculateQuote">重新计算</button>
     </view>
 
-    <!-- 尺寸信息 -->
-    <view class="size-section">
-      <view class="section-header">
-        <text class="section-title">尺寸信息</text>
-        <text class="size-guide-btn" bindtap="onShowSizeGuide">尺寸示意图</text>
-      </view>
-      <!-- 产品尺寸 -->
-      <view class="size-info">
-        <view class="size-group">
-          <text class="size-group-title">产品尺寸</text>
-          <view class="size-items">
-            <view class="size-item">
-              <text class="size-label">长：</text>
-              <text class="size-value">{{sku.width_mm ? (sku.width_mm/10) : (sku.dimensions ? sku.dimensions.length : 0)}}cm</text>
-            </view>
-            <view class="size-item">
-              <text class="size-label">宽：</text>
-              <text class="size-value">{{sku.depth_mm ? (sku.depth_mm/10) : (sku.dimensions ? sku.dimensions.width : 0)}}cm</text>
-            </view>
-            <view class="size-item">
-              <text class="size-label">高：</text>
-              <text class="size-value">{{sku.height_mm ? (sku.height_mm/10) : (sku.dimensions ? sku.dimensions.height : 0)}}cm</text>
-            </view>
-          </view>
-        </view>
-        
-        
-      </view>
-    </view>
+
 
     
 
@@ -356,13 +332,7 @@
 
   <!-- 底部操作栏 -->
   <view wx:if="{{sku}}" class="bottom-actions">
-    <view class="action-btn favorite-btn {{isFavorited ? 'favorited' : ''}}" bindtap="onToggleFavorite">
-      <text class="action-icon">{{isFavorited ? '♥' : '♡'}}</text>
-    </view>
-    <button class="action-btn share-btn" open-type="share">分享</button>
-    <button class="action-btn primary-btn" bindtap="onCreateOrder">
-      立即租赁 £{{(sku.rent_monthly_gbp || 8) * duration}}
-    </button>
+    <button class="cart-btn" bindtap="onAddToCart">加入购物车</button>
   </view>
 
   <!-- 尺寸示意图弹窗 -->

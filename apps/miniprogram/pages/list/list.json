@@ -2,7 +2,10 @@
   "usingComponents": {
     "product-card": "../../components/product-card/product-card",
     "filter-sheet": "../../components/filter-sheet/filter-sheet",
-    "single-filter": "../../components/single-filter/single-filter"
+    "single-filter": "../../components/single-filter/single-filter",
+    "notify-banner": "../../components/notify-banner/notify-banner",
+    "fav-burst": "../../components/fav-burst/fav-burst",
+    "fly-ball": "../../components/fly-ball/fly-ball"
   },
   "navigationBarTitleText": "商品列表",
   "navigationStyle": "custom",

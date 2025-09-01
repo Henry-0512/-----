@@ -1,0 +1,13 @@
+<view wx:if="{{visible}}" class="nb-wrap" style="top: {{safeTop}}px; transform: translateY({{offsetY}}%); transition: transform {{T.inMs}}ms {{T.easing}};">
+  <view class="nb" style="border-radius: {{T.radiusCard}}rpx; box-shadow: {{T.shadow2}}; border:1px solid {{ type==='success'?T.tintSuccessBd:type==='warning'?T.tintWarningBd:type==='error'?T.tintErrorBd:T.tintInfoBd }}; background: {{ type==='success'?T.tintSuccessBg:type==='warning'?T.tintWarningBg:type==='error'?T.tintErrorBg:T.tintInfoBg }};">
+    <text class="nb-icon">{{icon}}</text>
+    <view class="nb-text">
+      <view class="nb-title" style="color:{{T.colorText}}">{{title}}</view>
+      <view wx:if="{{subtitle}}" class="nb-sub" style="color:{{T.colorTextSec}}">{{subtitle}}</view>
+    </view>
+    <view wx:if="{{actionText}}" class="nb-action" style="color:{{T.colorPrimary}}" bindtap="onAction">{{actionText}}</view>
+    <view class="nb-dismiss text-sec" bindtap="hide">Dismiss</view>
+  </view>
+</view>
+
+

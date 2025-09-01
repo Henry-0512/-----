@@ -1,5 +1,5 @@
 <!--pages/cart/cart.wxml-->
-<view class="container">
+<view class="container theme-page">
   <!-- 页面标题 -->
   <view class="page-header">
     <text class="page-title">购物车</text>
@@ -7,7 +7,7 @@
   </view>
 
   <!-- 购物车内容 -->
-  <view wx:if="{{cartItems.length > 0}}" class="cart-content">
+  <view wx:if="{{cartItems.length > 0}}" class="cart-content theme-surface">
     <!-- 商品列表 -->
     <view class="cart-items">
       <view 
@@ -30,7 +30,6 @@
           <text class="item-desc">{{item.brand}}, {{item.color && item.color[0] ? item.color[0] : ''}}</text>
           <view class="item-price">
             <text class="price-main">£{{item.rent_monthly_gbp || 8}}/mo</text>
-            <text wx:if="{{item.purchase_price_gbp}}" class="price-old">£{{item.purchase_price_gbp}}</text>
           </view>
         </view>
         

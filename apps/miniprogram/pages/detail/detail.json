@@ -3,7 +3,10 @@
     "product-card": "../../components/product-card/product-card",
     "size-sketch": "../../components/size-sketch/size-sketch",
     "ask-price-button": "../../components/AskPriceButton/index",
-    "price-box": "../../components/price-box/price-box"
+    "price-box": "../../components/price-box/price-box",
+    "notify-banner": "../../components/notify-banner/notify-banner",
+    "fav-burst": "../../components/fav-burst/fav-burst",
+    "fly-ball": "../../components/fly-ball/fly-ball"
   },
   "navigationBarTitleText": "商品详情"
 }

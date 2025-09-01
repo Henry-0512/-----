@@ -54,16 +54,17 @@
     <view class="section">
       <view class="section-header">
         <text class="section-title">商品分类</text>
+        <text class="view-more" bindtap="onToggleCats">{{showAllCats ? '收起' : '查看更多 >'}}</text>
       </view>
       <view class="categories">
         <view 
-          wx:for="{{categories}}" 
+          wx:for="{{displayCats}}" 
           wx:key="id" 
           class="cat"
           data-name="{{item.name}}"
           bindtap="onTapCategory"
         >
-          <view class="category-icon">{{item.name.charAt(0)}}</view>
+          <view class="category-icon">{{item.icon}}</view>
           <text class="category-name">{{item.name}}</text>
           <text class="category-count">({{item.count}})</text>
         </view>
@@ -81,16 +82,59 @@
         <text class="section-title">热门商品</text>
         <text class="view-more" bindtap="onViewMoreHot">查看更多 ></text>
       </view>
-      <view class="hot-items">
-        <product-card
-          wx:for="{{hotItems}}" 
-          wx:key="id"
-          product="{{item}}"
-          card-type="grid"
-          show-favorite="{{true}}"
-          bind:cardtap="onProductCardTap"
-          bind:favoritechange="onFavoriteChange"
-        />
+      <view class="product-grid">
+        <block wx:for="{{hotItems}}" wx:key="id">
+          <view class="new-product-card">
+            <!-- 商品图片 -->
+            <view class="product-image" bindtap="onProductCardTap" data-product="{{item}}">
+              <image class="product-img" src="{{item.cover || item.image || (item.images && item.images[0] ? item.images[0].url : '')}}" mode="aspectFill" />
+              <!-- 成色徽章 -->
+              <view wx:if="{{item._conditionText}}" class="condition-badge">{{item._conditionText}}</view>
+              <!-- Best seller 徽章 -->
+              <view class="best-seller-badge" wx:if="{{item.isBestSeller}}">Best seller</view>
+              <!-- 收藏按钮 -->
+              <button class="favorite-btn {{item.favored ? 'favorited' : ''}}" data-id="{{item.id}}" bindtap="onToggleFav" catchtap="onToggleFav">
+                <text class="heart-icon">{{item.favored ? '❤️' : '🤍'}}</text>
+              </button>
+            </view>
+            
+            <!-- 商品信息 -->
+            <view class="product-info" bindtap="onProductCardTap" data-product="{{item}}">
+              <view class="product-name">{{item.title || item.name}}</view>
+              <view class="product-desc">{{item.brand || 'LivingLux'}}, {{item.material || '科技布'}}, {{item.color || '灰色'}}</view>
+              
+              <!-- 价格 -->
+              <view class="price-section">
+                <!-- 价格模式 -->
+                <view wx:if="{{item.priceInfo.mode !== 'ask'}}" class="price-row">
+                  <text class="price-text">£{{item.formattedPrice || (item.rent_monthly_gbp || item.monthly || 8)}}/mo</text>
+                </view>
+                
+                <!-- 咨询模式 -->
+                <view wx:else class="consult-container">
+                  <button class="ask-price-btn" bindtap="onPriceInquiry" data-product="{{item}}">
+                    咨询价格
+                  </button>
+                </view>
+              </view>
+              
+              <!-- 评分 -->
+              <view class="rating-section">
+                <view class="stars">
+                  <text class="star">★</text>
+                  <text class="star">★</text>
+                  <text class="star">★</text>
+                  <text class="star">★</text>
+                  <text class="star">★</text>
+                </view>
+                <text class="review-count">({{item.reviewCount || 36}})</text>
+              </view>
+              
+              <!-- 选项链接 -->
+              <view class="options-link" bindtap="onOptions" data-id="{{item.id}}" catchtap="onOptions">+ Options</view>
+            </view>
+          </view>
+                 </block>
       </view>
 
       <!-- 空状态 -->

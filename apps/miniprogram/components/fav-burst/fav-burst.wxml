@@ -1,0 +1,3 @@
+<view class="fb" style="transform: scale({{scale}}); opacity: {{opacity}}; background:#FFE8EC; color: {{T.colorError}};">❤</view>
+
+
