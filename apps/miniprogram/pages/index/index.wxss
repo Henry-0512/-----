@@ -143,7 +143,7 @@
 
 .view-more {
   font-size: 28rpx;
-  color: #007AFF;
+  color: #333;
   display: flex;
   align-items: center;
   padding: 12rpx 16rpx; /* 扩大点击区域 */

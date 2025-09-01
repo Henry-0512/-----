@@ -7,7 +7,7 @@
   </view>
 
   <!-- 购物车内容 -->
-  <view wx:if="{{cartItems.length > 0}}" class="cart-content theme-surface">
+  <view wx:if="{{cartItems.length > 0}}" class="cart-content">
     <!-- 商品列表 -->
     <view class="cart-items">
       <view 

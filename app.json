@@ -15,7 +15,8 @@
     "pages/policy/policy",
     "pages/intent/list",
     "pages/intent/success",
-    "pages/reviews/reviews"
+    "pages/reviews/reviews",
+    "pages/filter/filter"
   ],
   "window": {
     "backgroundTextStyle": "light",

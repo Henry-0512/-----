@@ -676,46 +676,11 @@ Page({
     console.log('🔍 快速筛选点击事件触发')
     const { type } = e.currentTarget.dataset
     console.log('🔍 筛选类型:', type)
-    console.log('🔍 事件对象:', e)
     
-    // 先显示一个简单的提示，确认点击事件正常工作
-    wx.showToast({
-      title: `点击了${type}筛选`,
-      icon: 'none',
-      duration: 1000
+    // 跳转到筛选页面
+    wx.navigateTo({
+      url: `/pages/filter/filter?type=${type}&currentFilters=${encodeURIComponent(JSON.stringify(this.data.currentFilters))}`
     })
-    
-    // 根据筛选类型应用不同的筛选逻辑
-    switch (type) {
-      case 'category':
-        console.log('🔍 执行分类筛选')
-        this.applyCategoryFilter()
-        break
-      case 'material':
-        console.log('🔍 执行材质筛选')
-        this.applyMaterialFilter()
-        break
-      case 'color':
-        console.log('🔍 执行颜色筛选')
-        this.applyColorFilter()
-        break
-      case 'style':
-        console.log('🔍 执行风格筛选')
-        this.applyStyleFilter()
-        break
-      case 'brand':
-        console.log('🔍 执行品牌筛选')
-        this.applyBrandFilter()
-        break
-      case 'condition':
-        console.log('🔍 执行成色筛选')
-        this.applyConditionFilter()
-        break
-      default:
-        console.log('🔍 执行默认筛选器')
-        // 其他筛选类型打开对应的单项筛选器
-        this.showSpecificFilter(type)
-    }
   },
 
   /**
@@ -809,6 +774,72 @@ Page({
         const selectedCondition = conditions[res.tapIndex]
         this.applyFilter('condition', [selectedCondition], selectedCondition)
       }
+    })
+  },
+
+  /**
+   * 从筛选页面返回后的筛选方法
+   */
+  applyFilterFromPage(filterType, filterValues) {
+    const { items } = this.data
+    
+    // 筛选商品
+    const filteredItems = items.filter(item => {
+      switch (filterType) {
+        case 'category':
+          const itemCategory = item.category || item.categories || []
+          const categoryArray = Array.isArray(itemCategory) ? itemCategory : [itemCategory]
+          return categoryArray.some(cat => 
+            cat && filterValues.some(val => cat.includes(val) || val.includes(cat))
+          )
+        
+        case 'material':
+          const itemMaterial = item.material || []
+          const materialArray = Array.isArray(itemMaterial) ? itemMaterial : [itemMaterial]
+          return materialArray.some(mat => 
+            mat && filterValues.some(val => mat.includes(val) || val.includes(mat))
+          )
+        
+        case 'color':
+          const itemColor = item.color || []
+          const colorArray = Array.isArray(itemColor) ? itemColor : [itemColor]
+          return colorArray.some(col => 
+            col && filterValues.some(val => col.includes(val) || val.includes(col))
+          )
+        
+        case 'style':
+          const itemStyle = item.style || []
+          const styleArray = Array.isArray(itemStyle) ? itemStyle : [itemStyle]
+          return styleArray.some(sty => 
+            sty && filterValues.some(val => sty.includes(val) || val.includes(sty))
+          )
+        
+        case 'brand':
+          const itemBrand = item.brand || ''
+          return filterValues.some(val => 
+            itemBrand && (itemBrand.includes(val) || val.includes(itemBrand))
+          )
+        
+        case 'condition':
+          const itemCondition = item.condition_grade || item.condition || ''
+          return filterValues.some(val => 
+            itemCondition && (itemCondition.includes(val) || val.includes(itemCondition))
+          )
+        
+        default:
+          return true
+      }
+    })
+    
+    this.setData({
+      items: filteredItems,
+      isEmpty: filteredItems.length === 0
+    })
+    
+    // 显示筛选结果提示
+    wx.showToast({
+      title: `已筛选${filteredItems.length}件商品`,
+      icon: 'success'
     })
   },
 

@@ -1,7 +1,7 @@
 /* pages/cart/cart.wxss */
 
 .container {
-  background: #f8f9fa;
+  background: white;
   min-height: 100vh;
   padding-bottom: 140rpx; /* 为底部结算区域留空间 */
 }
@@ -35,7 +35,7 @@
 /* 购物车商品列表 */
 .cart-items {
   background: white;
-  margin-top: 16rpx;
+  margin-top: 0;
 }
 
 .cart-item {
@@ -73,8 +73,8 @@
 }
 
 .checkbox.checked {
-  background: #007AFF;
-  border-color: #007AFF;
+  background: #333;
+  border-color: #333;
 }
 
 /* 商品图片 */
@@ -154,14 +154,14 @@
 .qty-btn {
   width: 32rpx;
   height: 32rpx;
-  background: white;
+  background: #333;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 24rpx;
   font-weight: 600;
-  color: #007AFF;
+  color: white;
   box-shadow: 0 2rpx 4rpx rgba(0,0,0,0.1);
 }
 
@@ -266,7 +266,7 @@
 }
 
 .checkout-btn.active {
-  background: #007AFF;
+  background: #333;
   color: white;
 }
 
@@ -309,7 +309,7 @@
 }
 
 .go-shopping-btn {
-  background: #007AFF;
+  background: #333;
   color: white;
   padding: 24rpx 48rpx;
   border-radius: 12rpx;

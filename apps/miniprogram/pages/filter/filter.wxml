@@ -1,0 +1,38 @@
+<!-- pages/filter/filter.wxml -->
+<view class="filter-page">
+  <!-- 页面头部 -->
+  <view class="page-header">
+    <view class="header-left" bindtap="onBack">
+      <text class="back-icon">←</text>
+    </view>
+    <view class="header-title">
+      <text class="title-text">{{filterTitle}}</text>
+    </view>
+    <view class="header-right">
+      <text class="reset-btn" bindtap="onResetFilter">重置</text>
+    </view>
+  </view>
+
+  <!-- 筛选选项 -->
+  <view class="filter-content">
+    <view class="options-grid">
+      <view 
+        wx:for="{{filterOptions}}" 
+        wx:key="value"
+        class="option-item {{selectedOptions.includes(item.value) ? 'selected' : ''}}"
+        bindtap="onOptionSelect"
+        data-value="{{item.value}}"
+      >
+        <text class="option-text">{{item.label}}</text>
+        <view wx:if="{{selectedOptions.includes(item.value)}}" class="check-icon">✓</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部确认按钮 -->
+  <view class="bottom-actions">
+    <button class="confirm-btn" bindtap="onConfirmFilter">
+      确认筛选 ({{selectedOptions.length}})
+    </button>
+  </view>
+</view>
