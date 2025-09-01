@@ -676,8 +676,217 @@ Page({
     const { type } = e.currentTarget.dataset
     console.log('🔍 快速筛选点击:', type)
     
-    // 所有标签都打开对应的单项筛选器
-    this.showSpecificFilter(type)
+    // 根据筛选类型应用不同的筛选逻辑
+    switch (type) {
+      case 'category':
+        this.applyCategoryFilter()
+        break
+      case 'material':
+        this.applyMaterialFilter()
+        break
+      case 'color':
+        this.applyColorFilter()
+        break
+      case 'style':
+        this.applyStyleFilter()
+        break
+      case 'brand':
+        this.applyBrandFilter()
+        break
+      case 'condition':
+        this.applyConditionFilter()
+        break
+      default:
+        // 其他筛选类型打开对应的单项筛选器
+        this.showSpecificFilter(type)
+    }
+  },
+
+  /**
+   * 应用分类筛选
+   */
+  applyCategoryFilter() {
+    const { items } = this.data
+    const categories = ['沙发', '床', '桌子', '椅子', '柜子', '装饰', '灯具', '地毯']
+    
+    // 显示分类选择弹窗
+    wx.showActionSheet({
+      itemList: categories,
+      success: (res) => {
+        const selectedCategory = categories[res.tapIndex]
+        console.log('🔍 选择分类:', selectedCategory)
+        
+        this.applyFilter('category', [selectedCategory], selectedCategory)
+      }
+    })
+  },
+
+  /**
+   * 应用材质筛选
+   */
+  applyMaterialFilter() {
+    const materials = ['布艺', '皮质', '实木', '金属', '玻璃', '塑料', '藤编', '大理石']
+    
+    wx.showActionSheet({
+      itemList: materials,
+      success: (res) => {
+        const selectedMaterial = materials[res.tapIndex]
+        this.applyFilter('material', [selectedMaterial], selectedMaterial)
+      }
+    })
+  },
+
+  /**
+   * 应用颜色筛选
+   */
+  applyColorFilter() {
+    const colors = ['白色', '黑色', '灰色', '棕色', '米色', '蓝色', '绿色', '红色', '黄色', '粉色']
+    
+    wx.showActionSheet({
+      itemList: colors,
+      success: (res) => {
+        const selectedColor = colors[res.tapIndex]
+        this.applyFilter('color', [selectedColor], selectedColor)
+      }
+    })
+  },
+
+  /**
+   * 应用风格筛选
+   */
+  applyStyleFilter() {
+    const styles = ['现代', '北欧', '极简', '工业', '简约', '复古', '田园', '中式', '美式']
+    
+    wx.showActionSheet({
+      itemList: styles,
+      success: (res) => {
+        const selectedStyle = styles[res.tapIndex]
+        this.applyFilter('style', [selectedStyle], selectedStyle)
+      }
+    })
+  },
+
+  /**
+   * 应用品牌筛选
+   */
+  applyBrandFilter() {
+    const brands = ['HomeNest', 'Oak&Co', 'WoodCraft', 'ComfortSeats', 'IKEA', '宜家', '无印良品', 'HAY']
+    
+    wx.showActionSheet({
+      itemList: brands,
+      success: (res) => {
+        const selectedBrand = brands[res.tapIndex]
+        this.applyFilter('brand', [selectedBrand], selectedBrand)
+      }
+    })
+  },
+
+  /**
+   * 应用成色筛选
+   */
+  applyConditionFilter() {
+    const conditions = ['全新', '九五新', '九成新', '八成新', '七成新']
+    
+    wx.showActionSheet({
+      itemList: conditions,
+      success: (res) => {
+        const selectedCondition = conditions[res.tapIndex]
+        this.applyFilter('condition', [selectedCondition], selectedCondition)
+      }
+    })
+  },
+
+  /**
+   * 通用筛选方法
+   */
+  applyFilter(filterType, filterValues, displayName) {
+    const { items } = this.data
+    
+    // 筛选商品
+    const filteredItems = items.filter(item => {
+      switch (filterType) {
+        case 'category':
+          const itemCategory = item.category || item.categories || []
+          const categoryArray = Array.isArray(itemCategory) ? itemCategory : [itemCategory]
+          return categoryArray.some(cat => 
+            cat && filterValues.some(val => cat.includes(val) || val.includes(cat))
+          )
+        
+        case 'material':
+          const itemMaterial = item.material || []
+          const materialArray = Array.isArray(itemMaterial) ? itemMaterial : [itemMaterial]
+          return materialArray.some(mat => 
+            mat && filterValues.some(val => mat.includes(val) || val.includes(mat))
+          )
+        
+        case 'color':
+          const itemColor = item.color || []
+          const colorArray = Array.isArray(itemColor) ? itemColor : [itemColor]
+          return colorArray.some(col => 
+            col && filterValues.some(val => col.includes(val) || val.includes(col))
+          )
+        
+        case 'style':
+          const itemStyle = item.style || []
+          const styleArray = Array.isArray(itemStyle) ? itemStyle : [itemStyle]
+          return styleArray.some(sty => 
+            sty && filterValues.some(val => sty.includes(val) || val.includes(sty))
+          )
+        
+        case 'brand':
+          const itemBrand = item.brand || ''
+          return filterValues.some(val => 
+            itemBrand && (itemBrand.includes(val) || val.includes(itemBrand))
+          )
+        
+        case 'condition':
+          const itemCondition = item.condition_grade || item.condition || ''
+          return filterValues.some(val => 
+            itemCondition && (itemCondition.includes(val) || val.includes(itemCondition))
+          )
+        
+        default:
+          return true
+      }
+    })
+    
+    // 更新筛选状态
+    const currentFilters = { ...this.data.currentFilters }
+    currentFilters[filterType] = filterValues
+    
+    this.setData({
+      items: filteredItems,
+      currentFilters,
+      hasActiveFilters: true,
+      filterCount: Object.keys(currentFilters).length,
+      isEmpty: filteredItems.length === 0
+    })
+    
+    // 显示筛选结果提示
+    wx.showToast({
+      title: `已筛选${filteredItems.length}件商品`,
+      icon: 'success'
+    })
+  },
+
+  /**
+   * 清除所有筛选
+   */
+  clearAllFilters() {
+    this.setData({
+      currentFilters: {},
+      hasActiveFilters: false,
+      filterCount: 0,
+      isEmpty: false
+    })
+    
+    // 重新加载原始数据
+    this.loadItems(true)
+    
+    wx.showToast({
+      title: '已清除所有筛选',
+      icon: 'success'
+    })
   },
 
   /**

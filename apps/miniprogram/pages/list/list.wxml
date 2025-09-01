@@ -36,8 +36,16 @@
           全部筛选
           <text wx:if="{{hasActiveFilters}}" class="filter-badge">{{filterCount}}</text>
         </view>
+        <view wx:if="{{hasActiveFilters}}" class="filter-chip clear-filter" bindtap="clearAllFilters">
+          清除筛选
+        </view>
       </view>
     </scroll-view>
+  </view>
+
+  <!-- 筛选结果提示 -->
+  <view wx:if="{{hasActiveFilters}}" class="filter-result-tip">
+    <text class="tip-text">已应用筛选条件，共找到 {{items.length}} 件商品</text>
   </view>
 
   <!-- 商品数量和视图切换 -->
@@ -92,7 +100,7 @@
     <!-- 大图列表（宜家风，默认显示） -->
     <view wx:if="{{viewMode==='list'}}" class="lv-list">
       <block wx:for="{{items}}" wx:key="id">
-        <view class="lv-card" style="width:{{lvCardW}}rpx">
+                <view class="lv-card {{hasActiveFilters ? 'filtered-item' : ''}}" style="width:{{lvCardW}}rpx">
           <!-- 大图 -->
           <view class="lv-hero" style="height:{{lvImgH}}rpx">
             <image class="lv-img" src="{{item.cover || item.image || (item.images && item.images[0] ? item.images[0].url : '')}}" mode="aspectFill" />
